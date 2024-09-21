@@ -2,7 +2,7 @@
 Downloader for Chzzk live streams
 
 ## Version
-Version 0.84, September 18, 2024 00:00:00
+Version 0.85, September 22, 2024 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of ffmpeg binary. (ffmpeg 7.0.2 is recommended.)
@@ -10,16 +10,14 @@ Version 0.84, September 18, 2024 00:00:00
 * **[Optional]** Latest version of LINE messenger to get notification.
 
 ## Usage
-```
-ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]]
-                    [-d [DISPLAY]] [-y] [--version] [--once ONCE]
-                    [--stream [STREAM]] [--final [FINAL]]
-                    [--custom [CUSTOM]] [--offset OFFSET]
+```powershell
+ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]]
+                    [-y] [--version] [--once ONCE] [--stream [STREAM]]
+                    [--final [FINAL]] [--custom [CUSTOM]] [--offset OFFSET]
                     [--duration DURATION] [--detect [DETECT]]
                     [--nlevel [NLEVEL]] [--name [NAME]] [--work [WORK]]
-                    [--out [OUT]] [--temp [TEMP]]
-                    [--rpcbaseport [RPCBASEPORT]] [--thumb] [--nosave]
-                    [--reset]
+                    [--out [OUT]] [--temp [TEMP]] [--rpcbaseport [RPCPORT]]
+                    [--thumb [THUMB]] [--settings [SETTINGS]] [--reset]
 ```
 
 ### Options
@@ -29,24 +27,24 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]]
 -u, --uid [UID]          Set streamer unique identifier
 -a, --auth               Set Chzzk authorized credential
 -q, --quality [QUALITY]  Set quality to download (e.g. 1080p)
--d, --display [DISPLAY]  Set download status display mode (quiet|default)
+-d, --display [DISPLAY]  Set download status display mode (quiet|simple|fluent|all)
 -y, --yes                Set any confirmation values to 'yes' automatically
 --version                Show version information
 --once ONCE              Download a live stream only once
 --stream [STREAM]        Set stream retrieving method (standard|timemachine)
 --final [FINAL]          Set finalization method (bypass|convert|cconvert|ccleanup|all)
---custom [CUSTOM]        Set custom finalize options (applied for cconvert and ccleanup only)
+--custom [CUSTOM]        Set custom finalize options (applicable only to cconvert|ccleanup)
 --offset OFFSET          Set amount of time to skip from the beginning of the stream
 --duration DURATION      Set limit the stream duration to download
---detect [DETECT]        Set detection interval (default: 60, 1 to 600)
+--detect [DETECT]        Set detection interval (default: 60, 1-600)
 --nlevel [NLEVEL]        Set LINE notify level (none|reset|remove|info|error|verbose|all)
 --name [NAME]            Set output filename format
 --work [WORK]            Set working directory
 --out [OUT]              Set output directory
 --temp [TEMP]            Set temporary directory
---rpcbaseport [PORT]     Set base port of JSON-RPC server (default: 62000, [49152-65300])
---thumb                  Save thumbnail image (ant. --nothumb)
---nosave                 Apply settings to the current session only without saving
+--rpcbaseport [RPCPORT]  Set base port of JSON-RPC server (default: 62000, 49152-65300)
+--thumb [THUMB]          Save thumbnail image or skip (save|skip)
+--settings [SETTINGS]    Set action when saving settings (default|skip|quit)
 --reset                  Reset all settings
 ```
 
@@ -255,7 +253,7 @@ If you want to set this option to default, just use `--nlevel` like below.
 ChzzkLiveDownloader --nlevel
 ```
 
-## Saving Thumbnail Images
+## Handling Thumbnail Images
 To save thumbnail images separately, use the following command.
 
 ```powershell
@@ -265,7 +263,7 @@ ChzzkLiveDownloader --thumb
 To turn off this feature, use the following command.
 
 ```powershell
-ChzzkLiveDownloader --nothumb
+ChzzkLiveDownloader --thumb skip
 ```
 
 ## Set How to Display Download Details
@@ -415,11 +413,11 @@ If you want to set this option to default, just use `--temp` without directory l
 ChzzkLiveDownloader --temp
 ```
 
-## Applying Settings to Current Session Only
+## Set Action When Saving Settings
 All options are always saved to configuration files by default. If you want to apply settings to current session only without saving, use the following command.
 
 ```powershell
-ChzzkLiveDownloader [options...] --nosave
+ChzzkLiveDownloader --settings skip
 ```
 
 However, the following information is always saved.
@@ -429,6 +427,12 @@ However, the following information is always saved.
 * All settings of per-streamer LINE notification
 * NAVER ID Authorization key from Chzzk cookie (`NID_AUT`)
 * NAVER ID Session key from Chzzk cookie (`NID_SES`)
+
+If you want to save the settings without downloading and exit, use the following command.
+
+```powershell
+ChzzkLiveDownloader --settings quit
+```
 
 ## Resetting All Configurations
 Over time, you may find that you've mixed things up and want to reset your settings. To reset all configurations, use the following command.

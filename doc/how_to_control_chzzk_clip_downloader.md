@@ -1,4 +1,4 @@
-# How To Control Chzzk Video Downloader Externally Using JSON-RPC
+# How To Control Chzzk Clip Downloader Externally Using JSON-RPC
 
 ## Chzzk Downloader Suite JSON-RPC Specifications
 Chzzk Downloader Suite supports local single request of [JSON-RPC 2.0 Specifications](https://www.jsonrpc.org/specification) to control externally.
@@ -7,8 +7,8 @@ Chzzk Downloader Suite supports local single request of [JSON-RPC 2.0 Specificat
 Internal JSON-RPC server accepts socket connections.
 
 * **Host IP Address** - Default address is `localhost`.
-* **Port Number** - Default port number is `63000`. Use `--rpcport` option to change. (available range: `49152`~`65300`)
-* **RPC ID** - Default ID is `30`. Use `--rpcid` option to change.
+* **Port Number** - Default port number is `64000`. Use `--rpcport` option to change. (available range: `49152`~`65300`)
+* **RPC ID** - Default ID is `50`. Use `--rpcid` option to change.
 
 ## How To Request
 To request action from Chzzk Live Downloader, send the object like below through the socket.
@@ -17,16 +17,18 @@ To request action from Chzzk Live Downloader, send the object like below through
 {
     "jsonrpc": "2.0",
     "method": "get_status",
-    "id": 30
+    "id": 50
 }
 ```
 
 ### Method List
-* `get_version` - Get application version of Chzzk Video Downloader.
+* `get_version` - Get application version.
+* `get_settings` - Get application settings.
 * `get_status` - Get current status.
 * `get_channel` - Get channel information.
-* `get_video` - Get video information which is currently downloading.
-* `quit_app` - If a video is currently being downloaded, the task will be stopped, and Chzzk Video Downloader will exit.
+* `get_clip` - Get clip information which is currently downloading.
+* `set_setings` - Set application settings.
+* `quit_app` - Stop downloading if a clip is currently being downloaded, and exit.
 
 ## Responses
 Chzzk Live Downloader returns responses in the following format.
@@ -35,7 +37,7 @@ Chzzk Live Downloader returns responses in the following format.
 {
     "jsonrpc": "2.0",
     "result": "Success",
-    "id": 30
+    "id": 50
 }
 ```
 
@@ -48,32 +50,31 @@ Chzzk Live Downloader returns responses in the following format.
 * `message` - Error message.
 
 ## Examples
-
 ```json
 /* get_version */
 {
     "jsonrpc": "2.0",
     "result": {
-        "name": "Chzzk Video Downloader",
+        "name": "Chzzk Clip Downloader",
         "version": "0.84",
-        "description": "Downloader for Chzzk replay videos",
+        "description": "Downloader for Chzzk clips",
         "developer": "Choonholic",
         "build_date": "September 18, 2024 00:00:00"
     },
-    "id": 30
+    "id": 50
 }
 
 /* get_channel */
 {
     "jsonrpc": "2.0",
     "result": {
-        "name": "\ub9b4\uce74",
-        "verified": true,
+        "name": "\uc720\uc789\uc5b4",
+        "verified": false,
         "image": "https://nng-phinf.pstatic.net/...",
-        "description": "",
-        "followers": 133855
+        "description": "\ubaa9\uc18c\ub9ac...",
+        "followers": 1091
     },
-    "id": 5
+    "id": 50
 }
 
 /* get_status */
@@ -81,39 +82,39 @@ Chzzk Live Downloader returns responses in the following format.
     "jsonrpc": "2.0",
     "result": {
         "status": "Downloading",
-        "info": " 48%, 267MiB, 551MiB, 65MiB, 00:00:04"
+        "info": " 75%, 4.3MiB, 5.8MiB, 143KiB, 00:00:10"
     },
-    "id": 30
+    "id": 50
 }
 
-/* get_video */
+/* get_clip */
 {
     "jsonrpc": "2.0",
     "result": {
         "index": 2,
-        "title": "09/22...",
-        "thumbnail_url": "https://nng-phinf.pstatic.net/...",
-        "duration": 561,
-        "publish_date": "2024-07-22 12:03:22",
-        "category": "Minecraft",
-        "category_type": "GAME",
-        "category_value": "\ub9c8\uc778\ud06c\ub798\ud504\ud2b8",
+        "title": "\uc81c\uac08\ub7c9\uae09...",
+        "thumbnail_url": "https://video-phinf.pstatic.net/...",
+        "duration": 78,
+        "created_date": "2024-08-27 09:15:36",
         "adult": false,
-        "quality": "1080p",
-        "width": 1920,
-        "height": 1080,
-        "video_framerate": "60",
-        "bitrate": 8420352,
-        "video_codec": "avc1.640028,mp4a.40.2",
-        "filesize": 578098953
+        "quality": "720p",
+        "width": 720,
+        "height": 1280,
+        "video_bitrate": 159.0,
+        "audio_bitrate": 192.0,
+        "video_codec": "avc1",
+        "file_size": 3510102
     },
-    "id": 30
+    "id": 50
 }
 
 /* quit_app */
 {
     "jsonrpc": "2.0",
     "result": "Success",
-    "id": 30
+    "id": 50
 }
 ```
+
+## Sample Codes
+Please refer to [samples](https://github.com/Choonholic/ChzzkDownloader/blob/main/samples/) in GitHub repository.

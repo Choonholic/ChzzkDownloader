@@ -2,15 +2,16 @@
 Downloader for Chzzk clips
 
 ## Version
-Version 0.84, September 18, 2024 00:00:00
+Version 0.85, September 22, 2024 00:00:00
 
 ## Usage
 ```
-ChzzkClipDownloader [-h] [-i INPUT] [-a] [-d [DISPLAY]] [-y]
-                    [--version] [--name [NAME]] [--work [WORK]]
-                    [--out [OUT]] [--temp [TEMP]] [--rpcid [RPCID]]
-                    [--rpcport [RPCPORT]] [--download [DOWNLOAD]]
-                    [--thumb] [--nosave] [--reset]
+```powershell
+ChzzkClipDownloader [-h] [-i INPUT] [-a] [-d [DISPLAY]] [-y] [--version]
+                    [--name [NAME]] [--work [WORK]] [--out [OUT]]
+                    [--temp [TEMP]] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
+                    [--download [DOWNLOAD]] [--thumb [THUMB]]
+                    [--settings [SETTINGS]] [--reset]
                     [clip]
 ```
 
@@ -24,7 +25,7 @@ clip                     Clip UID or URL to download
 -h, --help               Show this help message
 -i, --input INPUT        Set the download list file
 -a, --auth               Set Chzzk authorized credential
--d, --display [DISPLAY]  Set download status display mode (quiet|default)
+-d, --display [DISPLAY]  Set download status display mode (quiet|simple|fluent|all)
 -y, --yes                Set any confirmation values to 'yes' automatically
 --version                Show version information
 --name [NAME]            Set output filename format
@@ -32,10 +33,10 @@ clip                     Clip UID or URL to download
 --out [OUT]              Set output directory
 --temp [TEMP]            Set temporary directory
 --rpcid [RPCID]          Set ID of JSON-RPC server (default: 50)
---rpcport [RPCPORT]      Set port of JSON-RPC server (default: 64000, [49152-65300])
---download [DOWNLOAD]    [Experimental] Set download method (default|atxc|alter)
---thumb                  Save thumbnail image (ant. --nothumb)
---nosave                 Apply settings to the current session only without saving
+--rpcport [RPCPORT]      Set port of JSON-RPC server (default: 64000, 49152-65300)
+--download [DOWNLOAD]    Set download method (default|atxc|alter)
+--thumb [THUMB]          Save thumbnail image or skip (save|skip)
+--settings [SETTINGS]    Set action when saving settings (default|skip|quit)
 --reset                  Reset all settings
 ```
 
@@ -139,7 +140,7 @@ For the date-related tags, the detailed elements can be expanded as below:
 * `{..._date_minute}` - Minute as a zero-padded decimal number. (`00`, `01`, ..., `59`)
 * `{..._date_second}` - Second as a zero-padded decimal number. (`00`, `01`, ..., `59`)
 
-## Saving Thumbnail Images
+## Handling Thumbnail Images
 To save thumbnail images separately, use the following command.
 
 ```powershell
@@ -149,7 +150,7 @@ ChzzkClipDownloader clip_uid or url --thumb
 To turn off this feature, use the following command.
 
 ```powershell
-ChzzkClipDownloader clip_uid or url --nothumb
+ChzzkClipDownloader clip_uid or url --thumb skip
 ```
 
 ## Set How to Display Download Details
@@ -212,24 +213,30 @@ If you want to set this option to default, just use `--temp` without like below.
 ChzzkClipDownloader clip_uid or url --temp temp
 ```
 
-## [Experimental] Set Download Method
-A lightweight download module was included as an alternative experiment. To try out the new module, use the following option.
+## Set Download Method
+A lightweight download module was included as an alternative. To try out the alternative module, use the following option.
 
 ```powershell
 ChzzkClipDownloader clip_uid or url --download alter
 ```
 
-## Applying Settings to Current Session Only
+## Set Action When Saving Settings
 All options are always saved to configuration files by default. If you want to apply settings to current session only without saving, use the following command.
 
 ```powershell
-ChzzkClipDownloader [options...] --nosave
+ChzzkClipDownloader --settings skip
 ```
 
 However, the following information is always saved.
 
 * NAVER ID Authorization key from Chzzk cookie (`NID_AUT`)
 * NAVER ID Session key from Chzzk cookie (`NID_SES`)
+
+If you want to save the settings without downloading and exit, use the following command.
+
+```powershell
+ChzzkClipDownloader --settings quit
+```
 
 ## Resetting All Configurations
 Over time, you may find that you've mixed things up and want to reset your settings. To reset all configurations, use the following command.

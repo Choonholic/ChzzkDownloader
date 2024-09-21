@@ -52,7 +52,6 @@ Chzzk Live Downloader returns responses in the following format.
 * `message` - Error message.
 
 ## Examples
-
 ```json
 /* get_version */
 {
@@ -123,3 +122,6 @@ Chzzk Live Downloader returns responses in the following format.
     "id": 5
 }
 ```
+
+## Sample Codes
+Please refer to [samples](https://github.com/Choonholic/ChzzkDownloader/blob/main/samples/) in GitHub repository.
