@@ -148,7 +148,6 @@ class ChzzkLaucherApplication:
                     if response['result']:
                         channel = {
                             'id': id,
-                            'uid': None,
                             'name': response['result']['name'],
                             'status': None
                         }
@@ -174,16 +173,11 @@ class ChzzkLaucherApplication:
 
     def add_channel(self, id, uid):
         '''Add a channel to watch list'''
-        if any(channel['id'] == id for channel in self._channels):
-            print(f'ID {id} is already added.')
-            return
-
         try:
             response = self.run_instance(id, uid)
 
             channel = {
                 'id': id,
-                'uid': uid,
                 'name': response['result']['name'],
                 'status': None
             }

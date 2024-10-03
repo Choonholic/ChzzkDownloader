@@ -2,11 +2,11 @@
 Downloader for Chzzk live streams
 
 ## Version
-Version 0.85, September 22, 2024 00:00:00
+Version 0.86, October 04, 2024 00:00:00
 
 ## Prerequisites
-* **[Mandatory]** Latest version of ffmpeg binary. (ffmpeg 7.0.2 is recommended.)
-* **[Mandatory]** Latest version of streamlink binary. (streamlink 6.10.0 is recommended.)
+* **[Mandatory]** Latest version of ffmpeg binary. (ffmpeg 7.1 is recommended.)
+* **[Mandatory]** Latest version of streamlink binary. (streamlink 6.11.0 is recommended.)
 * **[Optional]** Latest version of LINE messenger to get notification.
 
 ## Usage
@@ -15,7 +15,8 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]]
                     [-y] [--version] [--once ONCE] [--stream [STREAM]]
                     [--final [FINAL]] [--custom [CUSTOM]] [--offset OFFSET]
                     [--duration DURATION] [--detect [DETECT]]
-                    [--nlevel [NLEVEL]] [--name [NAME]] [--work [WORK]]
+                    [--authaut AUTHAUT] [--authses AUTHSES] [--nlevel [NLEVEL]]
+                    [--ntoken NTOKEN] [--name [NAME]] [--work [WORK]]
                     [--out [OUT]] [--temp [TEMP]] [--rpcbaseport [RPCPORT]]
                     [--thumb [THUMB]] [--settings [SETTINGS]] [--reset]
 ```
@@ -23,8 +24,8 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]]
 ### Options
 ```
 -h, --help               Show this help message
--i, --id ID              Set streamer configuration id (default: 0)
--u, --uid [UID]          Set streamer unique identifier
+-i ID, --id ID           Set streamer configuration id (default: 0)
+-u [UID], --uid [UID]    Set streamer unique identifier
 -a, --auth               Set Chzzk authorized credential
 -q, --quality [QUALITY]  Set quality to download (e.g. 1080p)
 -d, --display [DISPLAY]  Set download status display mode (quiet|simple|fluent|all)
@@ -37,7 +38,10 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]]
 --offset OFFSET          Set amount of time to skip from the beginning of the stream
 --duration DURATION      Set limit the stream duration to download
 --detect [DETECT]        Set detection interval (default: 60, 1-600)
+--authaut AUTHAUT        Set auth key of Chzzk authorized credential
+--authses AUTHSES        Set session key of Chzzk authorized credential
 --nlevel [NLEVEL]        Set LINE notify level (none|reset|remove|info|error|verbose|all)
+--ntoken NTOKEN          Set LINE notify access token
 --name [NAME]            Set output filename format
 --work [WORK]            Set working directory
 --out [OUT]              Set output directory

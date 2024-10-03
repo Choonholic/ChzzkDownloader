@@ -2,14 +2,14 @@
 Downloader for Chzzk clips
 
 ## Version
-Version 0.85, September 22, 2024 00:00:00
+Version 0.86, October 04, 2024 00:00:00
 
 ## Usage
-```
 ```powershell
 ChzzkClipDownloader [-h] [-i INPUT] [-a] [-d [DISPLAY]] [-y] [--version]
-                    [--name [NAME]] [--work [WORK]] [--out [OUT]]
-                    [--temp [TEMP]] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
+                    [--authaut AUTHAUT] [--authses AUTHSES] [--name [NAME]]
+                    [--work [WORK]] [--out [OUT]] [--temp [TEMP]]
+                    [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                     [--download [DOWNLOAD]] [--thumb [THUMB]]
                     [--settings [SETTINGS]] [--reset]
                     [clip]
@@ -28,6 +28,8 @@ clip                     Clip UID or URL to download
 -d, --display [DISPLAY]  Set download status display mode (quiet|simple|fluent|all)
 -y, --yes                Set any confirmation values to 'yes' automatically
 --version                Show version information
+--authaut AUTHAUT        Set auth key of Chzzk authorized credential
+--authses AUTHSES        Set session key of Chzzk authorized credential
 --name [NAME]            Set output filename format
 --work [WORK]            Set working directory
 --out [OUT]              Set output directory
