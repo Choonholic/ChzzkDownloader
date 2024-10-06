@@ -276,9 +276,9 @@ class ChzzkLaucherApplication:
         except Exception as e:
             print(f'An error occurred while running downloader: {e}')
 
-    def quit_all_downloader(self):
-        '''Quit all instances'''
-        print(f'Cleaning up all downloaders...')
+    def shutdown_all_downloader(self):
+        '''Shutdown all instances'''
+        print(f'Shutting down all downloaders...')
 
         for channel in self._channels:
             self.send_command(self.QUIT_APP, channel['id'])
@@ -292,7 +292,7 @@ class ChzzkLaucherApplication:
         self.register_channels() # Register all of currently active channels
 
         while True:
-            command = input('Command? [l for list/a for add/d for delete/h for channel/c for configurations/s for status/q for quit all/x for exit] ').lower()
+            command = input('Command? [l for list/a for add/d for delete/h for channel/c for configurations/s for status/t for shutdown all/x for exit] ').lower()
 
             match command:
                 case str() if command.startswith('l'): # List all channels currently watching
@@ -316,8 +316,8 @@ class ChzzkLaucherApplication:
                     self.get_configurations(id)
                 case str() if command.startswith('s'): # Get current status of all downloaders
                     self.get_all_channel_status()
-                case str() if command.startswith('q'): # Quit all downloaders
-                    self.quit_all_downloader()
+                case str() if command.startswith('t'): # Shutdown all downloaders
+                    self.shutdown_all_downloader()
                 case str() if command.startswith('x'): # Exit Launcher
                     break
 

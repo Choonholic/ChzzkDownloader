@@ -12,6 +12,7 @@
 10. Paste copied token into safe place (e.g. Microsoft OneNote).
 11. Run **ChzzkLiveDownloader** with `-n` option to register token.
 
-![LINE Notify](./img/notify.png)
-
-_(This image may not reflect the latest version.)_
+<div style='text-align: center'>
+<img src='./img/notify.png' />
+<p>_(This image may not reflect the latest information.)_</p>
+</div>

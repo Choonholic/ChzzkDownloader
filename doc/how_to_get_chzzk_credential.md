@@ -8,9 +8,10 @@
 6. Copy values of **NID_AUT** and **NID_SES**.
 7. Paste the values into **Chzzk Live Downloader** or **Chzzk Video Downloader** when requested.
 
-![Microsoft Edge Developer Tools](./img/cookies.png)
-
-_(This image may not reflect the latest version.)_
+<div style='text-align: center'>
+<img src='./img/cookies.png' />
+<p>_(This image may not reflect the latest information.)_</p>
+</div>
 
 **[WARNING]**
 The `NID_SES` value will be changed whenever you logged into Chzzk. However, As long as the `NID_AUT` value is valid, the `NID_SES` value does not need to be reset each time.

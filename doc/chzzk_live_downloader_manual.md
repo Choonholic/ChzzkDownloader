@@ -2,7 +2,7 @@
 Downloader for Chzzk live streams
 
 ## Version
-Version 0.86, October 04, 2024 00:00:00
+Version 0.87, October 06, 2024 20:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of ffmpeg binary. (ffmpeg 7.1 is recommended.)
@@ -227,7 +227,7 @@ The status of downloads or detections can be informed with LINE notifications. T
 Once you've been issued an access token, use the following command to register it.
 
 ```powershell
-ChzzkLiveDownloader --nlevel
+ChzzkLiveDownloader --ntoken ACCESSTOKEN
 ```
 
 Once the access token is set, you can check the download status in real time via LINE, as shown in the following figure.

@@ -2,7 +2,7 @@
 Downloader for Chzzk clips
 
 ## Version
-Version 0.86, October 04, 2024 00:00:00
+Version 0.87, October 06, 2024 20:00:00
 
 ## Usage
 ```powershell
