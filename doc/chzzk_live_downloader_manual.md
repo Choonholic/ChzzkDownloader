@@ -1,8 +1,13 @@
 # Chzzk Live Downloader
 Downloader for Chzzk live streams
 
+<div style='text-align: center'>
+<img src='../img/screenshots/screenshot_chzzklivedownloader.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
 ## Version
-Version 0.87, October 06, 2024 20:00:00
+Version 0.88, October 12, 2024 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of ffmpeg binary. (ffmpeg 7.1 is recommended.)
@@ -27,7 +32,7 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]]
 -i ID, --id ID           Set streamer configuration id (default: 0)
 -u [UID], --uid [UID]    Set streamer unique identifier
 -a, --auth               Set Chzzk authorized credential
--q, --quality [QUALITY]  Set quality to download (e.g. 1080p)
+-q, --quality [QUALITY]  Set target quality to download (e.g. 1080p)
 -d, --display [DISPLAY]  Set download status display mode (quiet|simple|fluent|all)
 -y, --yes                Set any confirmation values to 'yes' automatically
 --version                Show version information
@@ -140,7 +145,7 @@ ChzzkLiveDownloader -y
 ChzzkLiveDownloader --yes
 ```
 
-## Specifying Download Quality
+## Specifying Target Quality to Download
 By default, all streams will be downloaded in the best quality possible. However, if you want to save them in a different quality for saving storage or other reasons, use the following commands. Also, if the stream is not using a standard resolution, the download will automatically choose the quality closest to the resolution you specify.
 
 ```powershell
@@ -232,9 +237,10 @@ ChzzkLiveDownloader --ntoken ACCESSTOKEN
 
 Once the access token is set, you can check the download status in real time via LINE, as shown in the following figure.
 
-![LINE Notifications](./img/line.png)
-
-_(This image may not reflect the latest version.)_
+<div style='text-align: center'>
+<img src='../img/screenshots/line.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
 
 ### Set Notification Level
 Amount of notification details can be set with options of `--nlevel` parameter.
@@ -427,7 +433,7 @@ ChzzkLiveDownloader --settings skip
 However, the following information is always saved.
 
 * All settings of saved streamer channel UIDs
-* All settings of per-streamer download quality
+* All settings of per-streamer target quality to download
 * All settings of per-streamer LINE notification
 * NAVER ID Authorization key from Chzzk cookie (`NID_AUT`)
 * NAVER ID Session key from Chzzk cookie (`NID_SES`)
@@ -448,7 +454,7 @@ ChzzkLiveDownloader --reset
 This will reset the following information.
 
 * All settings of saved streamer channel UIDs
-* All settings of per-streamer download quality
+* All settings of per-streamer target quality to download
 * All settings of per-streamer LINE notification
 * NAVER ID Authorization key from Chzzk cookie (`NID_AUT`)
 * NAVER ID Session key from Chzzk cookie (`NID_SES`)

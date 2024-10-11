@@ -11,7 +11,7 @@ Internal JSON-RPC server accepts socket connections.
 * **RPC ID** - Default ID is `50`. Use `--rpcid` option to change.
 
 ## How To Request
-To request action from Chzzk Live Downloader, send the object like below through the socket.
+To request action from Chzzk Clip Downloader, send the object like below through the socket.
 
 ```json
 {
@@ -21,17 +21,20 @@ To request action from Chzzk Live Downloader, send the object like below through
 }
 ```
 
+Each request must include a **Carriage Return (CR, `0x0D`)** character at the end.
+
 ### Method List
-* `get_version` - Get application version.
-* `get_settings` - Get application settings.
-* `get_status` - Get current status.
-* `get_channel` - Get channel information.
-* `get_clip` - Get clip information which is currently downloading.
-* `set_setings` - Set application settings.
-* `quit_app` - Stop downloading if a clip is currently being downloaded, and exit.
+* `get_version` – Retrieves the application version.
+* `get_settings` – Retrieves the application settings.
+* `get_channel` – Retrieves channel information.
+* `get_channelex` – Retrieves extended channel information.
+* `get_clip` – Retrieves clip information if a clip is currently being downloaded.
+* `get_status` – Retrieves the current status.
+* `get_statusex` – Retrieves the current status. If a clip is being downloaded, also returns the clip information.
+* `quit_app` – Stops the current download (if in progress) and exits the application.
 
 ## Responses
-Chzzk Live Downloader returns responses in the following format.
+Chzzk Clip Downloader returns responses in the following format.
 
 ```json
 {
@@ -56,10 +59,26 @@ Chzzk Live Downloader returns responses in the following format.
     "jsonrpc": "2.0",
     "result": {
         "name": "Chzzk Clip Downloader",
-        "version": "0.84",
+        "version": "0.88",
         "description": "Downloader for Chzzk clips",
         "developer": "Choonholic",
-        "build_date": "September 18, 2024 00:00:00"
+        "build_date": "October 11, 2024 00:00:00"
+    },
+    "id": 50
+}
+
+/* get_settings */
+{
+    "jsonrpc": "2.0",
+    "result": {
+        "save_thumbnail": false,
+        "display_method": 2,
+        "output_filename": "[{download_date}][{name}] {title}",
+        "working_directory": "...", /* omitted */
+        "output_directory": "...", /* omitted */
+        "temp_directory": "...", /* omitted */
+        "json_rpc_id": 50,
+        "json_rpc_port": 64000
     },
     "id": 50
 }
@@ -68,11 +87,60 @@ Chzzk Live Downloader returns responses in the following format.
 {
     "jsonrpc": "2.0",
     "result": {
-        "name": "\uc720\uc789\uc5b4",
+        "name": "\ub9c8\ub808\ud50c\ub85c\uc2a4",
         "verified": false,
-        "image": "https://nng-phinf.pstatic.net/...",
-        "description": "\ubaa9\uc18c\ub9ac...",
-        "followers": 1091
+        "image": "...", /* omitted */
+        "description": "...", /* omitted */
+        "followers": 32040
+    },
+    "id": 50
+}
+
+/* get_channelex */
+{
+    "jsonrpc": "2.0",
+    "result": {
+        "name": "\ub9c8\ub808\ud50c\ub85c\uc2a4",
+        "verified": false,
+        "image": "...", /* omitted */
+        "description": "...", /* omitted */
+        "followers": 32040,
+        "status": "Downloading",
+        "details": "93%, 4.6MiB, 4.9MiB, 118KiB, 00:00:02",
+        "index": 2,
+        "title": "\"Adele - Skyfall\"",
+        "thumbnail_url": "...", /* omitted */
+        "duration": 60,
+        "created_date": "2024-09-05 00:19:05",
+        "adult": false,
+        "actual_quality": "720p",
+        "width": 720,
+        "height": 1280,
+        "video_bitrate": 497.0,
+        "audio_bitrate": 192.0,
+        "video_codec": "AVC",
+        "file_size": 5209025
+    },
+    "id": 50
+}
+
+/* get_clip */
+{
+    "jsonrpc": "2.0",
+    "result": {
+        "index": 3,
+        "title": "\uc5b4\uc774\ucfe0",
+        "thumbnail_url": "...", /* omitted */
+        "duration": 60,
+        "created_date": "2024-08-26 10:14:46",
+        "adult": false,
+        "actual_quality": "720p",
+        "width": 720,
+        "height": 1280,
+        "video_bitrate": 1283.0,
+        "audio_bitrate": 192.0,
+        "video_codec": "AVC",
+        "file_size": 11101280
     },
     "id": 50
 }
@@ -82,28 +150,30 @@ Chzzk Live Downloader returns responses in the following format.
     "jsonrpc": "2.0",
     "result": {
         "status": "Downloading",
-        "info": " 75%, 4.3MiB, 5.8MiB, 143KiB, 00:00:10"
+        "details": "37%, 3.9MiB, 10MiB, 1.2MiB, 00:00:05"
     },
     "id": 50
 }
 
-/* get_clip */
+/* get_statusex */
 {
     "jsonrpc": "2.0",
     "result": {
-        "index": 2,
-        "title": "\uc81c\uac08\ub7c9\uae09...",
-        "thumbnail_url": "https://video-phinf.pstatic.net/...",
-        "duration": 78,
-        "created_date": "2024-08-27 09:15:36",
+        "status": "Downloading",
+        "details": "51%, 5.4MiB, 10MiB, 605KiB, 00:00:08",
+        "index": 3,
+        "title": "\uc5b4\uc774\ucfe0",
+        "thumbnail_url": "...", /* omitted */
+        "duration": 60,
+        "created_date": "2024-08-26 10:14:46",
         "adult": false,
-        "quality": "720p",
+        "actual_quality": "720p",
         "width": 720,
         "height": 1280,
-        "video_bitrate": 159.0,
-        "audio_bitrate": 192.0,
-        "video_codec": "avc1",
-        "file_size": 3510102
+        "video_bitrate": 1283.0,
+        "audio_bitrate":192.0,
+        "video_codec": "AVC",
+        "file_size": 11101280
     },
     "id": 50
 }

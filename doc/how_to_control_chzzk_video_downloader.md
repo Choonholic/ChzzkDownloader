@@ -11,7 +11,7 @@ Internal JSON-RPC server accepts socket connections.
 * **RPC ID** - Default ID is `30`. Use `--rpcid` option to change.
 
 ## How To Request
-To request action from Chzzk Live Downloader, send the object like below through the socket.
+To request action from Chzzk Video Downloader, send the object like below through the socket.
 
 ```json
 {
@@ -21,17 +21,20 @@ To request action from Chzzk Live Downloader, send the object like below through
 }
 ```
 
+Each request must include a **Carriage Return (CR, `0x0D`)** character at the end.
+
 ### Method List
-* `get_version` - Get application version.
-* `get_settings` - Get application settings.
-* `get_status` - Get current status.
-* `get_channel` - Get channel information.
-* `get_video` - Get video information which is currently downloading.
-* `set_setings` - Set application settings.
-* `quit_app` - Stop downloading if a clip is currently being downloaded, and exit.
+* `get_version` – Retrieves the application version.
+* `get_settings` – Retrieves the application settings.
+* `get_channel` – Retrieves channel information.
+* `get_channelex` – Retrieves extended channel information.
+* `get_video` – Retrieves replay video information if a replay video is currently being downloaded.
+* `get_status` – Retrieves the current status.
+* `get_statusex` – Retrieves the current status. If a replay video is being downloaded, also returns the replay video information.
+* `quit_app` – Stops the current download (if in progress) and exits the application.
 
 ## Responses
-Chzzk Live Downloader returns responses in the following format.
+Chzzk Video Downloader returns responses in the following format.
 
 ```json
 {
@@ -56,10 +59,27 @@ Chzzk Live Downloader returns responses in the following format.
     "jsonrpc": "2.0",
     "result": {
         "name": "Chzzk Video Downloader",
-        "version": "0.84",
+        "version": "0.88",
         "description": "Downloader for Chzzk replay videos",
         "developer": "Choonholic",
-        "build_date": "September 18, 2024 00:00:00"
+        "build_date": "October 11, 2024 00:00:00"
+    },
+    "id": 30
+}
+
+/* get_settings */
+{
+    "jsonrpc": "2.0",
+    "result": {
+        "quality": null,
+        "save_thumbnail": true,
+        "display_method": 2,
+        "output_filename": "[{live_date}][{name}] {title}",
+        "working_directory": "...", /* omitted */
+        "output_directory": "...", /* omitted */
+        "temp_directory": "...", /* omitted */
+        "json_rpc_id": 30,
+        "json_rpc_port": 63000
     },
     "id": 30
 }
@@ -68,11 +88,62 @@ Chzzk Live Downloader returns responses in the following format.
 {
     "jsonrpc": "2.0",
     "result": {
-        "name": "\uc720\uc789\uc5b4",
-        "verified": false,
-        "image": "https://nng-phinf.pstatic.net/...",
-        "description": "\ubaa9\uc18c\ub9ac...",
-        "followers": 1091
+        "name": "\uc694\ub8f0\ub808\ud788",
+        "verified": true,
+        "image": "..." /* omitted */
+    },
+    "id": 30
+}
+
+/* get_channelex */
+{
+    "jsonrpc": "2.0",
+    "result": {
+        "name": "\uc694\ub8f0\ub808\ud788",
+        "verified": true,
+        "image": "...", /* omitted */
+        "status": "Downloading",
+        "details": "12%, 5.0GiB, 39GiB, 52MiB, 00:11:04",
+        "index": 0,
+        "title": "\ud6c8\uc218\ub300\ud658\uc601",
+        "thumbnail_url": "...", /* omitted */
+        "duration": 40951,
+        "publish_date": "2024-10-06 02:33:24",
+        "category": "Alien_Isolation",
+        "category_type": "GAME",
+        "category_value": "\uc5d0\uc774\ub9ac\uc5b8",
+        "adult": false,
+        "actual_quality": "1080p",
+        "width": 1920,
+        "height": 1080,
+        "video_framerate": "60",
+        "bitrate": 8388608,
+        "video_codec": "avc1.640028,mp4a.40.2",
+        "filesize": 41973095131
+    },
+    "id": 30
+}
+
+/* get_video */
+{
+    "jsonrpc": "2.0",
+    "result": {
+        "index": 0,
+        "title": "\ud6c8\uc218\ub300\ud658\uc601",
+        "thumbnail_url": "...", /* omitted */
+        "duration": 40951,
+        "publish_date": "2024-10-06 02:33:24",
+        "category": "Alien_Isolation",
+        "category_type": "GAME",
+        "category_value": "\uc5d0\uc774\ub9ac\uc5b8",
+        "adult": false,
+        "actual_quality": "1080p",
+        "width": 1920,
+        "height": 1080,
+        "video_framerate": "60",
+        "bitrate": 8388608,
+        "video_codec": "avc1.640028,mp4a.40.2",
+        "filesize": 41973095131
     },
     "id": 30
 }
@@ -82,31 +153,33 @@ Chzzk Live Downloader returns responses in the following format.
     "jsonrpc": "2.0",
     "result": {
         "status": "Downloading",
-        "info": " 48%, 267MiB, 551MiB, 65MiB, 00:00:04"
+        "details": "14%, 5.7GiB, 39GiB, 76MiB, 00:07:23"
     },
     "id": 30
 }
 
-/* get_video */
+/* get_statusex */
 {
     "jsonrpc": "2.0",
     "result": {
-        "index": 2,
-        "title": "09/22...",
-        "thumbnail_url": "https://nng-phinf.pstatic.net/...",
-        "duration": 561,
-        "publish_date": "2024-07-22 12:03:22",
-        "category": "Minecraft",
+        "status": "Downloading",
+        "details": "0%, 210MiB, 39GiB, 4.9MiB, 02:14:59",
+        "index": 0,
+        "title": "\ud6c8\uc218\ub300\ud658\uc601",
+        "thumbnail_url": "...", /* omitted */
+        "duration": 40951,
+        "publish_date": "2024-10-06 02:33:24",
+        "category": "Alien_Isolation",
         "category_type": "GAME",
-        "category_value": "\ub9c8\uc778\ud06c\ub798\ud504\ud2b8",
+        "category_value": "\uc5d0\uc774\ub9ac\uc5b8",
         "adult": false,
-        "quality": "1080p",
+        "actual_quality": "1080p",
         "width": 1920,
         "height": 1080,
         "video_framerate": "60",
-        "bitrate": 8420352,
+        "bitrate": 8388608,
         "video_codec": "avc1.640028,mp4a.40.2",
-        "filesize": 578098953
+        "filesize": 41973095131
     },
     "id": 30
 }

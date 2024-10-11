@@ -23,14 +23,17 @@ To request action from Chzzk Live Downloader, send the object like below through
 }
 ```
 
-### Method List
-* `get_version` - Get application version of Chzzk Live Downloader.
-* `get_status` - Get current status.
-* `get_channel` - Get channel information.
-* `get_live` - Get live stream information if available.
-* `skip_current` - If a stream is currently being downloaded, the download will be canceled, and Chzzk Live Downloader will wait for the next stream.
-* `quit_app` - If a stream is currently being downloaded, the task will be stopped, and Chzzk Live Downloader will exit.
+Each request must include a **Carriage Return (CR, `0x0D`)** character at the end.
 
+### Method List
+* `get_version` – Retrieves the application version.
+* `get_settings` – Retrieves the application settings.
+* `get_channel` – Retrieves channel information.
+* `get_channelex` – Retrieves extended channel information.
+* `get_live` – Retrieves live stream information if a live stream is currently being downloaded.
+* `get_status` – Retrieves the current status.
+* `get_statusex` – Retrieves the current status. If a live stream is being downloaded, also returns the live stream information.
+* `quit_app` – Stops the current download (if in progress) and exits the application.
 
 ## Responses
 Chzzk Live Downloader returns responses in the following format.
@@ -58,10 +61,29 @@ Chzzk Live Downloader returns responses in the following format.
     "jsonrpc": "2.0",
     "result": {
         "name": "Chzzk Live Downloader",
-        "version": "0.84",
+        "version": "0.88",
         "description": "Downloader for Chzzk live streams",
         "developer": "Choonholic",
-        "build_date": "September 18, 2024 00:00:00"
+        "build_date": "October 12, 2024 00:00:00"
+    },
+    "id": 5
+}
+
+/* get_settings */
+{
+    "jsonrpc": "2.0",
+    "result": {
+        "detect": 60,
+        "save_thumbnail": true,
+        "display_method": 2,
+        "stream_method": 1,
+        "finalize_method": 2,
+        "custom_options": null,
+        "output_filename": "[{download_date}][{name}] {title}",
+        "working_directory": "...", /* omitted */
+        "output_directory": "...", /* omitted */
+        "temp_directory": "...", /* omitted */
+        "json_rpc_baseport": 62000
     },
     "id": 5
 }
@@ -70,11 +92,82 @@ Chzzk Live Downloader returns responses in the following format.
 {
     "jsonrpc": "2.0",
     "result": {
-        "name": "\ub9b4\uce74",
+        "uid": "458f6ec20b034f49e0fc6d03921646d2",
+        "name": "\uc11c\uc0c8\ubd04\ub0e5 SEBOM",
         "verified": true,
-        "image": "https://nng-phinf.pstatic.net/...",
-        "description": "",
-        "followers": 133855
+        "image": "...", /* omitted */
+        "description": "...", /* omitted */
+        "followers": 161009,
+        "target_quality": "best",
+        "notification": 0,
+        "local_path": "...", /* omitted */
+        "local_image": "...", /* omitted */
+    },
+    "id": 5
+}
+
+/* get_channelex */
+{
+    "jsonrpc": "2.0",
+    "result": {
+        "uid": "458f6ec20b034f49e0fc6d03921646d2",
+        "name": "\uc11c\uc0c8\ubd04\ub0e5 SEBOM",
+        "verified": true,
+        "image": "...", /* omitted */
+        "description": "...", /* omitted */
+        "followers": 161009,
+        "target_quality": "best",
+        "notification": 0,
+        "local_path": "...", /* omitted */
+        "local_image": "...", /* omitted */
+        "status": "Downloading",
+        "details": "713.77 MiB, 0:01:29, 1021.24 KiB/s",
+        "title": "LOL \ube0c\ub860\uc988 \uac00\uc790",
+        "category_type": "GAME",
+        "category": "League_of_Legends",
+        "category_value": "\ub9ac\uadf8 \uc624\ube0c \ub808\uc804\ub4dc",
+        "open_date": "2024-10-11 00:44:13",
+        "image_url": "...", /* omitted */
+        "adult": false,
+        "actual_quality": "1080p",
+        "video_profile": "high",
+        "audio_profile": "LC",
+        "video_codec": "H264",
+        "video_bitrate": 8704000,
+        "audio_bitrate": 192000,
+        "video_framerate": "60.0",
+        "width": 1920,
+        "height": 1080,
+        "audio_sampling_rate": 48000,
+        "audio_channel": 2,
+        "video_dynamic_range": "SDR"
+    },
+    "id": 5
+}
+
+/* get_live */
+{
+    "jsonrpc": "2.0",
+    "result": {
+        "title": "LOL \ube0c\ub860\uc988 \uac00\uc790",
+        "category_type": "GAME",
+        "category": "League_of_Legends",
+        "category_value": "\ub9ac\uadf8 \uc624\ube0c \ub808\uc804\ub4dc",
+        "open_date": "2024-10-11 00:44:13",
+        "image_url": "...", /* omitted */
+        "adult": false,
+        "actual_quality": "1080p",
+        "video_profile": "high",
+        "audio_profile": "LC",
+        "video_codec": "H264",
+        "video_bitrate": 8704000,
+        "audio_bitrate": 192000,
+        "video_framerate": "60.0",
+        "width": 1920,
+        "height": 1080,
+        "audio_sampling_rate": 48000,
+        "audio_channel": 2,
+        "video_dynamic_range": "SDR"
     },
     "id": 5
 }
@@ -84,26 +177,29 @@ Chzzk Live Downloader returns responses in the following format.
     "jsonrpc": "2.0",
     "result": {
         "status": "Downloading",
-        "info": "610.19 MiB, 0:00:24, 17.04 MiB/s"
+        "details": "726.22 MiB, 0:01:41, 1021.46 KiB/s"
     },
     "id": 5
 }
 
-/* get_live */
+/* get_statusex */
 {
     "jsonrpc": "2.0",
     "result": {
-        "title": "\ucd94\uc11d\ud2b9\uc9d1...",
-        "category_type": "ETC",
-        "category": "talk",
-        "category_value": "talk",
-        "open_date": "2024-09-17 12:59:36",
-        "image_url": "https://livecloud-thumb.akamaized.net/...",
+        "status": "Downloading",
+        "details": "726.22 MiB, 0:01:41, 1021.46 KiB/s",
+        "title": "LOL \ube0c\ub860\uc988 \uac00\uc790",
+        "category_type": "GAME",
+        "category": "League_of_Legends",
+        "category_value": "\ub9ac\uadf8 \uc624\ube0c \ub808\uc804\ub4dc",
+        "open_date": "2024-10-11 00:44:13",
+        "image_url": "...", /* omitted */
         "adult": false,
+        "actual_quality": "1080p",
         "video_profile": "high",
         "audio_profile": "LC",
         "video_codec": "H264",
-        "video_bitrate": 8192000,
+        "video_bitrate": 8704000,
         "audio_bitrate": 192000,
         "video_framerate": "60.0",
         "width": 1920,
@@ -112,6 +208,13 @@ Chzzk Live Downloader returns responses in the following format.
         "audio_channel": 2,
         "video_dynamic_range": "SDR"
     },
+    "id": 5
+}
+
+/* skip_current */
+{
+    "jsonrpc": "2.0",
+    "result": "Success",
     "id": 5
 }
 

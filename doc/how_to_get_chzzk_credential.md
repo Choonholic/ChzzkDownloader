@@ -9,8 +9,8 @@
 7. Paste the values into **Chzzk Live Downloader** or **Chzzk Video Downloader** when requested.
 
 <div style='text-align: center'>
-<img src='./img/cookies.png' />
-<p>_(This image may not reflect the latest information.)_</p>
+<img src='../img/screenshots/dev_tools.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
 **[WARNING]**

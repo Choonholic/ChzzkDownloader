@@ -1,8 +1,13 @@
 # Chzzk Video Downloader
 Downloader for Chzzk replay videos
 
+<div style='text-align: center'>
+<img src='../img/screenshots/screenshot_chzzkvideodownloader.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
 ## Version
-Version 0.87, October 06, 2024 20:00:00
+Version 0.88, October 12, 2024 00:00:00
 
 ## Usage
 ```powershell
@@ -25,7 +30,7 @@ video                    Video number or URL to download
 -h, --help               Show this help message
 -i, --input INPUT        Set the download list file
 -a, --auth               Set Chzzk authorized credential
--q, --quality [QUALITY]  Set quality to download (e.g. 1080p)
+-q, --quality [QUALITY]  Set target quality to download (e.g. 1080p)
 -d, --display [DISPLAY]  Set download status display mode (quiet|simple|fluent|all)
 -y, --yes                Set any confirmation values to 'yes' automatically
 --version                Show version information
@@ -101,7 +106,7 @@ ChzzkVideoDownloader video_no or url -y
 ChzzkVideoDownloader video_no or url --yes
 ```
 
-## Specifying Download Quality
+## Specifying Target Quality to Download
 By default, all streams will be downloaded in the best quality possible. However, if you want to save them in a different quality for saving storage or other reasons, use the following commands. Also, if the stream is not using a standard resolution, the download will automatically choose the quality closest to the resolution you specify.
 
 ```powershell
@@ -271,7 +276,7 @@ This will reset the following information.
 
 * NAVER ID Authorization key from Chzzk cookie (`NID_AUT`)
 * NAVER ID Session key from Chzzk cookie (`NID_SES`)
-* Settings for download quality
+* Settings for target quality to download
 * Settings for Saving thumbnail image
 * Settings for displaying download details
 * Settings for output and temporary directories

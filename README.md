@@ -8,7 +8,7 @@ https://blog.choonholic.com/downloads
 Downloader for Chzzk live streams
 
 ## Version
-Version 0.87, October 06, 2024 20:00:00
+Version 0.88, October 12, 2024 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of ffmpeg binary. (ffmpeg 7.1 is recommended.)
@@ -33,7 +33,7 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]]
 -i ID, --id ID           Set streamer configuration id (default: 0)
 -u [UID], --uid [UID]    Set streamer unique identifier
 -a, --auth               Set Chzzk authorized credential
--q, --quality [QUALITY]  Set quality to download (e.g. 1080p)
+-q, --quality [QUALITY]  Set target quality to download (e.g. 1080p)
 -d, --display [DISPLAY]  Set download status display mode (quiet|simple|fluent|all)
 -y, --yes                Set any confirmation values to 'yes' automatically
 --version                Show version information
@@ -67,7 +67,7 @@ ChzzkLiveDownloader -i 2 --thumb --detect 30 --work work --out out --temp temp
 Downloader for Chzzk replay videos
 
 ## Version
-Version 0.87, October 06, 2024 20:00:00
+Version 0.88, October 12, 2024 00:00:00
 
 ### Usage
 ```powershell
@@ -90,7 +90,7 @@ video                    Video number or URL to download
 -h, --help               Show this help message
 -i, --input INPUT        Set the download list file
 -a, --auth               Set Chzzk authorized credential
--q, --quality [QUALITY]  Set quality to download (e.g. 1080p)
+-q, --quality [QUALITY]  Set target quality to download (e.g. 1080p)
 -d, --display [DISPLAY]  Set download status display mode (quiet|simple|fluent|all)
 -y, --yes                Set any confirmation values to 'yes' automatically
 --version                Show version information
@@ -117,7 +117,7 @@ ChzzkVideoDownloader 1602969 --thumb --work work --out out --temp temp
 Downloader for Chzzk clips
 
 ## Version
-Version 0.87, October 06, 2024 20:00:00
+Version 0.88, October 12, 2024 00:00:00
 
 ### Usage
 ```powershell
@@ -163,6 +163,9 @@ ChzzkClipDownloader C46IcpG11p --thumb --work work --out out --temp temp
 ```
 ## Changelogs
 Please kindly read [Release Notes](https://blog.choonholic.com/archives/3216).
+
+## Credits
+Please kindly read [CREDITS](./CREDITS.md).
 
 ## Author
 Please kindly read [AUTHORS](./AUTHORS.md).

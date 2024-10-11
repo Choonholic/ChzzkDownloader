@@ -1,8 +1,8 @@
 # json_rpc_test.py
 # Test code for JSON-RPC features of Chzzk Downloader Suite
-# Written by Choonholic, September 21, 2024
+# Written by Choonholic, October 10, 2024
 
-# Minimal Requirements: Chzzk Downloader Suite Version 0.85 or higher
+# Minimal Requirements: Chzzk Downloader Suite Version 0.88 or higher
 
 import json
 import socket
@@ -91,9 +91,9 @@ if __name__ == "__main__":
         rpc_port = port + id if bind_port.startswith('y') else port
 
         while True:
-            command = input('Command? [get_version/get_settings/get_channel/get_status/get_live/get_video/get_clip/skip_current/quit_app/restart/exit] ')
+            command = input('Command? ')
 
-            if command in ['get_version', 'get_settings', 'get_channel', 'get_status', 'get_live', 'get_video', 'get_clip', 'skip_current', 'quit_app']:
+            if command in ['get_version', 'get_settings', 'get_channel', 'get_channelex', 'get_status', 'get_statusex', 'get_live', 'get_video', 'get_clip', 'skip_current', 'quit_app']:
                 request = {
                     "jsonrpc": "2.0",
                     "method": command,

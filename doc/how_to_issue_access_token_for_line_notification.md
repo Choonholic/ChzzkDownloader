@@ -13,6 +13,6 @@
 11. Run **ChzzkLiveDownloader** with `-n` option to register token.
 
 <div style='text-align: center'>
-<img src='./img/notify.png' />
-<p>_(This image may not reflect the latest information.)_</p>
+<img src='../img/screenshots/notify.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
 </div>
