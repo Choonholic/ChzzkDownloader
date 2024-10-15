@@ -7,16 +7,17 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 0.88, October 12, 2024 00:00:00
+Version 0.89, October 16, 2024 00:00:00
 
 ## Usage
 ```powershell
 ChzzkVideoDownloader [-h] [-i INPUT] [-a] [-q [QUALITY]] [-d [DISPLAY]] [-y]
-                     [--version] [--authaut AUTHAUT] [--authses AUTHSES]
-                     [--name [NAME]] [--work [WORK]] [--out [OUT]]
-                     [--temp [TEMP]] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                     [--download [DOWNLOAD]] [--thumb [THUMB]]
-                     [--settings [SETTINGS]] [--reset]
+                     [--version] [--adult [ADULT]] [--authaut AUTHAUT]
+                     [--authses AUTHSES] [--name [NAME]] [--work [WORK]]
+                     [--out [OUT]] [--temp [TEMP]] [--rpcid [RPCID]]
+                     [--rpcport [RPCPORT]] [--download [DOWNLOAD]]
+                     [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]]
+                     [--reset]
                      [video]
 ```
 
@@ -34,6 +35,7 @@ video                    Video number or URL to download
 -d, --display [DISPLAY]  Set download status display mode (quiet|simple|fluent|all)
 -y, --yes                Set any confirmation values to 'yes' automatically
 --version                Show version information
+--adult [ADULT]          Set the process method for adult contents when credentials are invalid (ask|skip)
 --authaut AUTHAUT        Set auth key of Chzzk authorized credential
 --authses AUTHSES        Set session key of Chzzk authorized credential
 --name [NAME]            Set output filename format
@@ -44,6 +46,7 @@ video                    Video number or URL to download
 --rpcport [RPCPORT]      Set port of JSON-RPC server (default: 63000, 49152-65300)
 --download [DOWNLOAD]    Set download method (default|atxc|alter)
 --thumb [THUMB]          Save thumbnail image or skip (save|skip)
+--startup [STARTUP]      Set startup method (normal|fast)
 --settings [SETTINGS]    Set action when saving settings (default|skip|quit)
 --reset                  Reset all settings
 ```

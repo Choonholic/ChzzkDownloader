@@ -7,30 +7,30 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 0.88, October 12, 2024 00:00:00
+Version 0.89, October 16, 2024 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of ffmpeg binary. (ffmpeg 7.1 is recommended.)
-* **[Mandatory]** Latest version of streamlink binary. (streamlink 6.11.0 is recommended.)
+* **[Mandatory]** Latest version of streamlink. (streamlink 6.11.0 is recommended.)
 * **[Optional]** Latest version of LINE messenger to get notification.
 
 ## Usage
 ```powershell
-ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]]
-                    [-y] [--version] [--once ONCE] [--stream [STREAM]]
-                    [--final [FINAL]] [--custom [CUSTOM]] [--offset OFFSET]
-                    [--duration DURATION] [--detect [DETECT]]
-                    [--authaut AUTHAUT] [--authses AUTHSES] [--nlevel [NLEVEL]]
-                    [--ntoken NTOKEN] [--name [NAME]] [--work [WORK]]
-                    [--out [OUT]] [--temp [TEMP]] [--rpcbaseport [RPCPORT]]
-                    [--thumb [THUMB]] [--settings [SETTINGS]] [--reset]
+ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]] [-y]
+                    [--version] [--once ONCE] [--stream [STREAM]] [--final [FINAL]]
+                    [--custom [CUSTOM]] [--offset OFFSET] [--duration DURATION]
+                    [--detect [DETECT]] [--adult [ADULT]] [--authaut AUTHAUT]
+                    [--authses AUTHSES] [--nlevel [NLEVEL]] [--ntoken NTOKEN]
+                    [--name [NAME]] [--work [WORK]] [--out [OUT]] [--temp [TEMP]]
+                    [--rpcbaseport [RPCPORT]] [--thumb [THUMB]]
+                    [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
 ```
 
 ### Options
 ```
 -h, --help               Show this help message
--i ID, --id ID           Set streamer configuration id (default: 0)
--u [UID], --uid [UID]    Set streamer unique identifier
+-i, --id ID              Set streamer configuration id (default: 0)
+-u, --uid [UID]          Set streamer unique identifier
 -a, --auth               Set Chzzk authorized credential
 -q, --quality [QUALITY]  Set target quality to download (e.g. 1080p)
 -d, --display [DISPLAY]  Set download status display mode (quiet|simple|fluent|all)
@@ -43,6 +43,7 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]]
 --offset OFFSET          Set amount of time to skip from the beginning of the stream
 --duration DURATION      Set limit the stream duration to download
 --detect [DETECT]        Set detection interval (default: 60, 1-600)
+--adult [ADULT]          Set the process method for adult contents when credentials are invalid (ask|skip)
 --authaut AUTHAUT        Set auth key of Chzzk authorized credential
 --authses AUTHSES        Set session key of Chzzk authorized credential
 --nlevel [NLEVEL]        Set LINE notify level (none|reset|remove|info|error|verbose|all)
@@ -53,6 +54,7 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]]
 --temp [TEMP]            Set temporary directory
 --rpcbaseport [RPCPORT]  Set base port of JSON-RPC server (default: 62000, 49152-65300)
 --thumb [THUMB]          Save thumbnail image or skip (save|skip)
+--startup [STARTUP]      Set startup method (normal|fast)
 --settings [SETTINGS]    Set action when saving settings (default|skip|quit)
 --reset                  Reset all settings
 ```

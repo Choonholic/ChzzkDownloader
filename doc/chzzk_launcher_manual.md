@@ -7,7 +7,7 @@ Graphical Launcher for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 0.88, October 12, 2024 00:00:00
+Version 0.89, October 16, 2024 00:00:00
 
 ## Prerequisites
 Since Chzzk Launcher is the GUI frontend application for Chzzk Live Downloader, Chzzk Live Downloader must be installed as well.
@@ -97,6 +97,16 @@ To remove a channel you no longer wish to manage, select the channel from the li
 
 If the removed channel was in the middle of a download, the download will stop at the time of removal, and the final processing steps will be completed before saving.
 
+## Recovering the Channel
+If the connection between Chzzk Live Downloader and the Launcher is lost due to external factors such as abnormal termination of the process, the process can be restarted to re-establish the connection.
+
+<div style='text-align: center'>
+<img src='../img/screenshots/launcher_recover_channel.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+If a download was in progress when the connection was lost, the download will be terminated at that point and then restarted.
+
 ## Skipping Current Stream
 To skip the current live stream without downloading it, select the channel from the list, click the ☰ icon, and choose `Skip Current`.
 
@@ -141,7 +151,7 @@ Click the ☰ icon and select `Load Channels...`. A dialog box will appear, allo
 If a channel from the loaded list already exists in the current list, it will be automatically recognized and handled accordingly.
 
 ## Refreshing List
-To refresh the list, click the ☰ icon, and choose `Refresh`.
+To refresh the list immediately, click the ☰ icon, and choose `Refresh`.
 
 ## Loading the Channel List at Startup Automatically
 If you frequently manage a fixed set of channels, manually loading the list each time can become tedious. By enabling the following setting, the specified channel list will be automatically loaded at startup.
