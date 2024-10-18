@@ -30,7 +30,7 @@ def send_request(host, port, request):
                         print(f"Error connecting to server: {e}")
                         return None
 
-            request_data = json.dumps(request) + '\n'
+            request_data = json.dumps(request)
 
             try:
                 client_socket.sendall(request_data.encode())
@@ -93,7 +93,7 @@ if __name__ == "__main__":
         while True:
             command = input('Command? ')
 
-            if command in ['get_version', 'get_settings', 'get_channel', 'get_channelex', 'get_status', 'get_statusex', 'get_live', 'get_video', 'get_clip', 'skip_current', 'quit_app']:
+            if command in ['get_allinfo', 'get_version', 'get_settings', 'get_channel', 'get_channelex', 'get_status', 'get_statusex', 'get_live', 'get_video', 'get_clip', 'skip_current', 'quit_app']:
                 request = {
                     "jsonrpc": "2.0",
                     "method": command,

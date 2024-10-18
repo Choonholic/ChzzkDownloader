@@ -21,8 +21,6 @@ To request action from Chzzk Clip Downloader, send the object like below through
 }
 ```
 
-Each request must include a **Carriage Return (CR, `0x0D`)** character at the end.
-
 ### Method List
 * `get_version` – Retrieves the application version.
 * `get_settings` – Retrieves the application settings.
