@@ -7,7 +7,7 @@ Graphical Launcher for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 0.89, October 16, 2024 00:00:00
+Version 0.90, October 19, 2024 02:00:00
 
 ## Prerequisites
 Since Chzzk Launcher is the GUI frontend application for Chzzk Live Downloader, Chzzk Live Downloader must be installed as well.
@@ -157,7 +157,7 @@ To refresh the list immediately, click the ☰ icon, and choose `Refresh`.
 If you frequently manage a fixed set of channels, manually loading the list each time can become tedious. By enabling the following setting, the specified channel list will be automatically loaded at startup.
 
 * Click the ☰ icon, and choose `Settings...` to open the settings dialog box.
-* In the `Features` tab, check `Load Channels at Startup`. Then, click the **...** button next to the `Path:` field and select the channel list file you want to load.
+* In the `Startup` tab, check `Load channels at startup`. Then, click the **...** button next to the `Path:` field and select the channel list file you want to load.
 * From the next startup onward, the specified channel list will be automatically loaded.
 
 <div style='text-align: center'>
@@ -171,11 +171,11 @@ Since Chzzk Live Downloader can run independently without Chzzk Launcher, it may
 However, even in such cases, you can configure the following settings to automatically detect and add the running instance to the channel list for management at startup.
 
 <div style='text-align: center'>
-<img src='../img/screenshots/launcher_settings_initial_scan.png' />
+<img src='../img/screenshots/launcher_settings_scan_startup.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* Check `Scan Running Instances at Startup` in the `Features` tab.
+* Check `Scan running instances at startup` in the `Startup` tab.
 * Set the range of IDs to scan in the `ID Ranges to Scan` field. The ID is the value specified with the `-i` or `--id` parameter when running Chzzk Live Downloader. For example, if it was run as shown below, specify `3` in the scan range.
 
 ```
@@ -238,7 +238,32 @@ To continue using Launcher:
 
 You can preset this feature in the `Downloader` tab of the settings, instead of choosing it each time on exit.
 
+## Moving to Tray on Minimize
+If the `Move to tray on minimize` option is enabled in `Features` settings, Chzzk Launcher will move to the system tray when minimized.
+
+<div style='text-align: center'>
+<img src='../img/screenshots/launcher_tray_icon.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+Double-clicking tray icon will restore the window to its original state, and right-clicking on the tray icon will display a menu, as shown in the following image.
+
+<div style='text-align: center'>
+<img src='../img/screenshots/launcher_tray_menu.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
 ## Other Settings
+
+### Startup
+
+<div style='text-align: center'>
+<img src='../img/screenshots/launcher_settings_startup.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+* **Start Chzzk Launcher automatically when signing in to Windows** - Puts Chzzk Launcher into startup list of Windows.
+* **Check latest updates of Chzzk Launcher at startup** - Decides whether check latest updates of Chzzk Launcher at startup or not. Otherwise, Click `Check Updates` button to check updates manually.
 
 ### Features
 
@@ -249,6 +274,7 @@ You can preset this feature in the `Downloader` tab of the settings, instead of 
 
 * **Update Interval (Seconds)** - Sets the screen refresh interval for the list. This only affects the display and is not related to the download detection interval. The download detection interval of Chzzk Live Downloader is set to 10 seconds by default and is designed to avoid being impacted by API rate limits, unlike other tools.
 * **Performance Level** - Specify the performance of the system where Chzzk Launcher is currently running. If you encounter errors due to timeouts when adding or refreshing channels, try lowering the performance level by one step and attempt again.
+* **Instance Shutdown Methods** - The Shutdown Method can be predefined, eliminating the need to select it each time in the Exit dialog.
 
 ### Downloader
 
@@ -259,7 +285,6 @@ You can preset this feature in the `Downloader` tab of the settings, instead of 
 
 * **JSON-RPC Server: Host Address** - Sets the host address of the JSON-RPC server.
 * **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
-* **Instance Shutdown Methods** - The Shutdown Method can be predefined, eliminating the need to select it each time in the Exit dialog.
 
 ### Directory
 
