@@ -13,7 +13,7 @@ https://blog.choonholic.com/downloads
 Downloader for Chzzk live streams
 
 ## Version
-Version 0.90, October 19, 2024 02:00:00
+Version 0.91, October 24, 2024 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of ffmpeg binary. (ffmpeg 7.1 is recommended.)
@@ -74,7 +74,7 @@ ChzzkLiveDownloader -i 2 --thumb --detect 30 --work work --out out --temp temp
 Downloader for Chzzk replay videos
 
 ## Version
-Version 0.90, October 19, 2024 02:00:00
+Version 0.91, October 24, 2024 00:00:00
 
 ### Usage
 ```powershell
@@ -127,7 +127,7 @@ ChzzkVideoDownloader 1602969 --thumb --work work --out out --temp temp
 Downloader for Chzzk clips
 
 ## Version
-Version 0.90, October 19, 2024 02:00:00
+Version 0.91, October 24, 2024 00:00:00
 
 ### Usage
 ```powershell

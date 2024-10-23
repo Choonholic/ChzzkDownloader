@@ -12,7 +12,7 @@
 
 * [CPython](https://python.org/) - Official Python distribution.
 * [Inno Setup](https://jrsoftware.org/isinfo.php) - Builder for setup executable.
-* [Microsoft Visual Studio](https://visualstudio.microsoft.com/) - Integrated Development Editor for [Chzzk Launcher](https://blog.choonholic.com/archives/4727).
+* [Microsoft Visual Studio](https://visualstudio.microsoft.com/) - Builder for [Chzzk Launcher](https://blog.choonholic.com/archives/4727).
 * [Miniconda](https://docs.anaconda.com/miniconda/) - Minimal version of conda, a Python distribution.
 * [Nuitka](https://nuitka.net/) - Builder for Python codes.
 * [Visual Studio Code](https://code.visualstudio.com/) - Multi purposed development tools including high-end editors.

@@ -7,7 +7,7 @@ Graphical Launcher for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 0.90, October 19, 2024 02:00:00
+Version 0.91, October 24, 2024 00:00:00
 
 ## Prerequisites
 Since Chzzk Launcher is the GUI frontend application for Chzzk Live Downloader, Chzzk Live Downloader must be installed as well.
@@ -87,6 +87,23 @@ You can check the download status in real time via LINE according to notificatio
 * `Verbose information and critical errors` - Notifications of verbose information and critical errors will be sent.
 * `All information and all errors` - Notifications of all information and all errors will be sent.
 
+### Start Offset
+You can set amount of time to skip from the beginning of the stream. By default, the unit of time is seconds. However, you can also set through hours, minutes, seconds and milliseconds as follows.
+
+```powershell
+1:23:45.67
+1h30m45.67s
+```
+
+## Duration and Split Downloading
+You can set the stream duration to download and the downloaded stream will be split into the specified duration. By default, the unit of time is seconds. However, you can also set through hours, minutes, seconds and milliseconds as follows.
+
+
+```powershell
+1:23:45.67
+1h30m45.67s
+```
+
 ## Removing the Channel
 To remove a channel you no longer wish to manage, select the channel from the list, click the ☰ icon, and choose `Remove Channel`, then click `OK` to confirm to remove.
 
@@ -123,6 +140,14 @@ When you select a channel from the list and right-click, a context menu of the c
 
 <div style='text-align: center'>
 <img src='../img/screenshots/launcher_context_menu.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+## Changing Download Options
+You can change the download options in real-time if the channel is not currently downloading.
+
+<div style='text-align: center'>
+<img src='../img/screenshots/launcher_download_options.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
@@ -178,14 +203,15 @@ However, even in such cases, you can configure the following settings to automat
 * Check `Scan running instances at startup` in the `Startup` tab.
 * Set the range of IDs to scan in the `ID Ranges to Scan` field. The ID is the value specified with the `-i` or `--id` parameter when running Chzzk Live Downloader. For example, if it was run as shown below, specify `3` in the scan range.
 
-```
-ChzzkLiveDownloader -i 3
-```
+  ```
+  ChzzkLiveDownloader -i 3
+  ```
 
 * You can specify an ID range from 0 to 31, and the IDs or ranges can be entered as follows:
-```
-~3, 6, 8-10, 13~15
-```
+
+  ```
+  ~3, 6, 8-10, 13~15
+  ```
 
 * In the example above, the IDs scanned will be `0, 1, 2, 3, 6, 8, 9, 10, 13, 14, 15`.
 
@@ -253,6 +279,15 @@ Double-clicking tray icon will restore the window to its original state, and rig
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
+## Set Custom Finalize Options
+If extra options are set in the `Custom Finalize Options` parameter in the `Downloader` settings, those options will be passed to `FFmpeg` during the finalization process. For example, the following options enable `FFmpeg` to encode using the `H.265` codec:
+
+```powershell
+-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k
+```
+
+Please note that custom encoding is not recommended due to its suboptimal performance. For tter results, consider using external professional encoders.
+
 ## Other Settings
 
 ### Startup
@@ -285,6 +320,7 @@ Double-clicking tray icon will restore the window to its original state, and rig
 
 * **JSON-RPC Server: Host Address** - Sets the host address of the JSON-RPC server.
 * **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
+* **Save thumbnail image** - Checks to save thumbnail images separately.
 
 ### Directory
 
@@ -295,7 +331,7 @@ Double-clicking tray icon will restore the window to its original state, and rig
 
 * **Working Directory** - Specifies the directory where the configuration files of Chzzk Live Downloader are saved.
 * **Output Directory** - Specifies the directory where downloaded stream files are saved.
-- **Temporary Directory** - Specifies the directory where temporary files are created.
+* **Temporary Directory** - Specifies the directory where temporary files are created.
 
 ### About
 
@@ -307,5 +343,11 @@ Double-clicking tray icon will restore the window to its original state, and rig
 * **Version Information** - Displays version information of Chzzk Launcher.
 * **Contact Links** - Links to contact to authors.
 
-## How to Contact Author
-Choonholic, choonholic at outlook dot com
+## Contact Us
+If you have any questions, bug reports, or improvement requests regarding the Chzzk Downloader Suite, please submit them through [GitHub](https://github.com/Choonholic/ChzzkDownloader/)‘s [Issues](https://github.com/Choonholic/ChzzkDownloader/issues/new) feature. We can respond to all languages; however, the languages we directly support are Korean, English, Japanese, and Chinese. For other languages, responses may not be fully accurate due to the use of machine translation.
+
+치지직 다운로드 도구에 대해 궁금한 사항, 제보할 오류, 개선 요청 사항 등이 있을 때는 [GitHub](https://github.com/Choonholic/ChzzkDownloader/)의 [Issues](https://github.com/Choonholic/ChzzkDownloader/issues/new) 기능을 통해 제보해 주세요. 모든 언어에 대응 가능하나, 직접 대응 가능한 언어는 한국어, 영어, 일본어, 중국어이며, 다른 언어는 기계 번역을 통하기 때문에 100% 대응이 불가능할 수 있습니다.
+
+Chzzk Downloader Suiteに関するご質問、バグ報告、または改善要望がございましたら、[GitHub](https://github.com/Choonholic/ChzzkDownloader/)の[Issues](https://github.com/Choonholic/ChzzkDownloader/issues/new)機能を通じてお知らせください。全ての言語に対応可能ですが、直接対応可能な言語は韓国語、英語、日本語、中国語です。他の言語については、機械翻訳を通じて対応するため、100%正確に対応できない場合があります。
+
+如果您对Chzzk Downloader Suite有任何疑问、错误报告或改进建议，请通过[GitHub](https://github.com/Choonholic/ChzzkDownloader/)的[Issues](https://github.com/Choonholic/ChzzkDownloader/issues/new)功能提交反馈。我们可以应对所有语言，但我们直接支持的语言是韩语、英语、日语和中文。对于其他语言，由于通过机器翻译处理，可能无法做到百分之百的准确响应。

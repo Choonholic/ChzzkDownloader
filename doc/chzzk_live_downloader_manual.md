@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 0.90, October 19, 2024 02:00:00
+Version 0.91, October 24, 2024 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of ffmpeg binary. (ffmpeg 7.1 is recommended.)
@@ -326,10 +326,10 @@ ChzzkLiveDownloader --final
 ```
 
 ### Custom Encoding During Finalization
-You can set custom encoding options during finalization using the `--final` option with either `cconvert` or `ccleanup`. For example:
+You can set custom encoding options during finalization using the `--final` option with either `cconvert` or `ccleanup`. For example, the following options enable `FFmpeg` to encode using the `H.265` codec:
 
 ```powershell
-ChzzkLiveDownloader --final cconvert --custom "-c:v libx264 -preset ultrafast -c:a aac -b:a 128k"
+ChzzkLiveDownloader --final cconvert --custom "-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
 ```
 
 Please note that custom encoding is not recommended due to its suboptimal performance. For better results, consider using external professional encoders.
@@ -375,10 +375,6 @@ The following stream methods can be set with options of `--stream` parameter.
 
 * `standard` - Retrieves stream information from the Chzzk default API.
 * `timemachine` - Retrieves stream information from the Chzzk Time Machine API.
-
-```powershell
-ChzzkLiveDownloader --stream timemachine
-```
 
 If you want to set this option to default, just use `--stream` like below.
 
@@ -510,5 +506,11 @@ ChzzkLiveDownloader --work work --out out --temp temp
 ## Controlling Externally Using JSON-RPC
 Please read `how_to_control_chzzk_live_downloader.pdf` for detailed information.
 
-## How to Contact Author
-Choonholic, choonholic at outlook dot com
+## Contact Us
+If you have any questions, bug reports, or improvement requests regarding the Chzzk Downloader Suite, please submit them through [GitHub](https://github.com/Choonholic/ChzzkDownloader/)‘s [Issues](https://github.com/Choonholic/ChzzkDownloader/issues/new) feature. We can respond to all languages; however, the languages we directly support are Korean, English, Japanese, and Chinese. For other languages, responses may not be fully accurate due to the use of machine translation.
+
+치지직 다운로드 도구에 대해 궁금한 사항, 제보할 오류, 개선 요청 사항 등이 있을 때는 [GitHub](https://github.com/Choonholic/ChzzkDownloader/)의 [Issues](https://github.com/Choonholic/ChzzkDownloader/issues/new) 기능을 통해 제보해 주세요. 모든 언어에 대응 가능하나, 직접 대응 가능한 언어는 한국어, 영어, 일본어, 중국어이며, 다른 언어는 기계 번역을 통하기 때문에 100% 대응이 불가능할 수 있습니다.
+
+Chzzk Downloader Suiteに関するご質問、バグ報告、または改善要望がございましたら、[GitHub](https://github.com/Choonholic/ChzzkDownloader/)の[Issues](https://github.com/Choonholic/ChzzkDownloader/issues/new)機能を通じてお知らせください。全ての言語に対応可能ですが、直接対応可能な言語は韓国語、英語、日本語、中国語です。他の言語については、機械翻訳を通じて対応するため、100%正確に対応できない場合があります。
+
+如果您对Chzzk Downloader Suite有任何疑问、错误报告或改进建议，请通过[GitHub](https://github.com/Choonholic/ChzzkDownloader/)的[Issues](https://github.com/Choonholic/ChzzkDownloader/issues/new)功能提交反馈。我们可以应对所有语言，但我们直接支持的语言是韩语、英语、日语和中文。对于其他语言，由于通过机器翻译处理，可能无法做到百分之百的准确响应。
