@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 0.91, October 24, 2024 00:00:00
+Version 0.92, November 04, 2024 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of ffmpeg binary. (ffmpeg 7.1 is recommended.)
@@ -22,8 +22,9 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]] [
                     [--detect [DETECT]] [--adult [ADULT]] [--authaut AUTHAUT]
                     [--authses AUTHSES] [--nlevel [NLEVEL]] [--ntoken NTOKEN]
                     [--name [NAME]] [--work [WORK]] [--out [OUT]] [--temp [TEMP]]
-                    [--rpcbaseport [RPCPORT]] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                    [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT]
+                    [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]]
+                    [--reset]
 ```
 
 ### Options
@@ -53,7 +54,8 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]] [
 --out [OUT]              Set output directory
 --temp [TEMP]            Set temporary directory
 --rpcbaseport [RPCPORT]  Set base port of JSON-RPC server (default: 62000, 49152-65300)
---thumb [THUMB]          Save thumbnail image or skip (save|skip)
+--snapshot SNAPSHOT      Save snapshot to a JSON file whenever changing status
+--thumb [THUMB]          Save thumbnail image or skip (save|skip|keep)
 --startup [STARTUP]      Set startup method (normal|fast)
 --settings [SETTINGS]    Set action when saving settings (default|skip|quit)
 --reset                  Reset all settings

@@ -7,7 +7,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 0.91, October 24, 2024 00:00:00
+Version 0.92, November 04, 2024 00:00:00
 
 ## Usage
 ```powershell
@@ -15,9 +15,9 @@ ChzzkVideoDownloader [-h] [-i INPUT] [-a] [-q [QUALITY]] [-d [DISPLAY]] [-y]
                      [--version] [--adult [ADULT]] [--authaut AUTHAUT]
                      [--authses AUTHSES] [--name [NAME]] [--work [WORK]]
                      [--out [OUT]] [--temp [TEMP]] [--rpcid [RPCID]]
-                     [--rpcport [RPCPORT]] [--download [DOWNLOAD]]
-                     [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]]
-                     [--reset]
+                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT]
+                     [--download [DOWNLOAD]] [--thumb [THUMB]]
+                     [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
                      [video]
 ```
 
@@ -44,8 +44,9 @@ video                    Video number or URL to download
 --temp [TEMP]            Set temporary directory
 --rpcid [RPCID]          Set ID of JSON-RPC server (default: 30)
 --rpcport [RPCPORT]      Set port of JSON-RPC server (default: 63000, 49152-65300)
+--snapshot SNAPSHOT      Save snapshot to a JSON file whenever changing status
 --download [DOWNLOAD]    Set download method (default|atxc|alter)
---thumb [THUMB]          Save thumbnail image or skip (save|skip)
+--thumb [THUMB]          Save thumbnail image or skip (save|skip|keep)
 --startup [STARTUP]      Set startup method (normal|fast)
 --settings [SETTINGS]    Set action when saving settings (default|skip|quit)
 --reset                  Reset all settings
