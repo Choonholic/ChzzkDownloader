@@ -12,11 +12,11 @@ Downloader for Chzzk live streams
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 ## Version
-Version 0.93, November 05, 2024 00:00:00
+Version 0.94, November 06, 2024 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of ffmpeg binary. (ffmpeg 7.1 is recommended.)
-* **[Mandatory]** Latest version of streamlink. (streamlink 6.11.0 is recommended.)
+* **[Mandatory]** Latest version of streamlink. (streamlink 7.0.0 is recommended.)
 * **[Optional]** Latest version of LINE messenger to get notification.
 
 ### Usage
@@ -80,7 +80,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 0.93, November 05, 2024 00:00:00
+Version 0.94, November 06, 2024 00:00:00
 
 ### Usage
 ```powershell
@@ -139,7 +139,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 0.93, November 05, 2024 00:00:00
+Version 0.94, November 06, 2024 00:00:00
 
 ### Usage
 ```powershell
