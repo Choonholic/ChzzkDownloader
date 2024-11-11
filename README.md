@@ -11,13 +11,13 @@ Downloader for Chzzk live streams
 <img src='img/screenshots/screenshot_chzzklivemanager.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
+
 ## Version
-Version 0.94, November 06, 2024 00:00:00
+Version 0.95, November 12, 2024 00:00:00
 
 ### Prerequisites For Executables
-* **[Mandatory]** Latest version of ffmpeg binary. (ffmpeg 7.1 is recommended.)
+* **[Mandatory]** Latest version of ffmpeg. (ffmpeg 7.1 is recommended.)
 * **[Mandatory]** Latest version of streamlink. (streamlink 7.0.0 is recommended.)
-* **[Optional]** Latest version of LINE messenger to get notification.
 
 ### Usage
 ```powershell
@@ -25,11 +25,10 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]] [
                     [--version] [--once ONCE] [--stream [STREAM]] [--final [FINAL]]
                     [--custom [CUSTOM]] [--offset OFFSET] [--duration DURATION]
                     [--detect [DETECT]] [--adult [ADULT]] [--authaut AUTHAUT]
-                    [--authses AUTHSES] [--nlevel [NLEVEL]] [--ntoken NTOKEN]
-                    [--name [NAME]] [--work [WORK]] [--out [OUT]] [--temp [TEMP]]
-                    [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT]
-                    [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]]
-                    [--reset]
+                    [--authses AUTHSES] [--name [NAME]] [--work [WORK]]
+                    [--out [OUT]] [--temp [TEMP]] [--rpcbaseport [RPCBASEPORT]]
+                    [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
+                    [--settings [SETTINGS]] [--reset]
 ```
 
 ### Options
@@ -52,8 +51,6 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]] [
 --adult [ADULT]          Set the process method for adult contents when credentials are invalid (ask|skip)
 --authaut AUTHAUT        Set auth key of Chzzk authorized credential
 --authses AUTHSES        Set session key of Chzzk authorized credential
---nlevel [NLEVEL]        Set LINE notify level (none|reset|remove|info|error|verbose|all)
---ntoken NTOKEN          Set LINE notify access token
 --name [NAME]            Set output filename format
 --work [WORK]            Set working directory
 --out [OUT]              Set output directory
@@ -80,7 +77,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 0.94, November 06, 2024 00:00:00
+Version 0.95, November 12, 2024 00:00:00
 
 ### Usage
 ```powershell
@@ -139,7 +136,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 0.94, November 06, 2024 00:00:00
+Version 0.95, November 12, 2024 00:00:00
 
 ### Usage
 ```powershell
