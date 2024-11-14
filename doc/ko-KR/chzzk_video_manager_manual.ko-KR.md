@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 0.95, November 12, 2024 00:00:00
+Version 0.96, November 15, 2024 00:00:00
 
 ## 선행 요건
 Chzzk Video Manager는 Chzzk Video Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Video Downloader가 함께 설치되어 있어야 합니다.
@@ -199,7 +199,7 @@ Chzzk Video Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `다�
 ### 디렉터리
 
 <div style='text-align: center'>
-<img src='../../img/screenshots/vman_ko-KR/vman_settings_directory.png' />
+<img src='../../img/screenshots/vman_ko-KR/vman_settings_directories.png' />
 <p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
 </div>
 

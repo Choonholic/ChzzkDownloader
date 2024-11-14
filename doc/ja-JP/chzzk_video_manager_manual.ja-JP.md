@@ -7,7 +7,7 @@ Chzzk Video Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 0.95, November 12, 2024 00:00:00
+Version 0.96, November 15, 2024 00:00:00
 
 ## 必要条件
 Chzzk Video Managerは、Chzzk Video DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Video Downloaderもインストールされている必要があります。
@@ -199,7 +199,7 @@ Chzzk認証資格情報の取得方法については、`how_to_get_chzzk_creden
 ### ディレクトリ
 
 <div style='text-align: center'>
-<img src='../../img/screenshots/vman_ja-JP/vman_settings_directory.png' />
+<img src='../../img/screenshots/vman_ja-JP/vman_settings_directories.png' />
 <p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
 </div>
 

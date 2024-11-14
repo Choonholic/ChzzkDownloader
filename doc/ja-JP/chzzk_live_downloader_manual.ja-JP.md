@@ -7,7 +7,7 @@ Chzzkのストリーム用のダウンローダー
 </div>
 
 ## バージョン
-Version 0.95, November 12, 2024 00:00:00
+Version 0.96, November 15, 2024 00:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのffmpeg（ffmpeg 7.1を推奨）

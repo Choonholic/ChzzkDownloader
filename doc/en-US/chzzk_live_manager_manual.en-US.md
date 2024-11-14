@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 0.95, November 12, 2024 00:00:00
+Version 0.96, November 15, 2024 00:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, Chzzk Live Downloader must be installed as well.
@@ -315,10 +315,10 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 
 For more information on how to get Chzzk authorized credential, please refer to `how_to_get_chzzk_credential.en-US.pdf`.
 
-### Directory
+### Directories
 
 <div style='text-align: center'>
-<img src='../../img/screenshots/lman_en-US/lman_settings_directory.png' />
+<img src='../../img/screenshots/lman_en-US/lman_settings_directories.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 

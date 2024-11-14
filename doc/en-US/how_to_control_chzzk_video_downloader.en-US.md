@@ -28,6 +28,8 @@ To request action from Chzzk Video Downloader, send the object like below throug
 * `get_channel` – Retrieves channel information.
 * `get_video` – Retrieves replay video information if a replay video is currently being downloaded.
 * `get_status` – Retrieves the current status.
+* `set_settings` – Changes the application settings.
+* `reload_settings` – Reloads the application settings from configuration file.
 * `quit_app` – Stops the current download (if in progress) and exits the application.
 
 ## Responses
