@@ -14,7 +14,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 0.96, November 15, 2024 00:00:00
+Version 0.97, November 15, 2024 11:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of ffmpeg. (ffmpeg 7.1 is recommended.)
@@ -78,7 +78,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 0.96, November 15, 2024 00:00:00
+Version 0.97, November 15, 2024 11:00:00
 
 ### Usage
 ```powershell
@@ -137,7 +137,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 0.96, November 15, 2024 00:00:00
+Version 0.97, November 15, 2024 11:00:00
 
 ### Usage
 ```powershell
