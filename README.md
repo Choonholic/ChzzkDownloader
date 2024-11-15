@@ -2,7 +2,8 @@
 Downloader for live streams, replay videos and clips of Chzzk.
 
 ## Downloads
-https://blog.choonholic.com/downloads
+* https://github.com/Choonholic/ChzzkDownloader/releases/latest
+* https://blog.choonholic.com/downloads
 
 ## Chzzk Live Downloader
 Downloader for Chzzk live streams
