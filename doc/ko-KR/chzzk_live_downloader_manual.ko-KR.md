@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 0.97, November 15, 2024 11:00:00
+Version 0.98, November 17, 2024 09:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 ffmpeg (ffmpeg 7.1 권장)

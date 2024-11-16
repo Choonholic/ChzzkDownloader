@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 0.97, November 15, 2024 11:00:00
+Version 0.98, November 17, 2024 09:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of ffmpeg. (ffmpeg 7.1 is recommended.)
