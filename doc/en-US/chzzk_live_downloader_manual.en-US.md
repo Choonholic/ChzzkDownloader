@@ -7,11 +7,11 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 0.98, November 17, 2024 09:00:00
+Version 0.99.0, November 25, 2024 00:00:00
 
 ## Prerequisites
-* **[Mandatory]** Latest version of ffmpeg. (ffmpeg 7.1 is recommended.)
-* **[Mandatory]** Latest version of streamlink. (streamlink 7.0.0 is recommended.)
+* **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
+* **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.7.3 or higher)
 
 ## Usage
 ```powershell
@@ -19,42 +19,44 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]] [
                     [--version] [--once ONCE] [--stream [STREAM]] [--final [FINAL]]
                     [--custom [CUSTOM]] [--offset OFFSET] [--duration DURATION]
                     [--detect [DETECT]] [--adult [ADULT]] [--authaut AUTHAUT]
-                    [--authses AUTHSES] [--name [NAME]] [--work [WORK]]
-                    [--out [OUT]] [--temp [TEMP]] [--rpcbaseport [RPCBASEPORT]]
-                    [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
-                    [--settings [SETTINGS]] [--reset]
+                    [--authses AUTHSES] [--name [NAME]] [--work [WORK]] [--out [OUT]]
+                    [--temp [TEMP]] [--category [CATEGORY]] [--exist [EXIST]]
+                    [--rpcbaseport [RPCPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
+                    [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
 ```
 
 ### Options
 ```
--h, --help               Show this help message
--i, --id ID              Set streamer configuration id (default: 0)
--u, --uid [UID]          Set streamer unique identifier
--a, --auth               Set Chzzk authorized credential
--q, --quality [QUALITY]  Set target quality to download (e.g. 1080p)
--d, --display [DISPLAY]  Set download status display mode (quiet|simple|fluent|all)
--y, --yes                Set any confirmation values to 'yes' automatically
---version                Show version information
---once ONCE              Download a live stream only once
---stream [STREAM]        Set stream retrieving method (standard|timemachine)
---final [FINAL]          Set finalization method (bypass|convert|cconvert|ccleanup|all)
---custom [CUSTOM]        Set custom finalize options (applicable only to cconvert|ccleanup)
---offset OFFSET          Set amount of time to skip from the beginning of the stream
---duration DURATION      Set limit the stream duration to download
---detect [DETECT]        Set detection interval (default: 60, 1-600)
---adult [ADULT]          Set the process method for adult contents when credentials are invalid (ask|skip)
---authaut AUTHAUT        Set auth key of Chzzk authorized credential
---authses AUTHSES        Set session key of Chzzk authorized credential
---name [NAME]            Set output filename format
---work [WORK]            Set working directory
---out [OUT]              Set output directory
---temp [TEMP]            Set temporary directory
---rpcbaseport [RPCPORT]  Set base port of JSON-RPC server (default: 62000, 49152-65300)
---snapshot SNAPSHOT      Save snapshot to a JSON file whenever changing status
---thumb [THUMB]          Save thumbnail image or skip (save|skip|keep)
---startup [STARTUP]      Set startup method (normal|fast)
---settings [SETTINGS]    Set action when saving settings (default|skip|quit)
---reset                  Reset all settings
+-h, --help              Show this help message
+-i, --id ID             Set streamer configuration id (default: 0)
+-u, --uid [UID]         Set streamer unique identifier
+-a, --auth              Set Chzzk authorized credential
+-q, --quality [QUALITY] Set target quality to download (e.g. 1080p)
+-d, --display [DISPLAY] Set download status display mode (quiet|simple|fluent|all)
+-y, --yes               Set any confirmation values to 'yes' automatically
+--version               Show version information
+--once ONCE             Download a live stream only once
+--stream [STREAM]       Set stream retrieving method (standard|timemachine)
+--final [FINAL]         Set finalization method (bypass|convert|cleanup|cconvert|ccleanup)
+--custom [CUSTOM]       Set custom finalize options (applicable only to cconvert|ccleanup)
+--offset OFFSET         Set amount of time to skip from the beginning of the stream
+--duration DURATION     Set limit the stream duration to download
+--detect [DETECT]       Set detection interval (default: 60, 1-600)
+--adult [ADULT]         Set the process method for adult contents when credentials are invalid (ask|skip)
+--authaut AUTHAUT       Set auth key of Chzzk authorized credential
+--authses AUTHSES       Set session key of Chzzk authorized credential
+--name [NAME]           Set output filename format
+--work [WORK]           Set working directory
+--out [OUT]             Set output directory
+--temp [TEMP]           Set temporary directory
+--category [CATEGORY]   Set output categorize method (none|streamer)
+--exist [EXIST]         Set whether to overwrite or rename the file if it already exists (overwrite|rename)
+--rpcbaseport [RPCPORT] Set base port of JSON-RPC server (default: 62000, 49152-65300)
+--snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
+--thumb [THUMB]         Save thumbnail image or skip (save|skip|keep)
+--startup [STARTUP]     Set startup method (normal|fast)
+--settings [SETTINGS]   Set action when saving settings (default|skip|quit)
+--reset                 Reset all settings
 ```
 
 ### Example
@@ -183,8 +185,11 @@ The following pre-defined tags can be used for filename format.
 
 * `{name}` - Channel Name.
 * `{verified}` - If channel is verified one, this tag will be `[✓]` or empty.
+* `{channel_uid}` - Channel UID.
 * `{title}` - Title of the stream.
+* `{category_type}` - Category type of the stream if set.
 * `{category}` - Category of the stream if set.
+* `{category_value}` - Category value of the stream if set.
 * `{live_date...}` - Date-related tags when the stream started.
 * `{download_date...}` - Date-related tags when the downloading started.
 * `{media...}` - Media information-related tags.
@@ -274,12 +279,11 @@ ChzzkLiveDownloader --final all
 
 The following finalization methods can be set with options of `--final` parameter.
 
-* `none` - Just downloads `.ts` intermediate file and bypass converting stage. The intermediate file must be converted with the external converters for playing properly.
-* `convert` - Converts `.ts` intermediate file to `.mp4` file, but don't remove `.ts` intermediate file.
-* `cleanup` - Converts `.ts` intermediate file to `.mp4` file, and clean up `.ts` intermediate file.
-* `cconvert` - Converts `.ts` intermediate file to `.mp4` file with custom options by `--custom`, but don't remove `.ts` intermediate file.
-* `ccleanup` - Converts `.ts` intermediate file to `.mp4` file with custom options by `--custom`, and clean up `.ts` intermediate file.
-* `all` - This option is the same as `cleanup`.
+* `none` - Just downloads transport stream files (`.ts`) and bypass converting stage. The transport stream files must be converted with the external converters for playing properly.
+* `convert` - Converts transport stream files (`.ts`) to video files (`.mp4`), but don't remove transport stream files.
+* `cleanup` - Converts transport stream files (`.ts`) to video files (`.mp4`), and clean up transport stream files.
+* `cconvert` - Converts transport stream files (`.ts`) to video files (`.mp4`) with custom options by `--custom`, but don't remove transport stream files.
+* `ccleanup` - Converts transport stream files (`.ts`) to video files (`.mp4`) with custom options by `--custom`, and clean up transport stream files.
 
 ```powershell
 ChzzkLiveDownloader --final convert
@@ -362,16 +366,22 @@ ChzzkLiveDownloader --work
 ```
 
 ## Set Output Directory
-You can use the following command to specify the directory where downloaded files are finally saved. All files will be saved in the per-streamer directory in the output directory.
+You can use the following command to specify the directory where downloaded files are finally saved.
 
 ```powershell
 ChzzkLiveDownloader --out out
 ```
 
-If you want to set this option to default, just use `--out` without directory like below.
+By default, all files are categorized and saved in subdirectories by streamer. If you want to save files without categorizing them by streamer, use the following command.
 
 ```powershell
-ChzzkLiveDownloader --out
+ChzzkLiveDownloader --category none
+```
+
+If you want to set this option to default, just use `--out` and `--category` without options like below.
+
+```powershell
+ChzzkLiveDownloader --out --category
 ```
 
 ## Set Temporary Directory
@@ -385,6 +395,19 @@ If you want to set this option to default, just use `--temp` without directory l
 
 ```powershell
 ChzzkLiveDownloader --temp
+```
+
+## Set Whether to Overwrite or Rename the File If It Already Exists
+By default, when a file with the same name already exists, the file is saved with `(n)` appended to its name. However, you can use the following command to overwrite the file instead.
+
+```powershell
+ChzzkLiveDownloader --exist overwrite
+```
+
+If you want to set this option to default, just use `--exist` without like below.
+
+```powershell
+ChzzkLiveDownloader --exist
 ```
 
 ## Set Action When Saving Settings

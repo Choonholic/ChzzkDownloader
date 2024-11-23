@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Clip Downloader
 </div>
 
 ## Version
-Version 0.98, November 17, 2024 09:00:00
+Version 0.99.0, November 25, 2024 00:00:00
 
 ## Prerequisites
 Since Chzzk Clip Manager is the GUI frontend application for Chzzk Clip Downloader, Chzzk Clip Downloader must be installed as well.
@@ -205,6 +205,7 @@ For more information on how to get Chzzk authorized credential, please refer to 
 * **Working Directory** - Specifies the directory where the configuration files of Chzzk Clip Downloader are saved.
 * **Output Directory** - Specifies the directory where downloaded clip files are saved.
 * **Temporary Directory** - Specifies the directory where temporary files are created.
+* **Categorize Method** - Sets the categorization method for directories where downloaded clip files are saved.
 
 ### About
 

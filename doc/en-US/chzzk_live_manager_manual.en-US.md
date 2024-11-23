@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 0.98, November 17, 2024 09:00:00
+Version 0.99.0, November 25, 2024 00:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, Chzzk Live Downloader must be installed as well.
@@ -20,7 +20,7 @@ For portable versions, consider storing both Chzzk Live Downloader and Chzzk Liv
 Click `Chzzk Live Manager` in Start menu, or execute `ChzzkLiveManager.exe` in `Chzzk Downloader Environment`.
 
 ## Verifying Prerequisites
-Chzzk Live Manager requires Chzzk Live Downloader to be properly set up for full functionality Additionally, Chzzk Live Downloader requires proper configurations of Streamlink and FFmpeg. When Chzzk Live Manager starts, it checks whether these prerequisites are met, and if not, it will display the following dialog.
+Chzzk Live Manager requires Chzzk Live Downloader to be properly set up for full functionality Additionally, Chzzk Live Downloader requires proper configurations of Streamlink (Version 6.7.3 or higher) and FFmpeg (Version 7.0 or higher). When Chzzk Live Manager starts, it checks whether these prerequisites are met, and if not, it will display the following dialog.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_en-US/lman_prerequisites.png' />
@@ -303,10 +303,20 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 * **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
 * **Save thumbnail image** - Checks to save thumbnail images separately.
 
+### Finalize
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_en-US/lman_settings_finalize.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+* **Finalize Method** - Specifies the finalization method.
+* **Custom Options** - Specifies custom options for the finalization.
+
 ### Auth
 
 <div style='text-align: center'>
-<img src='../../img/screenshots/cman_en-US/cman_settings_auth.png' />
+<img src='../../img/screenshots/lman_en-US/lman_settings_auth.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
@@ -325,6 +335,7 @@ For more information on how to get Chzzk authorized credential, please refer to 
 * **Working Directory** - Specifies the directory where the configuration files of Chzzk Live Downloader are saved.
 * **Output Directory** - Specifies the directory where downloaded stream files are saved.
 * **Temporary Directory** - Specifies the directory where temporary files are created.
+* **Categorize Method** - Sets the categorization method for directories where downloaded stream files are saved.
 
 ### About
 

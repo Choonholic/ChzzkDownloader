@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 0.98, November 17, 2024 09:00:00
+Version 0.99.0, November 25, 2024 00:00:00
 
 ## 선행 요건
 Chzzk Live Manager는 Chzzk Live Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Live Downloader가 함께 설치되어 있어야 합니다.
@@ -20,7 +20,7 @@ Chzzk Live Manager와 Chzzk Live Downloader가 같은 디렉터리에 설치되�
 시작 메뉴에서 `Chzzk Live Manager`를 실행하거나, `Chzzk Downloader Environment`에서 `ChzzkLiveManager.exe`를 실행합니다.
 
 ## 선행 요건 확인
-Chzzk Live Manager의 모든 기능을 활용하려면, Chzzk Live Downloader가 올바르게 설정되어 있어야 하며, Chzzk Live Downloader를 실행하려면 Streamlink와 FFmpeg이 올바르게 설정되어 있어야 합니다. Chzzk Live Manager가 처음 실행될 때 이와 같은 선행 요건을 모두 확인하는 과정을 거치며, 이를 만족하지 못할 경우 다음 그림과 같은 대화 상자가 표시됩니다.
+Chzzk Live Manager의 모든 기능을 활용하려면, Chzzk Live Downloader가 올바르게 설정되어 있어야 하며, Chzzk Live Downloader를 실행하려면 Streamlink(버전 6.7.3 이상)와 FFmpeg(버전 7.0 이상)이 올바르게 설정되어 있어야 합니다. Chzzk Live Manager가 처음 실행될 때 이와 같은 선행 요건을 모두 확인하는 과정을 거치며, 이를 만족하지 못할 경우 다음 그림과 같은 대화 상자가 표시됩니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_ko-KR/lman_prerequisites.png' />
@@ -302,10 +302,20 @@ Chzzk Live Manager를 종료할 때, 백그라운드에서 Chzzk Live Downloader
 * **JSON-RPC 서버: 포트** - JSON-RPC 서버의 포트 번호를 설정합니다.
 * **미리보기 이미지 저장하기** - 미리보기 이미지를 함께 저장합니다.
 
+### 최종 처리
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_ko-KR/lman_settings_finalize.png' />
+<p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
+</div>
+
+* **최종 처리 방법** - 최종 처리 방법을 설정합니다.
+* **사용자 정의 선택 사항** - 최종 처리의 사용자 정의 선택 사항을 설정합니다.
+
 ### 인증
 
 <div style='text-align: center'>
-<img src='../../img/screenshots/cman_ko-KR/cman_settings_auth.png' />
+<img src='../../img/screenshots/lman_ko-KR/lman_settings_auth.png' />
 <p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
 </div>
 
@@ -324,6 +334,7 @@ Chzzk Live Manager를 종료할 때, 백그라운드에서 Chzzk Live Downloader
 * **작업 디렉터리** - Chzzk Live Downloader의 작업 설정 파일이 저장되는 디렉터리를 지정합니다.
 * **저장 디렉터리** - 다운로드가 완료된 영상 파일이 저장되는 디렉터리를 지정합니다.
 * **임시 디렉터리** - 임시로 생성되는 파일이 저장되는 디렉터리를 지정합니다.
+* **분류 방법** - 다운로드가 완료된 영상 파일이 저장되는 디렉터리의 분류 방법을 설정합니다.
 
 ### 정보
 

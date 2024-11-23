@@ -7,47 +7,50 @@ Chzzkのクリップ用のダウンローダー
 </div>
 
 ## バージョン
-Version 0.98, November 17, 2024 09:00:00
+Version 0.99.0, November 25, 2024 00:00:00
 
 ## 使用法
 ```powershell
 ChzzkClipDownloader [-h] [-i INPUT] [-a] [-d [DISPLAY]] [-y] [--version]
                     [--adult [ADULT]] [--authaut AUTHAUT] [--authses AUTHSES]
                     [--name [NAME]] [--work [WORK]] [--out [OUT]] [--temp [TEMP]]
-                    [--rpcid [RPCID]] [--rpcport [RPCPORT]] [--snapshot SNAPSHOT]
-                    [--download [DOWNLOAD]] [--thumb [THUMB]] [--startup [STARTUP]]
-                    [--settings [SETTINGS]] [--reset]
+                    [--category [CATEGORY]] [--exist [EXIST]] [--rpcid [RPCID]]
+                    [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
+                    [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]]
+                    [--reset]
                     [clip]
 ```
 
 ### 位置引数
 ```
-clip                     ダウンロードするクリップUIDまたはURL
+clip                    ダウンロードするクリップUIDまたはURL
 ```
 
 ### オプション
 ```
--h, --help               このヘルプメッセージを表示
--i, --input INPUT        ダウンロードリストファイルを設定
--a, --auth               Chzzk認証資格情報を設定
--d, --display [DISPLAY]  ダウンロードステータス表示モードを設定（quiet|simple|fluent|all）
--y, --yes                すべての確認値を自動的に「はい」に設定
---version                バージョン情報を表示
---adult [ADULT]          認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
---authaut AUTHAUT        Chzzk認証資格情報の認証キーを設定
---authses AUTHSES        Chzzk認証資格情報のセッションキーを設定
---name [NAME]            保存ファイル名の形式を設定
---work [WORK]            作業ディレクトリを設定
---out [OUT]              保存ディレクトリを設定
---temp [TEMP]            一時ディレクトリを設定
---rpcid [RPCID]          JSON-RPCサーバーのIDを設定（デフォルト: 50）
---rpcport [RPCPORT]      JSON-RPCサーバーのポートを設定（デフォルト: 64000, 49152-65300）
---snapshot SNAPSHOT      ステータスが変更されるたびにJSONファイルにスナップショットを保存
---download [DOWNLOAD]    ダウンロード方法を設定（default|atxc|alter）
---thumb [THUMB]          サムネイル画像を保存またはスキップ（save|skip|keep）
---startup [STARTUP]      起動方法を設定（normal|fast）
---settings [SETTINGS]    設定保存時の動作を設定（default|skip|quit）
---reset                  すべての設定をリセット
+-h, --help              このヘルプメッセージを表示
+-i, --input INPUT       ダウンロードリストファイルを設定
+-a, --auth              Chzzk認証資格情報を設定
+-d, --display [DISPLAY] ダウンロードステータス表示モードを設定（quiet|simple|fluent|all）
+-y, --yes               すべての確認値を自動的に「はい」に設定
+--version               バージョン情報を表示
+--adult [ADULT]         認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
+--authaut AUTHAUT       Chzzk認証資格情報の認証キーを設定
+--authses AUTHSES       Chzzk認証資格情報のセッションキーを設定
+--name [NAME]           保存ファイル名の形式を設定
+--work [WORK]           作業ディレクトリを設定
+--out [OUT]             保存ディレクトリを設定
+--temp [TEMP]           一時ディレクトリを設定
+--category [CATEGORY]   保存時のカテゴリ分け方法を設定 (none|streamer)
+--exist [EXIST]         ファイルが既に存在する場合に上書きするか、名前を変更するかを設定 (overwrite|rename)
+--rpcid [RPCID]         JSON-RPCサーバーのIDを設定（デフォルト: 50）
+--rpcport [RPCPORT]     JSON-RPCサーバーのポートを設定（デフォルト: 64000, 49152-65300）
+--snapshot SNAPSHOT     ステータスが変更されるたびにJSONファイルにスナップショットを保存
+--download [DOWNLOAD]   ダウンロード方法を設定（default|atxc|alter）
+--thumb [THUMB]         サムネイル画像を保存またはスキップ（save|skip|keep）
+--startup [STARTUP]     起動方法を設定（normal|fast）
+--settings [SETTINGS]   設定保存時の動作を設定（default|skip|quit）
+--reset                 すべての設定をリセット
 ```
 
 ### 使用例
@@ -124,6 +127,7 @@ ChzzkClipDownloader clip_uid または url --name
 
 * `{name}` - チャンネル名。
 * `{verified}` - チャンネルが認証済みの場合、このタグは`[✓]`になります（認証されていない場合は空）。
+* `{clip_uid}` - クリップUID。
 * `{title}` - クリップのタイトル。
 * `{download_date...}` - ストリーム開始時の日付関連タグ。
 * `{media...}` - メディア情報関連のタグ。
@@ -198,16 +202,22 @@ ChzzkClipDownloader clip_uid または url --work
 ```
 
 ## 保存ディレクトリの設定
-ダウンロードしたファイルが保存されるディレクトリを指定するには、以下のコマンドを使用します。すべてのファイルは、出力ディレクトリ内のストリーマーごとのディレクトリに保存されます。
+ダウンロードしたファイルが保存されるディレクトリを指定するには、以下のコマンドを使用します。
 
 ```powershell
 ChzzkClipDownloader clip_uid または url --out out
 ```
 
-このオプションをデフォルトに設定したい場合は、以下のように`--out`のみを使用してください。
+デフォルトでは、すべてのファイルはストリーマーごとのサブディレクトリに分類して保存されます。ストリーマーごとに分類せずに保存する場合は、次のコマンドを使用してください。
 
 ```powershell
-ChzzkClipDownloader clip_uid または url --out
+ChzzkClipDownloader clip_uid または url --category none
+```
+
+このオプションをデフォルトに設定したい場合は、以下のように`--out`または`--category`のみを使用してください。
+
+```powershell
+ChzzkClipDownloader clip_uid または url --out --category
 ```
 
 ## 一時ディレクトリの設定
@@ -221,6 +231,19 @@ ChzzkClipDownloader clip_uid または url --temp temp
 
 ```powershell
 ChzzkClipDownloader clip_uid または url --temp
+```
+
+## ファイルが既に存在する場合に上書きするか、名前を変更するかを設定
+デフォルトでは、同じ名前のファイルが既に存在する場合、ファイル名の後ろに`(n)`を付けて保存します。ただし、次のコマンドを使用してファイルを上書きするように指定できます。
+
+```powershell
+ChzzkClipDownloader clip_uid または url --exist overwrite
+```
+
+このオプションをデフォルトに設定したい場合は、以下のように`--exist`のみを使用してください。
+
+```powershell
+ChzzkClipDownloader clip_uid または url --exist
 ```
 
 ## ダウンロード方法の設定

@@ -7,47 +7,50 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 0.98, November 17, 2024 09:00:00
+Version 0.99.0, November 25, 2024 00:00:00
 
 ## Usage
 ```powershell
 ChzzkClipDownloader [-h] [-i INPUT] [-a] [-d [DISPLAY]] [-y] [--version]
                     [--adult [ADULT]] [--authaut AUTHAUT] [--authses AUTHSES]
                     [--name [NAME]] [--work [WORK]] [--out [OUT]] [--temp [TEMP]]
-                    [--rpcid [RPCID]] [--rpcport [RPCPORT]] [--snapshot SNAPSHOT]
-                    [--download [DOWNLOAD]] [--thumb [THUMB]] [--startup [STARTUP]]
-                    [--settings [SETTINGS]] [--reset]
+                    [--category [CATEGORY]] [--exist [EXIST]] [--rpcid [RPCID]]
+                    [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
+                    [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]]
+                    [--reset]
                     [clip]
 ```
 
 ### Positional Arguments
 ```
-clip                     Clip UID or URL to download
+clip                    Clip UID or URL to download
 ```
 
 ### Options
 ```
--h, --help               Show this help message
--i, --input INPUT        Set the download list file
--a, --auth               Set Chzzk authorized credential
--d, --display [DISPLAY]  Set download status display mode (quiet|simple|fluent|all)
--y, --yes                Set any confirmation values to 'yes' automatically
---version                Show version information
---adult [ADULT]          Set the process method for adult contents when credentials are invalid (ask|skip)
---authaut AUTHAUT        Set auth key of Chzzk authorized credential
---authses AUTHSES        Set session key of Chzzk authorized credential
---name [NAME]            Set output filename format
---work [WORK]            Set working directory
---out [OUT]              Set output directory
---temp [TEMP]            Set temporary directory
---rpcid [RPCID]          Set ID of JSON-RPC server (default: 50)
---rpcport [RPCPORT]      Set port of JSON-RPC server (default: 64000, 49152-65300)
---snapshot SNAPSHOT      Save snapshot to a JSON file whenever changing status
---download [DOWNLOAD]    Set download method (default|atxc|alter)
---thumb [THUMB]          Save thumbnail image or skip (save|skip|keep)
---startup [STARTUP]      Set startup method (normal|fast)
---settings [SETTINGS]    Set action when saving settings (default|skip|quit)
---reset                  Reset all settings
+-h, --help              Show this help message
+-i, --input INPUT       Set the download list file
+-a, --auth              Set Chzzk authorized credential
+-d, --display [DISPLAY] Set download status display mode (quiet|simple|fluent|all)
+-y, --yes               Set any confirmation values to 'yes' automatically
+--version               Show version information
+--adult [ADULT]         Set the process method for adult contents when credentials are invalid (ask|skip)
+--authaut AUTHAUT       Set auth key of Chzzk authorized credential
+--authses AUTHSES       Set session key of Chzzk authorized credential
+--name [NAME]           Set output filename format
+--work [WORK]           Set working directory
+--out [OUT]             Set output directory
+--temp [TEMP]           Set temporary directory
+--category [CATEGORY]   Set output categorize method (none|streamer)
+--exist [EXIST]         Set whether to overwrite or rename the file if it already exists (overwrite|rename)
+--rpcid [RPCID]         Set ID of JSON-RPC server (default: 50)
+--rpcport [RPCPORT]     Set port of JSON-RPC server (default: 64000, 49152-65300)
+--snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
+--download [DOWNLOAD]   Set download method (default|atxc|alter)
+--thumb [THUMB]         Save thumbnail image or skip (save|skip|keep)
+--startup [STARTUP]     Set startup method (normal|fast)
+--settings [SETTINGS]   Set action when saving settings (default|skip|quit)
+--reset                 Reset all settings
 ```
 
 ## Example
@@ -124,6 +127,7 @@ The following pre-defined tags can be used for filename format.
 
 * `{name}` - Channel Name.
 * `{verified}` - If channel is verified one, this tag will be `[✓]` or empty.
+* `{clip_uid}` - Clip UID.
 * `{title}` - Title of the clip.
 * `{download_date...}` - Date-related tags when the stream started.
 * `{media...}` - Media information-related tags.
@@ -198,16 +202,22 @@ ChzzkClipDownloader clip_uid or url --work
 ```
 
 ## Set Output Directory
-You can use the following command to specify the directory where downloaded files are saved. All files will be saved in the per-streamer directory in the output directory.
+You can use the following command to specify the directory where downloaded files are saved.
 
 ```powershell
 ChzzkClipDownloader clip_uid or url --out out
 ```
 
-If you want to set this option to default, just use `--out` without directory like below.
+By default, all files are categorized and saved in subdirectories by streamer. If you want to save files without categorizing them by streamer, use the following command.
 
 ```powershell
-ChzzkClipDownloader clip_uid or url --out
+ChzzkClipDownloader clip_uid or url --category none
+```
+
+If you want to set this option to default, just use `--out` and `--category` without options like below.
+
+```powershell
+ChzzkClipDownloader clip_uid or url --out --category
 ```
 
 ## Set Temporary Directory
@@ -220,7 +230,20 @@ ChzzkClipDownloader clip_uid or url --temp temp
 If you want to set this option to default, just use `--temp` without like below.
 
 ```powershell
-ChzzkClipDownloader clip_uid or url --temp temp
+ChzzkClipDownloader clip_uid or url --temp
+```
+
+## Set Whether to Overwrite or Rename the File If It Already Exists
+By default, when a file with the same name already exists, the file is saved with `(n)` appended to its name. However, you can use the following command to overwrite the file instead.
+
+```powershell
+ChzzkClipDownloader clip_uid or url --exist overwrite
+```
+
+If you want to set this option to default, just use `--exist` without like below.
+
+```powershell
+ChzzkClipDownloader clip_uid or url --exist
 ```
 
 ## Set Download Method

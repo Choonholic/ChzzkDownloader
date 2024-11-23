@@ -7,11 +7,11 @@
 </div>
 
 ## 버전
-Version 0.98, November 17, 2024 09:00:00
+Version 0.99.0, November 25, 2024 00:00:00
 
 ## 선행 요건
-* **[필수]** 최신 버전의 ffmpeg (ffmpeg 7.1 권장)
-* **[필수]** 최신 버전의 streamlink (streamlink 7.0.0 권장)
+* **[필수]** 최신 버전의 FFmpeg (FFmpeg 7.0 또는 상위 버전 필요)
+* **[필수]** 최신 버전의 Streamlink (Streamlink 6.7.3 또는 상위 버전 필요)
 
 ## 사용법
 ```powershell
@@ -19,42 +19,44 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]] [
                     [--version] [--once ONCE] [--stream [STREAM]] [--final [FINAL]]
                     [--custom [CUSTOM]] [--offset OFFSET] [--duration DURATION]
                     [--detect [DETECT]] [--adult [ADULT]] [--authaut AUTHAUT]
-                    [--authses AUTHSES] [--name [NAME]] [--work [WORK]]
-                    [--out [OUT]] [--temp [TEMP]] [--rpcbaseport [RPCBASEPORT]]
-                    [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
-                    [--settings [SETTINGS]] [--reset]
+                    [--authses AUTHSES] [--name [NAME]] [--work [WORK]] [--out [OUT]]
+                    [--temp [TEMP]] [--category [CATEGORY]] [--exist [EXIST]]
+                    [--rpcbaseport [RPCPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
+                    [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
 ```
 
 ### 선택적 매개 변수
 ```
--h, --help               도움말 페이지를 표시합니다.
--i, --id ID              스트리머 ID를 설정합니다. (기본값: 0)
--u, --uid [UID]          스트리머 고유 식별자를 설정합니다.
--a, --auth               치지직 인증 자격 증명을 설정합니다.
--q, --quality [QUALITY]  다운로드하려는 목표 화질을 설정합니다. (예: 1080p)
--d, --display [DISPLAY]  다운로드 상태 표시 모드를 설정합니다. (quiet|simple|fluent|all)
--y, --yes                모든 확인 값을 자동으로 '예'로 설정합니다
---version                버전 정보를 표시합니다
---once ONCE              별도의 설정 저장 앖이 라이브 스트리밍을 한 번만 다운로드합니다.
---stream [STREAM]        스트리잉을 가져오는 방식을 설정합니다. (standard|timemachine)
---final [FINAL]          최종 처리 방식을 설정합니다. (bypass|convert|cconvert|ccleanup|all)
---custom [CUSTOM]        최종 처리 시 사용할 사용자 정의 선택 사항을 설정합니다. (cconvert|ccleanup에만 적용 가능)
---offset OFFSET          스트리밍 시작 지점을 설정합니다.
---duration DURATION      스트리밍 다운로드 분할 간격을 설정합니다.
---detect [DETECT]        상태 확인 간격을 설정합니다. (기본값: 60, 1-600)
---adult [ADULT]          자격 증명이 유효하지 않을 때 성인 콘텐츠 처리 방법을 설정합니다 (ask|skip)
---authaut AUTHAUT        치지직 인증 자격 증명의 인증 키를 설정합니다
---authses AUTHSES        치지직 인증 자격 증명의 세션 키를 설정합니다
---name [NAME]            저장되는 파일 이름 형식을 설정합니다
---work [WORK]            작업 디렉토리를 설정합니다
---out [OUT]              저장 디렉토리를 설정합니다
---temp [TEMP]            임시 디렉토리를 설정합니다
---rpcbaseport [RPCPORT]  JSON-RPC 서버 기본 포트를 설정합니다. (기본값: 62000, 49152-65300)
---snapshot SNAPSHOT      상태 변경 시 스냅샷을 JSON 파일로 저장합니다
---thumb [THUMB]          미리보기 이미지의 저장 여부를 설정합니다 (save|skip|keep)
---startup [STARTUP]      시작 방법을 설정합니다 (normal|fast)
---settings [SETTINGS]    설정 저장 시 동작을 설정합니다 (default|skip|quit)
---reset                  모든 설정을 초기화합니다
+-h, --help              도움말 페이지를 표시합니다.
+-i, --id ID             스트리머 ID를 설정합니다. (기본값: 0)
+-u, --uid [UID]         스트리머 고유 식별자를 설정합니다.
+-a, --auth              치지직 인증 자격 증명을 설정합니다.
+-q, --quality [QUALITY] 다운로드하려는 목표 화질을 설정합니다. (예: 1080p)
+-d, --display [DISPLAY] 다운로드 상태 표시 모드를 설정합니다. (quiet|simple|fluent|all)
+-y, --yes               모든 확인 값을 자동으로 '예'로 설정합니다
+--version               버전 정보를 표시합니다
+--once ONCE             별도의 설정 저장 앖이 라이브 스트리밍을 한 번만 다운로드합니다.
+--stream [STREAM]       스트리잉을 가져오는 방식을 설정합니다. (standard|timemachine)
+--final [FINAL]         최종 처리 방식을 설정합니다. (bypass|convert|cleanup|cconvert|ccleanup)
+--custom [CUSTOM]       최종 처리 시 사용할 사용자 정의 선택 사항을 설정합니다. (cconvert|ccleanup에만 적용 가능)
+--offset OFFSET         스트리밍 시작 지점을 설정합니다.
+--duration DURATION     스트리밍 다운로드 분할 간격을 설정합니다.
+--detect [DETECT]       상태 확인 간격을 설정합니다. (기본값: 60, 1-600)
+--adult [ADULT]         자격 증명이 유효하지 않을 때 성인 콘텐츠 처리 방법을 설정합니다 (ask|skip)
+--authaut AUTHAUT       치지직 인증 자격 증명의 인증 키를 설정합니다
+--authses AUTHSES       치지직 인증 자격 증명의 세션 키를 설정합니다
+--name [NAME]           저장되는 파일 이름 형식을 설정합니다
+--work [WORK]           작업 디렉토리를 설정합니다
+--out [OUT]             저장 디렉토리를 설정합니다
+--temp [TEMP]           임시 디렉토리를 설정합니다
+--category [CATEGORY]   저장 시 분류 방법을 설정합니다 (none|streamer)
+--exist [EXIST]         파일이 이미 존재할 때 파일을 덮어쓸지 이름을 바꿀지 설정합니다 (overwrite|rename)
+--rpcbaseport [RPCPORT] JSON-RPC 서버 기본 포트를 설정합니다. (기본값: 62000, 49152-65300)
+--snapshot SNAPSHOT     상태 변경 시 스냅샷을 JSON 파일로 저장합니다
+--thumb [THUMB]         미리보기 이미지의 저장 여부를 설정합니다 (save|skip|keep)
+--startup [STARTUP]     시작 방법을 설정합니다 (normal|fast)
+--settings [SETTINGS]   설정 저장 시 동작을 설정합니다 (default|skip|quit)
+--reset                 모든 설정을 초기화합니다
 ```
 
 ### 사용 예시
@@ -183,8 +185,11 @@ ChzzkLiveDownloader --name
 
 * `{name}` - 채널 이름.
 * `{verified}` - 채널이 인증된 경우 `[✓]`이며, 그렇지 않은 경우 빈 값입니다.
+* `{channel_uid}` - 채널 UID.
 * `{title}` - 스트리밍 제목.
+* `{category_type}` - (설정되어 있을 경우) 스트리밍의 카테고리 형식.
 * `{category}` - (설정되어 있을 경우) 스트리밍의 카테고리.
+* `{category_value}` - (설정되어 있을 경우) 스트리밍의 카테고리 값.
 * `{live_date...}` - 스트리밍 시작 시점의 날짜 관련 태그.
 * `{download_date...}` - 다운로드 시작 시점의 날짜 관련 태그.
 * `{media...}` - 미디어 정보 관련 태그.
@@ -274,17 +279,11 @@ ChzzkLiveDownloader --final all
 
 `--final` 매개 변수에 다음과 같은 선택 사항을 지정하여, 최종 처리 단계 방식을 지정할 수 있습니다.
 
-none – .ts 중간 파일을 받은 후 변환 단계를 건너뜁니다. 이 중간 파일을 올바르게 재생하려면 외부 변환기를 사용하여 변환 과정을 따로 거쳐야 합니다.
-convert – .ts 중간 파일을 .mp4 파일로 변환합니다. 이 때 .ts 중간 파일을 삭제하지 않습니다.
-cleanup – .ts 중간 파일을 .mp4 파일로 변환한 후, .ts 중간 파일을 삭제해 정리합니다.
-all – cleanup과 동일합니다.The following finalization methods can be set with options of `--final` parameter.
-
-* `none` - `.ts` 파일을 받은 후 변환 단계를 건너뜁니다. 중간 파일을 올바르게 재생하려면 외부 변환 도구를 사용하여 별도의 변환 과정을 거쳐야 합니다.
-* `convert` - `.ts` 중간 파일을 `.mp4` 파일로 변환합니다. 변환이 완료되어도 `.ts` 중간 파일을 삭제하지 않습니다.
-* `cleanup` - `.ts` 중간 파일을 `.mp4` 파일로 변환합니다. 변환이 완료되면 `.ts` 중간 파일을 삭제하여 정리합니다.
-* `cconvert` - `.ts` 중간 파일을 `.mp4` 파일로 변환할 때 `--custom` 매개 변수를 이용합니다. 변환이 완료되어도 `.ts` 중간 파일을 삭제하지 않습니다.
-* `ccleanup` - `.ts` 중간 파일을 `.mp4` 파일로 변환할 때 `--custom` 매개 변수를 이용합니다. 변환이 완료되면 `.ts` 중간 파일을 삭제하여 정리합니다.
-* `all` - `cleanup`과 동일합니다.
+* `none` - 전송 스트림 파일(`.ts`)을 다운로드한 후 변환 단계를 건너뜁니다. 전송 스트림 파일을 올바르게 재생하려면 외부 변환 도구를 사용하여 별도의 변환 과정을 거쳐야 합니다.
+* `convert` - 전송 스트림 파일(`.ts`)을 비디오 파일(`.mp4`)로 변환합니다. 변환이 완료되어도 전송 스트림 파일을 삭제하지 않습니다.
+* `cleanup` - 전송 스트림 파일(`.ts`)을 비디오 파일(`.mp4`)로 변환합니다. 변환이 완료되면 전송 스트림 파일을 삭제하여 정리합니다.
+* `cconvert` - 전송 스트림 파일(`.ts`)을 비디오 파일(`.mp4`)로 변환할 때 `--custom` 매개 변수를 이용합니다. 변환이 완료되어도 전송 스트림 파일을 삭제하지 않습니다.
+* `ccleanup` - 전송 스트림 파일(`.ts`)을 비디오 파일(`.mp4`)로 변환할 때 `--custom` 매개 변수를 이용합니다. 변환이 완료되면 전송 스트림 파일을 삭제하여 정리합니다.
 
 ```powershell
 ChzzkLiveDownloader --final convert
@@ -368,16 +367,22 @@ ChzzkLiveDownloader --work
 ```
 
 ## 저장 디렉터리 설정
-다운로드된 파일을 저장할 디렉터리를 지정하려면 다음 명령어를 사용하세요. 모든 파일은 저장 디렉터리에 스트리머별로 구분되어 저장됩니다.
+다운로드된 파일을 저장할 디렉터리를 지정하려면 다음 명령어를 사용하세요.
 
 ```powershell
 ChzzkLiveDownloader --out out
 ```
 
-이 선택 사항을 기본값으로 되돌리려면 디렉터리 없이 `--out`만 사용하세요.
+기본적으로 모든 파일은 스트리머별 하위 디렉터리에 분류하여 저장됩니다. 만약 스트리머별로 분류하지 않고 저장하려면 다음 명령어를 사용하세요.
 
 ```powershell
-ChzzkLiveDownloader --out
+ChzzkLiveDownloader --category none
+```
+
+이 선택 사항을 기본값으로 되돌리려면 디렉터리 없이 `--out`과 `-category`만 사용하세요.
+
+```powershell
+ChzzkLiveDownloader --out --category
 ```
 
 ## 임시 디렉터리 설정
@@ -391,6 +396,19 @@ ChzzkLiveDownloader --temp temp
 
 ```powershell
 ChzzkLiveDownloader --temp
+```
+
+## 파일이 이미 존재할 때 파일을 덮어쓸지 이름을 바꿀지 설정
+기본적으로 저장하려는 파일과 동일한 이름의 파일이 이미 존재할 때, 파일 이름 뒤에 `(n)`을 붙여 저장합니다. 하지만 다음 명령어를 사용하여 파일을 덮어쓰도록 지정할 수 있습니다.
+
+```powershell
+ChzzkLiveDownloader --exist overwrite
+```
+
+이 선택 사항을 기본값으로 되돌리려면 설정 없이 `--exist`만 사용하세요.
+
+```powershell
+ChzzkLiveDownloader --exist
 ```
 
 ## 설정 저장 시 동작 설정

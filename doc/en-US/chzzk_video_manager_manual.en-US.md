@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Video Downloader
 </div>
 
 ## Version
-Version 0.98, November 17, 2024 09:00:00
+Version 0.99.0, November 25, 2024 00:00:00
 
 ## Prerequisites
 Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, Chzzk Video Downloader must be installed as well.
@@ -187,7 +187,7 @@ Double-clicking tray icon will restore the window to its original state, and rig
 ### Auth
 
 <div style='text-align: center'>
-<img src='../../img/screenshots/cman_en-US/cman_settings_auth.png' />
+<img src='../../img/screenshots/vman_en-US/vman_settings_auth.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
@@ -206,6 +206,7 @@ For more information on how to get Chzzk authorized credential, please refer to 
 * **Working Directory** - Specifies the directory where the configuration files of Chzzk Video Downloader are saved.
 * **Output Directory** - Specifies the directory where downloaded video files are saved.
 * **Temporary Directory** - Specifies the directory where temporary files are created.
+* **Categorize Method** - Sets the categorization method for directories where downloaded video files are saved.
 
 ### About
 

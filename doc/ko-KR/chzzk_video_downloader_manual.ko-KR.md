@@ -7,49 +7,51 @@
 </div>
 
 ## 버전
-Version 0.98, November 17, 2024 09:00:00
+Version 0.99.0, November 25, 2024 00:00:00
 
 ## 사용법
 ```powershell
-ChzzkVideoDownloader [-h] [-i INPUT] [-a] [-q [QUALITY]] [-d [DISPLAY]] [-y]
-                     [--version] [--adult [ADULT]] [--authaut AUTHAUT]
-                     [--authses AUTHSES] [--name [NAME]] [--work [WORK]]
-                     [--out [OUT]] [--temp [TEMP]] [--rpcid [RPCID]]
-                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT]
-                     [--download [DOWNLOAD]] [--thumb [THUMB]]
-                     [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+ChzzkVideoDownloader [-h] [-i INPUT] [-a] [-q [QUALITY]] [-d [DISPLAY]] [-y] [--version]
+                     [--adult [ADULT]] [--authaut AUTHAUT] [--authses AUTHSES]
+                     [--name [NAME]] [--work [WORK]] [--out [OUT]] [--temp [TEMP]]
+                     [--category [CATEGORY]] [--exist [EXIST]] [--rpcid [RPCID]]
+                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
+                     [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]]
+                     [--reset]
                      [video]
 ```
 
 ### 위치 매개 변수
 ```
-video                    다운로드할 비디오 번호 또는 URL
+video                   다운로드할 비디오 번호 또는 URL
 ```
 
 ### 선택적 매개 변수
 ```
--h, --help               도움말 메시지를 표시합니다
--i, --input INPUT        다운로드 목록 파일을 설정합니다
--a, --auth               치지직 인증 자격 증명을 설정합니다
--q, --quality [QUALITY]  다운로드하려는 목표 화질을 설정합니다. (예: 1080p)
--d, --display [DISPLAY]  다운로드 상태 표시 모드를 설정합니다 (quiet|simple|fluent|all)
--y, --yes                모든 확인 값을 자동으로 '예'로 설정합니다
---version                버전 정보를 표시합니다
---adult [ADULT]          자격 증명이 유효하지 않을 때 성인 콘텐츠 처리 방법을 설정합니다 (ask|skip)
---authaut AUTHAUT        치지직 인증 자격 증명의 인증 키를 설정합니다
---authses AUTHSES        치지직 인증 자격 증명의 세션 키를 설정합니다
---name [NAME]            저장되는 파일 이름 형식을 설정합니다
---work [WORK]            작업 디렉토리를 설정합니다
---out [OUT]              저장 디렉토리를 설정합니다
---temp [TEMP]            임시 디렉토리를 설정합니다
---rpcid [RPCID]          JSON-RPC 서버 ID를 설정합니다 (기본값: 30)
---rpcport [RPCPORT]      JSON-RPC 서버 포트를 설정합니다 (기본값: 63000, 49152-65300)
---snapshot SNAPSHOT      상태 변경 시 스냅샷을 JSON 파일로 저장합니다
---download [DOWNLOAD]    다운로드 방법을 설정합니다 (default|atxc|alter)
---thumb [THUMB]          미리보기 이미지의 저장 여부를 설정합니다 (save|skip|keep)
---startup [STARTUP]      시작 방법을 설정합니다 (normal|fast)
---settings [SETTINGS]    설정 저장 시 동작을 설정합니다 (default|skip|quit)
---reset                  모든 설정을 초기화합니다
+-h, --help              도움말 메시지를 표시합니다
+-i, --input INPUT       다운로드 목록 파일을 설정합니다
+-a, --auth              치지직 인증 자격 증명을 설정합니다
+-q, --quality [QUALITY] 다운로드하려는 목표 화질을 설정합니다. (예: 1080p)
+-d, --display [DISPLAY] 다운로드 상태 표시 모드를 설정합니다 (quiet|simple|fluent|all)
+-y, --yes               모든 확인 값을 자동으로 '예'로 설정합니다
+--version               버전 정보를 표시합니다
+--adult [ADULT]         자격 증명이 유효하지 않을 때 성인 콘텐츠 처리 방법을 설정합니다 (ask|skip)
+--authaut AUTHAUT       치지직 인증 자격 증명의 인증 키를 설정합니다
+--authses AUTHSES       치지직 인증 자격 증명의 세션 키를 설정합니다
+--name [NAME]           저장되는 파일 이름 형식을 설정합니다
+--work [WORK]           작업 디렉토리를 설정합니다
+--out [OUT]             저장 디렉토리를 설정합니다
+--temp [TEMP]           임시 디렉토리를 설정합니다
+--category [CATEGORY]   저장 시 분류 방법을 설정합니다 (none|streamer)
+--exist [EXIST]         파일이 이미 존재할 때 파일을 덮어쓸지 이름을 바꿀지 설정합니다 (overwrite|rename)
+--rpcid [RPCID]         JSON-RPC 서버 ID를 설정합니다 (기본값: 30)
+--rpcport [RPCPORT]     JSON-RPC 서버 포트를 설정합니다 (기본값: 63000, 49152-65300)
+--snapshot SNAPSHOT     상태 변경 시 스냅샷을 JSON 파일로 저장합니다
+--download [DOWNLOAD]   다운로드 방법을 설정합니다 (default|atxc|alter)
+--thumb [THUMB]         미리보기 이미지의 저장 여부를 설정합니다 (save|skip|keep)
+--startup [STARTUP]     시작 방법을 설정합니다 (normal|fast)
+--settings [SETTINGS]   설정 저장 시 동작을 설정합니다 (default|skip|quit)
+--reset                 모든 설정을 초기화합니다
 ```
 
 ## 사용 예시
@@ -143,8 +145,11 @@ ChzzkVideoDownloader video_no 또는 url --name
 
 * `{name}` - 채널 이름.
 * `{verified}` - 채널이 인증된 경우 `[✓]`이며, 그렇지 않은 경우 빈 값입니다.
+* `{video_no}` - 비디오 번호.
 * `{title}` - 비디오 제목.
+* `{category_type}` - (설정되어 있을 경우) 비디오의 카테고리 형식.
 * `{category}` - (설정되어 있을 경우) 비디오의 카테고리.
+* `{category_value}` - (설정되어 있을 경우) 비디오의 카테고리 값.
 * `{live_date...}` - 스트리밍 시작 시점의 날짜 관련 태그.
 * `{publish_date...}` - 비디오 공개 시점의 날짜 관련 태그.
 * `{media...}` - 미디어 정보 관련 태그.
@@ -219,16 +224,22 @@ ChzzkVideoDownloader video_no 또는 url --work
 ```
 
 ## 저장 디렉터리 설정
-다운로드된 파일을 저장할 디렉터리를 지정하려면 다음 명령어를 사용하세요. 모든 파일은 저장 디렉터리에 스트리머별로 구분되어 저장됩니다.
+다운로드된 파일을 저장할 디렉터리를 지정하려면 다음 명령어를 사용하세요.
 
 ```powershell
 ChzzkVideoDownloader video_no 또는 url --out out
 ```
 
-이 선택 사항을 기본값으로 되돌리려면 디렉터리 없이 `--out`만 사용하세요.
+기본적으로 모든 파일은 스트리머별 하위 디렉터리에 분류하여 저장됩니다. 만약 스트리머별로 분류하지 않고 저장하려면 다음 명령어를 사용하세요.
 
 ```powershell
-ChzzkVideoDownloader video_no 또는 url --out
+ChzzkVideoDownloader video_no 또는 url --category none
+```
+
+이 선택 사항을 기본값으로 되돌리려면 디렉터리 없이 `--out`과 `-category`만 사용하세요.
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --out --category
 ```
 
 ## 임시 디렉터리 설정
@@ -241,7 +252,20 @@ ChzzkVideoDownloader video_no 또는 url --temp temp
 이 선택 사항을 기본값으로 되돌리려면 디렉터리 없이 `--temp`만 사용하세요.
 
 ```powershell
-ChzzkVideoDownloader video_no 또는 url --temp temp
+ChzzkVideoDownloader video_no 또는 url --temp
+```
+
+## 파일이 이미 존재할 때 파일을 덮어쓸지 이름을 바꿀지 설정
+기본적으로 저장하려는 파일과 동일한 이름의 파일이 이미 존재할 때, 파일 이름 뒤에 `(n)`을 붙여 저장합니다. 하지만 다음 명령어를 사용하여 파일을 덮어쓰도록 지정할 수 있습니다.
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --exist overwrite
+```
+
+이 선택 사항을 기본값으로 되돌리려면 설정 없이 `--exist`만 사용하세요.
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --exist
 ```
 
 ## 다운로드 방법 설정

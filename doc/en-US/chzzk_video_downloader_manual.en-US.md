@@ -7,49 +7,51 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 0.98, November 17, 2024 09:00:00
+Version 0.99.0, November 25, 2024 00:00:00
 
 ## Usage
 ```powershell
-ChzzkVideoDownloader [-h] [-i INPUT] [-a] [-q [QUALITY]] [-d [DISPLAY]] [-y]
-                     [--version] [--adult [ADULT]] [--authaut AUTHAUT]
-                     [--authses AUTHSES] [--name [NAME]] [--work [WORK]]
-                     [--out [OUT]] [--temp [TEMP]] [--rpcid [RPCID]]
-                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT]
-                     [--download [DOWNLOAD]] [--thumb [THUMB]]
-                     [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+ChzzkVideoDownloader [-h] [-i INPUT] [-a] [-q [QUALITY]] [-d [DISPLAY]] [-y] [--version]
+                     [--adult [ADULT]] [--authaut AUTHAUT] [--authses AUTHSES]
+                     [--name [NAME]] [--work [WORK]] [--out [OUT]] [--temp [TEMP]]
+                     [--category [CATEGORY]] [--exist [EXIST]] [--rpcid [RPCID]]
+                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
+                     [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]]
+                     [--reset]
                      [video]
 ```
 
 ### Positional Arguments
 ```
-video                    Video number or URL to download
+video                   Video number or URL to download
 ```
 
 ### Options
 ```
--h, --help               Show this help message
--i, --input INPUT        Set the download list file
--a, --auth               Set Chzzk authorized credential
--q, --quality [QUALITY]  Set target quality to download (e.g. 1080p)
--d, --display [DISPLAY]  Set download status display mode (quiet|simple|fluent|all)
--y, --yes                Set any confirmation values to 'yes' automatically
---version                Show version information
---adult [ADULT]          Set the process method for adult contents when credentials are invalid (ask|skip)
---authaut AUTHAUT        Set auth key of Chzzk authorized credential
---authses AUTHSES        Set session key of Chzzk authorized credential
---name [NAME]            Set output filename format
---work [WORK]            Set working directory
---out [OUT]              Set output directory
---temp [TEMP]            Set temporary directory
---rpcid [RPCID]          Set ID of JSON-RPC server (default: 30)
---rpcport [RPCPORT]      Set port of JSON-RPC server (default: 63000, 49152-65300)
---snapshot SNAPSHOT      Save snapshot to a JSON file whenever changing status
---download [DOWNLOAD]    Set download method (default|atxc|alter)
---thumb [THUMB]          Save thumbnail image or skip (save|skip|keep)
---startup [STARTUP]      Set startup method (normal|fast)
---settings [SETTINGS]    Set action when saving settings (default|skip|quit)
---reset                  Reset all settings
+-h, --help              Show this help message
+-i, --input INPUT       Set the download list file
+-a, --auth              Set Chzzk authorized credential
+-q, --quality [QUALITY] Set target quality to download (e.g. 1080p)
+-d, --display [DISPLAY] Set download status display mode (quiet|simple|fluent|all)
+-y, --yes               Set any confirmation values to 'yes' automatically
+--version               Show version information
+--adult [ADULT]         Set the process method for adult contents when credentials are invalid (ask|skip)
+--authaut AUTHAUT       Set auth key of Chzzk authorized credential
+--authses AUTHSES       Set session key of Chzzk authorized credential
+--name [NAME]           Set output filename format
+--work [WORK]           Set working directory
+--out [OUT]             Set output directory
+--temp [TEMP]           Set temporary directory
+--category [CATEGORY]   Set output categorize method (none|streamer)
+--exist [EXIST]         Set whether to overwrite or rename the file if it already exists (overwrite|rename)
+--rpcid [RPCID]         Set ID of JSON-RPC server (default: 30)
+--rpcport [RPCPORT]     Set port of JSON-RPC server (default: 63000, 49152-65300)
+--snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
+--download [DOWNLOAD]   Set download method (default|atxc|alter)
+--thumb [THUMB]         Save thumbnail image or skip (save|skip|keep)
+--startup [STARTUP]     Set startup method (normal|fast)
+--settings [SETTINGS]   Set action when saving settings (default|skip|quit)
+--reset                 Reset all settings
 ```
 
 ## Example
@@ -143,8 +145,11 @@ The following pre-defined tags can be used for filename format.
 
 * `{name}` - Channel Name.
 * `{verified}` - If channel is verified one, this tag will be `[✓]` or empty.
+* `{video_no}` - Video Number.
 * `{title}` - Title of the video.
+* `{category_type}` - Category type of the video if set.
 * `{category}` - Category of the video if set.
+* `{category_value}` - Category value of the video if set.
 * `{live_date...}` - Date-related tags when the stream started.
 * `{publish_date...}` - Date-related tags when the video published.
 * `{media...}` - Media information-related tags.
@@ -219,16 +224,22 @@ ChzzkVideoDownloader video_no or url --work
 ```
 
 ## Set Output Directory
-You can use the following command to specify the directory where downloaded files are saved. All files will be saved in the per-streamer directory in the output directory.
+You can use the following command to specify the directory where downloaded files are saved.
 
 ```powershell
 ChzzkVideoDownloader video_no or url --out out
 ```
 
-If you want to set this option to default, just use `--out` without directory like below.
+By default, all files are categorized and saved in subdirectories by streamer. If you want to save files without categorizing them by streamer, use the following command.
 
 ```powershell
-ChzzkVideoDownloader video_no or url --out
+ChzzkVideoDownloader video_no or url --category none
+```
+
+If you want to set this option to default, just use `--out` and `--category` without options like below.
+
+```powershell
+ChzzkVideoDownloader video_no or url --out --category
 ```
 
 ## Set Temporary Directory
@@ -241,7 +252,20 @@ ChzzkVideoDownloader video_no or url --temp temp
 If you want to set this option to default, just use `--temp` without like below.
 
 ```powershell
-ChzzkVideoDownloader video_no or url --temp temp
+ChzzkVideoDownloader video_no or url --temp
+```
+
+## Set Whether to Overwrite or Rename the File If It Already Exists
+By default, when a file with the same name already exists, the file is saved with `(n)` appended to its name. However, you can use the following command to overwrite the file instead.
+
+```powershell
+ChzzkVideoDownloader video_no or url --exist overwrite
+```
+
+If you want to set this option to default, just use `--exist` without like below.
+
+```powershell
+ChzzkVideoDownloader video_no or url --exist
 ```
 
 ## Set Download Method

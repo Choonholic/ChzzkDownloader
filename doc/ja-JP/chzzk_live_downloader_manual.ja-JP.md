@@ -7,11 +7,11 @@ Chzzkのストリーム用のダウンローダー
 </div>
 
 ## バージョン
-Version 0.98, November 17, 2024 09:00:00
+Version 0.99.0, November 25, 2024 00:00:00
 
 ## 必須事項
-* **[必須]** 最新バージョンのffmpeg（ffmpeg 7.1を推奨）
-* **[必須]** 最新バージョンのstreamlink（streamlink 7.0.0を推奨）
+* **[必須]** 最新バージョンのFFmpeg（FFmpeg 7.0またはそれ以上が必要）
+* **[必須]** 最新バージョンのStreamlink（Streamlink 6.7.3またはそれ以上が必要）
 
 ## 使用法
 ```powershell
@@ -19,42 +19,44 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]] [
                     [--version] [--once ONCE] [--stream [STREAM]] [--final [FINAL]]
                     [--custom [CUSTOM]] [--offset OFFSET] [--duration DURATION]
                     [--detect [DETECT]] [--adult [ADULT]] [--authaut AUTHAUT]
-                    [--authses AUTHSES] [--name [NAME]] [--work [WORK]]
-                    [--out [OUT]] [--temp [TEMP]] [--rpcbaseport [RPCBASEPORT]]
-                    [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
-                    [--settings [SETTINGS]] [--reset]
+                    [--authses AUTHSES] [--name [NAME]] [--work [WORK]] [--out [OUT]]
+                    [--temp [TEMP]] [--category [CATEGORY]] [--exist [EXIST]]
+                    [--rpcbaseport [RPCPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
+                    [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
 ```
 
 ### オプション
 ```
--h, --help               このヘルプメッセージを表示
--i, --id ID              ストリーマーのIDを設定（デフォルト: 0）
--u, --uid [UID]          ストリーマーの一意の識別子を設定
--a, --auth               Chzzk認証資格情報を設定
--q, --quality [QUALITY]  ダウンロードする目標画質を設定（例: 1080p）
--d, --display [DISPLAY]  ダウンロードステータス表示モードを設定（quiet|simple|fluent|all）
--y, --yes                すべての確認値を自動的に「はい」に設定
---version                バージョン情報を表示
---once ONCE              ストリームを一度だけダウンロード
---stream [STREAM]        ストリーム取得方法を設定（standard|timemachine）
---final [FINAL]          最終処理方法を設定（bypass|convert|cconvert|ccleanup|all）
---custom [CUSTOM]        カスタムの最終オプションを設定（cconvert|ccleanup のみ適用可能）
---offset OFFSET          ストリームの冒頭からスキップする時間を設定
---duration DURATION      ダウンロードするストリームの最大持続時間を設定
---detect [DETECT]        検出間隔を設定（デフォルト: 60、1-600）
---adult [ADULT]          認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
---authaut AUTHAUT        Chzzk認証資格情報の認証キーを設定
---authses AUTHSES        Chzzk認証資格情報のセッションキーを設定
---name [NAME]            保存ファイル名の形式を設定
---work [WORK]            作業ディレクトリを設定
---out [OUT]              保存ディレクトリを設定
---temp [TEMP]            一時ディレクトリを設定
---rpcbaseport [RPCPORT]  JSON-RPCサーバーのベースポートを設定（デフォルト: 62000、49152-65300）
---snapshot SNAPSHOT      ステータスが変更されるたびにJSONファイルにスナップショットを保存
---thumb [THUMB]          サムネイル画像を保存またはスキップ（save|skip|keep）
---startup [STARTUP]      起動方法を設定（normal|fast）
---settings [SETTINGS]    設定保存時の動作を設定（default|skip|quit）
---reset                  すべての設定をリセット
+-h, --help              このヘルプメッセージを表示
+-i, --id ID             ストリーマーのIDを設定（デフォルト: 0）
+-u, --uid [UID]         ストリーマーの一意の識別子を設定
+-a, --auth              Chzzk認証資格情報を設定
+-q, --quality [QUALITY] ダウンロードする目標画質を設定（例: 1080p）
+-d, --display [DISPLAY] ダウンロードステータス表示モードを設定（quiet|simple|fluent|all）
+-y, --yes               すべての確認値を自動的に「はい」に設定
+--version               バージョン情報を表示
+--once ONCE             ストリームを一度だけダウンロード
+--stream [STREAM]       ストリーム取得方法を設定（standard|timemachine）
+--final [FINAL]         最終処理方法を設定（bypass|convert|cleanup|cconvert|ccleanup）
+--custom [CUSTOM]       最終処理のカスタムオプションを設定（cconvert|ccleanupのみ適用可能）
+--offset OFFSET         ストリームの冒頭からスキップする時間を設定
+--duration DURATION     ダウンロードするストリームの最大持続時間を設定
+--detect [DETECT]       検出間隔を設定（デフォルト: 60、1-600）
+--adult [ADULT]         認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
+--authaut AUTHAUT       Chzzk認証資格情報の認証キーを設定
+--authses AUTHSES       Chzzk認証資格情報のセッションキーを設定
+--name [NAME]           保存ファイル名の形式を設定
+--work [WORK]           作業ディレクトリを設定
+--out [OUT]             保存ディレクトリを設定
+--temp [TEMP]           一時ディレクトリを設定
+--category [CATEGORY]   保存時のカテゴリ分け方法を設定 (none|streamer)
+--exist [EXIST]         ファイルが既に存在する場合に上書きするか、名前を変更するかを設定 (overwrite|rename)
+--rpcbaseport [RPCPORT] JSON-RPCサーバーのベースポートを設定（デフォルト: 62000、49152-65300）
+--snapshot SNAPSHOT     ステータスが変更されるたびにJSONファイルにスナップショットを保存
+--thumb [THUMB]         サムネイル画像を保存またはスキップ（save|skip|keep）
+--startup [STARTUP]     起動方法を設定（normal|fast）
+--settings [SETTINGS]   設定保存時の動作を設定（default|skip|quit）
+--reset                 すべての設定をリセット
 ```
 
 ### 使用例
@@ -184,8 +186,11 @@ ChzzkLiveDownloader --name
 
 * `{name}` - チャンネル名。
 * `{verified}` - チャンネルが認証済みの場合、このタグは`[✓]`になります（認証されていない場合は空）。
+* `{channel_uid}` - チャンネルUID。
 * `{title}` - ストリームのタイトル。
+* `{category_type}` - ストリームのカテゴリタイプ（設定されている場合）。
 * `{category}` - ストリームのカテゴリ（設定されている場合）。
+* `{category_value}` - ストリームのカテゴリの値（設定されている場合）。
 * `{live_date...}` - ストリーム開始時の日付関連タグ。
 * `{download_date...}` - ダウンロード開始時の日付関連タグ。
 * `{media...}` - メディア情報関連のタグ。
@@ -275,12 +280,11 @@ ChzzkLiveDownloader --final all
 
 `--final`パラメータで設定可能な最終処理方法は以下の通りです。
 
-* `none` - `.ts`中間ファイルをダウンロードするだけで、変換ステージをスキップします。中間ファイルは再生には外部コンバータでの変換が必要です。
-* `convert` - `.ts`中間ファイルを`.mp4`ファイルに変換しますが、中間ファイル`.ts`は削除しません。
-* `cleanup` - `.ts`中間ファイルを`.mp4`ファイルに変換し、中間ファイル`.ts`を削除します。
-* `cconvert` - `--custom`によるカスタムオプションで`.ts`中間ファイルを`.mp4`に変換しますが、中間ファイル`.ts`は削除しません。
-* `ccleanup` - `--custom`によるカスタムオプションで`.ts`中間ファイルを`.mp4`に変換し、中間ファイル`.ts`を削除します。
-* `all` - `cleanup`と同じです。
+* `none` - トランスポートストリームファイル（`.ts`）をダウンロードするだけで、変換ステージをスキップします。トランスポートストリームファイルは再生には外部コンバータでの変換が必要です。
+* `convert` - トランスポートストリームファイル（`.ts`）をビデオファイル（`.mp4`）に変換しますが、トランスポートストリームファイルは削除しません。
+* `cleanup` - トランスポートストリームファイル（`.ts`）をビデオファイル（`.mp4`）に変換し、トランスポートストリームファイルを削除します。
+* `cconvert` - `--custom`によるカスタムオプションでトランスポートストリームファイル（`.ts`）をビデオファイル（`.mp4`）に変換しますが、トランスポートストリームファイルは削除しません。
+* `ccleanup` - `--custom`によるカスタムオプションでトランスポートストリームファイル（`.ts`）をビデオファイル（`.mp4`）に変換し、トランスポートストリームファイルを削除します。
 
 ```powershell
 ChzzkLiveDownloader --final convert
@@ -361,16 +365,22 @@ ChzzkLiveDownloader --work
 ```
 
 ## 保存ディレクトリの設定
-ダウンロードしたファイルが最終的に保存されるディレクトリを指定するには、以下のコマンドを使用します。すべてのファイルは、出力ディレクトリ内のストリーマーごとのディレクトリに保存されます。
+ダウンロードしたファイルが最終的に保存されるディレクトリを指定するには、以下のコマンドを使用します。
 
 ```powershell
 ChzzkLiveDownloader --out out
 ```
 
-このオプションをデフォルトに設定したい場合は、以下のように`--out`のみを使用してください。
+デフォルトでは、すべてのファイルはストリーマーごとのサブディレクトリに分類して保存されます。ストリーマーごとに分類せずに保存する場合は、次のコマンドを使用してください。
 
 ```powershell
-ChzzkLiveDownloader --out
+ChzzkLiveDownloader --category none
+```
+
+このオプションをデフォルトに設定したい場合は、以下のように`--out`または`--category`のみを使用してください。
+
+```powershell
+ChzzkLiveDownloader --out --category
 ```
 
 ## 一時ディレクトリの設定
@@ -384,6 +394,19 @@ ChzzkLiveDownloader --temp temp
 
 ```powershell
 ChzzkLiveDownloader --temp
+```
+
+## ファイルが既に存在する場合に上書きするか、名前を変更するかを設定
+デフォルトでは、同じ名前のファイルが既に存在する場合、ファイル名の後ろに`(n)`を付けて保存します。ただし、次のコマンドを使用してファイルを上書きするように指定できます。
+
+```powershell
+ChzzkLiveDownloader --exist overwrite
+```
+
+このオプションをデフォルトに設定したい場合は、以下のように`--exist`のみを使用してください。
+
+```powershell
+ChzzkLiveDownloader --exist
 ```
 
 ## 設定保存時の動作を設定
