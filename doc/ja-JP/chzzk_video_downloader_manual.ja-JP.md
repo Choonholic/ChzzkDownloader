@@ -7,7 +7,7 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 0.99.0, November 25, 2024 00:00:00
+Version 0.99.1, November 26, 2024 00:00:00
 
 ## 使用法
 ```powershell
