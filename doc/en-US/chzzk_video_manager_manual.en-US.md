@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Video Downloader
 </div>
 
 ## Version
-Version 0.99.2, November 26, 2024 01:00:00
+Version 1.0.0, November 25, 2024 23:00:00
 
 ## Prerequisites
 Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, Chzzk Video Downloader must be installed as well.

@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Clip Downloader
 </div>
 
 ## Version
-Version 0.99.2, November 26, 2024 01:00:00
+Version 1.0.0, November 25, 2024 23:00:00
 
 ## Prerequisites
 Since Chzzk Clip Manager is the GUI frontend application for Chzzk Clip Downloader, Chzzk Clip Downloader must be installed as well.
