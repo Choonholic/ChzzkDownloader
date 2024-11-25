@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 0.99.1, November 26, 2024 00:00:00
+Version 0.99.2, November 26, 2024 01:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, Chzzk Live Downloader must be installed as well.
@@ -208,7 +208,7 @@ To open the output directory for downloaded streams, click the ☰ icon, and cho
 To view configuration of Chzzk Live Downloader, click the ☰ icon, and choose `View Configuration...` under `Downloader`.
 
 <div style='text-align: center'>
-<img src='../../img/screenshots/lman_en-US/lman_configuration.png' />
+<img src='../../img/screenshots/lman_en-US/lman_configurations.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 

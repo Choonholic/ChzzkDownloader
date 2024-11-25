@@ -7,7 +7,7 @@ Chzzk Live Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 0.99.1, November 26, 2024 00:00:00
+Version 0.99.2, November 26, 2024 01:00:00
 
 ## 必要条件
 Chzzk Live Managerは、Chzzk Live DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Live Downloaderもインストールされている必要があります。
@@ -207,7 +207,7 @@ Chzzk Downloader Suiteの環境を開くには、☰アイコンをクリック�
 Chzzk Live Downloaderの設定を表示するには、☰アイコンをクリックし、`ダウンローダー`の下にある`設定を表示...`を選択します。
 
 <div style='text-align: center'>
-<img src='../../img/screenshots/lman_ja-JP/lman_configuration.png' />
+<img src='../../img/screenshots/lman_ja-JP/lman_configurations.png' />
 <p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
 </div>
 
