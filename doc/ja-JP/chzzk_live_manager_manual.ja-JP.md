@@ -7,7 +7,7 @@ Chzzk Live Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.0.0, November 25, 2024 23:00:00
+Version 1.1.0, November 30, 2024 00:00:00
 
 ## 必要条件
 Chzzk Live Managerは、Chzzk Live DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Live Downloaderもインストールされている必要があります。
@@ -301,6 +301,8 @@ Chzzk Live Managerの使用を続行する場合。
 * **JSON-RPCサーバー: ホストアドレス** - JSON-RPCサーバーのホストアドレスを設定します。
 * **JSON-RPCサーバー: ポート** - JSON-RPCサーバーのポート番号を設定します。
 * **サムネイル画像を保存** - サムネイル画像を別途保存するかどうかを設定します。
+* **対象ファイルが既に存在する場合の保存方法** - 対象ファイルが既に存在する場合の保存方法を設定します。
+* **保存ファイル名の形式** - 保存ファイル名の形式を指定します。フォーマット指定子の詳細については、`chzzk_live_downloader_manual.ja-JP.pdf`をご参照ください。
 
 ### 最終処理
 

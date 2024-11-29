@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Video Downloader
 </div>
 
 ## Version
-Version 1.0.0, November 25, 2024 23:00:00
+Version 1.1.0, November 30, 2024 00:00:00
 
 ## Prerequisites
 Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, Chzzk Video Downloader must be installed as well.
@@ -182,7 +182,9 @@ Double-clicking tray icon will restore the window to its original state, and rig
 * **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
 * **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
 * **Save thumbnail image** - Checks to save thumbnail images separately.
+* **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.
 * **Target Quality** - Sets target quality to download.
+* **Output Filename Format** - Set output filename format. Please refer to `chzzk_video_downloader_manual.en-US.pdf` for detailed information on format specifiers. 
 
 ### Auth
 

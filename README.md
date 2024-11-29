@@ -14,7 +14,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.0.0, November 25, 2024 23:00:00
+Version 1.1.0, November 30, 2024 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -57,10 +57,10 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]] [
 --out [OUT]             Set output directory
 --temp [TEMP]           Set temporary directory
 --category [CATEGORY]   Set output categorize method (none|streamer)
---exist [EXIST]         Set whether to overwrite or rename the file if it already exists (overwrite|rename)
+--exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
 --rpcbaseport [RPCPORT] Set base port of JSON-RPC server (default: 62000, 49152-65300)
 --snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
---thumb [THUMB]         Save thumbnail image or skip (save|skip|keep)
+--thumb [THUMB]         Save thumbnail image or skip (save|skip)
 --startup [STARTUP]     Set startup method (normal|fast)
 --settings [SETTINGS]   Set action when saving settings (default|skip|quit)
 --reset                 Reset all settings
@@ -80,7 +80,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.0.0, November 25, 2024 23:00:00
+Version 1.1.0, November 30, 2024 00:00:00
 
 ### Usage
 ```powershell
@@ -116,12 +116,12 @@ video                   Video number or URL to download
 --out [OUT]             Set output directory
 --temp [TEMP]           Set temporary directory
 --category [CATEGORY]   Set output categorize method (none|streamer)
---exist [EXIST]         Set whether to overwrite or rename the file if it already exists (overwrite|rename)
+--exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
 --rpcid [RPCID]         Set ID of JSON-RPC server (default: 30)
 --rpcport [RPCPORT]     Set port of JSON-RPC server (default: 63000, 49152-65300)
 --snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
 --download [DOWNLOAD]   Set download method (default|atxc|alter)
---thumb [THUMB]         Save thumbnail image or skip (save|skip|keep)
+--thumb [THUMB]         Save thumbnail image or skip (save|skip)
 --startup [STARTUP]     Set startup method (normal|fast)
 --settings [SETTINGS]   Set action when saving settings (default|skip|quit)
 --reset                 Reset all settings
@@ -141,7 +141,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.0.0, November 25, 2024 23:00:00
+Version 1.1.0, November 30, 2024 00:00:00
 
 ### Usage
 ```powershell
@@ -176,12 +176,12 @@ clip                    Clip UID or URL to download
 --out [OUT]             Set output directory
 --temp [TEMP]           Set temporary directory
 --category [CATEGORY]   Set output categorize method (none|streamer)
---exist [EXIST]         Set whether to overwrite or rename the file if it already exists (overwrite|rename)
+--exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
 --rpcid [RPCID]         Set ID of JSON-RPC server (default: 50)
 --rpcport [RPCPORT]     Set port of JSON-RPC server (default: 64000, 49152-65300)
 --snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
 --download [DOWNLOAD]   Set download method (default|atxc|alter)
---thumb [THUMB]         Save thumbnail image or skip (save|skip|keep)
+--thumb [THUMB]         Save thumbnail image or skip (save|skip)
 --startup [STARTUP]     Set startup method (normal|fast)
 --settings [SETTINGS]   Set action when saving settings (default|skip|quit)
 --reset                 Reset all settings

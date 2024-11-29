@@ -7,7 +7,7 @@ Chzzkのストリーム用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.0.0, November 25, 2024 23:00:00
+Version 1.1.0, November 30, 2024 00:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのFFmpeg（FFmpeg 7.0またはそれ以上が必要）
@@ -50,10 +50,10 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]] [
 --out [OUT]             保存ディレクトリを設定
 --temp [TEMP]           一時ディレクトリを設定
 --category [CATEGORY]   保存時のカテゴリ分け方法を設定 (none|streamer)
---exist [EXIST]         ファイルが既に存在する場合に上書きするか、名前を変更するかを設定 (overwrite|rename)
+--exist [EXIST]         対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
 --rpcbaseport [RPCPORT] JSON-RPCサーバーのベースポートを設定（デフォルト: 62000、49152-65300）
 --snapshot SNAPSHOT     ステータスが変更されるたびにJSONファイルにスナップショットを保存
---thumb [THUMB]         サムネイル画像を保存またはスキップ（save|skip|keep）
+--thumb [THUMB]         サムネイル画像を保存またはスキップ（save|skip）
 --startup [STARTUP]     起動方法を設定（normal|fast）
 --settings [SETTINGS]   設定保存時の動作を設定（default|skip|quit）
 --reset                 すべての設定をリセット
@@ -396,11 +396,12 @@ ChzzkLiveDownloader --temp temp
 ChzzkLiveDownloader --temp
 ```
 
-## ファイルが既に存在する場合に上書きするか、名前を変更するかを設定
-デフォルトでは、同じ名前のファイルが既に存在する場合、ファイル名の後ろに`(n)`を付けて保存します。ただし、次のコマンドを使用してファイルを上書きするように指定できます。
+## 対象ファイルが既に存在する場合の保存方法の設定
+デフォルトでは、同じ名前のファイルが既に存在する場合、ファイル名の後ろに`(n)`を付けて保存します。ただし、次のコマンドを使用してファイルを上書きするか、ダウンロード自体をスキップするよう設定できます。
 
 ```powershell
 ChzzkLiveDownloader --exist overwrite
+ChzzkLiveDownloader --exist skip
 ```
 
 このオプションをデフォルトに設定したい場合は、以下のように`--exist`のみを使用してください。

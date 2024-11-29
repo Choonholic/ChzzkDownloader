@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.0.0, November 25, 2024 23:00:00
+Version 1.1.0, November 30, 2024 00:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 FFmpeg (FFmpeg 7.0 또는 상위 버전 필요)
@@ -50,10 +50,10 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]] [
 --out [OUT]             저장 디렉토리를 설정합니다
 --temp [TEMP]           임시 디렉토리를 설정합니다
 --category [CATEGORY]   저장 시 분류 방법을 설정합니다 (none|streamer)
---exist [EXIST]         파일이 이미 존재할 때 파일을 덮어쓸지 이름을 바꿀지 설정합니다 (overwrite|rename)
+--exist [EXIST]         파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
 --rpcbaseport [RPCPORT] JSON-RPC 서버 기본 포트를 설정합니다. (기본값: 62000, 49152-65300)
 --snapshot SNAPSHOT     상태 변경 시 스냅샷을 JSON 파일로 저장합니다
---thumb [THUMB]         미리보기 이미지의 저장 여부를 설정합니다 (save|skip|keep)
+--thumb [THUMB]         미리보기 이미지의 저장 여부를 설정합니다 (save|skip)
 --startup [STARTUP]     시작 방법을 설정합니다 (normal|fast)
 --settings [SETTINGS]   설정 저장 시 동작을 설정합니다 (default|skip|quit)
 --reset                 모든 설정을 초기화합니다
@@ -398,11 +398,12 @@ ChzzkLiveDownloader --temp temp
 ChzzkLiveDownloader --temp
 ```
 
-## 파일이 이미 존재할 때 파일을 덮어쓸지 이름을 바꿀지 설정
-기본적으로 저장하려는 파일과 동일한 이름의 파일이 이미 존재할 때, 파일 이름 뒤에 `(n)`을 붙여 저장합니다. 하지만 다음 명령어를 사용하여 파일을 덮어쓰도록 지정할 수 있습니다.
+## 파일이 이미 존재할 때 파일 저장 방법 설정
+기본적으로 저장하려는 파일과 동일한 이름의 파일이 이미 존재할 때, 파일 이름 뒤에 `(n)`을 붙여 저장합니다. 하지만 다음 명령어를 사용하여 파일을 덮어쓰거나 다운로드 자체를 건너뛰도록 지정할 수 있습니다.
 
 ```powershell
 ChzzkLiveDownloader --exist overwrite
+ChzzkLiveDownloader --exist skip
 ```
 
 이 선택 사항을 기본값으로 되돌리려면 설정 없이 `--exist`만 사용하세요.

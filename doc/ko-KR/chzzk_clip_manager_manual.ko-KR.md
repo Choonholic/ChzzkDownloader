@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.0.0, November 25, 2024 23:00:00
+Version 1.1.0, November 30, 2024 00:00:00
 
 ## 선행 요건
 Chzzk Clip Manager는 Chzzk Clip Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Clip Downloader가 함께 설치되어 있어야 합니다.
@@ -182,6 +182,8 @@ Chzzk Clip Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `다운
 * **JSON-RPC 서버: 포트** - JSON-RPC 서버의 포트 번호를 설정합니다.
 * **JSON-RPC 서버: ID** - JSON-RPC 서버의 ID를 설정합니다.
 * **미리보기 이미지 저장하기** - 미리보기 이미지를 함께 저장합니다.
+* **대상 파일이 이미 존재할 경우 저장 방법** - 파일이 이미 존재할 때 파일 저장 방법을 설정합니다.
+* **저장 파일 이름 형식** - 저장 파일 이름 형식을 지정합니다. 형식 지정자에 대한 자세한 내용은 `chzzk_clip_downloader_manual.ko-KR.pdf`를 참조하세요.
 
 ### 인증
 
