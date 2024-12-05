@@ -7,7 +7,7 @@ Chzzkのストリーム用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.1.0, November 30, 2024 00:00:00
+Version 1.2.0, December 07, 2024 00:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのFFmpeg（FFmpeg 7.0またはそれ以上が必要）
@@ -15,26 +15,29 @@ Version 1.1.0, November 30, 2024 00:00:00
 
 ## 使用法
 ```powershell
-ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]] [-y]
-                    [--version] [--once ONCE] [--stream [STREAM]] [--final [FINAL]]
-                    [--custom [CUSTOM]] [--offset OFFSET] [--duration DURATION]
-                    [--detect [DETECT]] [--adult [ADULT]] [--authaut AUTHAUT]
-                    [--authses AUTHSES] [--name [NAME]] [--work [WORK]] [--out [OUT]]
-                    [--temp [TEMP]] [--category [CATEGORY]] [--exist [EXIST]]
-                    [--rpcbaseport [RPCPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a] [--authaut AUTHAUT]
+                    [--authses AUTHSES] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]]
+                    [--once ONCE] [--stream [STREAM]] [--final [FINAL]] [--custom [CUSTOM]]
+                    [--offset OFFSET] [--duration DURATION] [--detect [DETECT]] [--name [NAME]]
+                    [--work [WORK]] [--out [OUT]] [--temp [TEMP]] [--category [CATEGORY]]
+                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcbaseport [RPCBASEPORT]]
+                    [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
+                    [--settings [SETTINGS]] [--reset]
 ```
 
 ### オプション
 ```
 -h, --help              このヘルプメッセージを表示
+--version               バージョン情報を表示
 -i, --id ID             ストリーマーのIDを設定（デフォルト: 0）
 -u, --uid [UID]         ストリーマーの一意の識別子を設定
 -a, --auth              Chzzk認証資格情報を設定
+--authaut AUTHAUT       Chzzk認証資格情報の認証キーを設定
+--authses AUTHSES       Chzzk認証資格情報のセッションキーを設定
+--adult [ADULT]         認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
+-y, --yes               すべての確認値を自動的に「はい」に設定
 -q, --quality [QUALITY] ダウンロードする目標画質を設定（例: 1080p）
 -d, --display [DISPLAY] ダウンロードステータス表示モードを設定（quiet|simple|fluent|all）
--y, --yes               すべての確認値を自動的に「はい」に設定
---version               バージョン情報を表示
 --once ONCE             ストリームを一度だけダウンロード
 --stream [STREAM]       ストリーム取得方法を設定（standard|timemachine）
 --final [FINAL]         最終処理方法を設定（bypass|convert|cleanup|cconvert|ccleanup）
@@ -42,15 +45,13 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]] [
 --offset OFFSET         ストリームの冒頭からスキップする時間を設定
 --duration DURATION     ダウンロードするストリームの最大持続時間を設定
 --detect [DETECT]       検出間隔を設定（デフォルト: 60、1-600）
---adult [ADULT]         認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
---authaut AUTHAUT       Chzzk認証資格情報の認証キーを設定
---authses AUTHSES       Chzzk認証資格情報のセッションキーを設定
 --name [NAME]           保存ファイル名の形式を設定
 --work [WORK]           作業ディレクトリを設定
 --out [OUT]             保存ディレクトリを設定
 --temp [TEMP]           一時ディレクトリを設定
 --category [CATEGORY]   保存時のカテゴリ分け方法を設定 (none|streamer)
 --exist [EXIST]         対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
+--threshold [THRESHOLD] 空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 10, 3-30)
 --rpcbaseport [RPCPORT] JSON-RPCサーバーのベースポートを設定（デフォルト: 62000、49152-65300）
 --snapshot SNAPSHOT     ステータスが変更されるたびにJSONファイルにスナップショットを保存
 --thumb [THUMB]         サムネイル画像を保存またはスキップ（save|skip）
@@ -408,6 +409,25 @@ ChzzkLiveDownloader --exist skip
 
 ```powershell
 ChzzkLiveDownloader --exist
+```
+
+## 空き容量が閾値を下回った場合にダウンロードを停止する設定
+デフォルトでは、保存ディレクトリまたは一時ディレクトリの空き容量が10%を下回ると、ダウンロードが停止します。空き容量の閾値を設定するには、以下のコマンドを使用してください。設定可能な値の範囲は`3`から`30`です。
+
+```powershell
+ChzzkLiveDownloader --threshold 20
+```
+
+空き容量に応じたダウンロード停止機能を無効化するには、以下のコマンドを使用してください。
+
+```powershell
+ChzzkLiveDownloader --threshold -
+```
+
+このオプションをデフォルト値にリセットするには、引数なしで --threshold を使用してください。
+
+```powershell
+ChzzkLiveDownloader --threshold
 ```
 
 ## 設定保存時の動作を設定

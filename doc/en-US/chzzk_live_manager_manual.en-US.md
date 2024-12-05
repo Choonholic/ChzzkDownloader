@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.1.0, November 30, 2024 00:00:00
+Version 1.2.0, December 07, 2024 00:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, Chzzk Live Downloader must be installed as well.
@@ -289,6 +289,7 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 </div>
 
 * **Update Interval (Seconds)** - Sets the screen refresh interval for the list. This only affects the display and is not related to the download detection interval. The download detection interval of Chzzk Live Downloader is set to 10 seconds by default and is designed to avoid being impacted by API rate limits, unlike other tools.
+* **Stop downloading if free disk space is less than** - Sets the threshold % for stopping downloads when disk space is low.
 * **Performance Level** - Specify the performance of the system where Chzzk Live Manager is currently running. If you encounter errors due to timeouts when adding or refreshing channels, try lowering the performance level by one step and attempt again.
 * **Instance Shutdown Methods** - The Shutdown Method can be predefined, eliminating the need to select it each time in the Exit dialog.
 
@@ -303,7 +304,7 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 * **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
 * **Save thumbnail image** - Checks to save thumbnail images separately.
 * **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.
-* **Output Filename Format** - Set output filename format. Please refer to `chzzk_live_downloader_manual.en-US.pdf` for detailed information on format specifiers. 
+* **Output Filename Format** - Set output filename format. Please refer to `chzzk_live_downloader_manual.en-US.pdf` for detailed information on format specifiers.
 
 ### Finalize
 

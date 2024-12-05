@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Clip Downloader
 </div>
 
 ## Version
-Version 1.1.0, November 30, 2024 00:00:00
+Version 1.2.0, December 07, 2024 00:00:00
 
 ## Prerequisites
 Since Chzzk Clip Manager is the GUI frontend application for Chzzk Clip Downloader, Chzzk Clip Downloader must be installed as well.
@@ -169,6 +169,7 @@ Double-clicking tray icon will restore the window to its original state, and rig
 </div>
 
 * **Update Interval (Seconds)** - Sets the screen refresh interval for the list.
+* **Stop downloading if free disk space is less than** - Sets the threshold % for stopping downloads when disk space is low.
 * **Performance Level** - Specify the performance of the system where Chzzk Clip Manager is currently running. If you encounter errors due to timeouts when adding or refreshing clips, try lowering the performance level by one step and attempt again.
 
 ### Downloader
@@ -183,7 +184,7 @@ Double-clicking tray icon will restore the window to its original state, and rig
 * **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
 * **Save thumbnail image** - Checks to save thumbnail images separately.
 * **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.
-* **Output Filename Format** - Set output filename format. Please refer to `chzzk_clip_downloader_manual.en-US.pdf` for detailed information on format specifiers. 
+* **Output Filename Format** - Set output filename format. Please refer to `chzzk_clip_downloader_manual.en-US.pdf` for detailed information on format specifiers.
 
 ### Auth
 

@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.1.0, November 30, 2024 00:00:00
+Version 1.2.0, December 07, 2024 00:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 FFmpeg (FFmpeg 7.0 또는 상위 버전 필요)
@@ -15,26 +15,29 @@ Version 1.1.0, November 30, 2024 00:00:00
 
 ## 사용법
 ```powershell
-ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]] [-y]
-                    [--version] [--once ONCE] [--stream [STREAM]] [--final [FINAL]]
-                    [--custom [CUSTOM]] [--offset OFFSET] [--duration DURATION]
-                    [--detect [DETECT]] [--adult [ADULT]] [--authaut AUTHAUT]
-                    [--authses AUTHSES] [--name [NAME]] [--work [WORK]] [--out [OUT]]
-                    [--temp [TEMP]] [--category [CATEGORY]] [--exist [EXIST]]
-                    [--rpcbaseport [RPCPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a] [--authaut AUTHAUT]
+                    [--authses AUTHSES] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]]
+                    [--once ONCE] [--stream [STREAM]] [--final [FINAL]] [--custom [CUSTOM]]
+                    [--offset OFFSET] [--duration DURATION] [--detect [DETECT]] [--name [NAME]]
+                    [--work [WORK]] [--out [OUT]] [--temp [TEMP]] [--category [CATEGORY]]
+                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcbaseport [RPCBASEPORT]]
+                    [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
+                    [--settings [SETTINGS]] [--reset]
 ```
 
 ### 선택적 매개 변수
 ```
 -h, --help              도움말 페이지를 표시합니다.
+--version               버전 정보를 표시합니다
 -i, --id ID             스트리머 ID를 설정합니다. (기본값: 0)
 -u, --uid [UID]         스트리머 고유 식별자를 설정합니다.
 -a, --auth              치지직 인증 자격 증명을 설정합니다.
+--authaut AUTHAUT       치지직 인증 자격 증명의 인증 키를 설정합니다
+--authses AUTHSES       치지직 인증 자격 증명의 세션 키를 설정합니다
+--adult [ADULT]         자격 증명이 유효하지 않을 때 성인 콘텐츠 처리 방법을 설정합니다 (ask|skip)
+-y, --yes               모든 확인 값을 자동으로 '예'로 설정합니다
 -q, --quality [QUALITY] 다운로드하려는 목표 화질을 설정합니다. (예: 1080p)
 -d, --display [DISPLAY] 다운로드 상태 표시 모드를 설정합니다. (quiet|simple|fluent|all)
--y, --yes               모든 확인 값을 자동으로 '예'로 설정합니다
---version               버전 정보를 표시합니다
 --once ONCE             별도의 설정 저장 앖이 라이브 스트리밍을 한 번만 다운로드합니다.
 --stream [STREAM]       스트리잉을 가져오는 방식을 설정합니다. (standard|timemachine)
 --final [FINAL]         최종 처리 방식을 설정합니다. (bypass|convert|cleanup|cconvert|ccleanup)
@@ -42,15 +45,13 @@ ChzzkLiveDownloader [-h] [-i ID] [-u [UID]] [-a] [-q [QUALITY]] [-d [DISPLAY]] [
 --offset OFFSET         스트리밍 시작 지점을 설정합니다.
 --duration DURATION     스트리밍 다운로드 분할 간격을 설정합니다.
 --detect [DETECT]       상태 확인 간격을 설정합니다. (기본값: 60, 1-600)
---adult [ADULT]         자격 증명이 유효하지 않을 때 성인 콘텐츠 처리 방법을 설정합니다 (ask|skip)
---authaut AUTHAUT       치지직 인증 자격 증명의 인증 키를 설정합니다
---authses AUTHSES       치지직 인증 자격 증명의 세션 키를 설정합니다
 --name [NAME]           저장되는 파일 이름 형식을 설정합니다
 --work [WORK]           작업 디렉토리를 설정합니다
 --out [OUT]             저장 디렉토리를 설정합니다
 --temp [TEMP]           임시 디렉토리를 설정합니다
 --category [CATEGORY]   저장 시 분류 방법을 설정합니다 (none|streamer)
 --exist [EXIST]         파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
+--threshold [THRESHOLD] 디스크 공간 부족 시 중지 임계값(%)을 설정합니다. (비활성화: -, 기본값: 10, 3-30)
 --rpcbaseport [RPCPORT] JSON-RPC 서버 기본 포트를 설정합니다. (기본값: 62000, 49152-65300)
 --snapshot SNAPSHOT     상태 변경 시 스냅샷을 JSON 파일로 저장합니다
 --thumb [THUMB]         미리보기 이미지의 저장 여부를 설정합니다 (save|skip)
@@ -410,6 +411,25 @@ ChzzkLiveDownloader --exist skip
 
 ```powershell
 ChzzkLiveDownloader --exist
+```
+
+## 여유 저장 공간이 임계점 이하로 낮아질 때 다운로드 중지 설정
+기본적으로, 저장 디렉터리와 임시 디렉터리의 여유 공간이 10% 이하로 낮아질 때 다운로드를 중지합니다. 여유 저장 공간의 임계점을 설정하려면 다음 명령어를 사용하세요. 이 때 설정 가능한 값은 3부터 30까지입니다.
+
+```powershell
+ChzzkLiveDownloader --threshold 20
+```
+
+여유 저장 공간에 따른 다운로드 중지 기능을 비활성화하려면 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkLiveDownloader --threshold -
+```
+
+이 선택 사항을 기본값으로 되돌리려면 설정 없이 `--threshold`만 사용하세요.
+
+```powershell
+ChzzkLiveDownloader --threshold
 ```
 
 ## 설정 저장 시 동작 설정

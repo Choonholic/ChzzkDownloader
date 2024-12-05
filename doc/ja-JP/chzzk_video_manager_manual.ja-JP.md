@@ -7,7 +7,7 @@ Chzzk Video Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.1.0, November 30, 2024 00:00:00
+Version 1.2.0, December 07, 2024 00:00:00
 
 ## 必要条件
 Chzzk Video Managerは、Chzzk Video DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Video Downloaderもインストールされている必要があります。
@@ -169,6 +169,7 @@ Chzzk Video Downloaderの設定を表示するには、☰アイコンをクリ�
 </div>
 
 * **更新間隔 (秒)** - リストの画面更新間隔を設定します。
+* **空き容量が次の値を下回る場合ダウンロードを停止** - 空き容量が少ない場合に停止する閾値(%)を設定します。
 * **パフォーマンスレベル** - Chzzk Video Managerが現在実行されているシステムのパフォーマンスを指定します。ビデオの追加や更新時にタイムアウトによるエラーが発生する場合、パフォーマンスレベルを1段階下げて再試行してください。
 
 ### ダウンローダー

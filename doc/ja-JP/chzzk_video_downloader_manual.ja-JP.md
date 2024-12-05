@@ -7,17 +7,16 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.1.0, November 30, 2024 00:00:00
+Version 1.2.0, December 07, 2024 00:00:00
 
 ## 使用法
 ```powershell
-ChzzkVideoDownloader [-h] [-i INPUT] [-a] [-q [QUALITY]] [-d [DISPLAY]] [-y] [--version]
-                     [--adult [ADULT]] [--authaut AUTHAUT] [--authses AUTHSES]
-                     [--name [NAME]] [--work [WORK]] [--out [OUT]] [--temp [TEMP]]
-                     [--category [CATEGORY]] [--exist [EXIST]] [--rpcid [RPCID]]
+ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
+                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--name [NAME]]
+                     [--work [WORK]] [--out [OUT]] [--temp [TEMP]] [--category [CATEGORY]]
+                     [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
                      [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
-                     [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]]
-                     [--reset]
+                     [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
                      [video]
 ```
 
@@ -29,21 +28,22 @@ video                   ダウンロードするビデオ番号またはURL
 ### オプション
 ```
 -h, --help              このヘルプメッセージを表示
+--version               バージョン情報を表示
 -i, --input INPUT       ダウンロードリストファイルを設定
 -a, --auth              Chzzk認証資格情報を設定
--q, --quality [QUALITY] ダウンロードする目標画質を設定（例: 1080p）
--d, --display [DISPLAY] ダウンロードステータス表示モードを設定（quiet|simple|fluent|all）
--y, --yes               すべての確認値を自動的に「はい」に設定
---version               バージョン情報を表示
---adult [ADULT]         認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
 --authaut AUTHAUT       Chzzk認証資格情報の認証キーを設定
 --authses AUTHSES       Chzzk認証資格情報のセッションキーを設定
+--adult [ADULT]         認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
+-y, --yes               すべての確認値を自動的に「はい」に設定
+-q, --quality [QUALITY] ダウンロードする目標画質を設定（例: 1080p）
+-d, --display [DISPLAY] ダウンロードステータス表示モードを設定（quiet|simple|fluent|all）
 --name [NAME]           保存ファイル名の形式を設定
 --work [WORK]           作業ディレクトリを設定
 --out [OUT]             保存ディレクトリを設定
 --temp [TEMP]           一時ディレクトリを設定
 --category [CATEGORY]   保存時のカテゴリ分け方法を設定 (none|streamer)
 --exist [EXIST]         対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
+--threshold [THRESHOLD] 空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 10, 3-30)
 --rpcid [RPCID]         JSON-RPCサーバーのIDを設定 （デフォルト: 30）
 --rpcport [RPCPORT]     JSON-RPCサーバーのポートを設定 （デフォルト: 63000, 49152-65300）
 --snapshot SNAPSHOT     ステータスが変更されるたびにJSONファイルにスナップショットを保存
@@ -267,6 +267,25 @@ ChzzkVideoDownloader video_no または url --exist skip
 
 ```powershell
 ChzzkVideoDownloader video_no または url --exist
+```
+
+## 空き容量が閾値を下回った場合にダウンロードを停止する設定
+デフォルトでは、保存ディレクトリまたは一時ディレクトリの空き容量が10%を下回ると、ダウンロードが停止します。空き容量の閾値を設定するには、以下のコマンドを使用してください。設定可能な値の範囲は`3`から`30`です。
+
+```powershell
+ChzzkVideoDownloader video_no または url --threshold 20
+```
+
+空き容量に応じたダウンロード停止機能を無効化するには、以下のコマンドを使用してください。
+
+```powershell
+ChzzkVideoDownloader video_no または url --threshold -
+```
+
+このオプションをデフォルト値にリセットするには、引数なしで --threshold を使用してください。
+
+```powershell
+ChzzkVideoDownloader video_no または url --threshold
 ```
 
 ## ダウンロード方法の設定
