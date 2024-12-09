@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.2.0, December 07, 2024 00:00:00
+Version 1.3.0, December 10, 2024 08:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 FFmpeg (FFmpeg 7.0 또는 상위 버전 필요)
@@ -161,7 +161,7 @@ ChzzkLiveDownloader -q 720p
 ChzzkLiveDownloader --quality 720p
 ```
 
-이 옵션을 기본값으로 되돌리려면 형식 없이 `-q` 또는 `--quality`만 사용하세요.
+이 선택 사항을 기본값으로 되돌리려면 형식 없이 `-q` 또는 `--quality`만 사용하세요.
 
 ```powershell
 ChzzkLiveDownloader -q
@@ -297,7 +297,7 @@ ChzzkLiveDownloader --final
 ```
 
 ### 최종 처리 단계에 사용자 정의 설정 적용
-`--final` 옵션을 사용하여 `cconvert` 또는 `ccleanup` 매개 변수와 함께 사용자 지정 인코딩 설정을 설정할 수 있습니다. 예를 들어, 다음 옵션은 `FFmpeg`을 사용하여 `H.265` 코덱으로 인코딩하도록 설정합니다:
+`--final` 선택 사항을 사용하여 `cconvert` 또는 `ccleanup` 매개 변수와 함께 사용자 지정 인코딩 설정을 설정할 수 있습니다. 예를 들어, 다음 설정은 `FFmpeg`을 사용하여 `H.265` 코덱으로 인코딩하도록 설정합니다:
 
 ```powershell
 ChzzkLiveDownloader --final cconvert --custom "-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"

@@ -1,0 +1,189 @@
+# Chzzk Live Finalizer
+치지직 라이브 스트리밍 최종 처리 도구
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/screenshot_chzzklivefinalizer.png' />
+<p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
+</div>
+
+## 버전
+Version 1.3.0, December 10, 2024 08:00:00
+
+## 사용법
+```powershell
+ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--watch [WATCH]] [--convert [CONVERT]]
+                   [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
+                   [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--startup [STARTUP]]
+                   [--settings [SETTINGS]] [--reset]
+```
+
+## 선택적 매개 변수
+```
+-h, --help              도움말 페이지를 표시합니다.
+--version               버전 정보를 표시합니다
+-d, --display [DISPLAY] 처리 상태 표시 모드를 설정합니다. (quiet|simple|fluent|all)
+--watch [WATCH]         감시할 디렉터리를 설정합니다.
+--convert [CONVERT]     변환 매개 변수를 설정합니다.
+--exist [EXIST]         파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
+--threshold [THRESHOLD] 디스크 공간 부족 시 중지 임계값(%)을 설정합니다. (비활성화: -, 기본값: 10, 3-30)
+--rpcid [RPCID]         JSON-RPC 서버 ID를 설정합니다 (기본값: 70)
+--rpcport [RPCPORT]     JSON-RPC 서버 포트를 설정합니다 (기본값: 65000, 49152-65300)
+--snapshot SNAPSHOT     상태 변경 시 스냅샷을 JSON 파일로 저장합니다
+--startup [STARTUP]     시작 방법을 설정합니다 (normal|fast)
+--settings [SETTINGS]   설정 저장 시 동작을 설정합니다 (default|skip|quit)
+--reset                 모든 설정을 초기화합니다
+```
+
+## 사용 예시
+```powershell
+ChzzkLiveFinalizer --watch out
+```
+
+## 설명
+Chzzk Live Finalizer는 Chzzk Live Downloader가 직접 최종 처리를 진행하는 대신, 별도 프로세스에서 순차적으로 최종 처리를 진행하도록 설계된 도구입니다. Chzzk Live Finalizer를 사용하면 라이브 스트림이 짧은 간격으로 방송되더라도 영향 없이 다운로드할 수 있도록 도와 줍니다.
+
+## 감시할 디렉터리 설정
+Chzzk Live Finalizer는 스트림 파일이 저장되는 디렉터리를 감시하다가, 파일이 새로 추가되면 자동으로 최종 변환을 진행합니다. 다음 명령어를 사용하면 감시할 디렉터리를 지정할 수 있습니다.
+
+```powershell
+ChzzkLiveFinalizer --watch out
+```
+
+이 선택 사항을 기본값으로 되돌리려면 디렉터리 지정 없이 `--watch`만 사용하세요.
+
+```powershell
+ChzzkLiveFinalizer --watch
+```
+
+### 최종 처리 인코딩 매개 변수 설정
+`--convert` 선택 사항을 사용하여 최종 처리에 사용할 인코딩 매개 변수를 설정할 수 있습니다. 예를 들어, 다음 설정은 `FFmpeg`을 사용하여 `H.265` 코덱으로 인코딩하도록 설정합니다:
+
+```powershell
+ChzzkLiveFinalizer --convert "-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
+```
+
+이 선택 사항을 기본값으로 되돌리려면 다음과 같이 `--convert`만 사용하세요.
+
+```powershell
+ChzzkLiveFinalizer --convert
+```
+
+## 처리 정보 표시 방법 설정
+기본적으로 자세한 세부 처리 정보가 표시됩니다. 하지만 세부 정보가 필요하지 않은 경우, 다음 명령어를 사용하여 표시를 방지할 수 있습니다.
+
+```powershell
+ChzzkLiveFinalizer -d quiet
+ChzzkLiveFinalizer --display quiet
+```
+
+`--display` 매개 변수의 선택 사항을 사용하여 다음과 같은 표시 방법을 설정할 수 있습니다.
+
+* `quiet` - 모든 세부 처리 정보 표시를 하지 않습니다.
+* `fluent` - 모든 세부 처리 정보를 표시합니다.
+* `default` - 이 선택 사항은 `fluent`와 동일합니다.
+
+이 선택 사항을 기본값으로 되돌리려면 형식 없이 `-d` 또는 `--display`만 사용하세요.
+
+```powershell
+ChzzkLiveFinalizer -d
+ChzzkLiveFinalizer --display
+```
+
+## 파일이 이미 존재할 때 파일 저장 방법 설정
+기본적으로 저장하려는 파일과 동일한 이름의 파일이 이미 존재할 때, 파일 이름 뒤에 `(n)`을 붙여 저장합니다. 하지만 다음 명령어를 사용하여 파일을 덮어쓰거나 최종 처리 자체를 건너뛰도록 지정할 수 있습니다.
+
+```powershell
+ChzzkLiveFinalizer --exist overwrite
+ChzzkLiveFinalizer --exist skip
+```
+
+이 선택 사항을 기본값으로 되돌리려면 설정 없이 `--exist`만 사용하세요.
+
+```powershell
+ChzzkLiveFinalizer --exist
+```
+
+## 여유 저장 공간이 임계점 이하로 낮아질 때 최종 변환 중지 설정
+기본적으로, 저장 디렉터리와 임시 디렉터리의 여유 공간이 10% 이하로 낮아질 때 최종 변환을 중지합니다. 여유 저장 공간의 임계점을 설정하려면 다음 명령어를 사용하세요. 이 때 설정 가능한 값은 `3`부터 `30`까지입니다.
+
+```powershell
+ChzzkLiveFinalizer --threshold 20
+```
+
+여유 저장 공간에 따른 최종 처리 중지 기능을 비활성화하려면 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkLiveFinalizer --threshold -
+```
+
+이 선택 사항을 기본값으로 되돌리려면 설정 없이 `--threshold`만 사용하세요.
+
+```powershell
+ChzzkLiveFinalizer --threshold
+```
+
+## 설정 저장 시 동작 설정
+모든 선택 사항은 기본적으로 항상 설정 파일에 저장됩니다. 현재 세션에만 설정을 적용하고 저장하지 않으려면 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkLiveFinalizer --settings skip
+```
+
+다운로드 없이 설정만 저장하고 종료하려면 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkLiveFinalizer --settings quit
+```
+
+## 모든 설정 초기화
+사용 시간이 길어질수록 설정이 꼬일 수 있습니다. 모든 설정을 초기화하려면 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkLiveFinalizer --reset
+```
+
+다음 정보가 초기화됩니다.
+
+* 세부 처리 정보 표시 설정
+* 감시할 디렉터리 설정
+* 변환 매개 변수 설정
+
+## 버전 정보 표시
+다음 명령어를 사용하여 버전 정보를 확인할 수 있습니다.
+
+```powershell
+ChzzkLiveFinalizer --version
+```
+
+## 도움말 확인
+간단한 매개 변수 도움말을 확인하려면 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkLiveFinalizer -h
+ChzzkLiveFinalizer --help
+```
+
+## 매개 변수 우선 순위
+`--reset`, `-h`, `--version`을 제외한 매개 변수는 아래 예시와 같이 순서에 상관없이 사용할 수 있습니다. 단, 동일한 매개 변수를 중복으로 지정할 수는 없습니다.
+
+```powershell
+ChzzkLiveFinalizer -d quiet --watch out
+```
+
+`-h`와 `--version` 매개 변수는 첫 번째로 사용된 것만 처리되고 즉시 종료됩니다. 따라서 아래 명령어는 버전 정보만 출력됩니다.
+
+```powershell
+ChzzkLiveFinalizer --version -h
+```
+
+`--reset` 매개 변수는 설정을 초기화하고 이전에 설정된 값을 무시한 후 종료됩니다. 따라서 다음 명령어에서 `--watch` 매개 변수는 무시됩니다.
+
+```powershell
+ChzzkLiveFinalizer --watch out --reset
+```
+
+## JSON-RPC를 사용한 외부 제어
+자세한 정보는 `how_to_control_chzzk_live_finalizer.ko-KR.pdf` 파일을 참조하세요.
+
+## 문의하기
+치지직 다운로드 도구에 대해 궁금한 사항, 제보할 오류, 개선 요청 사항 등이 있을 때는 [GitHub](https://github.com/Choonholic/ChzzkDownloader/)의 [Issues](https://github.com/Choonholic/ChzzkDownloader/issues/new) 기능을 통해 제보해 주세요. 모든 언어에 대응 가능하나, 직접 대응 가능한 언어는 한국어, 영어, 일본어, 중국어이며, 다른 언어는 기계 번역을 통하기 때문에 100% 대응이 불가능할 수 있습니다.

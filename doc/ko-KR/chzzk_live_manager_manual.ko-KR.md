@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.2.0, December 07, 2024 00:00:00
+Version 1.3.0, December 10, 2024 08:00:00
 
 ## 선행 요건
 Chzzk Live Manager는 Chzzk Live Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Live Downloader가 함께 설치되어 있어야 합니다.
@@ -259,7 +259,7 @@ Chzzk Live Manager를 종료할 때, 백그라운드에서 Chzzk Live Downloader
 </div>
 
 ### 최종 처리 단계 사용자 정의 설정
-`다운로드 도구` 설정에서 `최종 처리 선택 사항`에 추가 선택 사항을 지정하면, 최종 처리 시에 이 선택 사항이 `FFmpeg`에 전달됩니다. 예를 들어, 다음 옵션은 `FFmpeg`을 사용하여 `H.265` 코덱으로 인코딩하도록 설정합니다:
+`다운로드 도구` 설정에서 `최종 처리 선택 사항`에 추가 선택 사항을 지정하면, 최종 처리 시에 이 선택 사항이 `FFmpeg`에 전달됩니다. 예를 들어, 다음 설정은 `FFmpeg`을 사용하여 `H.265` 코덱으로 인코딩하도록 설정합니다:
 
 ```powershell
 -c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k

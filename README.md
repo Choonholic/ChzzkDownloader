@@ -14,7 +14,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.2.0, December 07, 2024 00:00:00
+Version 1.3.0, December 10, 2024 08:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -72,6 +72,47 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a] [--authaut AUTHAUT]
 ChzzkLiveDownloader -i 2 --thumb --detect 30 --work work --out out --temp temp
 ```
 
+## Chzzk Live Finalizer
+Finalizer for Chzzk live streams
+
+<div style='text-align: center'>
+<img src='img/screenshots/screenshot_chzzklivefinalizer.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+## Version
+Version 1.3.0 Beta 1, December 08, 2024 21:00:00
+
+### Usage
+```powershell
+ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--watch [WATCH]] [--convert [CONVERT]]
+                   [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
+                   [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--startup [STARTUP]]
+                   [--settings [SETTINGS]] [--reset]
+```
+
+### Options
+```
+-h, --help              Show this help message
+--version               Show version information
+-d, --display [DISPLAY] Set process status display mode (quiet|simple|fluent|all)
+--watch [WATCH]         Set watching directory
+--convert [CONVERT]     Set convert parameters
+--exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
+--threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
+--rpcid [RPCID]         Set ID of JSON-RPC server (default: 70)
+--rpcport [RPCPORT]     Set port of JSON-RPC server (default: 65000, 49152-65300)
+--snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
+--startup [STARTUP]     Set startup method (normal|fast)
+--settings [SETTINGS]   Set action when saving settings (default|skip|quit)
+--reset                 Reset all settings
+```
+
+### Example
+```powershell
+ChzzkLiveFinalizer --watch out
+```
+
 ## Chzzk Video Downloader
 Downloader for Chzzk replay videos
 
@@ -81,7 +122,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.2.0, December 07, 2024 00:00:00
+Version 1.3.0, December 10, 2024 08:00:00
 
 ### Usage
 ```powershell
@@ -142,7 +183,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.2.0, December 07, 2024 00:00:00
+Version 1.3.0, December 10, 2024 08:00:00
 
 ### Usage
 ```powershell

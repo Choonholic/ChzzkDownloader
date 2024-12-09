@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.2.0, December 07, 2024 00:00:00
+Version 1.3.0, December 10, 2024 08:00:00
 
 ## 사용법
 ```powershell
@@ -120,7 +120,7 @@ ChzzkVideoDownloader video_no 또는 url -q 720p
 ChzzkVideoDownloader video_no 또는 url --quality 720p
 ```
 
-이 옵션을 기본값으로 되돌리려면 형식 없이 `-q` 또는 `--quality`만 사용하세요.
+이 선택 사항을 기본값으로 되돌리려면 형식 없이 `-q` 또는 `--quality`만 사용하세요.
 
 ```powershell
 ChzzkVideoDownloader video_no 또는 url -q
