@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.3.0, December 10, 2024 08:00:00
+Version 1.3.1, December 12, 2024 00:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 FFmpeg (FFmpeg 7.0 또는 상위 버전 필요)
