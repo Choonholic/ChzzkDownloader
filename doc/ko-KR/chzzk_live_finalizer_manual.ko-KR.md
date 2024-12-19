@@ -7,31 +7,37 @@
 </div>
 
 ## 버전
-Version 1.3.1, December 12, 2024 00:00:00
+Version 1.4.0, December 20, 2024 00:00:00
 
 ## 사용법
 ```powershell
-ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--watch [WATCH]] [--convert [CONVERT]]
-                   [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
-                   [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--startup [STARTUP]]
-                   [--settings [SETTINGS]] [--reset]
+ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
+                   [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
+                   [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
+                   [--threshold [THRESHOLD]] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
+                   [--snapshot SNAPSHOT] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
 ```
 
 ## 선택적 매개 변수
 ```
--h, --help              도움말 페이지를 표시합니다.
---version               버전 정보를 표시합니다
--d, --display [DISPLAY] 처리 상태 표시 모드를 설정합니다. (quiet|simple|fluent|all)
---watch [WATCH]         감시할 디렉터리를 설정합니다.
---convert [CONVERT]     변환 매개 변수를 설정합니다.
---exist [EXIST]         파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
---threshold [THRESHOLD] 디스크 공간 부족 시 중지 임계값(%)을 설정합니다. (비활성화: -, 기본값: 10, 3-30)
---rpcid [RPCID]         JSON-RPC 서버 ID를 설정합니다 (기본값: 70)
---rpcport [RPCPORT]     JSON-RPC 서버 포트를 설정합니다 (기본값: 65000, 49152-65300)
---snapshot SNAPSHOT     상태 변경 시 스냅샷을 JSON 파일로 저장합니다
---startup [STARTUP]     시작 방법을 설정합니다 (normal|fast)
---settings [SETTINGS]   설정 저장 시 동작을 설정합니다 (default|skip|quit)
---reset                 모든 설정을 초기화합니다
+-h, --help                도움말 페이지를 표시합니다
+--version                 버전 정보를 표시합니다
+-d, --display [DISPLAY]   처리 상태 표시 모드를 설정합니다 (quiet|simple|fluent|all)
+--work [WORK]             작업 디렉터리를 설정합니다
+--work-user [WORK_USER]   작업 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
+--work-pass [WORK_PASS]   작업 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
+--watch [WATCH]           감시 디렉터리를 설정합니다.
+--watch-user [WATCH_USER] 감시 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
+--watch-pass [WATCH_PASS] 감시 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
+--convert [CONVERT]       변환 매개 변수를 설정합니다
+--exist [EXIST]           파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
+--threshold [THRESHOLD]   디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 10, 3-30)
+--rpcid [RPCID]           JSON-RPC 서버 ID를 설정합니다 (기본값: 70)
+--rpcport [RPCPORT]       JSON-RPC 서버 포트를 설정합니다 (기본값: 65000, 49152-65300)
+--snapshot SNAPSHOT       상태 변경 시 스냅샷을 JSON 파일로 저장합니다
+--startup [STARTUP]       시작 방법을 설정합니다 (normal|fast)
+--settings [SETTINGS]     설정 저장 시 동작을 설정합니다 (default|skip|quit)
+--reset                   모든 설정을 초기화합니다
 ```
 
 ## 사용 예시
@@ -42,8 +48,21 @@ ChzzkLiveFinalizer --watch out
 ## 설명
 Chzzk Live Finalizer는 Chzzk Live Downloader가 직접 최종 처리를 진행하는 대신, 별도 프로세스에서 순차적으로 최종 처리를 진행하도록 설계된 도구입니다. Chzzk Live Finalizer를 사용하면 라이브 스트림이 짧은 간격으로 방송되더라도 영향 없이 다운로드할 수 있도록 도와 줍니다.
 
-## 감시할 디렉터리 설정
-Chzzk Live Finalizer는 스트림 파일이 저장되는 디렉터리를 감시하다가, 파일이 새로 추가되면 자동으로 최종 변환을 진행합니다. 다음 명령어를 사용하면 감시할 디렉터리를 지정할 수 있습니다.
+## 작업 디렉터리 설정
+올바르게 작동하는데 필요한 파일을 저장할 디렉터리를 지정하려면 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkLiveFinalizer --work work
+```
+
+이 선택 사항을 기본값으로 되돌리려면 디렉터리 없이 `--work`만 사용하세요.
+
+```powershell
+ChzzkLiveFinalizer --work
+```
+
+## 감시 디렉터리 설정
+Chzzk Live Finalizer는 스트림 파일이 저장되는 디렉터리를 감시하다가, 파일이 새로 추가되면 자동으로 최종 변환을 진행합니다. 다음 명령어를 사용하면 감시 디렉터리를 지정할 수 있습니다.
 
 ```powershell
 ChzzkLiveFinalizer --watch out
@@ -53,6 +72,40 @@ ChzzkLiveFinalizer --watch out
 
 ```powershell
 ChzzkLiveFinalizer --watch
+```
+
+## 디렉터리 지정 방법
+디렉터리는 다음과 같이 여러 가지 방법으로 지정할 수 있습니다.
+
+```powershell
+ChzzkLiveFinalizer --work work
+```
+
+실행 파일이 있는 디렉터리의 하위 디렉터리인 `work`를 작업 디렉터리로 지정합니다. 해당 디렉터리가 존재하지 않으면 새로 생성됩니다.
+
+```powershell
+ChzzkLiveFinalizer --watch \Users\Username\Documents\chzzk
+```
+
+현재 드라이브의 `C:\Users\Username\Documents\chzzk`을 감시 디렉터리로 지정합니다. 해당 디렉터리가 존재하지 않으면 새로 생성됩니다.
+
+```powershell
+ChzzkLiveFinalizer --watch C:\Users\Username\Documents\chzzk
+```
+
+물론 위와 같이 직접 드라이브(예: `C:`)를 지정할 수도 있습니다.
+
+```powershell
+ChzzkLiveFinalizer --watch \\192.168.0.1\chzzk
+```
+
+UNC 경로 기반인 `\\192.168.0.1\chzzk\chzzk` 네트워크 저장 공간을 감시 디렉터리로 지정합니다. 해당 디렉터리가 존재하지 않으면 새로 생성됩니다.
+
+네트워크 저장 공간에 파일을 저장할 때는 사용자 이름과 비밀번호를 입력해야 할 수 있습니다. 이 정보는 다음과 같이 지정할 수 있습니다.
+
+```powershell
+ChzzkLiveFinalizer --work-user username --work-pass password
+ChzzkLiveFinalizer --watch-user username --watch-pass password
 ```
 
 ### 최종 처리 인코딩 매개 변수 설정

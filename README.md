@@ -14,7 +14,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.3.1, December 12, 2024 00:00:00
+Version 1.4.0, December 20, 2024 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -22,12 +22,14 @@ Version 1.3.1, December 12, 2024 00:00:00
 
 ### Usage
 ```powershell
-ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a] [--authaut AUTHAUT]
-                    [--authses AUTHSES] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]]
-                    [--once ONCE] [--stream [STREAM]] [--final [FINAL]] [--custom [CUSTOM]]
-                    [--offset OFFSET] [--duration DURATION] [--detect [DETECT]] [--name [NAME]]
-                    [--work [WORK]] [--out [OUT]] [--temp [TEMP]] [--category [CATEGORY]]
-                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcbaseport [RPCBASEPORT]]
+ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
+                    [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--once ONCE]
+                    [--stream [STREAM]] [--final [FINAL]] [--custom [CUSTOM]] [--offset OFFSET]
+                    [--duration DURATION] [--detect [DETECT]] [--name [NAME]] [--work [WORK]]
+                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
+                    [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
+                    [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
+                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcbaseport [RPCPORT]]
                     [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
                     [--settings [SETTINGS]] [--reset]
 ```
@@ -54,8 +56,14 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a] [--authaut AUTHAUT]
 --detect [DETECT]       Set detection interval (default: 60, 1-600)
 --name [NAME]           Set output filename format
 --work [WORK]           Set working directory
+--work-user [WORK_USER] Set username to use when working directory is on remote network
+--work-pass [WORK_PASS] Set password to use when working directory is on remote network
 --out [OUT]             Set output directory
+--out-user [OUT_USER]   Set username to use when output directory is on remote network
+--out-pass [OUT_PASS]   Set password to use when output directory is on remote network
 --temp [TEMP]           Set temporary directory
+--temp-user [TEMP_USER] Set username to use when temporary directory is on remote network
+--temp-pass [TEMP_PASS] Set password to use when temporary directory is on remote network
 --category [CATEGORY]   Set output categorize method (none|streamer)
 --exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
@@ -81,31 +89,37 @@ Finalizer for Chzzk live streams
 </div>
 
 ## Version
-Version 1.3.1, December 12, 2024 00:00:00
+Version 1.4.0, December 20, 2024 00:00:00
 
 ### Usage
 ```powershell
-ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--watch [WATCH]] [--convert [CONVERT]]
-                   [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
-                   [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--startup [STARTUP]]
-                   [--settings [SETTINGS]] [--reset]
+ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
+                   [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
+                   [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
+                   [--threshold [THRESHOLD]] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
+                   [--snapshot SNAPSHOT] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
 ```
 
 ### Options
 ```
--h, --help              Show this help message
---version               Show version information
--d, --display [DISPLAY] Set process status display mode (quiet|simple|fluent|all)
---watch [WATCH]         Set watching directory
---convert [CONVERT]     Set convert parameters
---exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
---rpcid [RPCID]         Set ID of JSON-RPC server (default: 70)
---rpcport [RPCPORT]     Set port of JSON-RPC server (default: 65000, 49152-65300)
---snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
---startup [STARTUP]     Set startup method (normal|fast)
---settings [SETTINGS]   Set action when saving settings (default|skip|quit)
---reset                 Reset all settings
+-h, --help                Show this help message
+--version                 Show version information
+-d, --display [DISPLAY]   Set process status display mode (quiet|simple|fluent|all)
+--work [WORK]             Set working directory
+--work-user [WORK_USER]   Set username to use when working directory is on remote network
+--work-pass [WORK_PASS]   Set password to use when working directory is on remote network
+--watch [WATCH]           Set watching directory
+--watch-user [WATCH_USER] Set username to use when watching directory is on remote network
+--watch-pass [WATCH_PASS] Set password to use when watching directory is on remote network
+--convert [CONVERT]       Set convert parameters
+--exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
+--threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
+--rpcid [RPCID]           Set ID of JSON-RPC server (default: 70)
+--rpcport [RPCPORT]       Set port of JSON-RPC server (default: 65000, 49152-65300)
+--snapshot SNAPSHOT       Save snapshot to a JSON file whenever changing status
+--startup [STARTUP]       Set startup method (normal|fast)
+--settings [SETTINGS]     Set action when saving settings (default|skip|quit)
+--reset                   Reset all settings
 ```
 
 ### Example
@@ -122,13 +136,15 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.3.1, December 12, 2024 00:00:00
+Version 1.4.0, December 20, 2024 00:00:00
 
 ### Usage
 ```powershell
 ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
                      [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--name [NAME]]
-                     [--work [WORK]] [--out [OUT]] [--temp [TEMP]] [--category [CATEGORY]]
+                     [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
+                     [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
+                     [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
                      [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
                      [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
                      [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
@@ -154,8 +170,14 @@ video                   Video number or URL to download
 -d, --display [DISPLAY] Set download status display mode (quiet|simple|fluent|all)
 --name [NAME]           Set output filename format
 --work [WORK]           Set working directory
+--work-user [WORK_USER] Set username to use when working directory is on remote network
+--work-pass [WORK_PASS] Set password to use when working directory is on remote network
 --out [OUT]             Set output directory
+--out-user [OUT_USER]   Set username to use when output directory is on remote network
+--out-pass [OUT_PASS]   Set password to use when output directory is on remote network
 --temp [TEMP]           Set temporary directory
+--temp-user [TEMP_USER] Set username to use when temporary directory is on remote network
+--temp-pass [TEMP_PASS] Set password to use when temporary directory is on remote network
 --category [CATEGORY]   Set output categorize method (none|streamer)
 --exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
@@ -183,16 +205,18 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.3.1, December 12, 2024 00:00:00
+Version 1.4.0, December 20, 2024 00:00:00
 
 ### Usage
 ```powershell
 ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
                     [--adult [ADULT]] [-y] [-d [DISPLAY]] [--name [NAME]] [--work [WORK]]
-                    [--out [OUT]] [--temp [TEMP]] [--category [CATEGORY]] [--exist [EXIST]]
-                    [--threshold [THRESHOLD]] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                    [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
+                    [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
+                    [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
+                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
+                    [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
+                    [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
                     [clip]
 ```
 
@@ -214,8 +238,14 @@ clip                    Clip UID or URL to download
 -d, --display [DISPLAY] Set download status display mode (quiet|simple|fluent|all)
 --name [NAME]           Set output filename format
 --work [WORK]           Set working directory
+--work-user [WORK_USER] Set username to use when working directory is on remote network
+--work-pass [WORK_PASS] Set password to use when working directory is on remote network
 --out [OUT]             Set output directory
+--out-user [OUT_USER]   Set username to use when output directory is on remote network
+--out-pass [OUT_PASS]   Set password to use when output directory is on remote network
 --temp [TEMP]           Set temporary directory
+--temp-user [TEMP_USER] Set username to use when temporary directory is on remote network
+--temp-pass [TEMP_PASS] Set password to use when temporary directory is on remote network
 --category [CATEGORY]   Set output categorize method (none|streamer)
 --exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)

@@ -7,31 +7,37 @@ Chzzkのストリーム用の最終処理ツール
 </div>
 
 ## バージョン
-Version 1.3.1, December 12, 2024 00:00:00
+Version 1.4.0, December 20, 2024 00:00:00
 
 ## 使用法
 ```powershell
-ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--watch [WATCH]] [--convert [CONVERT]]
-                   [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
-                   [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--startup [STARTUP]]
-                   [--settings [SETTINGS]] [--reset]
+ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
+                   [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
+                   [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
+                   [--threshold [THRESHOLD]] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
+                   [--snapshot SNAPSHOT] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
 ```
 
 ## オプション
 ```
--h, --help              このヘルプメッセージを表示
---version               バージョン情報を表示
--d, --display [DISPLAY] プロセスステータス表示モードを設定 (quiet|simple|fluent|all)
---watch [WATCH]         監視ディレクトリを設定
---convert [CONVERT]     変換パラメータを設定
---exist [EXIST]         対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
---threshold [THRESHOLD] 空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 10, 3-30)
---rpcid [RPCID]         JSON-RPCサーバーのIDを設定 （デフォルト: 70）
---rpcport [RPCPORT]     JSON-RPCサーバーのポートを設定 （デフォルト: 65000, 49152-65300）
---snapshot SNAPSHOT     ステータスが変更されるたびにJSONファイルにスナップショットを保存
---startup [STARTUP]     起動方法を設定（normal|fast）
---settings [SETTINGS]   設定保存時の動作を設定（default|skip|quit）
---reset                 すべての設定をリセット
+-h, --help               このヘルプメッセージを表示
+--version                バージョン情報を表示
+-d, --display [DISPLAY]  プロセスステータス表示モードを設定 (quiet|simple|fluent|all)
+--work [WORK]            作業ディレクトリを設定
+--work-user [WORK_USER]  作業ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
+--work-pass [WORK_PASS]  作業ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
+--watch [WATCH]          監視ディレクトリを設定
+--watch-user [WORK_USER] 監視ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
+--watch-pass [WORK_PASS] 監視ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
+--convert [CONVERT]      変換パラメータを設定
+--exist [EXIST]          対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
+--threshold [THRESHOLD]  空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 10, 3-30)
+--rpcid [RPCID]          JSON-RPCサーバーのIDを設定 （デフォルト: 70）
+--rpcport [RPCPORT]      JSON-RPCサーバーのポートを設定 （デフォルト: 65000, 49152-65300）
+--snapshot SNAPSHOT      ステータスが変更されるたびにJSONファイルにスナップショットを保存
+--startup [STARTUP]      起動方法を設定（normal|fast）
+--settings [SETTINGS]    設定保存時の動作を設定（default|skip|quit）
+--reset                  すべての設定をリセット
 ```
 
 ## 使用例
@@ -41,6 +47,19 @@ ChzzkLiveFinalizer --watch out
 
 ## 説明
 Chzzk Live Finalizerは、Chzzk Live Downloaderが直接最終処理を行う代わりに、別のプロセスで順次最終処理を実行するよう設計されたツールです。Chzzk Live Finalizerを使用することで、ライブストリームが短い間隔で放送される場合でも、影響を受けずにダウンロードできるように支援します。
+
+## 作業ディレクトリの設定
+作業に必要なファイルが保存されるディレクトリを指定するには、以下のコマンドを使用します。
+
+```powershell
+ChzzkLiveFinalizer --work work
+```
+
+このオプションをデフォルトに設定したい場合は、以下のように`--work`のみを使用してください。
+
+```powershell
+ChzzkLiveFinalizer --work
+```
 
 ## 監視ディレクトリの設定
 Chzzk Live Finalizerはストリームファイルが保存されるディレクトリを監視し、新しいファイルが追加されると自動的に最終変換を実行します。監視するディレクトリを指定するには、次のコマンドを使用してください。
@@ -53,6 +72,40 @@ ChzzkLiveFinalizer --watch out
 
 ```powershell
 ChzzkLiveFinalizer --watch
+```
+
+## ディレクトリ指定方法
+ディレクトリは次のように指定できます。
+
+```powershell
+ChzzkLiveFinalizer --work work
+```
+
+実行ファイルが存在するディレクトリのサブディレクトリである`work`ディレクトリを作業ディレクトリとして指定します。このディレクトリが存在しない場合は、新しく作成されます。
+
+```powershell
+ChzzkLiveFinalizer --watch \Users\Username\Documents\chzzk
+```
+
+現在のドライブ上の`\Users\Username\Documents\chzzk`ディレクトリを監視ディレクトリとして指定します。このディレクトリが存在しない場合は、新しく作成されます。
+
+```powershell
+ChzzkLiveFinalizer --watch C:\Users\Username\Documents\chzzk
+```
+
+もちろん、上記のようにドライブ(例:`C:`)を直接指定することもできます。
+
+```powershell
+ChzzkLiveFinalizer --watch \\192.168.0.1\chzzk
+```
+
+`\\192.168.0.1\chzzk`のUNCパスを基盤としたネットワークストレージのディレクトリを監視ディレクトリとして指定します。このディレクトリが存在しない場合は、新しく作成されます。
+
+ネットワークストレージにファイルを保存する際、接続するためにユーザー名とパスワードを入力する必要があります。この情報は次のように指定できます。
+
+```powershell
+ChzzkLiveFinalizer --work-user username --work-pass password
+ChzzkLiveFinalizer --watch-user username --watch-pass password
 ```
 
 ### 最終処理の変換パラメータの設定

@@ -7,16 +7,18 @@ Chzzkのクリップ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.3.1, December 12, 2024 00:00:00
+Version 1.4.0, December 20, 2024 00:00:00
 
 ## 使用法
 ```powershell
 ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
                     [--adult [ADULT]] [-y] [-d [DISPLAY]] [--name [NAME]] [--work [WORK]]
-                    [--out [OUT]] [--temp [TEMP]] [--category [CATEGORY]] [--exist [EXIST]]
-                    [--threshold [THRESHOLD]] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                    [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
+                    [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
+                    [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
+                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
+                    [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
+                    [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
                     [clip]
 ```
 
@@ -38,8 +40,14 @@ clip                    ダウンロードするクリップUIDまたはURL
 -d, --display [DISPLAY] ダウンロードステータス表示モードを設定（quiet|simple|fluent|all）
 --name [NAME]           保存ファイル名の形式を設定
 --work [WORK]           作業ディレクトリを設定
+--work-user [WORK_USER] 作業ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
+--work-pass [WORK_PASS] 作業ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
 --out [OUT]             保存ディレクトリを設定
+--out-user [WORK_USER]  保存ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
+--out-pass [WORK_PASS]  保存ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
 --temp [TEMP]           一時ディレクトリを設定
+--temp-user [WORK_USER] 一時ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
+--temp-pass [WORK_PASS] 一時ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
 --category [CATEGORY]   保存時のカテゴリ分け方法を設定 (none|streamer)
 --exist [EXIST]         対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
 --threshold [THRESHOLD] 空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 10, 3-30)
@@ -231,6 +239,41 @@ ChzzkClipDownloader clip_uid または url --temp temp
 
 ```powershell
 ChzzkClipDownloader clip_uid または url --temp
+```
+
+## ディレクトリ指定方法
+ディレクトリは次のように指定できます。
+
+```powershell
+ChzzkClipDownloader clip_uid or url --temp temp
+```
+
+実行ファイルが存在するディレクトリのサブディレクトリである`temp`ディレクトリを一時ディレクトリとして指定します。このディレクトリが存在しない場合は、新しく作成されます。
+
+```powershell
+ChzzkClipDownloader clip_uid or url --work \Users\Username\Documents\chzzk_work
+```
+
+現在のドライブ上の`\Users\Username\Documents\chzzk_work`ディレクトリを作業ディレクトリとして指定します。このディレクトリが存在しない場合は、新しく作成されます。
+
+```powershell
+ChzzkClipDownloader clip_uid or url --work C:\Users\Username\Documents\chzzk_work
+```
+
+もちろん、上記のようにドライブ(例:`C:`)を直接指定することもできます。
+
+```powershell
+ChzzkClipDownloader clip_uid or url --out \\192.168.0.1\chzzk\out
+```
+
+`\\192.168.0.1\chzzk\out`のUNCパスを基盤としたネットワークストレージのディレクトリを保存ディレクトリとして指定します。このディレクトリが存在しない場合は、新しく作成されます。
+
+ネットワークストレージにファイルを保存する際、接続するためにユーザー名とパスワードを入力する必要があります。この情報は次のように指定できます。
+
+```powershell
+ChzzkClipDownloader clip_uid or url --work-user username --work-pass password
+ChzzkClipDownloader clip_uid or url --out-user username --out-pass password
+ChzzkClipDownloader clip_uid or url --temp-user username --temp-pass password
 ```
 
 ## 対象ファイルが既に存在する場合の保存方法の設定

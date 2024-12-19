@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', 'Nanum Gothic', 'KoPubDotum', 'Segoe UI', Tahoma, sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Open Sans KR Bold', 'NanumSquare Bold', 'Source Han Sans KR Medium', 'Segoe UI', Tahoma, sans-serif;
+}
+
+pre, code {
+	font-family: 'D2Coding', 'Noto Sans Mono CJK KR', 'NanumGothic Coding', 'Courier New', Courier, monospace;
+}
+
+img {
+    padding: 0 10% 0 10%;
+    min-width: 60%;
+    max-width: 80%;
+}

@@ -7,16 +7,18 @@
 </div>
 
 ## 버전
-Version 1.3.1, December 12, 2024 00:00:00
+Version 1.4.0, December 20, 2024 00:00:00
 
 ## 사용법
 ```powershell
 ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
                     [--adult [ADULT]] [-y] [-d [DISPLAY]] [--name [NAME]] [--work [WORK]]
-                    [--out [OUT]] [--temp [TEMP]] [--category [CATEGORY]] [--exist [EXIST]]
-                    [--threshold [THRESHOLD]] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                    [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
+                    [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
+                    [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
+                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
+                    [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
+                    [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
                     [clip]
 ```
 
@@ -37,12 +39,18 @@ clip                    다운로드할 클립 UID 또는 URL
 -y, --yes               모든 확인 값을 자동으로 '예'로 설정합니다
 -d, --display [DISPLAY] 다운로드 상태 표시 모드를 설정합니다 (quiet|simple|fluent|all)
 --name [NAME]           저장되는 파일 이름 형식을 설정합니다
---work [WORK]           작업 디렉토리를 설정합니다
---out [OUT]             저장 디렉토리를 설정합니다
---temp [TEMP]           임시 디렉토리를 설정합니다
+--work [WORK]           작업 디렉터리를 설정합니다
+--work-user [WORK_USER] 작업 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
+--work-pass [WORK_PASS] 작업 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
+--out [OUT]             저장 디렉터리를 설정합니다
+--out-user [WORK_USER]  저장 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
+--out-pass [WORK_PASS]  저장 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
+--temp [TEMP]           임시 디렉터리를 설정합니다
+--temp-user [WORK_USER] 임시 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
+--temp-pass [WORK_PASS] 임시 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
 --category [CATEGORY]   저장 시 분류 방법을 설정합니다 (none|streamer)
 --exist [EXIST]         파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
---threshold [THRESHOLD] 디스크 공간 부족 시 중지 임계값(%)을 설정합니다. (비활성화: -, 기본값: 10, 3-30)
+--threshold [THRESHOLD] 디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 10, 3-30)
 --rpcid [RPCID]         JSON-RPC 서버 ID를 설정합니다 (기본값: 50)
 --rpcport [RPCPORT]     JSON-RPC 서버 포트를 설정합니다 (기본값: 64000, 49152-65300)
 --snapshot SNAPSHOT     상태 변경 시 스냅샷을 JSON 파일로 저장합니다
@@ -231,6 +239,41 @@ ChzzkClipDownloader clip_uid 또는 url --temp temp
 
 ```powershell
 ChzzkClipDownloader clip_uid 또는 url --temp
+```
+
+## 디렉터리 지정 방법
+디렉터리는 다음과 같이 여러 가지 방법으로 지정할 수 있습니다.
+
+```powershell
+ChzzkClipDownloader clip_uid 또는 url --temp temp
+```
+
+실행 파일이 있는 디렉터리의 하위 디렉터리인 `temp`를 임시 디렉터리로 지정합니다. 해당 디렉터리가 존재하지 않으면 새로 생성됩니다.
+
+```powershell
+ChzzkClipDownloader clip_uid 또는 url --work \Users\Username\Documents\chzzk_work
+```
+
+현재 드라이브의 `\Users\Username\Documents\chzzk_work`를 작업 디렉터리로 지정합니다. 해당 디렉터리가 존재하지 않으면 새로 생성됩니다.
+
+```powershell
+ChzzkClipDownloader clip_uid 또는 url --work C:\Users\Username\Documents\chzzk_work
+```
+
+물론 위와 같이 직접 드라이브(예: `C:`)를 지정할 수도 있습니다.
+
+```powershell
+ChzzkClipDownloader clip_uid 또는 url --out \\192.168.0.1\chzzk\out
+```
+
+UNC 경로 기반인 `\\192.168.0.1\chzzk\out` 네트워크 저장 공간을 출력 디렉터리로 지정합니다. 해당 디렉터리가 존재하지 않으면 새로 생성됩니다.
+
+네트워크 저장 공간에 파일을 저장할 때는 사용자 이름과 비밀번호를 입력해야 할 수 있습니다. 이 정보는 다음과 같이 지정할 수 있습니다.
+
+```powershell
+ChzzkClipDownloader clip_uid 또는 url --work-user username --work-pass password
+ChzzkClipDownloader clip_uid 또는 url --out-user username --out-pass password
+ChzzkClipDownloader clip_uid 또는 url --temp-user username --temp-pass password
 ```
 
 ## 파일이 이미 존재할 때 파일 저장 방법 설정

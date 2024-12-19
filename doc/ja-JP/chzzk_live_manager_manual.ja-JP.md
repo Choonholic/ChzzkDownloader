@@ -7,7 +7,7 @@ Chzzk Live Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.3.1, December 12, 2024 00:00:00
+Version 1.4.0, December 20, 2024 00:00:00
 
 ## 必要条件
 Chzzk Live Managerは、Chzzk Live DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Live Downloaderもインストールされている必要があります。
@@ -338,6 +338,13 @@ Chzzk認証資格情報の取得方法については、`how_to_get_chzzk_creden
 * **保存ディレクトリ** - ダウンロードしたストリームファイルが保存されるディレクトリを指定します。
 * **一時ディレクトリ** - 一時ファイルが作成されるディレクトリを指定します。
 * **カテゴリ分け方法** - ダウンロードしたストリームファイルが保存されるディレクトリのカテゴリ分け方法を設定します。
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_ja-JP/lman_settings_network.png' />
+<p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
+</div>
+
+`ネットワーク...`ボタンをクリックして、ネットワークストレージにアクセスするための情報を入力できます。
 
 ### バージョン情報
 

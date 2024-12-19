@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.3.1, December 12, 2024 00:00:00
+Version 1.4.0, December 20, 2024 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -15,12 +15,14 @@ Version 1.3.1, December 12, 2024 00:00:00
 
 ## Usage
 ```powershell
-ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a] [--authaut AUTHAUT]
-                    [--authses AUTHSES] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]]
-                    [--once ONCE] [--stream [STREAM]] [--final [FINAL]] [--custom [CUSTOM]]
-                    [--offset OFFSET] [--duration DURATION] [--detect [DETECT]] [--name [NAME]]
-                    [--work [WORK]] [--out [OUT]] [--temp [TEMP]] [--category [CATEGORY]]
-                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcbaseport [RPCBASEPORT]]
+ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
+                    [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--once ONCE]
+                    [--stream [STREAM]] [--final [FINAL]] [--custom [CUSTOM]] [--offset OFFSET]
+                    [--duration DURATION] [--detect [DETECT]] [--name [NAME]] [--work [WORK]]
+                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
+                    [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
+                    [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
+                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcbaseport [RPCPORT]]
                     [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
                     [--settings [SETTINGS]] [--reset]
 ```
@@ -47,8 +49,14 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a] [--authaut AUTHAUT]
 --detect [DETECT]       Set detection interval (default: 60, 1-600)
 --name [NAME]           Set output filename format
 --work [WORK]           Set working directory
+--work-user [WORK_USER] Set username to use when working directory is on remote network
+--work-pass [WORK_PASS] Set password to use when working directory is on remote network
 --out [OUT]             Set output directory
+--out-user [OUT_USER]   Set username to use when output directory is on remote network
+--out-pass [OUT_PASS]   Set password to use when output directory is on remote network
 --temp [TEMP]           Set temporary directory
+--temp-user [TEMP_USER] Set username to use when temporary directory is on remote network
+--temp-pass [TEMP_PASS] Set password to use when temporary directory is on remote network
 --category [CATEGORY]   Set output categorize method (none|streamer)
 --exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
@@ -396,6 +404,41 @@ If you want to set this option to default, just use `--temp` without directory l
 
 ```powershell
 ChzzkLiveDownloader --temp
+```
+
+## Directory Specification
+You can specify directories in several ways as follows.
+
+```powershell
+ChzzkLiveDownloader --temp temp
+```
+
+Specifies the `temp` directory under the current directory where the executable is located as the temporary directory. If the directory does not exist, it will be created.
+
+```powershell
+ChzzkLiveDownloader --work \Users\Username\Documents\chzzk_work
+```
+
+Specifies the `\Users\Username\Documents\chzzk_work` directory on the current drive as the working directory. If the directory does not exist, it will be created.
+
+```powershell
+ChzzkLiveDownloader --work C:\Users\Username\Documents\chzzk_work
+```
+
+Of course, you can specify the drive (e.g. `C:`) directly as shown above.
+
+```powershell
+ChzzkLiveDownloader --out \\192.168.0.1\chzzk\out
+```
+
+Specifies the `\\192.168.0.1\chzzk\out` directory on a network storage based on a UNC path as the output directory. If the directory does not exist, it will be created.
+
+When saving files to network storage, you may need to enter a username and password to connect to the network storage. This information can be specified as follows.
+
+```powershell
+ChzzkLiveDownloader --work-user username --work-pass password
+ChzzkLiveDownloader --out-user username --out-pass password
+ChzzkLiveDownloader --temp-user username --temp-pass password
 ```
 
 ## Set how to save when the target file already exists

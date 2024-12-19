@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.3.1, December 12, 2024 00:00:00
+Version 1.4.0, December 20, 2024 00:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, Chzzk Live Downloader must be installed as well.
@@ -339,6 +339,13 @@ For more information on how to get Chzzk authorized credential, please refer to 
 * **Output Directory** - Specifies the directory where downloaded stream files are saved.
 * **Temporary Directory** - Specifies the directory where temporary files are created.
 * **Categorize Method** - Sets the categorization method for directories where downloaded stream files are saved.
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_en-US/lman_settings_network.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+You can click the `Network...` button to enter the information required to access the network storage.
 
 ### About
 

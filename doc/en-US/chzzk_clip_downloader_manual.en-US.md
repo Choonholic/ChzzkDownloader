@@ -7,16 +7,18 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.3.1, December 12, 2024 00:00:00
+Version 1.4.0, December 20, 2024 00:00:00
 
 ## Usage
 ```powershell
 ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
                     [--adult [ADULT]] [-y] [-d [DISPLAY]] [--name [NAME]] [--work [WORK]]
-                    [--out [OUT]] [--temp [TEMP]] [--category [CATEGORY]] [--exist [EXIST]]
-                    [--threshold [THRESHOLD]] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                    [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
+                    [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
+                    [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
+                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
+                    [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
+                    [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
                     [clip]
 ```
 
@@ -38,8 +40,14 @@ clip                    Clip UID or URL to download
 -d, --display [DISPLAY] Set download status display mode (quiet|simple|fluent|all)
 --name [NAME]           Set output filename format
 --work [WORK]           Set working directory
+--work-user [WORK_USER] Set username to use when working directory is on remote network
+--work-pass [WORK_PASS] Set password to use when working directory is on remote network
 --out [OUT]             Set output directory
+--out-user [OUT_USER]   Set username to use when output directory is on remote network
+--out-pass [OUT_PASS]   Set password to use when output directory is on remote network
 --temp [TEMP]           Set temporary directory
+--temp-user [TEMP_USER] Set username to use when temporary directory is on remote network
+--temp-pass [TEMP_PASS] Set password to use when temporary directory is on remote network
 --category [CATEGORY]   Set output categorize method (none|streamer)
 --exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
@@ -231,6 +239,41 @@ If you want to set this option to default, just use `--temp` without like below.
 
 ```powershell
 ChzzkClipDownloader clip_uid or url --temp
+```
+
+## Directory Specification
+You can specify directories in several ways as follows.
+
+```powershell
+ChzzkClipDownloader clip_uid or url --temp temp
+```
+
+Specifies the `temp` directory under the current directory where the executable is located as the temporary directory. If the directory does not exist, it will be created.
+
+```powershell
+ChzzkClipDownloader clip_uid or url --work \Users\Username\Documents\chzzk_work
+```
+
+Specifies the `\Users\Username\Documents\chzzk_work` directory on current drive as the working directory. If the directory does not exist, it will be created.
+
+```powershell
+ChzzkClipDownloader clip_uid or url --work C:\Users\Username\Documents\chzzk_work
+```
+
+Of course, you can specify the drive (e.g. `C:`) directly as shown above.
+
+```powershell
+ChzzkClipDownloader clip_uid or url --out \\192.168.0.1\chzzk\out
+```
+
+Specifies the `\\192.168.0.1\chzzk\out` directory on a network storage based on a UNC path as the output directory. If the directory does not exist, it will be created.
+
+When saving files to network storage, you may need to enter a username and password to connect to the network storage. This information can be specified as follows.
+
+```powershell
+ChzzkClipDownloader clip_uid or url --work-user username --work-pass password
+ChzzkClipDownloader clip_uid or url --out-user username --out-pass password
+ChzzkClipDownloader clip_uid or url --temp-user username --temp-pass password
 ```
 
 ## Set how to save when the target file already exists
