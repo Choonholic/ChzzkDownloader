@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.4.0, December 20, 2024 00:00:00
+Version 1.4.1, December 20, 2024 10:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, Chzzk Live Downloader must be installed as well.

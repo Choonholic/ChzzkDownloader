@@ -7,7 +7,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.4.0, December 20, 2024 00:00:00
+Version 1.4.1, December 20, 2024 10:00:00
 
 ## Usage
 ```powershell
