@@ -6,6 +6,10 @@
 * Taejin, Yoon ([@taecongs](https://instagram.com/taecongs)) - most talented announcer, entertainer.
 * Orbit ([@orbit_scientist](https://instagram.com/orbit_scientist)) - most clever one in the world.
 
+## Official Chzzk Developer Links
+
+* [Chzzk Developers Center Beta](https://developers.chzzk.naver.com/) - Official Chzzk APIs.
+
 ## Tools used by Chzzk Downloader Suite
 
 ### Build and Development Tools
