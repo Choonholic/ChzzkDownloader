@@ -14,7 +14,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.4.1, December 20, 2024 10:00:00
+Version 1.5.0, December 24, 2024 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -77,7 +77,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a] [--authaut AUTHAUT]
 
 ### Example
 ```powershell
-ChzzkLiveDownloader -i 2 --thumb --detect 30 --work work --out out --temp temp
+ChzzkLiveDownloader -i 2 --thumb save --detect 30 --work work --out out --temp temp
 ```
 
 ## Chzzk Live Finalizer
@@ -89,7 +89,7 @@ Finalizer for Chzzk live streams
 </div>
 
 ## Version
-Version 1.4.1, December 20, 2024 10:00:00
+Version 1.5.0, December 24, 2024 00:00:00
 
 ### Usage
 ```powershell
@@ -124,7 +124,7 @@ ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user 
 
 ### Example
 ```powershell
-ChzzkLiveFinalizer --watch out
+ChzzkLiveFinalizer --work work --watch out
 ```
 
 ## Chzzk Video Downloader
@@ -136,18 +136,19 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.4.1, December 20, 2024 10:00:00
+Version 1.5.0, December 24, 2024 00:00:00
 
 ### Usage
 ```powershell
 ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
-                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--name [NAME]]
-                     [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
-                     [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
-                     [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
-                     [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
-                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
-                     [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--info INFO]
+                     [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
+                     [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
+                     [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
+                     [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
+                     [--threshold [THRESHOLD]] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
+                     [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--thumb [THUMB]]
+                     [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
                      [video]
 ```
 
@@ -168,6 +169,7 @@ video                   Video number or URL to download
 -y, --yes               Set any confirmation values to 'yes' automatically
 -q, --quality [QUALITY] Set target quality to download (e.g. 1080p)
 -d, --display [DISPLAY] Set download status display mode (quiet|simple|fluent|all)
+--info INFO             Retrieve video information without downloading
 --name [NAME]           Set output filename format
 --work [WORK]           Set working directory
 --work-user [WORK_USER] Set username to use when working directory is on remote network
@@ -193,7 +195,7 @@ video                   Video number or URL to download
 
 ### Example
 ```powershell
-ChzzkVideoDownloader 1602969 --thumb --work work --out out --temp temp
+ChzzkVideoDownloader 1602969 --thumb save --work work --out out --temp temp
 ```
 
 ## Chzzk Clip Downloader
@@ -205,14 +207,14 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.4.1, December 20, 2024 10:00:00
+Version 1.5.0, December 24, 2024 00:00:00
 
 ### Usage
 ```powershell
 ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
-                    [--adult [ADULT]] [-y] [-d [DISPLAY]] [--name [NAME]] [--work [WORK]]
-                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
-                    [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
+                    [--adult [ADULT]] [-y] [-d [DISPLAY]] [--info INFO] [--name [NAME]]
+                    [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
+                    [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
                     [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
                     [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
@@ -236,6 +238,7 @@ clip                    Clip UID or URL to download
 --adult [ADULT]         Set the process method for adult contents when credentials are invalid (ask|skip)
 -y, --yes               Set any confirmation values to 'yes' automatically
 -d, --display [DISPLAY] Set download status display mode (quiet|simple|fluent|all)
+--info INFO             Retrieve clip information without downloading
 --name [NAME]           Set output filename format
 --work [WORK]           Set working directory
 --work-user [WORK_USER] Set username to use when working directory is on remote network
@@ -261,7 +264,7 @@ clip                    Clip UID or URL to download
 
 ### Example
 ```powershell
-ChzzkClipDownloader C46IcpG11p --thumb --work work --out out --temp temp
+ChzzkClipDownloader C46IcpG11p --thumb save --work work --out out --temp temp
 ```
 ## Changelogs
 Please kindly read [Release Notes](https://blog.choonholic.com/archives/3216).

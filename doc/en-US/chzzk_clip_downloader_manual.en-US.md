@@ -7,14 +7,14 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.4.1, December 20, 2024 10:00:00
+Version 1.5.0, December 24, 2024 00:00:00
 
 ## Usage
 ```powershell
 ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
-                    [--adult [ADULT]] [-y] [-d [DISPLAY]] [--name [NAME]] [--work [WORK]]
-                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
-                    [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
+                    [--adult [ADULT]] [-y] [-d [DISPLAY]] [--info INFO] [--name [NAME]]
+                    [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
+                    [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
                     [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
                     [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
@@ -38,6 +38,7 @@ clip                    Clip UID or URL to download
 --adult [ADULT]         Set the process method for adult contents when credentials are invalid (ask|skip)
 -y, --yes               Set any confirmation values to 'yes' automatically
 -d, --display [DISPLAY] Set download status display mode (quiet|simple|fluent|all)
+--info INFO             Retrieve clip information without downloading
 --name [NAME]           Set output filename format
 --work [WORK]           Set working directory
 --work-user [WORK_USER] Set username to use when working directory is on remote network
@@ -63,7 +64,7 @@ clip                    Clip UID or URL to download
 
 ## Example
 ```powershell
-ChzzkClipDownloader C46IcpG11p --thumb --work work --out out --temp temp
+ChzzkClipDownloader C46IcpG11p --thumb save --work work --out out --temp temp
 ```
 
 ## Setup Clips to Download

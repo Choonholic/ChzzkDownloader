@@ -7,7 +7,7 @@ Finalizer for Chzzk live streams
 </div>
 
 ## Version
-Version 1.4.1, December 20, 2024 10:00:00
+Version 1.5.0, December 24, 2024 00:00:00
 
 ## Usage
 ```powershell
@@ -42,7 +42,7 @@ ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user 
 
 ## Example
 ```powershell
-ChzzkLiveFinalizer --watch out
+ChzzkLiveFinalizer --work work --watch out
 ```
 
 ## Description

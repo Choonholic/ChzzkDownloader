@@ -7,7 +7,7 @@ Chzzkのストリーム用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.4.1, December 20, 2024 10:00:00
+Version 1.5.0, December 24, 2024 00:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのFFmpeg（FFmpeg 7.0またはそれ以上が必要）
@@ -70,7 +70,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a] [--authaut AUTHAUT]
 
 ### 使用例
 ```powershell
-ChzzkLiveDownloader -i 2 --thumb --detect 30 --work work --out out --temp temp
+ChzzkLiveDownloader -i 2 --thumb save --detect 30 --work work --out out --temp temp
 ```
 
 ## 初期設定

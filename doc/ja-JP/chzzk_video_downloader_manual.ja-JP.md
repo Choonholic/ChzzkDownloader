@@ -7,18 +7,19 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.4.1, December 20, 2024 10:00:00
+Version 1.5.0, December 24, 2024 00:00:00
 
 ## 使用法
 ```powershell
 ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
-                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--name [NAME]]
-                     [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
-                     [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
-                     [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
-                     [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
-                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
-                     [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--info INFO]
+                     [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
+                     [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
+                     [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
+                     [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
+                     [--threshold [THRESHOLD]] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
+                     [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--thumb [THUMB]]
+                     [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
                      [video]
 ```
 
@@ -39,6 +40,7 @@ video                   ダウンロードするビデオ番号またはURL
 -y, --yes               すべての確認値を自動的に「はい」に設定
 -q, --quality [QUALITY] ダウンロードする目標画質を設定（例: 1080p）
 -d, --display [DISPLAY] ダウンロードステータス表示モードを設定（quiet|simple|fluent|all）
+--info INFO             ダウンロードせずにビデオ情報を取得
 --name [NAME]           保存ファイル名の形式を設定
 --work [WORK]           作業ディレクトリを設定
 --work-user [WORK_USER] 作業ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
@@ -64,7 +66,7 @@ video                   ダウンロードするビデオ番号またはURL
 
 ### 使用例
 ```powershell
-ChzzkVideoDownloader 1602969 --thumb --work work --out out --temp temp
+ChzzkVideoDownloader 1602969 --thumb save --work work --out out --temp temp
 ```
 
 ## ダウンロードするビデオの設定

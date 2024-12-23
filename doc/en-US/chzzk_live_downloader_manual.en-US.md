@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.4.1, December 20, 2024 10:00:00
+Version 1.5.0, December 24, 2024 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -70,7 +70,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a] [--authaut AUTHAUT]
 
 ### Example
 ```powershell
-ChzzkLiveDownloader -i 2 --thumb --detect 30 --work work --out out --temp temp
+ChzzkLiveDownloader -i 2 --thumb save --detect 30 --work work --out out --temp temp
 ```
 
 ## Initial Setup

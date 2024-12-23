@@ -7,7 +7,7 @@ Chzzkのストリーム用の最終処理ツール
 </div>
 
 ## バージョン
-Version 1.4.1, December 20, 2024 10:00:00
+Version 1.5.0, December 24, 2024 00:00:00
 
 ## 使用法
 ```powershell
@@ -42,7 +42,7 @@ ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user 
 
 ## 使用例
 ```powershell
-ChzzkLiveFinalizer --watch out
+ChzzkLiveFinalizer --work work --watch out
 ```
 
 ## 説明

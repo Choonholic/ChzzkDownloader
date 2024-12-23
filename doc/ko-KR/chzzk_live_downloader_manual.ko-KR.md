@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.4.1, December 20, 2024 10:00:00
+Version 1.5.0, December 24, 2024 00:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 FFmpeg (FFmpeg 7.0 또는 상위 버전 필요)
@@ -70,7 +70,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a] [--authaut AUTHAUT]
 
 ### 사용 예시
 ```powershell
-ChzzkLiveDownloader -i 2 --thumb --detect 30 --work work --out out --temp temp
+ChzzkLiveDownloader -i 2 --thumb save --detect 30 --work work --out out --temp temp
 ```
 
 ## 초기 설정

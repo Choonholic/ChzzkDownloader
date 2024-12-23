@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.4.1, December 20, 2024 10:00:00
+Version 1.5.0, December 24, 2024 00:00:00
 
 ## 사용법
 ```powershell
@@ -42,7 +42,7 @@ ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user 
 
 ## 사용 예시
 ```powershell
-ChzzkLiveFinalizer --watch out
+ChzzkLiveFinalizer --work work --watch out
 ```
 
 ## 설명

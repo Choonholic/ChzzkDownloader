@@ -7,14 +7,14 @@ Chzzkのクリップ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.4.1, December 20, 2024 10:00:00
+Version 1.5.0, December 24, 2024 00:00:00
 
 ## 使用法
 ```powershell
 ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
-                    [--adult [ADULT]] [-y] [-d [DISPLAY]] [--name [NAME]] [--work [WORK]]
-                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
-                    [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
+                    [--adult [ADULT]] [-y] [-d [DISPLAY]] [--info INFO] [--name [NAME]]
+                    [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
+                    [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
                     [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
                     [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
@@ -38,6 +38,7 @@ clip                    ダウンロードするクリップUIDまたはURL
 --adult [ADULT]         認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
 -y, --yes               すべての確認値を自動的に「はい」に設定
 -d, --display [DISPLAY] ダウンロードステータス表示モードを設定（quiet|simple|fluent|all）
+--info INFO             ダウンロードせずにクリップ情報を取得
 --name [NAME]           保存ファイル名の形式を設定
 --work [WORK]           作業ディレクトリを設定
 --work-user [WORK_USER] 作業ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
@@ -63,7 +64,7 @@ clip                    ダウンロードするクリップUIDまたはURL
 
 ### 使用例
 ```powershell
-ChzzkClipDownloader C46IcpG11p --thumb --work work --out out --temp temp
+ChzzkClipDownloader C46IcpG11p --thumb save --work work --out out --temp temp
 ```
 
 ## ダウンロードするクリップの設定
