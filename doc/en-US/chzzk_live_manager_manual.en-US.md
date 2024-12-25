@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.5.0, December 24, 2024 00:00:00
+Version 1.5.1, December 25, 2024 12:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, Chzzk Live Downloader must be installed as well.
@@ -325,8 +325,9 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 
 * **Auth Key (NID_AUT)** - Specifies the authorization key of NAVER ID.
 * **Session Key (NID_SES)** - Specifies the session key of NAVER ID.
+* **Ignore authentication credential temporarily** - Sets whether ignore authentication credential temporarily or not.
 
-For more information on how to get Chzzk authorized credential, please refer to `how_to_get_chzzk_credential.en-US.pdf`.
+For more information on how to get Chzzk authentication credential, please refer to `how_to_get_chzzk_credential.en-US.pdf`.
 
 ### Directories
 

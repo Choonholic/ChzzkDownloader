@@ -7,7 +7,7 @@ Chzzkのストリーム用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.5.0, December 24, 2024 00:00:00
+Version 1.5.1, December 25, 2024 12:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのFFmpeg（FFmpeg 7.0またはそれ以上が必要）
@@ -15,12 +15,12 @@ Version 1.5.0, December 24, 2024 00:00:00
 
 ## 使用法
 ```powershell
-ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
-                    [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--once ONCE]
-                    [--stream [STREAM]] [--final [FINAL]] [--custom [CUSTOM]] [--offset OFFSET]
-                    [--duration DURATION] [--detect [DETECT]] [--name [NAME]] [--work [WORK]]
-                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
-                    [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
+ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT]
+                    [--authses AUTHSES] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]]
+                    [--once ONCE] [--stream [STREAM]] [--final [FINAL]] [--custom [CUSTOM]]
+                    [--offset OFFSET] [--duration DURATION] [--detect [DETECT]] [--name [NAME]]
+                    [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
+                    [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
                     [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
                     [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcbaseport [RPCPORT]]
                     [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
@@ -33,7 +33,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a] [--authaut AUTHAUT]
 --version               バージョン情報を表示
 -i, --id ID             ストリーマーのIDを設定（デフォルト: 0）
 -u, --uid [UID]         ストリーマーの一意の識別子を設定
--a, --auth              Chzzk認証資格情報を設定
+-a, --auth [AUTH]       Chzzk認証資格情報の処理方法を設定 (reuse|reissue|ignore)
 --authaut AUTHAUT       Chzzk認証資格情報の認証キーを設定
 --authses AUTHSES       Chzzk認証資格情報のセッションキーを設定
 --adult [ADULT]         認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
@@ -151,8 +151,15 @@ ChzzkLiveDownloader --once uid または url
 認証資格情報が変更された場合や、別のIDでログインしてリセットする必要がある場合は、以下のコマンドを使用してください。
 
 ```powershell
-ChzzkLiveDownloader -a
-ChzzkLiveDownloader --auth
+ChzzkLiveDownloader -a reset
+ChzzkLiveDownloader --auth reset
+```
+
+一時的に認証情報を無視する必要がある場合は、以下のコマンドを使用してください。
+
+```powershell
+ChzzkLiveDownloader -a ignore
+ChzzkLiveDownloader --auth ignore
 ```
 
 `-y`または`--yes`パラメータを使用すると、確認なしで認証情報の入力プロンプトが自動的に表示されます。

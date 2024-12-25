@@ -7,7 +7,7 @@ Chzzk Live Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.5.0, December 24, 2024 00:00:00
+Version 1.5.1, December 25, 2024 12:00:00
 
 ## 必要条件
 Chzzk Live Managerは、Chzzk Live DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Live Downloaderもインストールされている必要があります。
@@ -324,6 +324,7 @@ Chzzk Live Managerの使用を続行する場合。
 
 * **認証キー (NID_AUT)** - * NAVER IDの認証キーを指定します。
 * **セッションキー (NID_SES)** - NAVER IDのセッションキーを指定します。
+* **一時的に認証情報を無視する** - 一時的に認証情報を無視するかどうかを設定します。
 
 Chzzk認証資格情報の取得方法については、`how_to_get_chzzk_credential.ja-JP.pdf`を参照してください。
 

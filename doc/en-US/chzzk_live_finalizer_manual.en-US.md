@@ -7,7 +7,7 @@ Finalizer for Chzzk live streams
 </div>
 
 ## Version
-Version 1.5.0, December 24, 2024 00:00:00
+Version 1.5.1, December 25, 2024 12:00:00
 
 ## Usage
 ```powershell

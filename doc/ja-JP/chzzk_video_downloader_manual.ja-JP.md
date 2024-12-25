@@ -7,11 +7,11 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.5.0, December 24, 2024 00:00:00
+Version 1.5.1, December 25, 2024 12:00:00
 
 ## 使用法
 ```powershell
-ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
+ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
                      [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--info INFO]
                      [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
                      [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
@@ -33,7 +33,7 @@ video                   ダウンロードするビデオ番号またはURL
 -h, --help              このヘルプメッセージを表示
 --version               バージョン情報を表示
 -i, --input INPUT       ダウンロードリストファイルを設定
--a, --auth              Chzzk認証資格情報を設定
+-a, --auth [AUTH]       Chzzk認証資格情報の処理方法を設定 (reuse|reissue|ignore)
 --authaut AUTHAUT       Chzzk認証資格情報の認証キーを設定
 --authses AUTHSES       Chzzk認証資格情報のセッションキーを設定
 --adult [ADULT]         認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
@@ -111,8 +111,15 @@ ChzzkVideoDownloader --input list.txt
 認証資格情報が変更された場合や、別のIDでログインしてリセットする必要がある場合は、以下のコマンドを使用してください。
 
 ```powershell
-ChzzkVideoDownloader video_no または url -a
-ChzzkVideoDownloader video_no または url --auth
+ChzzkVideoDownloader video_no または url -a reset
+ChzzkVideoDownloader video_no または url --auth reset
+```
+
+一時的に認証情報を無視する必要がある場合は、以下のコマンドを使用してください。
+
+```powershell
+ChzzkVideoDownloader video_no または url -a ignore
+ChzzkVideoDownloader video_no または url --auth ignore
 ```
 
 `-y`または`--yes`パラメータを使用すると、確認なしで認証情報の入力プロンプトが自動的に表示されます。

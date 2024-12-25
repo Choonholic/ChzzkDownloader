@@ -7,11 +7,11 @@
 </div>
 
 ## 버전
-Version 1.5.0, December 24, 2024 00:00:00
+Version 1.5.1, December 25, 2024 12:00:00
 
 ## 사용법
 ```powershell
-ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
+ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
                      [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--info INFO]
                      [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
                      [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
@@ -33,7 +33,7 @@ video                   다운로드할 비디오 번호 또는 URL
 -h, --help              도움말 메시지를 표시합니다
 --version               버전 정보를 표시합니다
 -i, --input INPUT       다운로드 목록 파일을 설정합니다
--a, --auth              치지직 인증 자격 증명을 설정합니다
+-a, --auth [AUTH]       치지직 인증 자격 증명 처리 방법을 설정합니다 (reuse|reissue|ignore)
 --authaut AUTHAUT       치지직 인증 자격 증명의 인증 키를 설정합니다
 --authses AUTHSES       치지직 인증 자격 증명의 세션 키를 설정합니다
 --adult [ADULT]         자격 증명이 유효하지 않을 때 성인 콘텐츠 처리 방법을 설정합니다 (ask|skip)
@@ -111,8 +111,15 @@ ChzzkVideoDownloader --input list.txt
 인증 자격 증명이 변경되었거나 다른 ID로 로그인하여 인증 정보를 초기화해야 할 경우, 다음 명령어를 사용하세요.
 
 ```powershell
-ChzzkVideoDownloader video_no 또는 url -a
-ChzzkVideoDownloader video_no 또는 url --auth
+ChzzkVideoDownloader video_no 또는 url -a reset
+ChzzkVideoDownloader video_no 또는 url --auth reset
+```
+
+만약 임시로 인증 정보를 무시해야 한다면 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url -a ignore
+ChzzkVideoDownloader video_no 또는 url --auth ignore
 ```
 
 `-y` 또는 `--yes` 매개 변수를 사용하면 확인 없이 인증 입력 메시지가 자동으로 활성화됩니다.

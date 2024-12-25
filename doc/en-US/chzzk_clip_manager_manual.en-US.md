@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Clip Downloader
 </div>
 
 ## Version
-Version 1.5.0, December 24, 2024 00:00:00
+Version 1.5.1, December 25, 2024 12:00:00
 
 ## Prerequisites
 Since Chzzk Clip Manager is the GUI frontend application for Chzzk Clip Downloader, Chzzk Clip Downloader must be installed as well.
@@ -195,8 +195,9 @@ Double-clicking tray icon will restore the window to its original state, and rig
 
 * **Auth Key (NID_AUT)** - Specifies the authorization key of NAVER ID.
 * **Session Key (NID_SES)** - Specifies the session key of NAVER ID.
+* **Ignore authentication credential temporarily** - Sets whether ignore authentication credential temporarily or not.
 
-For more information on how to get Chzzk authorized credential, please refer to `how_to_get_chzzk_credential.en-US.pdf`.
+For more information on how to get Chzzk authentication credential, please refer to `how_to_get_chzzk_credential.en-US.pdf`.
 
 ### Directories
 

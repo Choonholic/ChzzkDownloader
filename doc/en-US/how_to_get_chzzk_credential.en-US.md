@@ -1,4 +1,4 @@
-# How To Get Chzzk Authorized Credential
+# How To Get Chzzk Authentication Credential
 
 1. Open [Chzzk](https://chzzk.naver.com/) in desktop web browsers such as Microsoft Edge, Google Chrome or Mozilla Firefox.
 2. Login with NAVER id.

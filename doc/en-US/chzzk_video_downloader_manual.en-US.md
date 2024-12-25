@@ -7,11 +7,11 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.5.0, December 24, 2024 00:00:00
+Version 1.5.1, December 25, 2024 12:00:00
 
 ## Usage
 ```powershell
-ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a] [--authaut AUTHAUT] [--authses AUTHSES]
+ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
                      [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--info INFO]
                      [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
                      [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
@@ -33,9 +33,9 @@ video                   Video number or URL to download
 -h, --help              Show this help message
 --version               Show version information
 -i, --input INPUT       Set the download list file
--a, --auth              Set Chzzk authorized credential with prompt
---authaut AUTHAUT       Set auth key of Chzzk authorized credential
---authses AUTHSES       Set session key of Chzzk authorized credential
+-a, --auth [AUTH]       Set Chzzk authentication credential control method (reuse|reissue|ignore)
+--authaut AUTHAUT       Set auth key of Chzzk authentication credential
+--authses AUTHSES       Set session key of Chzzk authentication credential
 --adult [ADULT]         Set the process method for adult contents when credentials are invalid (ask|skip)
 -y, --yes               Set any confirmation values to 'yes' automatically
 -q, --quality [QUALITY] Set target quality to download (e.g. 1080p)
@@ -98,21 +98,28 @@ ChzzkVideoDownloader -i list.txt
 ChzzkVideoDownloader --input list.txt
 ```
 
-## Resetting Authorized Credential
-To download a video that requires NAVER authorized credential, such as an adult-only video, you must specify the following information.
+## Resetting Authentication Credential
+To download a video that requires NAVER authentication credential, such as an adult-only video, you must specify the following information.
 
 * NAVER ID Authorization Key from Chzzk cookie (`NID_AUT`)
 * NAVER ID Session Key from Chzzk cookie (`NID_SES`)
 
-When the authorized credential is not found when downloading a clip that requires it, a prompt to enter your authorization will be activated.
+When the authentication credential is not found when downloading a clip that requires it, a prompt to enter your authorization will be activated.
 
-If you enter these values, they will be set as defaults, and subsequent runs will use them without further input. For more information on how to get Chzzk authorized credential, please refer to `how_to_get_chzzk_credential.en-US.pdf`.
+If you enter these values, they will be set as defaults, and subsequent runs will use them without further input. For more information on how to get Chzzk authentication credential, please refer to `how_to_get_chzzk_credential.en-US.pdf`.
 
-If your authorized credential has been changed, or if you need to reset them by logging in with a different ID, use the following commands.
+If your authentication credential has been changed, or if you need to reset them by logging in with a different ID, use the following commands.
 
 ```powershell
-ChzzkVideoDownloader video_no or url -a
-ChzzkVideoDownloader video_no or url --auth
+ChzzkVideoDownloader video_no or url -a reset
+ChzzkVideoDownloader video_no or url --auth reset
+```
+
+If you need to temporarily ignore authentication credential, use the following commands.
+
+```powershell
+ChzzkVideoDownloader video_no or url -a ignore
+ChzzkVideoDownloader video_no or url --auth ignore
 ```
 
 With `-y` or `--yes` parameters, a prompt to enter the authorization will be activated automatically without any confirmation.

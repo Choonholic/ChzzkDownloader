@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.5.0, December 24, 2024 00:00:00
+Version 1.5.1, December 25, 2024 12:00:00
 
 ## 선행 요건
 Chzzk Clip Manager는 Chzzk Clip Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Clip Downloader가 함께 설치되어 있어야 합니다.
@@ -195,6 +195,7 @@ Chzzk Clip Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `다운
 
 * **인증 키 (NID_AUT)** - 네이버 ID에서 생성되는 인증 키를 설정합니다.
 * **세션 키 (NID_SES)** - 네이버 ID에서 생성되는 세션 키를 설정합니다.
+* **임시로 인증 정보 무시하기** - 임시로 인증 정보를 무시합니다.
 
 치지직 인증 자격 증명 획득 방법에 대한 자세한 정보는 `how_to_get_chzzk_credential.ko-KR.pdf`를 참고하세요.
 
