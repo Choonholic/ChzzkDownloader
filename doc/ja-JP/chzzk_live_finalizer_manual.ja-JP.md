@@ -7,7 +7,7 @@ Chzzkのストリーム用の最終処理ツール
 </div>
 
 ## バージョン
-Version 1.5.3, December 31, 2024 00:00:00
+Version 1.6.0, January 03, 2025 10:00:00
 
 ## 使用法
 ```powershell
