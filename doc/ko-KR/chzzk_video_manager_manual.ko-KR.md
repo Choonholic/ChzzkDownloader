@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.6.0, January 03, 2025 10:00:00
+Version 1.7.0, January 09, 2025 18:00:00
 
 ## 선행 요건
 Chzzk Video Manager는 Chzzk Video Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Video Downloader가 함께 설치되어 있어야 합니다.
@@ -20,7 +20,7 @@ Chzzk Video Manager와 Chzzk Video Downloader가 같은 디렉터리에 설치�
 시작 메뉴에서 `Chzzk Video Manager`를 실행하거나, `Chzzk Downloader Environment`에서 `ChzzkVideoManager.exe`를 실행합니다.
 
 ## 선행 요건 확인
-Chzzk Video Manager의 모든 기능을 활용하려면, Chzzk Video Downloader가 올바르게 설정되어 있어야 합니다. Chzzk Video Manager가 처음 실행될 때 이와 같은 선행 요건을 모두 확인하는 과정을 거치며, 이를 만족하지 못할 경우 다음 그림과 같은 대화 상자가 표시됩니다.
+Chzzk Video Manager의 모든 기능을 활용하려면, Chzzk Video Downloader가 올바르게 설정되어 있어야 하며, Chzzk Video Downloader를 실행하려면 Streamlink(버전 6.8.0 이상)이 올바르게 설정되어 있어야 합니다. Chzzk Video Manager가 처음 실행될 때 이와 같은 선행 요건을 모두 확인하는 과정을 거치며, 이를 만족하지 못할 경우 다음 그림과 같은 대화 상자가 표시됩니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_ko-KR/vman_prerequisites.png' />

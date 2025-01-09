@@ -7,7 +7,7 @@ Chzzk Video Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.6.0, January 03, 2025 10:00:00
+Version 1.7.0, January 09, 2025 18:00:00
 
 ## 必要条件
 Chzzk Video Managerは、Chzzk Video DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Video Downloaderもインストールされている必要があります。
@@ -20,7 +20,7 @@ Chzzk Video DownloaderとChzzk Video Managerが同じディレクトリにある
 スタートメニューから`Chzzk Video Manager`をクリックするか、`Chzzk Downloader Environment`で`ChzzkVideoManager.exe`を実行します。
 
 ## 必要条件の確認
-Chzzk Video Managerが正常に機能するためには、Chzzk Video Downloaderが正しく設定されている必要があります。Chzzk Video Managerの起動時に、この必要条件が満たされているかチェックし、満たされていない場合は、以下のダイアログが表示されます。
+Chzzk Video Managerが正常に機能するためには、Chzzk Video Downloaderが正しく設定されている必要があります。また、Chzzk Video DownloaderはStreamlink（バージョン6.8.0またはそれ以上）の設定が必要です。Chzzk Video Managerの起動時に、この必要条件が満たされているかチェックし、満たされていない場合は、以下のダイアログが表示されます。
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_ja-JP/vman_prerequisites.png' />

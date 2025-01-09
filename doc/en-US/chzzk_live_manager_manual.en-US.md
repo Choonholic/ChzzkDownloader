@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.6.0, January 03, 2025 10:00:00
+Version 1.7.0, January 09, 2025 18:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, Chzzk Live Downloader must be installed as well.
@@ -20,7 +20,7 @@ For portable versions, consider storing both Chzzk Live Downloader and Chzzk Liv
 Click `Chzzk Live Manager` in Start menu, or execute `ChzzkLiveManager.exe` in `Chzzk Downloader Environment`.
 
 ## Verifying Prerequisites
-Chzzk Live Manager requires Chzzk Live Downloader to be properly set up for full functionality Additionally, Chzzk Live Downloader requires proper configurations of Streamlink (Version 6.7.3 or higher) and FFmpeg (Version 7.0 or higher). When Chzzk Live Manager starts, it checks whether these prerequisites are met, and if not, it will display the following dialog.
+Chzzk Live Manager requires Chzzk Live Downloader to be properly set up for full functionality. Additionally, Chzzk Live Downloader requires proper configurations of Streamlink (Version 6.8.0 or higher) and FFmpeg (Version 7.0 or higher). When Chzzk Live Manager starts, it checks whether these prerequisites are met, and if not, it will display the following dialog.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_en-US/lman_prerequisites.png' />
