@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.7.1, January 10, 2025 12:00:00
+Version 1.7.2, January 12, 2025 00:00:00
 
 ## 선행 요건
 Chzzk Live Manager는 Chzzk Live Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Live Downloader가 함께 설치되어 있어야 합니다.
