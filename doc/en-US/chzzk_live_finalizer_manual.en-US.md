@@ -7,7 +7,7 @@ Finalizer for Chzzk live streams
 </div>
 
 ## Version
-Version 1.7.2, January 12, 2025 00:00:00
+Version 1.8.0, January 18, 2025 00:00:00
 
 ## Usage
 ```powershell
@@ -22,7 +22,7 @@ ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user 
 ```
 -h, --help                Show this help message
 --version                 Show version information
--d, --display [DISPLAY]   Set process status display mode (quiet|simple|fluent|all)
+-d, --display [DISPLAY]   Set display mode (quiet|simple|fluent|all)
 --work [WORK]             Set working directory
 --work-user [WORK_USER]   Set username to use when working directory is on remote network
 --work-pass [WORK_PASS]   Set password to use when working directory is on remote network
@@ -32,6 +32,7 @@ ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user 
 --convert [CONVERT]       Set convert parameters
 --exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
+--rpc                     Activate JSON-RPC server
 --rpcid [RPCID]           Set ID of JSON-RPC server (default: 70)
 --rpcport [RPCPORT]       Set port of JSON-RPC server (default: 65000, 49152-65300)
 --snapshot SNAPSHOT       Save snapshot to a JSON file whenever changing status
@@ -121,8 +122,8 @@ If you want to set this option to default, just use `--convert` without options 
 ChzzkLiveFinalizer --convert
 ```
 
-## Set How to Display Process Details
-By default, fluent details will be displayed. However, if you don't need the details, you can use the following command to prevent them from being displayed.
+## Set Display Mode
+By default, fluent details will be displayed. However, if you don't need the details, you can use the following command to supress them.
 
 ```powershell
 ChzzkLiveFinalizer -d quiet
@@ -132,8 +133,9 @@ ChzzkLiveFinalizer --display quiet
 The following display methods can be set with options of `--display` parameter.
 
 * `quiet` - Suppress all details.
-* `fluent` - Show all fluent details.
-* `default` - This option is the same as `fluent`.
+* `simple` - Show simplified details only.
+* `fluent` - Show fluent details.
+* `all` - Show all details.
 
 If you want to set this option to default, just use `-d` or `--display` like below.
 

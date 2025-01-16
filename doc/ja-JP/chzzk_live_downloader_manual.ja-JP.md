@@ -7,7 +7,7 @@ Chzzkのストリーム用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.7.2, January 12, 2025 00:00:00
+Version 1.8.0, January 18, 2025 00:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのFFmpeg（FFmpeg 7.0またはそれ以上が必要）
@@ -15,15 +15,14 @@ Version 1.7.2, January 12, 2025 00:00:00
 
 ## 使用法
 ```powershell
-ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT]
-                    [--authses AUTHSES] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]]
-                    [--once ONCE] [--stream [STREAM]] [--final [FINAL]] [--custom [CUSTOM]]
-                    [--offset OFFSET] [--duration DURATION] [--detect [DETECT]] [--name [NAME]]
-                    [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
-                    [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
-                    [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
-                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcbaseport [RPCPORT]]
-                    [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
+ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
+                    [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--once ONCE] [--stream [STREAM]]
+                    [--final [FINAL]] [--custom [CUSTOM]] [--offset OFFSET] [--duration DURATION]
+                    [--detect [DETECT]] [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
+                    [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]]
+                    [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
+                    [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
+                    [--rpcbaseport [RPCPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
                     [--settings [SETTINGS]] [--reset]
 ```
 
@@ -31,7 +30,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 ```
 -h, --help              このヘルプメッセージを表示
 --version               バージョン情報を表示
--i, --id ID             ストリーマーのIDを設定（デフォルト: 0）
+-i, --id ID             ストリーマーのIDを設定
 -u, --uid [UID]         ストリーマーの一意の識別子を設定
 -a, --auth [AUTH]       Chzzk認証資格情報の処理方法を設定 (reuse|reissue|ignore)
 --authaut AUTHAUT       Chzzk認証資格情報の認証キーを設定
@@ -39,7 +38,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --adult [ADULT]         認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
 -y, --yes               すべての確認値を自動的に「はい」に設定
 -q, --quality [QUALITY] ダウンロードする目標画質を設定（例: 1080p）
--d, --display [DISPLAY] ダウンロードステータス表示モードを設定（quiet|simple|fluent|all）
+-d, --display [DISPLAY] 表示モードを設定（quiet|simple|fluent|all）
 --once ONCE             ストリームを一度だけダウンロード
 --stream [STREAM]       ストリーム取得方法を設定（standard|timemachine）
 --final [FINAL]         最終処理方法を設定（bypass|convert|cleanup|cconvert|ccleanup）
@@ -60,6 +59,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --category [CATEGORY]   保存時のカテゴリ分け方法を設定 (none|streamer)
 --exist [EXIST]         対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
 --threshold [THRESHOLD] 空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 10, 3-30)
+--rpc                   JSON-RPCサーバーを有効化
 --rpcbaseport [RPCPORT] JSON-RPCサーバーのベースポートを設定（デフォルト: 62000、49152-65300）
 --snapshot SNAPSHOT     ステータスが変更されるたびにJSONファイルにスナップショットを保存
 --thumb [THUMB]         サムネイル画像を保存またはスキップ（save|skip）
@@ -266,19 +266,20 @@ ChzzkLiveDownloader --thumb save
 ChzzkLiveDownloader --thumb skip
 ```
 
-## ダウンロード詳細の表示方法を設定
-デフォルトでは、詳細なダウンロード情報が表示されます。ただし、詳細が不要な場合は、以下のコマンドで表示を抑制できます。
+## 表示モードの設定
+デフォルトでは、詳細な情報が表示されます。ただし、情報が不要な場合は、以下のコマンドで非表示にすることができます。
 
 ```powershell
 ChzzkLiveDownloader -d quiet
 ChzzkLiveDownloader --display quiet
 ```
 
-`--display`パラメータで設定可能な表示方法は以下の通りです。
+`--display`パラメータで設定可能な表示モードは以下の通りです。
 
-* `quiet` - すべてのダウンロード詳細を非表示にします。
-* `fluent` - 詳細なダウンロード情報をすべて表示します。
-* `default` - `fluent`と同じです。
+* `quiet` - すべての情報を非表示にします。
+* `simple` - 簡単な情報のみを表示します。
+* `fluent` - 詳細な情報を表示します。
+* `all` - すべての情報を表示します。
 
 このオプションをデフォルトに設定したい場合は、以下のように`-d`または`--display`のみを使用してください。
 

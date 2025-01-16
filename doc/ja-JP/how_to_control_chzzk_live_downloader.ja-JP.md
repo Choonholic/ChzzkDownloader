@@ -3,6 +3,9 @@
 ## Chzzk Downloader Suite JSON-RPC 仕様
 Chzzk Downloader Suiteは、外部からの制御を可能にするために、[JSON-RPC 2.0 仕様](https://www.jsonrpc.org/specification)に準拠した単一リクエストをサポートしています。
 
+## サーバーの有効化方法
+Chzzk Live Downloaderを起動する際に、`--rpc` オプションを指定します。
+
 ## サーバーへの接続方法
 内部JSON-RPCサーバーはソケット接続を受け付けます。
 

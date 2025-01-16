@@ -7,27 +7,27 @@ Chzzk Live Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.7.2, January 12, 2025 00:00:00
+Version 1.8.0, January 18, 2025 00:00:00
 
 ## 必要条件
-Chzzk Live Managerは、Chzzk Live DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Live Downloaderもインストールされている必要があります。
+Chzzk Live Managerは、Chzzk Live DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Live DownloaderとChzzk Live Finalizerもインストールされている必要があります。
 
-Chzzk Live DownloaderとChzzk Live Managerが同じディレクトリにある場合、Chzzk Live Managerは起動時に自動的にChzzk Live Downloaderを認識します。そうでない場合は、**必要条件の確認**を参照して、Chzzk Live Downloaderの場所を指定してください。
+Chzzk Live Manager、Chzzk Live Downloader、Chzzk Live Managerがすべて同じディレクトリにインストールされている場合、Chzzk Live Managerは起動時に自動的に認識します。そうでない場合は、**必要条件の確認**を参照して、Chzzk Live DownloaderとChzzk Live Finalizerのパスを指定してください。
 
-ポータブル版の場合は、Chzzk Live DownloaderとChzzk Live Managerを同じディレクトリに保存することをお勧めします。`セットアップ`を使用してインストールした場合、両方が同じディレクトリにインストールされます。
+ポータブル版の場合は、Chzzk Live Manager、Chzzk Live Downloader、Chzzk Live Finalizerをすべて同じディレクトリに保存することをお勧めします。`セットアップ`を使用してインストールした場合、すべて同じディレクトリにインストールされます。
 
 ## 実行方法
 スタートメニューから`Chzzk Live Manager`をクリックするか、`Chzzk Downloader Environment`で`ChzzkLiveManager.exe`を実行します。
 
 ## 必要条件の確認
-Chzzk Live Managerが正常に機能するためには、Chzzk Live Downloaderが正しく設定されている必要があります。また、Chzzk Live DownloaderはStreamlink（バージョン6.8.0またはそれ以上）とFFmpeg（バージョン7.0またはそれ以上）の設定が必要です。Chzzk Live Managerの起動時に、これらの必要条件が満たされているかチェックし、満たされていない場合は、以下のダイアログが表示されます。
+Chzzk Live Managerが正常に機能するためには、Chzzk Live DownloaderとChzzk Live Finalizerが正しく設定されている必要があります。また、Chzzk Live DownloaderはStreamlink（バージョン6.8.0またはそれ以上）とFFmpeg（バージョン7.0またはそれ以上）の設定が必要です。Chzzk Live Managerの起動時に、これらの必要条件が満たされているかチェックし、満たされていない場合は、以下のダイアログが表示されます。
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_ja-JP/lman_prerequisites.png' />
 <p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
 </div>
 
-`設定...`ボタンをクリックしてChzzk Live Downloaderの場所を指定するか、`ダウンロード`ボタンをクリックしてStreamlinkまたはFFmpegをインストールできます。
+`設定...`ボタンをクリックしてChzzk Live DownloaderとChzzk Live Finalizerのパスを指定するか、`ダウンロード`ボタンをクリックしてStreamlinkまたはFFmpegをインストールできます。
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_ja-JP/lman_downloader_locate_01.png' />
@@ -38,6 +38,18 @@ Chzzk Live Managerが正常に機能するためには、Chzzk Live Downloader�
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_ja-JP/lman_downloader_locate_02.png' />
+<p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
+</div>
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_ja-JP/lman_finalizer_locate_01.png' />
+<p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
+</div>
+
+同様に、`...`ボタンをクリックして、正しいパスにある`ChzzkLiveFinalizer.exe`ファイルを選択してください。正しいChzzk Live Finalizerが指定されると、以下の図のようにバージョン情報が表示されます。
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_ja-JP/lman_finalizer_locate_02.png' />
 <p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
 </div>
 
@@ -195,11 +207,6 @@ Chzzk Live Downloaderは、Chzzk Live Managerを使用せずに独立して実�
 ## Chzzk Downloader Suiteの環境を開く
 Chzzk Downloader Suiteの環境を開くには、☰アイコンをクリックし、`ダウンローダー`の下にある`環境（Command Prompt）`または`環境（PowerShell）`を選択します。
 
-<div style='text-align: center'>
-<img src='../../img/screenshots/lman_ja-JP/lman_environment.png' />
-<p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
-</div>
-
 ## 保存ディレクトリを開く
 ダウンロードしたストリームの保存ディレクトリを開くには、☰アイコンをクリックし、`ダウンローダー`の下にある`保存ディレクトリを開く`を選択します。
 
@@ -312,7 +319,11 @@ Chzzk Live Managerの使用を続行する場合。
 <p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
 </div>
 
+* **JSON-RPCサーバー: ホストアドレス** - JSON-RPCサーバーのホストアドレスを設定します。
+* **JSON-RPCサーバー: ポート** - JSON-RPCサーバーのポート番号を設定します。
+* **JSON-RPCサーバー: ID** - JSON-RPCサーバーのIDを設定します。
 * **最終処理方法** - 最終処理方法を設定します。
+* **Chzzk Live Finalizerで処理** - 最終処理をChzzk Live Finalizerに任せます。
 * **カスタムオプション** - 最終処理のカスタムオプションを設定します。
 
 ### 認証

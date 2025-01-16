@@ -7,14 +7,14 @@ Chzzkのストリーム用の最終処理ツール
 </div>
 
 ## バージョン
-Version 1.7.2, January 12, 2025 00:00:00
+Version 1.8.0, January 18, 2025 00:00:00
 
 ## 使用法
 ```powershell
 ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
                    [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
                    [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
-                   [--threshold [THRESHOLD]] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
+                   [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                    [--snapshot SNAPSHOT] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
 ```
 
@@ -22,7 +22,7 @@ ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user 
 ```
 -h, --help               このヘルプメッセージを表示
 --version                バージョン情報を表示
--d, --display [DISPLAY]  プロセスステータス表示モードを設定 (quiet|simple|fluent|all)
+-d, --display [DISPLAY]  表示モードを設定（quiet|simple|fluent|all）
 --work [WORK]            作業ディレクトリを設定
 --work-user [WORK_USER]  作業ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
 --work-pass [WORK_PASS]  作業ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
@@ -32,6 +32,7 @@ ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user 
 --convert [CONVERT]      変換パラメータを設定
 --exist [EXIST]          対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
 --threshold [THRESHOLD]  空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 10, 3-30)
+--rpc                    JSON-RPCサーバーを有効化
 --rpcid [RPCID]          JSON-RPCサーバーのIDを設定 （デフォルト: 70）
 --rpcport [RPCPORT]      JSON-RPCサーバーのポートを設定 （デフォルト: 65000, 49152-65300）
 --snapshot SNAPSHOT      ステータスが変更されるたびにJSONファイルにスナップショットを保存
@@ -121,19 +122,20 @@ ChzzkLiveFinalizer --convert "-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 
 ChzzkLiveFinalizer --convert
 ```
 
-## プロセス詳細の表示方法を設定
-デフォルトでは、詳細なプロセス情報が表示されます。ただし、詳細が不要な場合は、以下のコマンドで表示を抑制できます。
+## 表示モードの設定
+デフォルトでは、詳細な情報が表示されます。ただし、情報が不要な場合は、以下のコマンドで非表示にすることができます。
 
 ```powershell
 ChzzkLiveFinalizer -d quiet
 ChzzkLiveFinalizer --display quiet
 ```
 
-`--display`パラメータで設定可能な表示方法は以下の通りです。
+`--display`パラメータで設定可能な表示モードは以下の通りです。
 
-* `quiet` - すべてのプロセス詳細を非表示にします。
-* `fluent` - 詳細なプロセス情報をすべて表示します。
-* `default` - `fluent`と同じです。
+* `quiet` - すべての情報を非表示にします。
+* `simple` - 簡単な情報のみを表示します。
+* `fluent` - 詳細な情報を表示します。
+* `all` - すべての情報を表示します。
 
 このオプションをデフォルトに設定したい場合は、以下のように`-d`または`--display`のみを使用してください。
 

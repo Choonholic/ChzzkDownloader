@@ -14,7 +14,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.7.2, January 12, 2025 00:00:00
+Version 1.8.0, January 18, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -22,15 +22,14 @@ Version 1.7.2, January 12, 2025 00:00:00
 
 ### Usage
 ```powershell
-ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT]
-                    [--authses AUTHSES] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]]
-                    [--once ONCE] [--stream [STREAM]] [--final [FINAL]] [--custom [CUSTOM]]
-                    [--offset OFFSET] [--duration DURATION] [--detect [DETECT]] [--name [NAME]]
-                    [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
-                    [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
-                    [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
-                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcbaseport [RPCPORT]]
-                    [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
+ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
+                    [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--once ONCE] [--stream [STREAM]]
+                    [--final [FINAL]] [--custom [CUSTOM]] [--offset OFFSET] [--duration DURATION]
+                    [--detect [DETECT]] [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
+                    [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]]
+                    [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
+                    [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
+                    [--rpcbaseport [RPCPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
                     [--settings [SETTINGS]] [--reset]
 ```
 
@@ -38,7 +37,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 ```
 -h, --help              Show this help message
 --version               Show version information
--i, --id ID             Set streamer configuration id (default: 0)
+-i, --id ID             Set streamer configuration id
 -u, --uid [UID]         Set streamer unique identifier
 -a, --auth [AUTH]       Set Chzzk authentication credential control method (reuse|reissue|ignore)
 --authaut AUTHAUT       Set auth key of Chzzk authentication credential
@@ -46,7 +45,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --adult [ADULT]         Set the process method for adult contents when credentials are invalid (ask|skip)
 -y, --yes               Set any confirmation values to 'yes' automatically
 -q, --quality [QUALITY] Set target quality to download (e.g. 1080p)
--d, --display [DISPLAY] Set download status display mode (quiet|simple|fluent|all)
+-d, --display [DISPLAY] Set display mode (quiet|simple|fluent|all)
 --once ONCE             Download a live stream only once
 --stream [STREAM]       Set stream retrieving method (standard|timemachine)
 --final [FINAL]         Set finalization method (bypass|convert|cleanup|cconvert|ccleanup)
@@ -67,6 +66,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --category [CATEGORY]   Set output categorize method (none|streamer)
 --exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
+--rpc                   Activate JSON-RPC server
 --rpcbaseport [RPCPORT] Set base port of JSON-RPC server (default: 62000, 49152-65300)
 --snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
 --thumb [THUMB]         Save thumbnail image or skip (save|skip)
@@ -89,14 +89,14 @@ Finalizer for Chzzk live streams
 </div>
 
 ## Version
-Version 1.7.2, January 12, 2025 00:00:00
+Version 1.8.0, January 18, 2025 00:00:00
 
 ### Usage
 ```powershell
 ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
                    [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
                    [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
-                   [--threshold [THRESHOLD]] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
+                   [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                    [--snapshot SNAPSHOT] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
 ```
 
@@ -104,7 +104,7 @@ ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user 
 ```
 -h, --help                Show this help message
 --version                 Show version information
--d, --display [DISPLAY]   Set process status display mode (quiet|simple|fluent|all)
+-d, --display [DISPLAY]   Set display mode (quiet|simple|fluent|all)
 --work [WORK]             Set working directory
 --work-user [WORK_USER]   Set username to use when working directory is on remote network
 --work-pass [WORK_PASS]   Set password to use when working directory is on remote network
@@ -114,6 +114,7 @@ ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user 
 --convert [CONVERT]       Set convert parameters
 --exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
+--rpc                     Activate JSON-RPC server
 --rpcid [RPCID]           Set ID of JSON-RPC server (default: 70)
 --rpcport [RPCPORT]       Set port of JSON-RPC server (default: 65000, 49152-65300)
 --snapshot SNAPSHOT       Save snapshot to a JSON file whenever changing status
@@ -139,18 +140,17 @@ Downloader for Chzzk replay videos
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
 
 ## Version
-Version 1.7.2, January 12, 2025 00:00:00
+Version 1.8.0, January 18, 2025 00:00:00
 
 ### Usage
 ```powershell
 ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--info INFO]
-                     [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
-                     [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
-                     [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
-                     [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
-                     [--threshold [THRESHOLD]] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                     [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--thumb [THUMB]]
+                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--info INFO] [--name [NAME]]
+                     [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
+                     [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
+                     [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
+                     [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
+                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--thumb [THUMB]]
                      [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
                      [video]
 ```
@@ -171,7 +171,7 @@ video                   Video number or URL to download
 --adult [ADULT]         Set the process method for adult contents when credentials are invalid (ask|skip)
 -y, --yes               Set any confirmation values to 'yes' automatically
 -q, --quality [QUALITY] Set target quality to download (e.g. 1080p)
--d, --display [DISPLAY] Set download status display mode (quiet|simple|fluent|all)
+-d, --display [DISPLAY] Set display mode (quiet|simple|fluent|all)
 --info INFO             Retrieve video information without downloading
 --name [NAME]           Set output filename format
 --work [WORK]           Set working directory
@@ -186,6 +186,7 @@ video                   Video number or URL to download
 --category [CATEGORY]   Set output categorize method (none|streamer)
 --exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
+--rpc                   Activate JSON-RPC server
 --rpcid [RPCID]         Set ID of JSON-RPC server (default: 30)
 --rpcport [RPCPORT]     Set port of JSON-RPC server (default: 63000, 49152-65300)
 --snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
@@ -210,18 +211,18 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.7.2, January 12, 2025 00:00:00
+Version 1.8.0, January 18, 2025 00:00:00
 
 ### Usage
 ```powershell
 ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-                    [--adult [ADULT]] [-y] [-d [DISPLAY]] [--info INFO] [--name [NAME]]
-                    [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
-                    [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
-                    [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
-                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
-                    [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
-                    [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                    [--adult [ADULT]] [-y] [-d [DISPLAY]] [--info INFO] [--name [NAME]] [--work [WORK]]
+                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
+                    [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
+                    [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
+                    [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
+                    [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--thumb [THUMB]] [--startup [STARTUP]]
+                    [--settings [SETTINGS]] [--reset]
                     [clip]
 ```
 
@@ -240,7 +241,7 @@ clip                    Clip UID or URL to download
 --authses AUTHSES       Set session key of Chzzk authentication credential
 --adult [ADULT]         Set the process method for adult contents when credentials are invalid (ask|skip)
 -y, --yes               Set any confirmation values to 'yes' automatically
--d, --display [DISPLAY] Set download status display mode (quiet|simple|fluent|all)
+-d, --display [DISPLAY] Set display mode (quiet|simple|fluent|all)
 --info INFO             Retrieve clip information without downloading
 --name [NAME]           Set output filename format
 --work [WORK]           Set working directory
@@ -255,6 +256,7 @@ clip                    Clip UID or URL to download
 --category [CATEGORY]   Set output categorize method (none|streamer)
 --exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
+--rpc                   Activate JSON-RPC server
 --rpcid [RPCID]         Set ID of JSON-RPC server (default: 50)
 --rpcport [RPCPORT]     Set port of JSON-RPC server (default: 64000, 49152-65300)
 --snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status

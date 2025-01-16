@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.7.2, January 12, 2025 00:00:00
+Version 1.8.0, January 18, 2025 00:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 FFmpeg (FFmpeg 7.0 또는 상위 버전 필요)
@@ -15,15 +15,14 @@ Version 1.7.2, January 12, 2025 00:00:00
 
 ## 사용법
 ```powershell
-ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT]
-                    [--authses AUTHSES] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]]
-                    [--once ONCE] [--stream [STREAM]] [--final [FINAL]] [--custom [CUSTOM]]
-                    [--offset OFFSET] [--duration DURATION] [--detect [DETECT]] [--name [NAME]]
-                    [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
-                    [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
-                    [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
-                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcbaseport [RPCPORT]]
-                    [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
+ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
+                    [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--once ONCE] [--stream [STREAM]]
+                    [--final [FINAL]] [--custom [CUSTOM]] [--offset OFFSET] [--duration DURATION]
+                    [--detect [DETECT]] [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
+                    [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]]
+                    [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
+                    [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
+                    [--rpcbaseport [RPCPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
                     [--settings [SETTINGS]] [--reset]
 ```
 
@@ -31,7 +30,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 ```
 -h, --help              도움말 페이지를 표시합니다
 --version               버전 정보를 표시합니다
--i, --id ID             스트리머 ID를 설정합니다 (기본값: 0)
+-i, --id ID             스트리머 ID를 설정합니다
 -u, --uid [UID]         스트리머 고유 식별자를 설정합니다
 -a, --auth [AUTH]       치지직 인증 자격 증명 처리 방법을 설정합니다 (reuse|reissue|ignore)
 --authaut AUTHAUT       치지직 인증 자격 증명의 인증 키를 설정합니다
@@ -39,7 +38,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --adult [ADULT]         자격 증명이 유효하지 않을 때 성인 콘텐츠 처리 방법을 설정합니다 (ask|skip)
 -y, --yes               모든 확인 값을 자동으로 '예'로 설정합니다
 -q, --quality [QUALITY] 다운로드하려는 목표 화질을 설정합니다 (예: 1080p)
--d, --display [DISPLAY] 다운로드 상태 표시 모드를 설정합니다 (quiet|simple|fluent|all)
+-d, --display [DISPLAY] 표시 형식을 설정합니다 (quiet|simple|fluent|all)
 --once ONCE             별도의 설정 저장 앖이 라이브 스트리밍을 한 번만 다운로드합니다
 --stream [STREAM]       스트리잉을 가져오는 방식을 설정합니다 (standard|timemachine)
 --final [FINAL]         최종 처리 방식을 설정합니다 (bypass|convert|cleanup|cconvert|ccleanup)
@@ -60,6 +59,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --category [CATEGORY]   저장 시 분류 방법을 설정합니다 (none|streamer)
 --exist [EXIST]         파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
 --threshold [THRESHOLD] 디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 10, 3-30)
+--rpc                   JSON-RPC 서버를 활성화합니다
 --rpcbaseport [RPCPORT] JSON-RPC 서버 기본 포트를 설정합니다 (기본값: 62000, 49152-65300)
 --snapshot SNAPSHOT     상태 변경 시 스냅샷을 JSON 파일로 저장합니다
 --thumb [THUMB]         미리보기 이미지의 저장 여부를 설정합니다 (save|skip)
@@ -265,19 +265,20 @@ ChzzkLiveDownloader --thumb save
 ChzzkLiveDownloader --thumb skip
 ```
 
-## 다운로드 세부 정보 표시 방법 설정
-기본적으로 자세한 다운로드 세부 정보가 표시됩니다. 하지만 세부 정보가 필요하지 않은 경우, 다음 명령어를 사용하여 표시를 방지할 수 있습니다.
+## 표시 형식 설정
+기본적으로 상세 정보가 표시됩니다. 하지만 정보가 필요하지 않은 경우, 다음 명령어를 사용하여 표시하지 않을 수 있습니다.
 
 ```powershell
 ChzzkLiveDownloader -d quiet
 ChzzkLiveDownloader --display quiet
 ```
 
-`--display` 매개 변수의 선택 사항을 사용하여 다음과 같은 표시 방법을 설정할 수 있습니다.
+`--display` 매개 변수의 선택 사항을 사용하여 다음과 같이 표시 형식을 설정할 수 있습니다.
 
-* `quiet` - 모든 다운로드 세부 정보 표시를 하지 않습니다.
-* `fluent` - 모든 다운로드 세부 정보를 표시합니다.
-* `default` - 이 선택 사항은 `fluent`와 동일합니다.
+* `quiet` - 정보 표시를 하지 않습니다.
+* `simple` - 간단 정보만 표시합니다.
+* `fluent` - 상세 정보를 표시합니다.
+* `all` - 모든 정보를 표시합니다.
 
 이 선택 사항을 기본값으로 되돌리려면 형식 없이 `-d` 또는 `--display`만 사용하세요.
 

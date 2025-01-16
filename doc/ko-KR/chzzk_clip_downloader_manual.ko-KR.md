@@ -7,18 +7,18 @@
 </div>
 
 ## 버전
-Version 1.7.2, January 12, 2025 00:00:00
+Version 1.8.0, January 18, 2025 00:00:00
 
 ## 사용법
 ```powershell
 ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-                    [--adult [ADULT]] [-y] [-d [DISPLAY]] [--info INFO] [--name [NAME]]
-                    [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
-                    [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
-                    [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
-                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpcid [RPCID]]
-                    [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
-                    [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                    [--adult [ADULT]] [-y] [-d [DISPLAY]] [--info INFO] [--name [NAME]] [--work [WORK]]
+                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
+                    [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
+                    [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
+                    [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
+                    [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--thumb [THUMB]] [--startup [STARTUP]]
+                    [--settings [SETTINGS]] [--reset]
                     [clip]
 ```
 
@@ -37,7 +37,7 @@ clip                    다운로드할 클립 UID 또는 URL
 --authses AUTHSES       치지직 인증 자격 증명의 세션 키를 설정합니다
 --adult [ADULT]         자격 증명이 유효하지 않을 때 성인 콘텐츠 처리 방법을 설정합니다 (ask|skip)
 -y, --yes               모든 확인 값을 자동으로 '예'로 설정합니다
--d, --display [DISPLAY] 다운로드 상태 표시 모드를 설정합니다 (quiet|simple|fluent|all)
+-d, --display [DISPLAY] 표시 형식을 설정합니다 (quiet|simple|fluent|all)
 --info INFO             다운로드 없이 클립 정보룰 획득합니다
 --name [NAME]           저장되는 파일 이름 형식을 설정합니다
 --work [WORK]           작업 디렉터리를 설정합니다
@@ -52,6 +52,7 @@ clip                    다운로드할 클립 UID 또는 URL
 --category [CATEGORY]   저장 시 분류 방법을 설정합니다 (none|streamer)
 --exist [EXIST]         파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
 --threshold [THRESHOLD] 디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 10, 3-30)
+--rpc                   JSON-RPC 서버를 활성화합니다
 --rpcid [RPCID]         JSON-RPC 서버 ID를 설정합니다 (기본값: 50)
 --rpcport [RPCPORT]     JSON-RPC 서버 포트를 설정합니다 (기본값: 64000, 49152-65300)
 --snapshot SNAPSHOT     상태 변경 시 스냅샷을 JSON 파일로 저장합니다
@@ -183,19 +184,20 @@ ChzzkClipDownloader clip_uid 또는 url --thumb save
 ChzzkClipDownloader clip_uid 또는 url --thumb skip
 ```
 
-## 다운로드 세부 정보 표시 방법 설정
-기본적으로 자세한 다운로드 세부 정보가 표시됩니다. 하지만 세부 정보가 필요하지 않은 경우, 다음 명령어를 사용하여 표시를 방지할 수 있습니다.
+## 표시 형식 설정
+기본적으로 상세 정보가 표시됩니다. 하지만 정보가 필요하지 않은 경우, 다음 명령어를 사용하여 표시하지 않을 수 있습니다.
 
 ```powershell
 ChzzkClipDownloader clip_uid 또는 url -d quiet
 ChzzkClipDownloader clip_uid 또는 url --display quiet
 ```
 
-`--display` 매개 변수의 선택 사항을 사용하여 다음과 같은 표시 방법을 설정할 수 있습니다.
+`--display` 매개 변수의 선택 사항을 사용하여 다음과 같이 표시 형식을 설정할 수 있습니다.
 
-* `quiet` - 모든 다운로드 세부 정보 표시를 하지 않습니다.
-* `fluent` - 모든 다운로드 세부 정보를 표시합니다.
-* `default` - 이 선택 사항은 `fluent`와 동일합니다.
+* `quiet` - 정보 표시를 하지 않습니다.
+* `simple` - 간단 정보만 표시합니다.
+* `fluent` - 상세 정보를 표시합니다.
+* `all` - 모든 정보를 표시합니다.
 
 이 선택 사항을 기본값으로 되돌리려면 형식 없이 `-d` 또는 `--display`만 사용하세요.
 

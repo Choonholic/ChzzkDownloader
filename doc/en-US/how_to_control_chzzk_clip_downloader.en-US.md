@@ -3,6 +3,9 @@
 ## Chzzk Downloader Suite JSON-RPC Specifications
 Chzzk Downloader Suite supports single request of [JSON-RPC 2.0 Specifications](https://www.jsonrpc.org/specification) to control externally.
 
+## How To Activate Server
+Execute Chzzk Clip Downloader with `--rpc` option.
+
 ## How To Connect To Server
 Internal JSON-RPC server accepts socket connections.
 

@@ -3,6 +3,9 @@
 ## Chzzk Downloader Suite JSON-RPC 사양
 Chzzk Downloader Suite를 외부에서 제어하기 위해 단일 요청 방식의 [JSON-RPC 2.0 사양](https://www.jsonrpc.org/specification)을 지원합니다.
 
+## 서버 활성화 방법
+Chzzk Live Finalizer를 실행할 때 `--rpc` 선택 사항을 지정합니다.
+
 ## 서버 연결 방법
 내부 JSON-RPC 서버는 소켓 연결을 허용합니다.
 

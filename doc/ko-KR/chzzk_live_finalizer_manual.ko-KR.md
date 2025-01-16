@@ -7,14 +7,14 @@
 </div>
 
 ## 버전
-Version 1.7.2, January 12, 2025 00:00:00
+Version 1.8.0, January 18, 2025 00:00:00
 
 ## 사용법
 ```powershell
 ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
                    [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
                    [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
-                   [--threshold [THRESHOLD]] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
+                   [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                    [--snapshot SNAPSHOT] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
 ```
 
@@ -22,7 +22,7 @@ ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user 
 ```
 -h, --help                도움말 페이지를 표시합니다
 --version                 버전 정보를 표시합니다
--d, --display [DISPLAY]   처리 상태 표시 모드를 설정합니다 (quiet|simple|fluent|all)
+-d, --display [DISPLAY]   표시 형식을 설정합니다 (quiet|simple|fluent|all)
 --work [WORK]             작업 디렉터리를 설정합니다
 --work-user [WORK_USER]   작업 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
 --work-pass [WORK_PASS]   작업 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
@@ -32,6 +32,7 @@ ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user 
 --convert [CONVERT]       변환 매개 변수를 설정합니다
 --exist [EXIST]           파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
 --threshold [THRESHOLD]   디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 10, 3-30)
+--rpc                     JSON-RPC 서버를 활성화합니다
 --rpcid [RPCID]           JSON-RPC 서버 ID를 설정합니다 (기본값: 70)
 --rpcport [RPCPORT]       JSON-RPC 서버 포트를 설정합니다 (기본값: 65000, 49152-65300)
 --snapshot SNAPSHOT       상태 변경 시 스냅샷을 JSON 파일로 저장합니다
@@ -121,19 +122,20 @@ ChzzkLiveFinalizer --convert "-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 
 ChzzkLiveFinalizer --convert
 ```
 
-## 처리 정보 표시 방법 설정
-기본적으로 자세한 세부 처리 정보가 표시됩니다. 하지만 세부 정보가 필요하지 않은 경우, 다음 명령어를 사용하여 표시를 방지할 수 있습니다.
+## 표시 형식 설정
+기본적으로 상세 정보가 표시됩니다. 하지만 정보가 필요하지 않은 경우, 다음 명령어를 사용하여 표시하지 않을 수 있습니다.
 
 ```powershell
 ChzzkLiveFinalizer -d quiet
 ChzzkLiveFinalizer --display quiet
 ```
 
-`--display` 매개 변수의 선택 사항을 사용하여 다음과 같은 표시 방법을 설정할 수 있습니다.
+`--display` 매개 변수의 선택 사항을 사용하여 다음과 같이 표시 형식을 설정할 수 있습니다.
 
-* `quiet` - 모든 세부 처리 정보 표시를 하지 않습니다.
-* `fluent` - 모든 세부 처리 정보를 표시합니다.
-* `default` - 이 선택 사항은 `fluent`와 동일합니다.
+* `quiet` - 정보 표시를 하지 않습니다.
+* `simple` - 간단 정보만 표시합니다.
+* `fluent` - 상세 정보를 표시합니다.
+* `all` - 모든 정보를 표시합니다.
 
 이 선택 사항을 기본값으로 되돌리려면 형식 없이 `-d` 또는 `--display`만 사용하세요.
 
