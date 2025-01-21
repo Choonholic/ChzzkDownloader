@@ -7,7 +7,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.8.0, January 18, 2025 00:00:00
+Version 1.9.0, January 22, 2025 02:00:00
 
 ## Usage
 ```powershell
