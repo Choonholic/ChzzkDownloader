@@ -7,21 +7,23 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.10.0, January 31, 2025 00:00:00
+Version 1.11.0, February 04, 2025 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
+* **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
 
 ## Usage
 ```powershell
 ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--info INFO] [--name [NAME]]
-                     [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
+                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--final [FINAL]]
+                     [--custom [CUSTOM]] [--info INFO] [--name [NAME]] [--work [WORK]]
+                     [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
                      [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
                      [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
                      [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
-                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--thumb [THUMB]]
-                     [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
+                     [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
                      [video]
 ```
 
@@ -42,6 +44,8 @@ video                   Video number or URL to download
 -y, --yes               Set any confirmation values to 'yes' automatically
 -q, --quality [QUALITY] Set target quality to download (e.g. 1080p)
 -d, --display [DISPLAY] Set display mode (quiet|simple|fluent|all)
+--final [FINAL]         Set finalization method (bypass|convert|cleanup|cconvert|ccleanup, applicable only when downloading UPLOAD type)
+--custom [CUSTOM]       Set custom finalize options (applicable only to cconvert|ccleanup)
 --info INFO             Retrieve video information without downloading
 --name [NAME]           Set output filename format
 --work [WORK]           Set working directory
@@ -55,7 +59,7 @@ video                   Video number or URL to download
 --temp-pass [TEMP_PASS] Set password to use when temporary directory is on remote network
 --category [CATEGORY]   Set output categorize method (none|streamer)
 --exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
+--threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
 --rpc                   Activate JSON-RPC server
 --rpcid [RPCID]         Set ID of JSON-RPC server (default: 30)
 --rpcport [RPCPORT]     Set port of JSON-RPC server (default: 63000, 49152-65300)

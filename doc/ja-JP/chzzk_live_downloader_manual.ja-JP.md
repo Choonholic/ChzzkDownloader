@@ -7,11 +7,11 @@ Chzzkのストリーム用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.10.0, January 31, 2025 00:00:00
+Version 1.11.0, February 04, 2025 00:00:00
 
 ## 必須事項
-* **[必須]** 最新バージョンのFFmpeg（FFmpeg 7.0またはそれ以上が必要）
 * **[必須]** 最新バージョンのStreamlink（Streamlink 6.8.0またはそれ以上が必要）
+* **[必須]** 最新バージョンのFFmpeg（FFmpeg 7.0またはそれ以上が必要）
 
 ## 使用法
 ```powershell
@@ -58,7 +58,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --temp-pass [WORK_PASS] 一時ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
 --category [CATEGORY]   保存時のカテゴリ分け方法を設定 (none|streamer)
 --exist [EXIST]         対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
---threshold [THRESHOLD] 空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 10, 3-30)
+--threshold [THRESHOLD] 空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 10, 3-50)
 --rpc                   JSON-RPCサーバーを有効化
 --rpcbaseport [RPCPORT] JSON-RPCサーバーのベースポートを設定（デフォルト: 62000、49152-65300）
 --snapshot SNAPSHOT     ステータスが変更されるたびにJSONファイルにスナップショットを保存

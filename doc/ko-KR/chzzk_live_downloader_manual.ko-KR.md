@@ -7,23 +7,24 @@
 </div>
 
 ## 버전
-Version 1.10.0, January 31, 2025 00:00:00
+Version 1.11.0, February 04, 2025 00:00:00
 
 ## 선행 요건
-* **[필수]** 최신 버전의 FFmpeg (FFmpeg 7.0 또는 상위 버전 필요)
 * **[필수]** 최신 버전의 Streamlink (Streamlink 6.8.0 또는 상위 버전 필요)
+* **[필수]** 최신 버전의 FFmpeg (FFmpeg 7.0 또는 상위 버전 필요)
 
 ## 사용법
 ```powershell
-ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-                    [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--once ONCE] [--stream [STREAM]]
-                    [--final [FINAL]] [--custom [CUSTOM]] [--offset OFFSET] [--duration DURATION]
-                    [--detect [DETECT]] [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
-                    [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]]
-                    [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
-                    [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
-                    [--rpcbaseport [RPCPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
-                    [--settings [SETTINGS]] [--reset]
+ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
+                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--final [FINAL]]
+                     [--custom [CUSTOM]] [--info INFO] [--name [NAME]] [--work [WORK]]
+                     [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
+                     [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
+                     [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
+                     [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
+                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
+                     [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                     [video]
 ```
 
 ### 선택적 매개 변수
@@ -58,7 +59,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --temp-pass [WORK_PASS] 임시 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
 --category [CATEGORY]   저장 시 분류 방법을 설정합니다 (none|streamer)
 --exist [EXIST]         파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
---threshold [THRESHOLD] 디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 10, 3-30)
+--threshold [THRESHOLD] 디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 10, 3-50)
 --rpc                   JSON-RPC 서버를 활성화합니다
 --rpcbaseport [RPCPORT] JSON-RPC 서버 기본 포트를 설정합니다 (기본값: 62000, 49152-65300)
 --snapshot SNAPSHOT     상태 변경 시 스냅샷을 JSON 파일로 저장합니다

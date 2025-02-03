@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Clip Downloader
 </div>
 
 ## Version
-Version 1.10.0, January 31, 2025 00:00:00
+Version 1.11.0, February 04, 2025 00:00:00
 
 ## Prerequisites
 Since Chzzk Clip Manager is the GUI frontend application for Chzzk Clip Downloader, Chzzk Clip Downloader must be installed as well.
@@ -117,11 +117,6 @@ To refresh the list immediately, click the ☰ icon, and choose `Refresh`.
 
 ## Opening Chzzk Downloader Environment
 To open Chzzk Downloader Environment, click the ☰ icon, and choose `Open Environment (Command Prompt)` or `Open Environment (PowerShell)` under `Downloader`.
-
-<div style='text-align: center'>
-<img src='../../img/screenshots/cman_en-US/cman_environment.png' />
-<p><i>(This image may not reflect the latest information.)</i></p>
-</div>
 
 ## Opening the Output Directory
 To open the output directory for downloaded clips, click the ☰ icon, and choose `Open Output Directory` under `Downloader`.

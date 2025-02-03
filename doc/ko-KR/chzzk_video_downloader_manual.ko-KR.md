@@ -7,21 +7,23 @@
 </div>
 
 ## 버전
-Version 1.10.0, January 31, 2025 00:00:00
+Version 1.11.0, February 04, 2025 00:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 Streamlink (Streamlink 6.8.0 또는 상위 버전 필요)
+* **[필수]** 최신 버전의 FFmpeg (FFmpeg 7.0 또는 상위 버전 필요)
 
 ## 사용법
 ```powershell
 ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--info INFO] [--name [NAME]]
-                     [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
+                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--final [FINAL]]
+                     [--custom [CUSTOM]] [--info INFO] [--name [NAME]] [--work [WORK]]
+                     [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
                      [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
                      [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
                      [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
-                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--thumb [THUMB]]
-                     [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
+                     [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
                      [video]
 ```
 
@@ -42,6 +44,8 @@ video                   다운로드할 비디오 번호 또는 URL
 -y, --yes               모든 확인 값을 자동으로 '예'로 설정합니다
 -q, --quality [QUALITY] 다운로드하려는 목표 화질을 설정합니다 (예: 1080p)
 -d, --display [DISPLAY] 표시 형식을 설정합니다 (quiet|simple|fluent|all)
+--final [FINAL]         최종 처리 방식을 설정합니다 (bypass|convert|cleanup|cconvert|ccleanup, UPLOAD 형식 다운로드 시에만 적용 가능)
+--custom [CUSTOM]       최종 처리 시 사용할 사용자 정의 선택 사항을 설정합니다 (cconvert|ccleanup에만 적용 가능)
 --info INFO             다운로드 없이 비디오 정보룰 획득합니다
 --name [NAME]           저장되는 파일 이름 형식을 설정합니다
 --work [WORK]           작업 디렉터리를 설정합니다
@@ -55,7 +59,7 @@ video                   다운로드할 비디오 번호 또는 URL
 --temp-pass [WORK_PASS] 임시 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
 --category [CATEGORY]   저장 시 분류 방법을 설정합니다 (none|streamer)
 --exist [EXIST]         파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
---threshold [THRESHOLD] 디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 10, 3-30)
+--threshold [THRESHOLD] 디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 10, 3-50)
 --rpc                   JSON-RPC 서버를 활성화합니다
 --rpcid [RPCID]         JSON-RPC 서버 ID를 설정합니다 (기본값: 30)
 --rpcport [RPCPORT]     JSON-RPC 서버 포트를 설정합니다 (기본값: 63000, 49152-65300)

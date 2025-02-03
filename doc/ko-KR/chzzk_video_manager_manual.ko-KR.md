@@ -7,27 +7,27 @@
 </div>
 
 ## 버전
-Version 1.10.0, January 31, 2025 00:00:00
+Version 1.11.0, February 04, 2025 00:00:00
 
 ## 선행 요건
-Chzzk Video Manager는 Chzzk Video Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Video Downloader가 함께 설치되어 있어야 합니다.
+Chzzk Video Manager는 Chzzk Video Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Video Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
 
-Chzzk Video Manager와 Chzzk Video Downloader가 같은 디렉터리에 설치되어 있으면 실행 시 자동으로 인식히며, 그렇지 않으면 **선행 요건 확인하기** 항목의 내용을 따라 Chzzk Video Downloader의 위치를 지정해 주어야 합니다.
+Chzzk Video Manager, Chzzk Video Downloader, Chzzk Transport Finalizer가 모두 같은 디렉터리에 있으면 실행 시 자동으로 인식히며, 그렇지 않으면 **선행 요건 확인하기** 항목의 내용을 따라 Chzzk Video Downloader와 Chzzk Transport Finalizer의 위치를 지정해 주어야 합니다.
 
-무설치 버전의 파일을 사용할 경우, 편의를 위해 Chzzk Video Downloader와 Chzzk Video Manager를 같은 디렉터리에 저장하시는 것을 권장합니다. `설치 프로그램`을 사용하면 자동으로 자동으로 같은 디렉터리에 설치됩니다.
+무설치 버전의 파일을 사용할 경우, 편의를 위해 Chzzk Video Manager, Chzzk Video Downloader, Chzzk Transport Finalizer를 모두 같은 디렉터리에 저장하시는 것을 권장합니다. `설치 프로그램`을 사용하면 자동으로 자동으로 같은 디렉터리에 설치됩니다.
 
 ## 실행
 시작 메뉴에서 `Chzzk Video Manager`를 실행하거나, `Chzzk Downloader Environment`에서 `ChzzkVideoManager.exe`를 실행합니다.
 
 ## 선행 요건 확인
-Chzzk Video Manager의 모든 기능을 활용하려면, Chzzk Video Downloader가 올바르게 설정되어 있어야 하며, Chzzk Video Downloader를 실행하려면 Streamlink(버전 6.8.0 이상)이 올바르게 설정되어 있어야 합니다. Chzzk Video Manager가 처음 실행될 때 이와 같은 선행 요건을 모두 확인하는 과정을 거치며, 이를 만족하지 못할 경우 다음 그림과 같은 대화 상자가 표시됩니다.
+Chzzk Video Manager의 모든 기능을 활용하려면, Chzzk Video Downloader와 Chzzk Transport Finalizer가 올바르게 설정되어 있어야 하며, Chzzk Video Downloader를 실행하려면 Streamlink(버전 6.8.0 이상)와 FFmpeg(버전 7.0 이상)이 올바르게 설정되어 있어야 합니다. Chzzk Video Manager가 처음 실행될 때 이와 같은 선행 요건을 모두 확인하는 과정을 거치며, 이를 만족하지 못할 경우 다음 그림과 같은 대화 상자가 표시됩니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_ko-KR/vman_prerequisites.png' />
 <p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
 </div>
 
-`설정...` 버튼을 누르면 Chzzk Video Downloader의 위치를 지정할 수 있습니다.
+`설정...` 버튼을 누르면 Chzzk Video Downloader와 Chzzk Transport Finalizer의 위치를 지정할 수 있으며, `다운로드` 버튼을 눌러 Streamlink와 FFmpeg을 설치할 수 있습니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_ko-KR/vman_downloader_locate_01.png' />
@@ -38,6 +38,18 @@ Chzzk Video Manager의 모든 기능을 활용하려면, Chzzk Video Downloader�
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_ko-KR/vman_downloader_locate_02.png' />
+<p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
+</div>
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/vman_ko-KR/vman_finalizer_locate_01.png' />
+<p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
+</div>
+
+마찬가지로 `...` 버튼을 눌러 올바른 위치에서 `ChzzkTransportFinalizer.exe` 파일을 찾아 선택합니다. 올바른 Chzzk Transport Finalizer가 지정되면, 다음 그림과 같이 인식된 버전 정보가 표시됩니다.
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/vman_ko-KR/vman_finalizer_locate_02.png' />
 <p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
 </div>
 
@@ -118,11 +130,6 @@ Chzzk Video Manager의 모든 기능을 활용하려면, Chzzk Video Downloader�
 ## 도구 환경 열기
 도구 환경을 열려면, ☰ 아이콘을 누르고 `다운로드 도구` 항목에서 `도구 환경 (Command Prompt)` 또는 `도구 환경 (PowerShell)` 항목을 선택합니다.
 
-<div style='text-align: center'>
-<img src='../../img/screenshots/vman_ko-KR/vman_environment.png' />
-<p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
-</div>
-
 ## 저장 디렉터리 열기
 다운로드한 비디오가 저장된 디렉터리를 열려면, ☰ 아이콘을 누르고 `다운로드 도구` 항목에서 `저장 디렉터리 열기` 항목을 선택합니다.
 
@@ -148,6 +155,15 @@ Chzzk Video Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `다�
 <img src='../../img/screenshots/vman_ko-KR/vman_tray_menu.png' />
 <p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
 </div>
+
+### 최종 처리 단계 사용자 정의 설정
+다운로드 하는 파일의 VOD 형식이 `UPLOAD`일 경우, `최종 처리` 설정의 `사용자 정의 선택 사항`에 매개 변수를 지정하면, 최종 처리 시에 이 매개 변수가 `FFmpeg`에 전달됩니다. 예를 들어, 다음 설정은 `FFmpeg`을 사용하여 `H.265` 코덱으로 인코딩하도록 설정합니다:
+
+```powershell
+-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k
+```
+
+참고로 사용자 지정 인코딩은 성능이 최적화되지 않아 권장되지 않습니다. 더 나은 결과를 위해 외부의 전용 인코더를 사용하는 것을 고려하세요.
 
 ## 기타 설정
 
@@ -184,8 +200,22 @@ Chzzk Video Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `다�
 * **JSON-RPC 서버: ID** - JSON-RPC 서버의 ID를 설정합니다.
 * **미리보기 이미지 저장하기** - 미리보기 이미지를 함께 저장합니다.
 * **대상 파일이 이미 존재할 경우 저장 방법** - 파일이 이미 존재할 때 파일 저장 방법을 설정합니다.
-* **목표 화질** - 다운로드 시 목표 화질을 설정합니다.
 * **저장 파일 이름 형식** - 저장 파일 이름 형식을 지정합니다. 형식 지정자에 대한 자세한 내용은 `chzzk_video_downloader_manual.ko-KR.pdf`를 참조하세요.
+* **목표 화질** - 다운로드 시 목표 화질을 설정합니다.
+
+### 최종 처리
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/vman_ko-KR/vman_settings_finalize.png' />
+<p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
+</div>
+
+* **JSON-RPC 서버: 호스트 주소** - JSON-RPC 서버의 호스트 주소를 설정합니다.
+* **JSON-RPC 서버: 포트** - JSON-RPC 서버의 포트 번호를 설정합니다.
+* **JSON-RPC 서버: ID** - JSON-RPC 서버의 ID를 설정합니다.
+* **최종 처리 방법** - 최종 처리 방법을 설정합니다.
+* **Chzzk Transport Finalizer로 보내기** - 최종 처리를 Chzzk Transport Finalizer에게 맡깁니다.
+* **사용자 정의 선택 사항** - 최종 처리의 사용자 정의 선택 사항을 설정합니다.
 
 ### 인증
 

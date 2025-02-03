@@ -7,27 +7,27 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.10.0, January 31, 2025 00:00:00
+Version 1.11.0, February 04, 2025 00:00:00
 
 ## Prerequisites
-Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, both of Chzzk Live Downloader and Chzzk Live Finalizer must be installed as well.
+Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, both of Chzzk Live Downloader and Chzzk Transport Finalizer must be installed as well.
 
-If Chzzk Live Manager, Chzzk Live Downloader and Chzzk Live Finalizer are in the same directory, Chzzk Live Manager will automatically recognize Chzzk Live Downloader and Chzzk Live Finalizer upon execution. Otherwise, you will need to specify the location of Chzzk Live Downloader and Chzzk Live Finalizer by referring to the **Verifying Prerequisites** section.
+If Chzzk Live Manager, Chzzk Live Downloader and Chzzk Transport Finalizer are in the same directory, Chzzk Live Manager will automatically recognize Chzzk Live Downloader and Chzzk Transport Finalizer upon execution. Otherwise, you will need to specify the location of Chzzk Live Downloader and Chzzk Transport Finalizer by referring to the **Verifying Prerequisites** section.
 
-For portable versions, consider storing Chzzk Live Manager, Chzzk Live Downloader and Chzzk Live Finalizer in the same directory for convenience. If installed using the `Setup`, all tools will be installed in the same directory.
+For portable versions, consider storing Chzzk Live Manager, Chzzk Live Downloader and Chzzk Transport Finalizer in the same directory for convenience. If installed using the `Setup`, all tools will be installed in the same directory.
 
 ## How To Execute
 Click `Chzzk Live Manager` in Start menu, or execute `ChzzkLiveManager.exe` in `Chzzk Downloader Environment`.
 
 ## Verifying Prerequisites
-Chzzk Live Manager requires Chzzk Live Downloader and Chzzk Live Finalizer to be properly set up for full functionality. Additionally, Chzzk Live Downloader requires proper configurations of Streamlink (Version 6.8.0 or higher) and FFmpeg (Version 7.0 or higher). When Chzzk Live Manager starts, it checks whether these prerequisites are met, and if not, it will display the following dialog.
+Chzzk Live Manager requires Chzzk Live Downloader and Chzzk Transport Finalizer to be properly set up for full functionality. Additionally, Chzzk Live Downloader requires proper configurations of Streamlink (Version 6.8.0 or higher) and FFmpeg (Version 7.0 or higher). When Chzzk Live Manager starts, it checks whether these prerequisites are met, and if not, it will display the following dialog.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_en-US/lman_prerequisites.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-You can click `Settings...` button to specify the location of Chzzk Live Downloader and Chzzk Live Finalizer, or click `Download` button to install Streamlink or FFmpeg.
+You can click `Settings...` button to specify the location of Chzzk Live Downloader and Chzzk Transport Finalizer, or click `Download` button to install Streamlink or FFmpeg.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_en-US/lman_downloader_locate_01.png' />
@@ -46,7 +46,7 @@ Click `...` button to choose `ChzzkLiveDownloader.exe` file in the correct path.
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-Similarly, Click `...` button to choose `ChzzkLiveFinalizer.exe` file in the correct path. When the correct Chzzk Live Finalizer is specified, the version information will be displayed as shown in the following figure.
+Similarly, Click `...` button to choose `ChzzkTransportFinalizer.exe` file in the correct path. When the correct Chzzk Transport Finalizer is specified, the version information will be displayed as shown in the following figure.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_en-US/lman_finalizer_locate_02.png' />
@@ -324,7 +324,7 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 * **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
 * **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
 * **Finalize Method** - Specifies the finalization method.
-* **Send To Chzzk Live Finalizer** - Delegate finalizing stage to Chzzk Live Finalizer.
+* **Send To Chzzk Transport Finalizer** - Delegate finalizing stage to Chzzk Transport Finalizer.
 * **Custom Options** - Specifies custom options for the finalization.
 
 ### Auth

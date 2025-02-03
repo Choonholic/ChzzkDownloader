@@ -7,11 +7,11 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.10.0, January 31, 2025 00:00:00
+Version 1.11.0, February 04, 2025 00:00:00
 
 ## Prerequisites
-* **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
+* **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
 
 ## Usage
 ```powershell
@@ -58,7 +58,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --temp-pass [TEMP_PASS] Set password to use when temporary directory is on remote network
 --category [CATEGORY]   Set output categorize method (none|streamer)
 --exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
+--threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
 --rpc                   Activate JSON-RPC server
 --rpcbaseport [RPCPORT] Set base port of JSON-RPC server (default: 62000, 49152-65300)
 --snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status

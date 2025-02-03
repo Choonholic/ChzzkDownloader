@@ -14,11 +14,11 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.10.0, January 31, 2025 00:00:00
+Version 1.11.0, February 04, 2025 00:00:00
 
 ### Prerequisites For Executables
-* **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
+* **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
 
 ### Usage
 ```powershell
@@ -65,7 +65,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --temp-pass [TEMP_PASS] Set password to use when temporary directory is on remote network
 --category [CATEGORY]   Set output categorize method (none|streamer)
 --exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
+--threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
 --rpc                   Activate JSON-RPC server
 --rpcbaseport [RPCPORT] Set base port of JSON-RPC server (default: 62000, 49152-65300)
 --snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
@@ -80,54 +80,6 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 ChzzkLiveDownloader -i 2 --thumb save --detect 30 --work work --out out --temp temp
 ```
 
-## Chzzk Live Finalizer
-Finalizer for Chzzk live streams
-
-<div style='text-align: center'>
-<img src='img/screenshots/screenshot_chzzklivefinalizer.png' />
-<p><i>(This image may not reflect the latest information.)</i></p>
-</div>
-
-## Version
-Version 1.10.0, January 31, 2025 00:00:00
-
-### Usage
-```powershell
-ChzzkLiveFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
-                   [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
-                   [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
-                   [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                   [--snapshot SNAPSHOT] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
-```
-
-### Options
-```
--h, --help                Show this help message
---version                 Show version information
--d, --display [DISPLAY]   Set display mode (quiet|simple|fluent|all)
---work [WORK]             Set working directory
---work-user [WORK_USER]   Set username to use when working directory is on remote network
---work-pass [WORK_PASS]   Set password to use when working directory is on remote network
---watch [WATCH]           Set watching directory
---watch-user [WATCH_USER] Set username to use when watching directory is on remote network
---watch-pass [WATCH_PASS] Set password to use when watching directory is on remote network
---convert [CONVERT]       Set convert parameters
---exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
---rpc                     Activate JSON-RPC server
---rpcid [RPCID]           Set ID of JSON-RPC server (default: 70)
---rpcport [RPCPORT]       Set port of JSON-RPC server (default: 65000, 49152-65300)
---snapshot SNAPSHOT       Save snapshot to a JSON file whenever changing status
---startup [STARTUP]       Set startup method (normal|fast)
---settings [SETTINGS]     Set action when saving settings (default|skip|quit)
---reset                   Reset all settings
-```
-
-### Example
-```powershell
-ChzzkLiveFinalizer --work work --watch out
-```
-
 ## Chzzk Video Downloader
 Downloader for Chzzk replay videos
 
@@ -138,20 +90,22 @@ Downloader for Chzzk replay videos
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
+* **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
 
 ## Version
-Version 1.10.0, January 31, 2025 00:00:00
+Version 1.11.0, February 04, 2025 00:00:00
 
 ### Usage
 ```powershell
 ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--info INFO] [--name [NAME]]
-                     [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
+                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--final [FINAL]]
+                     [--custom [CUSTOM]] [--info INFO] [--name [NAME]] [--work [WORK]]
+                     [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
                      [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
                      [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
                      [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
-                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--thumb [THUMB]]
-                     [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
+                     [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
                      [video]
 ```
 
@@ -172,6 +126,8 @@ video                   Video number or URL to download
 -y, --yes               Set any confirmation values to 'yes' automatically
 -q, --quality [QUALITY] Set target quality to download (e.g. 1080p)
 -d, --display [DISPLAY] Set display mode (quiet|simple|fluent|all)
+--final [FINAL]         Set finalization method (bypass|convert|cleanup|cconvert|ccleanup, applicable only when downloading UPLOAD type)
+--custom [CUSTOM]       Set custom finalize options (applicable only to cconvert|ccleanup)
 --info INFO             Retrieve video information without downloading
 --name [NAME]           Set output filename format
 --work [WORK]           Set working directory
@@ -185,7 +141,7 @@ video                   Video number or URL to download
 --temp-pass [TEMP_PASS] Set password to use when temporary directory is on remote network
 --category [CATEGORY]   Set output categorize method (none|streamer)
 --exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
+--threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
 --rpc                   Activate JSON-RPC server
 --rpcid [RPCID]         Set ID of JSON-RPC server (default: 30)
 --rpcport [RPCPORT]     Set port of JSON-RPC server (default: 63000, 49152-65300)
@@ -211,7 +167,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.10.0, January 31, 2025 00:00:00
+Version 1.11.0, February 04, 2025 00:00:00
 
 ### Usage
 ```powershell
@@ -255,7 +211,7 @@ clip                    Clip UID or URL to download
 --temp-pass [TEMP_PASS] Set password to use when temporary directory is on remote network
 --category [CATEGORY]   Set output categorize method (none|streamer)
 --exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-30)
+--threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
 --rpc                   Activate JSON-RPC server
 --rpcid [RPCID]         Set ID of JSON-RPC server (default: 50)
 --rpcport [RPCPORT]     Set port of JSON-RPC server (default: 64000, 49152-65300)
@@ -271,6 +227,55 @@ clip                    Clip UID or URL to download
 ```powershell
 ChzzkClipDownloader C46IcpG11p --thumb save --work work --out out --temp temp
 ```
+
+## Chzzk Transport Finalizer
+Finalizer for Chzzk transport streams
+
+<div style='text-align: center'>
+<img src='img/screenshots/screenshot_chzzktransportfinalizer.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+## Version
+Version 1.11.0, February 04, 2025 00:00:00
+
+### Usage
+```powershell
+ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
+                        [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
+                        [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
+                        [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
+                        [--snapshot SNAPSHOT] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+```
+
+### Options
+```
+-h, --help                Show this help message
+--version                 Show version information
+-d, --display [DISPLAY]   Set display mode (quiet|simple|fluent|all)
+--work [WORK]             Set working directory
+--work-user [WORK_USER]   Set username to use when working directory is on remote network
+--work-pass [WORK_PASS]   Set password to use when working directory is on remote network
+--watch [WATCH]           Set watching directory
+--watch-user [WATCH_USER] Set username to use when watching directory is on remote network
+--watch-pass [WATCH_PASS] Set password to use when watching directory is on remote network
+--convert [CONVERT]       Set convert parameters
+--exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
+--threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
+--rpc                     Activate JSON-RPC server
+--rpcid [RPCID]           Set ID of JSON-RPC server (default: 70)
+--rpcport [RPCPORT]       Set port of JSON-RPC server (default: 65000, 49152-65300)
+--snapshot SNAPSHOT       Save snapshot to a JSON file whenever changing status
+--startup [STARTUP]       Set startup method (normal|fast)
+--settings [SETTINGS]     Set action when saving settings (default|skip|quit)
+--reset                   Reset all settings
+```
+
+### Example
+```powershell
+ChzzkTransportFinalizer --work work --watch out
+```
+
 ## Changelogs
 Please kindly read [Release Notes](https://blog.choonholic.com/archives/3216).
 

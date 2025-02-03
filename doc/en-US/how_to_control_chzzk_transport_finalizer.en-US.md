@@ -1,10 +1,10 @@
-# How To Control Chzzk Live Finalizer Externally Using JSON-RPC
+# How To Control Chzzk Transport Finalizer Externally Using JSON-RPC
 
 ## Chzzk Downloader Suite JSON-RPC Specifications
 Chzzk Downloader Suite supports single request of [JSON-RPC 2.0 Specifications](https://www.jsonrpc.org/specification) to control externally.
 
 ## How To Activate Server
-Execute Chzzk Live Finalizer with `--rpc` option.
+Execute Chzzk Transport Finalizer with `--rpc` option.
 
 ## How To Connect To Server
 Internal JSON-RPC server accepts socket connections.
@@ -14,7 +14,7 @@ Internal JSON-RPC server accepts socket connections.
 * **RPC ID** - Default ID is `70`. Use `--rpcid` option to change.
 
 ## How To Request
-To request action from Chzzk Live Finalizer, send the object like below through the socket.
+To request action from Chzzk Transport Finalizer, send the object like below through the socket.
 
 ```json
 {
@@ -34,7 +34,7 @@ To request action from Chzzk Live Finalizer, send the object like below through 
 * `quit_app` – Stops the current download (if in progress) and exits the application.
 
 ## Responses
-Chzzk Live Finalizer returns responses in the following format.
+Chzzk Transport Finalizer returns responses in the following format.
 
 ```json
 {

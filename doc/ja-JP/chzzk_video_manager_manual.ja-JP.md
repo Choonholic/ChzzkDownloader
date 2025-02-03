@@ -7,27 +7,27 @@ Chzzk Video Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.10.0, January 31, 2025 00:00:00
+Version 1.11.0, February 04, 2025 00:00:00
 
 ## 必要条件
-Chzzk Video Managerは、Chzzk Video DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Video Downloaderもインストールされている必要があります。
+Chzzk Video Managerは、Chzzk Video DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Video DownloaderとChzzk Transport Finalizerもインストールされている必要があります。
 
-Chzzk Video DownloaderとChzzk Video Managerが同じディレクトリにある場合、Chzzk Video Managerは起動時に自動的にChzzk Video Downloaderを認識します。そうでない場合は、**必要条件の確認**を参照して、Chzzk Video Downloaderの場所を指定してください。
+Chzzk Video Manager、Chzzk Video Downloader、Chzzk Transport Finalizerがすべて同じディレクトリにある場合、Chzzk Video Managerは起動時に自動的に認識します。そうでない場合は、**必要条件の確認**を参照して、Chzzk Video DownloaderとChzzk Transport Finalizerのパスを指定してください。
 
-ポータブル版の場合は、Chzzk Video DownloaderとChzzk Video Managerを同じディレクトリに保存することをお勧めします。`セットアップ`を使用してインストールした場合、両方が同じディレクトリにインストールされます。
+ポータブル版の場合は、Chzzk Video Manager、Chzzk Video Downloader、Chzzk Transport Finalizerをすべて同じディレクトリに保存することをお勧めします。`セットアップ`を使用してインストールした場合、すべてのツールが同じディレクトリにインストールされます。
 
 ## 実行方法
 スタートメニューから`Chzzk Video Manager`をクリックするか、`Chzzk Downloader Environment`で`ChzzkVideoManager.exe`を実行します。
 
 ## 必要条件の確認
-Chzzk Video Managerが正常に機能するためには、Chzzk Video Downloaderが正しく設定されている必要があります。また、Chzzk Video DownloaderはStreamlink（バージョン6.8.0またはそれ以上）の設定が必要です。Chzzk Video Managerの起動時に、この必要条件が満たされているかチェックし、満たされていない場合は、以下のダイアログが表示されます。
+Chzzk Video Managerが正常に機能するためには、Chzzk Video DownloaderとChzzk Transport Finalizerが正しく設定されている必要があります。また、Chzzk Video DownloaderはStreamlink（バージョン6.8.0またはそれ以上）とFFmpeg（バージョン7.0またはそれ以上）の設定が必要です。Chzzk Video Managerの起動時に、この必要条件が満たされているかチェックし、満たされていない場合は、以下のダイアログが表示されます。
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_ja-JP/vman_prerequisites.png' />
 <p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
 </div>
 
-`設定...`ボタンをクリックしてChzzk Video Downloaderの場所を指定できます。
+`設定...`ボタンをクリックしてChzzk Video DownloaderとChzzk Transport Finalizerのパスを指定するか、`ダウンロード`ボタンをクリックしてStreamlinkまたはFFmpegをインストールできます。
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_ja-JP/vman_downloader_locate_01.png' />
@@ -46,6 +46,18 @@ Chzzk Video Managerが正常に機能するためには、Chzzk Video Downloader
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_ja-JP/vman_main_menu.png' />
+<p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
+</div>
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/vman_ja-JP/vman_finalizer_locate_01.png' />
+<p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
+</div>
+
+同様に、`...`ボタンをクリックして、正しいパスにある`ChzzkTransportFinalizer.exe`ファイルを選択してください。正しいChzzk Transport Finalizerが指定されると、以下の図のようにバージョン情報が表示されます。
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/vman_ja-JP/vman_finalizer_locate_02.png' />
 <p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
 </div>
 
@@ -118,11 +130,6 @@ Chzzk Video Managerが正常に機能するためには、Chzzk Video Downloader
 ## Chzzk Downloader Suiteの環境を開く
 Chzzk Downloader Suiteの環境を開くには、☰アイコンをクリックし、`ダウンローダー`の下にある`環境（Command Prompt）`または`環境（PowerShell）`を選択します。
 
-<div style='text-align: center'>
-<img src='../../img/screenshots/vman_ja-JP/vman_environment.png' />
-<p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
-</div>
-
 ## 保存ディレクトリを開く
 ダウンロードしたビデオの保存ディレクトリを開くには、☰アイコンをクリックし、`ダウンローダー`の下にある`保存ディレクトリを開く`を選択します。
 
@@ -148,6 +155,15 @@ Chzzk Video Downloaderの設定を表示するには、☰アイコンをクリ�
 <img src='../../img/screenshots/vman_ja-JP/vman_tray_menu.png' />
 <p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
 </div>
+
+## 最終処理のカスタム設定
+ダウンロードするファイルのVOD形式が`UPLOAD`である場合、`最終処理`設定の`カスタムオプション`パラメータに追加オプションを設定すると、最終処理中にそのオプションが`FFmpeg`に渡されます。例えば、以下のオプションを指定すると、`FFmpeg`で`H.265`コーデックを使用してエンコードできます。
+
+```powershell
+-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k
+```
+
+ただし、カスタムエンコードはパフォーマンスが最適でないため推奨されません。より良い結果を得るには、外部のプロフェッショナルエンコーダーの使用を検討してください。
 
 ## その他の設定
 
@@ -184,8 +200,22 @@ Chzzk Video Downloaderの設定を表示するには、☰アイコンをクリ�
 * **JSON-RPCサーバー: ID** - JSON-RPCサーバーのIDを設定します。
 * **サムネイル画像を保存** - サムネイル画像を別途保存するかどうかを設定します。
 * **対象ファイルが既に存在する場合の保存方法** - 対象ファイルが既に存在する場合の保存方法を設定します。
-* **目標画質** - ダウンロードする際の画質を設定します。
 * **保存ファイル名の形式** - 保存ファイル名の形式を指定します。フォーマット指定子の詳細については、`chzzk_video_downloader_manual.ja-JP.pdf`をご参照ください。
+* **目標画質** - ダウンロードする際の画質を設定します。
+
+### 最終処理
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/vman_ja-JP/vman_settings_finalize.png' />
+<p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
+</div>
+
+* **JSON-RPCサーバー: ホストアドレス** - JSON-RPCサーバーのホストアドレスを設定します。
+* **JSON-RPCサーバー: ポート** - JSON-RPCサーバーのポート番号を設定します。
+* **JSON-RPCサーバー: ID** - JSON-RPCサーバーのIDを設定します。
+* **最終処理方法** - 最終処理方法を設定します。
+* **Chzzk Transport Finalizerで処理** - 最終処理をChzzk Transport Finalizerに任せます。
+* **カスタムオプション** - 最終処理のカスタムオプションを設定します。
 
 ### 認証
 

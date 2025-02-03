@@ -7,27 +7,27 @@ Graphical Manager for Chzzk Video Downloader
 </div>
 
 ## Version
-Version 1.10.0, January 31, 2025 00:00:00
+Version 1.11.0, February 04, 2025 00:00:00
 
 ## Prerequisites
-Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, Chzzk Video Downloader must be installed as well.
+Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, both of Chzzk Video Downloader and Chzzk Transport Finalizer must be installed as well.
 
-If the Chzzk Video Downloader and Chzzk Video Manager are in the same directory, Chzzk Video Manager will automatically recognize Chzzk Video Downloader upon execution. Otherwise, you will need to specify the location of Chzzk Video Downloader by referring to the **Verifying Prerequisites** section.
+If Chzzk Video Manager, Chzzk Video Downloader and Chzzk Transport Finalizer are in the same directory, Chzzk Video Manager will automatically recognize Chzzk Video Downloader and Chzzk Transport Finalizer upon execution. Otherwise, you will need to specify the location of Chzzk Video Downloader and Chzzk Transport Finalizer by referring to the **Verifying Prerequisites** section.
 
-For portable versions, consider storing both Chzzk Video Downloader and Chzzk Video Manager in the same directory for convenience. If installed using the `Setup`, both will be installed in the same directory.
+For portable versions, consider storing Chzzk Video Manager, Chzzk Video Downloader and Chzzk Transport Finalizer in the same directory for convenience. If installed using the `Setup`, all tools will be installed in the same directory.
 
 ## How To Execute
 Click `Chzzk Video Manager` in Start menu, or execute `ChzzkVideoManager.exe` in `Chzzk Downloader Environment`.
 
 ## Verifying Prerequisites
-Chzzk Video Manager requires Chzzk Video Downloader to be properly set up for full functionality. Additionally, Chzzk Video Downloader requires proper configurations of Streamlink (Version 6.8.0 or higher). When Chzzk Video Manager starts, it checks whether this prerequisite is met, and if not, it will display the following dialog.
+Chzzk Video Manager requires Chzzk Video Downloader and Chzzk Transport Finalizer to be properly set up for full functionality. Additionally, Chzzk Video Downloader requires proper configurations of Streamlink (Version 6.8.0 or higher) and FFmpeg (Version 7.0 or higher). When Chzzk Video Manager starts, it checks whether this prerequisite is met, and if not, it will display the following dialog.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_en-US/vman_prerequisites.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-You can click `Settings...` button to specify the location of Chzzk Video Downloader.
+You can click `Settings...` button to specify the location of Chzzk Video Downloader and Chzzk Transport Finalizer, or click `Download` button to install Streamlink or FFmpeg.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_en-US/vman_downloader_locate_01.png' />
@@ -38,6 +38,18 @@ Click `...` button to choose `ChzzkVideoDownloader.exe` file in the correct path
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_en-US/vman_downloader_locate_02.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/vman_en-US/vman_finalizer_locate_01.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+Similarly, Click `...` button to choose `ChzzkTransportFinalizer.exe` file in the correct path. When the correct Chzzk Transport Finalizer is specified, the version information will be displayed as shown in the following figure.
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/vman_en-US/vman_finalizer_locate_02.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
@@ -118,11 +130,6 @@ To refresh the list immediately, click the ☰ icon, and choose `Refresh`.
 ## Opening Chzzk Downloader Environment
 To open Chzzk Downloader Environment, click the ☰ icon, and choose `Open Environment (Command Prompt)` or `Open Environment (PowerShell)` under `Downloader`.
 
-<div style='text-align: center'>
-<img src='../../img/screenshots/vman_en-US/vman_environment.png' />
-<p><i>(This image may not reflect the latest information.)</i></p>
-</div>
-
 ## Opening the Output Directory
 To open the output directory for downloaded videos, click the ☰ icon, and choose `Open Output Directory` under `Downloader`.
 
@@ -148,6 +155,15 @@ Double-clicking tray icon will restore the window to its original state, and rig
 <img src='../../img/screenshots/vman_en-US/vman_tray_menu.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
+
+## Set Custom Finalize Options
+If VOD status of the file being downloaded is `UPLOAD` and extra options are set in the `Custom Options` parameter in the `Finalize` settings, those options will be passed to `FFmpeg` during the finalization process. For example, the following options enable `FFmpeg` to encode using the `H.265` codec:
+
+```powershell
+-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k
+```
+
+Please note that custom encoding is not recommended due to its suboptimal performance. For tter results, consider using external professional encoders.
 
 ## Other Settings
 
@@ -184,8 +200,22 @@ Double-clicking tray icon will restore the window to its original state, and rig
 * **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
 * **Save thumbnail image** - Checks to save thumbnail images separately.
 * **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.
-* **Target Quality** - Sets target quality to download.
 * **Output Filename Format** - Set output filename format. Please refer to `chzzk_video_downloader_manual.en-US.pdf` for detailed information on format specifiers.
+* **Target Quality** - Sets target quality to download.
+
+### Finalize
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/vman_en-US/vman_settings_finalize.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+* **JSON-RPC Server: Host Address** - Sets the host address of the JSON-RPC server.
+* **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
+* **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
+* **Finalize Method** - Specifies the finalization method.
+* **Send To Chzzk Transport Finalizer** - Delegate finalizing stage to Chzzk Transport Finalizer.
+* **Custom Options** - Specifies custom options for the finalization.
 
 ### Auth
 
