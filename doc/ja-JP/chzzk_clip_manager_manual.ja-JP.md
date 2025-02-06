@@ -7,7 +7,7 @@ Chzzk Clip Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.11.0, February 04, 2025 00:00:00
+Version 1.12.0, February 07, 2025 00:00:00
 
 ## 必要条件
 Chzzk Clip Managerは、Chzzk Clip DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Clip Downloaderもインストールされている必要があります。
@@ -178,6 +178,7 @@ Chzzk Clip Downloaderの設定を表示するには、☰アイコンをクリ�
 * **JSON-RPCサーバー: ポート** - JSON-RPCサーバーのポート番号を設定します。
 * **JSON-RPCサーバー: ID** - JSON-RPCサーバーのIDを設定します。
 * **サムネイル画像を保存** - サムネイル画像を別途保存するかどうかを設定します。
+* **ダウンロード速度制限を有効にする** - ネットワーク帯域幅を調整するためにダウンロード速度を制限します。(例: 500K, 10M, 1G)
 * **対象ファイルが既に存在する場合の保存方法** - 対象ファイルが既に存在する場合の保存方法を設定します。
 * **保存ファイル名の形式** - 保存ファイル名の形式を指定します。フォーマット指定子の詳細については、`chzzk_clip_downloader_manual.ja-JP.pdf`をご参照ください。
 

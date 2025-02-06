@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.11.0, February 04, 2025 00:00:00
+Version 1.12.0, February 07, 2025 00:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, both of Chzzk Live Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -309,7 +309,7 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 
 * **JSON-RPC Server: Host Address** - Sets the host address of the JSON-RPC server.
 * **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
-* **Save thumbnail image** - Checks to save thumbnail images separately.
+* **Save Thumbnail Image** - Checks to save thumbnail images separately.
 * **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.
 * **Output Filename Format** - Set output filename format. Please refer to `chzzk_live_downloader_manual.en-US.pdf` for detailed information on format specifiers.
 

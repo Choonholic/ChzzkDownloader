@@ -14,7 +14,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.11.0, February 04, 2025 00:00:00
+Version 1.12.0, February 07, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -93,7 +93,7 @@ Downloader for Chzzk replay videos
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
 
 ## Version
-Version 1.11.0, February 04, 2025 00:00:00
+Version 1.12.0, February 07, 2025 00:00:00
 
 ### Usage
 ```powershell
@@ -105,7 +105,8 @@ ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT]
                      [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
                      [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
                      [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
-                     [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                     [--limit [LIMIT]] [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]]
+                     [--reset]
                      [video]
 ```
 
@@ -147,6 +148,7 @@ video                   Video number or URL to download
 --rpcport [RPCPORT]     Set port of JSON-RPC server (default: 63000, 49152-65300)
 --snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
 --download [DOWNLOAD]   Set download method (default|atxc|alter)
+--limit [LIMIT]         Set max download speed (e.g., 512K, 10M, 1G, default: 0)
 --thumb [THUMB]         Save thumbnail image or skip (save|skip)
 --startup [STARTUP]     Set startup method (normal|fast)
 --settings [SETTINGS]   Set action when saving settings (default|skip|quit)
@@ -167,7 +169,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.11.0, February 04, 2025 00:00:00
+Version 1.12.0, February 07, 2025 00:00:00
 
 ### Usage
 ```powershell
@@ -177,8 +179,8 @@ ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] 
                     [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
                     [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
                     [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                    [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--thumb [THUMB]] [--startup [STARTUP]]
-                    [--settings [SETTINGS]] [--reset]
+                    [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]]
+                    [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
                     [clip]
 ```
 
@@ -217,6 +219,7 @@ clip                    Clip UID or URL to download
 --rpcport [RPCPORT]     Set port of JSON-RPC server (default: 64000, 49152-65300)
 --snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
 --download [DOWNLOAD]   Set download method (default|atxc|alter)
+--limit [LIMIT]         Set max download speed (e.g., 512K, 10M, 1G, default: 0)
 --thumb [THUMB]         Save thumbnail image or skip (save|skip)
 --startup [STARTUP]     Set startup method (normal|fast)
 --settings [SETTINGS]   Set action when saving settings (default|skip|quit)
@@ -237,7 +240,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.11.0, February 04, 2025 00:00:00
+Version 1.12.0, February 07, 2025 00:00:00
 
 ### Usage
 ```powershell

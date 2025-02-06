@@ -7,12 +7,12 @@
 </div>
 
 ## 버전
-Version 1.11.0, February 04, 2025 00:00:00
+Version 1.12.0, February 07, 2025 00:00:00
 
 ## 선행 요건
 Chzzk Live Manager는 Chzzk Live Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Live Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
 
-Chzzk Live Manager, Chzzk Live Downloader, Chzzk Transport Finalizer가 모두 같은 디렉터리에 있으면 실행 시 자동으로 인식히며, 그렇지 않으면 **선행 요건 확인하기** 항목의 내용을 따라 Chzzk Live Downloader와 Chzzk Transport Finalizer의 위치를 지정해 주어야 합니다.
+Chzzk Live Manager, Chzzk Live Downloader, Chzzk Transport Finalizer가 모두 같은 디렉터리에 있으면 실행 시 자동으로 인식히며, 그렇지 않으면 **선행 요건 확인** 항목의 내용을 따라 Chzzk Live Downloader와 Chzzk Transport Finalizer의 위치를 지정해 주어야 합니다.
 
 무설치 버전의 파일을 사용할 경우, 편의를 위해 Chzzk Live Manager, Chzzk Live Downloader, Chzzk Transport Finalizer를 모두 같은 디렉터리에 저장하시는 것을 권장합니다. `설치 프로그램`을 사용하면 자동으로 자동으로 같은 디렉터리에 설치됩니다.
 
@@ -62,7 +62,7 @@ Chzzk Live Manager의 모든 기능을 활용하려면, Chzzk Live Downloader와
 </div>
 
 ## 채널 추가
-채널을 추가하려면 ☰ 아이콘을 누르고 `채널 추가하기` 항목을 선택하면 채널 추가하기 대화 상자가 열립니다. 추가할 채널의 UID, URL 또는 라이브 스트리밍 URL을 입력하고 `확인` 버튼을 누릅니다.
+채널을 추가하려면 ☰ 아이콘을 누르고 `채널 추가` 항목을 선택하면 채널 추가 대화 상자가 열립니다. 추가할 채널의 UID, URL 또는 라이브 스트리밍 URL을 입력하고 `확인` 버튼을 누릅니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_ko-KR/lman_add_channel.png' />
@@ -100,7 +100,7 @@ Chzzk Live Manager의 모든 기능을 활용하려면, Chzzk Live Downloader와
 ```
 
 ## 채널 삭제
-더 이상 관리할 필요가 없는 채널을 삭제하려면, 목록에서 삭제할 채널을 선택한 다음 ☰ 아이콘을 누르고 `채널 삭제하기` 항목을 선택합니다. 채널 삭제 여부를 확인하는 대화 상자에서 `OK` 버튼을 누르면 채널이 삭제됩니다.
+더 이상 관리할 필요가 없는 채널을 삭제하려면, 목록에서 삭제할 채널을 선택한 다음 ☰ 아이콘을 누르고 `채널 삭제` 항목을 선택합니다. 채널 삭제 여부를 확인하는 대화 상자에서 `OK` 버튼을 누르면 채널이 삭제됩니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_ko-KR/lman_remove_channel.png' />
@@ -154,7 +154,7 @@ Chzzk Live Manager의 모든 기능을 활용하려면, Chzzk Live Downloader와
 ## 채널 목록 저장
 현재 관리 중인 채널 목록은 목록 파일로 저장했다가 다음에 필요할 때 불러올 수 있습니다.
 
-목록에 채널이 하나 이상 존재하는 상태에서 ☰ 아이콘을 누르고 `채널 목록 저장하기...` 항목을 선택하면, 파일을 저장할 디렉터리와 이름을 변경할 수 있는 대화 상자가 열립니다.
+목록에 채널이 하나 이상 존재하는 상태에서 ☰ 아이콘을 누르고 `채널 목록 저장...` 항목을 선택하면, 파일을 저장할 디렉터리와 이름을 변경할 수 있는 대화 상자가 열립니다.
 
 ## 채널 목록 불러오기
 매번 채널을 추가하는 대신 저장했던 채널 목록을 불러올 수 있습니다.
@@ -233,12 +233,12 @@ Chzzk Live Manager를 종료할 때, 백그라운드에서 Chzzk Live Downloader
 
 외부에서 실행 중인 인스턴스를 포함한 모든 인스턴스를 강제로 종료하려면 다음 단계를 따릅니다.
 
-* `모든 인스턴스를 강제로 종료하기 (관리자 권한 필요)` 항목을 선택하고 `예` 버튼을 누릅니다.
+* `모든 인스턴스 강제 종료 (관리자 권한 필요)` 항목을 선택하고 `예` 버튼을 누릅니다.
 * 이 종료 방식이 기본 설정입니다.
 
 채널 목록에서 현재 관리 중인 채널만 종료하려면 다음 단계를 따릅니다.
 
-* `우아하게 종료하기 (관리 중인 인스턴스 전용)` 항목을 선택하고 `예` 버튼을 누릅니다.
+* `우아하게 종료 (관리 중인 인스턴스 전용)` 항목을 선택하고 `예` 버튼을 누릅니다.
 
 백그라운드에서 다운로드를 계속하려면 다음 단계를 따릅니다.
 
@@ -251,7 +251,7 @@ Chzzk Live Manager를 종료할 때, 백그라운드에서 Chzzk Live Downloader
 종료할 때마다 매번 설정하는 대신, 설정의 `다운로드 도구` 탭에서 이 기능을 미리 설정해 둘 수 있습니다.
 
 ## 최소화 시 트레이로 이동
-`기능` 설정에서 `최소화 시 트레이로 이동하기` 항목을 활성화하면, Chzzk Live Manager가 최소화될 때 트레이로 이동합니다.
+`기능` 설정에서 `최소화 시 트레이로 이동` 항목을 활성화하면, Chzzk Live Manager가 최소화될 때 트레이로 이동합니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_ko-KR/lman_tray_icon.png' />
@@ -283,9 +283,9 @@ Chzzk Live Manager를 종료할 때, 백그라운드에서 Chzzk Live Downloader
 <p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
 </div>
 
-* **Windows에 로그인할 때 자동으로 Chzzk Live Manager 실행하기** - Windows 시작 시 Chzzk Live Manager를 자동으로 실행합니다.
-* **시작 시 창의 크기와 위치 기억하기** - 종료 시점의 창의 크기와 위치를 기억하고, 다음 실행 시 이를 복원합니다.
-* **시작 시 Chzzk Live Manager 최신 버전 확인하기** - Chzzk Live Manager를 시작할 때 최신 버전 확인 여부를 결정합니다. 또는 `최신 버전 확인` 버튼을 눌러 수동으로 최신 버전을 확인할 수도 있습니다.
+* **Windows에 로그인할 때 자동으로 Chzzk Live Manager 실행** - Windows 시작 시 Chzzk Live Manager를 자동으로 실행합니다.
+* **시작 시 창의 크기와 위치 기억** - 종료 시점의 창의 크기와 위치를 기억하고, 다음 실행 시 이를 복원합니다.
+* **시작 시 Chzzk Live Manager 최신 버전 확인** - Chzzk Live Manager를 시작할 때 최신 버전 확인 여부를 결정합니다. 또는 `최신 버전 확인` 버튼을 눌러 수동으로 최신 버전을 확인할 수도 있습니다.
 
 ### 기능
 
@@ -297,7 +297,7 @@ Chzzk Live Manager를 종료할 때, 백그라운드에서 Chzzk Live Downloader
 * **갱신 주기 (초)** - 목록의 화면 갱신 주기를 설정합니다. 이는 화면에만 영향을 미치며, 다운로드 확인 주기와는 관계가 없습니다. Chzzk Live Downloader의 다운로드 확인 주기는 기본적으로 60초로 설정되어 있으며, 다른 도구와 달리 API의 호출 제한에 영향받지 않도록 설계되어 있습니다.
 * **남은 저장 공간이 다음 값보다 적으면 다운로드 중지** - 디스크 공간 부족 시 중지 임계값(%)을 설정합니다.
 * **성능 수준** - Chzzk Live Manager가 실행 중인 시스템의 성능을 지정합니다. 채널을 추가하거나 새로 고칠 때 시간 초과로 인한 오류가 발생한다면, 이 설정을 한 단계 아래로 낮추는 것을 고려해 볼 수 있습니다.
-* **인스턴스 종료 방식** - 종료 대화 상자에서 매번 종료 방법을 설정하는 대신 여기서 미리 설정해 둘 수 있습니다.
+* **인스턴스 종료 방식** - 종료 대화 상자에서 매번 종료 방법을 설정하는 대신 미리 설정해 둘 수 있습니다.
 
 ### 다운로드 도구
 
@@ -308,7 +308,7 @@ Chzzk Live Manager를 종료할 때, 백그라운드에서 Chzzk Live Downloader
 
 * **JSON-RPC 서버: 호스트 주소** - JSON-RPC 서버의 호스트 주소를 설정합니다.
 * **JSON-RPC 서버: 포트** - JSON-RPC 서버의 포트 번호를 설정합니다.
-* **미리보기 이미지 저장하기** - 미리보기 이미지를 함께 저장합니다.
+* **미리보기 이미지 저장** - 미리보기 이미지를 함께 저장합니다.
 * **대상 파일이 이미 존재할 경우 저장 방법** - 파일이 이미 존재할 때 파일 저장 방법을 설정합니다.
 * **저장 파일 이름 형식** - 저장 파일 이름 형식을 지정합니다. 형식 지정자에 대한 자세한 내용은 `chzzk_live_downloader_manual.ko-KR.pdf`를 참조하세요.
 
@@ -335,7 +335,7 @@ Chzzk Live Manager를 종료할 때, 백그라운드에서 Chzzk Live Downloader
 
 * **인증 키 (NID_AUT)** - 네이버 ID에서 생성되는 인증 키를 설정합니다.
 * **세션 키 (NID_SES)** - 네이버 ID에서 생성되는 세션 키를 설정합니다.
-* **임시로 인증 정보 무시하기** - 임시로 인증 정보를 무시합니다.
+* **임시로 인증 정보 무시** - 임시로 인증 정보를 무시합니다.
 
 치지직 인증 자격 증명 획득 방법에 대한 자세한 정보는 `how_to_get_chzzk_credential.ko-KR.pdf`를 참고하세요.
 

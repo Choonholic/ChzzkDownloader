@@ -7,7 +7,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.11.0, February 04, 2025 00:00:00
+Version 1.12.0, February 07, 2025 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -23,7 +23,8 @@ ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT]
                      [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
                      [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
                      [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
-                     [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                     [--limit [LIMIT]] [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]]
+                     [--reset]
                      [video]
 ```
 
@@ -65,6 +66,7 @@ video                   Video number or URL to download
 --rpcport [RPCPORT]     Set port of JSON-RPC server (default: 63000, 49152-65300)
 --snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
 --download [DOWNLOAD]   Set download method (default|atxc|alter)
+--limit [LIMIT]         Set max download speed (e.g., 512K, 10M, 1G, default: 0)
 --thumb [THUMB]         Save thumbnail image or skip (save|skip)
 --startup [STARTUP]     Set startup method (normal|fast)
 --settings [SETTINGS]   Set action when saving settings (default|skip|quit)
@@ -327,6 +329,19 @@ If you want to set this option to default, just use `--exist` without like below
 
 ```powershell
 ChzzkVideoDownloader video_no or url --exist
+```
+
+## Set max download speed to control network bandwidth
+Use the following command when you need to limit the download speed to control network bandwidth. `0` means unrestricted. You can append `K`, `M` or `G`. (`1K`=`1024`, `1M`=`1024K`, `1G`=`1024M`)
+
+```powershell
+ChzzkVideoDownloader video_no or url --limit 10M
+```
+
+If you want to set this option to default, just use `--limit` without like below.
+
+```powershell
+ChzzkVideoDownloader video_no or url --limit
 ```
 
 ## Set the threshold % for stopping downloads when disk space is low

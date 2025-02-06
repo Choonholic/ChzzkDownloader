@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.11.0, February 04, 2025 00:00:00
+Version 1.12.0, February 07, 2025 00:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 Streamlink (Streamlink 6.8.0 또는 상위 버전 필요)
@@ -23,7 +23,8 @@ ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT]
                      [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
                      [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
                      [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
-                     [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                     [--limit [LIMIT]] [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]]
+                     [--reset]
                      [video]
 ```
 
@@ -65,6 +66,7 @@ video                   다운로드할 비디오 번호 또는 URL
 --rpcport [RPCPORT]     JSON-RPC 서버 포트를 설정합니다 (기본값: 63000, 49152-65300)
 --snapshot SNAPSHOT     상태 변경 시 스냅샷을 JSON 파일로 저장합니다
 --download [DOWNLOAD]   다운로드 방법을 설정합니다 (default|atxc|alter)
+--limit [LIMIT]         최대 다운로드 속도를 설정합니다 (예: 512K, 10M, 1G, 기본값: 0)
 --thumb [THUMB]         미리보기 이미지의 저장 여부를 설정합니다 (save|skip)
 --startup [STARTUP]     시작 방법을 설정합니다 (normal|fast)
 --settings [SETTINGS]   설정 저장 시 동작을 설정합니다 (default|skip|quit)
@@ -327,6 +329,19 @@ ChzzkVideoDownloader video_no 또는 url --exist skip
 
 ```powershell
 ChzzkVideoDownloader video_no 또는 url --exist
+```
+
+## 최대 다운로드 속도 설정 (네트워크 대역폭 제어)
+네트워크 대역폭을 제어하기 위해 다운로드 속도를 제한할 필요가 있을 때는 다음 명령어를 사용하세요. `0`을 지정하면 제한하지 않음을 뜻합니다. `K`, `M`, `G` 단위를 사용할 수도 있습니다. (`1K`=`1024`, `1M`=`1024K`, `1G`=`1024M`)
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --limit 10M
+```
+
+이 선택 사항을 기본값으로 되돌리려면 설정 없이 `--limit`만 사용하세요.
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --limit
 ```
 
 ## 여유 저장 공간이 임계점 이하로 낮아질 때 다운로드 중지 설정

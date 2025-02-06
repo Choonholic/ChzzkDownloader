@@ -7,12 +7,12 @@
 </div>
 
 ## 버전
-Version 1.11.0, February 04, 2025 00:00:00
+Version 1.12.0, February 07, 2025 00:00:00
 
 ## 선행 요건
 Chzzk Video Manager는 Chzzk Video Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Video Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
 
-Chzzk Video Manager, Chzzk Video Downloader, Chzzk Transport Finalizer가 모두 같은 디렉터리에 있으면 실행 시 자동으로 인식히며, 그렇지 않으면 **선행 요건 확인하기** 항목의 내용을 따라 Chzzk Video Downloader와 Chzzk Transport Finalizer의 위치를 지정해 주어야 합니다.
+Chzzk Video Manager, Chzzk Video Downloader, Chzzk Transport Finalizer가 모두 같은 디렉터리에 있으면 실행 시 자동으로 인식히며, 그렇지 않으면 **선행 요건 확인** 항목의 내용을 따라 Chzzk Video Downloader와 Chzzk Transport Finalizer의 위치를 지정해 주어야 합니다.
 
 무설치 버전의 파일을 사용할 경우, 편의를 위해 Chzzk Video Manager, Chzzk Video Downloader, Chzzk Transport Finalizer를 모두 같은 디렉터리에 저장하시는 것을 권장합니다. `설치 프로그램`을 사용하면 자동으로 자동으로 같은 디렉터리에 설치됩니다.
 
@@ -62,7 +62,7 @@ Chzzk Video Manager의 모든 기능을 활용하려면, Chzzk Video Downloader�
 </div>
 
 ## 비디오 추가
-다운로드할 비디오를 추가하려면 ☰ 아이콘을 누르고 `비디오 추가하기` 항목을 선택하면 비디오 추가하기 대화 상자가 열립니다. 추가할 비디오 번호 또는 비디오 URL을 입력하고 `확인` 버튼을 누릅니다.
+다운로드할 비디오를 추가하려면 ☰ 아이콘을 누르고 `비디오 추가` 항목을 선택하면 비디오 추가 대화 상자가 열립니다. 추가할 비디오 번호 또는 비디오 URL을 입력하고 `확인` 버튼을 누릅니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_ko-KR/vman_add_video.png' />
@@ -76,7 +76,7 @@ Chzzk Video Manager의 모든 기능을 활용하려면, Chzzk Video Downloader�
 * 비디오 번호 - `Number`
 
 ## 비디오 삭제
-비디오를 삭제하려면, 목록에서 삭제할 비디오를 선택한 다음 ☰ 아이콘을 누르고 `비디오 삭제하기` 항목을 선택합니다. 비디오 삭제 여부를 확인하는 대화 상자에서 `OK` 버튼을 누르면 비디오가 삭제됩니다.
+비디오를 삭제하려면, 목록에서 삭제할 비디오를 선택한 다음 ☰ 아이콘을 누르고 `비디오 삭제` 항목을 선택합니다. 비디오 삭제 여부를 확인하는 대화 상자에서 `OK` 버튼을 누르면 비디오가 삭제됩니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_ko-KR/vman_remove_video.png' />
@@ -84,10 +84,10 @@ Chzzk Video Manager의 모든 기능을 활용하려면, Chzzk Video Downloader�
 </div>
 
 ## 다운로드 시작
-다운로드를 시작하려면, ☰ 아이콘을 누르고 `다운로드 시작하기` 항목을 선택합니다.
+다운로드를 시작하려면, ☰ 아이콘을 누르고 `다운로드 시작` 항목을 선택합니다.
 
 ## 다운로드 중지
-다운로드를 중지하려면, ☰ 아이콘을 누르고 `다운로드 중지하기` 항목을 선택합니다.
+다운로드를 중지하려면, ☰ 아이콘을 누르고 `다운로드 중지` 항목을 선택합니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_ko-KR/vman_stop_download.png' />
@@ -115,7 +115,7 @@ Chzzk Video Manager의 모든 기능을 활용하려면, Chzzk Video Downloader�
 ## 비디오 목록 저장
 비디오 목록은 목록 파일로 저장했다가 다음에 필요할 때 불러올 수 있습니다.
 
-목록에 비디오가 하나 이상 존재하는 상태에서 ☰ 아이콘을 누르고 `비디오 목록 저장하기...` 항목을 선택하면, 파일을 저장할 디렉터리와 이름을 변경할 수 있는 대화 상자가 열립니다.
+목록에 비디오가 하나 이상 존재하는 상태에서 ☰ 아이콘을 누르고 `비디오 목록 저장...` 항목을 선택하면, 파일을 저장할 디렉터리와 이름을 변경할 수 있는 대화 상자가 열립니다.
 
 ## 비디오 목록 불러오기
 매번 비디오를 추가하는 대신 저장했던 비디오 목록을 불러와서 추가할 수 있습니다.
@@ -142,7 +142,7 @@ Chzzk Video Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `다�
 </div>
 
 ## 최소화 시 트레이로 이동
-`기능` 설정에서 `최소화 시 트레이로 이동하기` 항목을 활성화하면, Chzzk Video Manager가 최소화될 때 트레이로 이동합니다.
+`기능` 설정에서 `최소화 시 트레이로 이동` 항목을 활성화하면, Chzzk Video Manager가 최소화될 때 트레이로 이동합니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_ko-KR/vman_tray_icon.png' />
@@ -174,8 +174,8 @@ Chzzk Video Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `다�
 <p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
 </div>
 
-* **시작 시 창의 크기와 위치 기억하기** - 종료 시점의 창의 크기와 위치를 기억하고, 다음 실행 시 이를 복원합니다.
-* **시작 시 Chzzk Video Manager 최신 버전 확인하기** - Chzzk Video Manager를 시작할 때 최신 버전 확인 여부를 결정합니다. 또는 `최신 버전 확인` 버튼을 눌러 수동으로 최신 버전을 확인할 수도 있습니다.
+* **시작 시 창의 크기와 위치 기억** - 종료 시점의 창의 크기와 위치를 기억하고, 다음 실행 시 이를 복원합니다.
+* **시작 시 Chzzk Video Manager 최신 버전 확인** - Chzzk Video Manager를 시작할 때 최신 버전 확인 여부를 결정합니다. 또는 `최신 버전 확인` 버튼을 눌러 수동으로 최신 버전을 확인할 수도 있습니다.
 
 ### 기능
 
@@ -198,7 +198,8 @@ Chzzk Video Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `다�
 * **JSON-RPC 서버: 호스트 주소** - JSON-RPC 서버의 호스트 주소를 설정합니다.
 * **JSON-RPC 서버: 포트** - JSON-RPC 서버의 포트 번호를 설정합니다.
 * **JSON-RPC 서버: ID** - JSON-RPC 서버의 ID를 설정합니다.
-* **미리보기 이미지 저장하기** - 미리보기 이미지를 함께 저장합니다.
+* **미리보기 이미지 저장** - 미리보기 이미지를 함께 저장합니다.
+* **다운로드 속도 제한 활성화** – 네트워크 대역폭을 제어하기 위해 다운로드 속도를 제한합니다. (예: 500K, 10M, 1G)
 * **대상 파일이 이미 존재할 경우 저장 방법** - 파일이 이미 존재할 때 파일 저장 방법을 설정합니다.
 * **저장 파일 이름 형식** - 저장 파일 이름 형식을 지정합니다. 형식 지정자에 대한 자세한 내용은 `chzzk_video_downloader_manual.ko-KR.pdf`를 참조하세요.
 * **목표 화질** - 다운로드 시 목표 화질을 설정합니다.
@@ -226,7 +227,7 @@ Chzzk Video Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `다�
 
 * **인증 키 (NID_AUT)** - 네이버 ID에서 생성되는 인증 키를 설정합니다.
 * **세션 키 (NID_SES)** - 네이버 ID에서 생성되는 세션 키를 설정합니다.
-* **임시로 인증 정보 무시하기** - 임시로 인증 정보를 무시합니다.
+* **임시로 인증 정보 무시** - 임시로 인증 정보를 무시합니다.
 
 치지직 인증 자격 증명 획득 방법에 대한 자세한 정보는 `how_to_get_chzzk_credential.ko-KR.pdf`를 참고하세요.
 
