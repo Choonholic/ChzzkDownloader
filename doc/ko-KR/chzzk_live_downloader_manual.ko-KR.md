@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.12.0, February 07, 2025 00:00:00
+Version 1.13.0, February 10, 2025 00:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 Streamlink (Streamlink 6.8.0 또는 상위 버전 필요)
@@ -41,7 +41,7 @@ ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT]
 -q, --quality [QUALITY] 다운로드하려는 목표 화질을 설정합니다 (예: 1080p)
 -d, --display [DISPLAY] 표시 형식을 설정합니다 (quiet|simple|fluent|all)
 --once ONCE             별도의 설정 저장 앖이 라이브 스트리밍을 한 번만 다운로드합니다
---stream [STREAM]       스트리잉을 가져오는 방식을 설정합니다 (standard|timemachine)
+--stream [STREAM]       스트리밍 획득 방식을 설정합니다 (standard|timemachine)
 --final [FINAL]         최종 처리 방식을 설정합니다 (bypass|convert|cleanup|cconvert|ccleanup)
 --custom [CUSTOM]       최종 처리 시 사용할 사용자 정의 선택 사항을 설정합니다 (cconvert|ccleanup에만 적용 가능)
 --offset OFFSET         스트리밍 시작 지점을 설정합니다

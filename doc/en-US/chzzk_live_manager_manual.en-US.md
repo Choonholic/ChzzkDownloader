@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.12.0, February 07, 2025 00:00:00
+Version 1.13.0, February 10, 2025 00:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, both of Chzzk Live Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -297,8 +297,9 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 
 * **Update Interval (Seconds)** - Sets the screen refresh interval for the list. This only affects the display and is not related to the download detection interval. The download detection interval of Chzzk Live Downloader is set to 10 seconds by default and is designed to avoid being impacted by API rate limits, unlike other tools.
 * **Stop downloading if free disk space is less than** - Sets the threshold % for stopping downloads when disk space is low.
+* **Sleep Mode** - Sets the system's sleep mode while the Chzzk Live Manager is running.
 * **Performance Level** - Specify the performance of the system where Chzzk Live Manager is currently running. If you encounter errors due to timeouts when adding or refreshing channels, try lowering the performance level by one step and attempt again.
-* **Instance Shutdown Methods** - The Shutdown Method can be predefined, eliminating the need to select it each time in the Exit dialog.
+* **Instance Management** - The shutdown method of instances can be predefined, eliminating the need to select it each time in the Exit dialog.
 
 ### Downloader
 
@@ -310,6 +311,7 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 * **JSON-RPC Server: Host Address** - Sets the host address of the JSON-RPC server.
 * **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
 * **Save Thumbnail Image** - Checks to save thumbnail images separately.
+* **Stream Retrieve Method** - Sets stream retrieving method.
 * **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.
 * **Output Filename Format** - Set output filename format. Please refer to `chzzk_live_downloader_manual.en-US.pdf` for detailed information on format specifiers.
 

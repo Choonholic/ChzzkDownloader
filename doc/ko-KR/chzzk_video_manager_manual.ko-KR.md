@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.12.0, February 07, 2025 00:00:00
+Version 1.13.0, February 10, 2025 00:00:00
 
 ## 선행 요건
 Chzzk Video Manager는 Chzzk Video Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Video Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
@@ -186,6 +186,7 @@ Chzzk Video Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `다�
 
 * **갱신 주기 (초)** - 목록의 화면 갱신 주기를 설정합니다.
 * **남은 저장 공간이 다음 값보다 적으면 다운로드 중지** - 디스크 공간 부족 시 중지 임계값(%)을 설정합니다.
+* **절전 상태** - Chzzk Video Manager가 실행되는 동안 사용될 시스템의 절전 상태를 설정합니다.
 * **성능 수준** - Chzzk Video Manager가 실행 중인 시스템의 성능을 지정합니다. 비디오를 다운로드할 때 시간 초과로 인한 오류가 발생한다면, 이 설정을 한 단계 아래로 낮추는 것을 고려해 볼 수 있습니다.
 
 ### 다운로드 도구
