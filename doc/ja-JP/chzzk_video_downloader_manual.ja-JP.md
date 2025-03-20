@@ -7,7 +7,7 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.16.0, March 03, 2025 00:00:00
+Version 1.17.0, March 21, 2025 00:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのStreamlink（Streamlink 6.8.0またはそれ以上が必要）
@@ -45,7 +45,7 @@ video                   ダウンロードするビデオ番号またはURL
 -y, --yes               すべての確認値を自動的に「はい」に設定
 -q, --quality [QUALITY] ダウンロードする目標画質を設定（例: 1080p）
 -d, --display [DISPLAY] 表示モードを設定（quiet|simple|fluent|all）
---final [FINAL]         最終処理方法を設定（bypass|convert|cleanup|cconvert|ccleanup, UPLOAD形式をダウンロードする時にのみ適用可能）
+--final [FINAL]         最終処理方法を設定（bypass|convert|cleanup|cconvert|ccleanup, ABR_HLS形式をダウンロードする時には適用不可能）
 --custom [CUSTOM]       最終処理のカスタムオプションを設定（cconvert|ccleanupのみ適用可能）
 --info INFO             ダウンロードせずにビデオ情報を取得
 --name [NAME]           保存ファイル名の形式を設定
@@ -236,6 +236,40 @@ ChzzkVideoDownloader video_no または url --display quiet
 ChzzkVideoDownloader video_no または url -d
 ChzzkVideoDownloader video_no または url --display
 ```
+
+## 最終処理
+Chzzk Video Downloaderは`vod_status`が`UPLOAD`または`NONE`の場合、ライブダウンロード中に`.ts`拡張子のMPEGTS形式でダウンロードし、ダウンロード完了時に最終処理段階で`.mp4`拡張子のMPEG4形式に変換します。ただし、最終処理方法は`--final`オプションで以下のように設定できます。
+
+```powershell
+ChzzkVideoDownloader video_no または url --final all
+```
+
+`--final`パラメータで設定可能な最終処理方法は以下の通りです。
+
+* `none` - トランスポートストリームファイル（`.ts`）をダウンロードするだけで、変換ステージをスキップします。トランスポートストリームファイルは再生には外部コンバータでの変換が必要です。
+* `convert` - トランスポートストリームファイル（`.ts`）をビデオファイル（`.mp4`）に変換しますが、トランスポートストリームファイルは削除しません。
+* `cleanup` - トランスポートストリームファイル（`.ts`）をビデオファイル（`.mp4`）に変換し、トランスポートストリームファイルを削除します。
+* `cconvert` - `--custom`によるカスタムオプションでトランスポートストリームファイル（`.ts`）をビデオファイル（`.mp4`）に変換しますが、トランスポートストリームファイルは削除しません。
+* `ccleanup` - `--custom`によるカスタムオプションでトランスポートストリームファイル（`.ts`）をビデオファイル（`.mp4`）に変換し、トランスポートストリームファイルを削除します。
+
+```powershell
+ChzzkVideoDownloader video_no または url --final convert
+```
+
+このオプションをデフォルトに設定したい場合は、以下のように`--final`のみを使用してください。
+
+```powershell
+ChzzkVideoDownloader video_no または url --final
+```
+
+### 最終処理中のカスタムエンコード
+`--final`オプションで`cconvert`または`ccleanup`を使用して、最終処理中にカスタムエンコードオプションを設定できます。例えば、以下のオプションで`FFmpeg`を使用して`H.265`コーデックでエンコードできます。
+
+```powershell
+ChzzkVideoDownloader video_no または url --final cconvert --custom "-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
+```
+
+カスタムエンコードはパフォーマンスが最適でないため推奨されません。より良い結果を得るには、外部のプロフェッショナルエンコーダーの使用を検討してください。
 
 ## 作業ディレクトリの設定
 作業に必要なファイルが保存されるディレクトリを指定するには、以下のコマンドを使用します。

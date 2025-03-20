@@ -7,7 +7,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.16.0, March 03, 2025 00:00:00
+Version 1.17.0, March 21, 2025 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -45,7 +45,7 @@ video                   Video number or URL to download
 -y, --yes               Set any confirmation values to 'yes' automatically
 -q, --quality [QUALITY] Set target quality to download (e.g. 1080p)
 -d, --display [DISPLAY] Set display mode (quiet|simple|fluent|all)
---final [FINAL]         Set finalization method (bypass|convert|cleanup|cconvert|ccleanup, applicable only when downloading UPLOAD type)
+--final [FINAL]         Set finalization method (bypass|convert|cleanup|cconvert|ccleanup, not applicable when downloading ABR_HLS type)
 --custom [CUSTOM]       Set custom finalize options (applicable only to cconvert|ccleanup)
 --info INFO             Retrieve video information without downloading
 --name [NAME]           Set output filename format
@@ -236,6 +236,40 @@ If you want to set this option to default, just use `-d` or `--display` like bel
 ChzzkVideoDownloader video_no or url -d
 ChzzkVideoDownloader video_no or url --display
 ```
+
+## Finalization
+When `vod_status` is `UPLOAD` or `NONE`, Chzzk Video Downloader downloads in MPEGTS format with a `.ts` extension during the live download stage and converts it to MPEG4 format with a `.mp4` extension in the finalization stage when the download is complete. However, the finalization methods can be set with `--final` option like below.
+
+```powershell
+ChzzkVideoDownloader video_no or url --final all
+```
+
+The following finalization methods can be set with options of `--final` parameter.
+
+* `none` - Just downloads transport stream files (`.ts`) and bypass converting stage. The transport stream files must be converted with the external converters for playing properly.
+* `convert` - Converts transport stream files (`.ts`) to video files (`.mp4`), but don't remove transport stream files.
+* `cleanup` - Converts transport stream files (`.ts`) to video files (`.mp4`), and clean up transport stream files.
+* `cconvert` - Converts transport stream files (`.ts`) to video files (`.mp4`) with custom options by `--custom`, but don't remove transport stream files.
+* `ccleanup` - Converts transport stream files (`.ts`) to video files (`.mp4`) with custom options by `--custom`, and clean up transport stream files.
+
+```powershell
+ChzzkVideoDownloader video_no or url --final convert
+```
+
+If you want to set this option to default, just use `--final` like below.
+
+```powershell
+ChzzkVideoDownloader video_no or url --final
+```
+
+### Custom Encoding During Finalization
+You can set custom encoding options during finalization using the `--final` option with either `cconvert` or `ccleanup`. For example, the following options enable `FFmpeg` to encode using the `H.265` codec:
+
+```powershell
+ChzzkVideoDownloader video_no or url --final cconvert --custom "-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
+```
+
+Please note that custom encoding is not recommended due to its suboptimal performance. For better results, consider using external professional encoders.
 
 ## Set Working Directory
 You can use the following command to specify the directory where required files are stored to work properly.

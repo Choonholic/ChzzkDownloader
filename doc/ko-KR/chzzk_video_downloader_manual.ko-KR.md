@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.16.0, March 03, 2025 00:00:00
+Version 1.17.0, March 21, 2025 00:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 Streamlink (Streamlink 6.8.0 또는 상위 버전 필요)
@@ -45,7 +45,7 @@ video                   다운로드할 비디오 번호 또는 URL
 -y, --yes               모든 확인 값을 자동으로 '예'로 설정합니다
 -q, --quality [QUALITY] 다운로드하려는 목표 화질을 설정합니다 (예: 1080p)
 -d, --display [DISPLAY] 표시 형식을 설정합니다 (quiet|simple|fluent|all)
---final [FINAL]         최종 처리 방식을 설정합니다 (bypass|convert|cleanup|cconvert|ccleanup, UPLOAD 형식 다운로드 시에만 적용 가능)
+--final [FINAL]         최종 처리 방식을 설정합니다 (bypass|convert|cleanup|cconvert|ccleanup, ABR_HLS 형식 다운로드 시에는 적용 불가능)
 --custom [CUSTOM]       최종 처리 시 사용할 사용자 정의 선택 사항을 설정합니다 (cconvert|ccleanup에만 적용 가능)
 --info INFO             다운로드 없이 비디오 정보룰 획득합니다
 --name [NAME]           저장되는 파일 이름 형식을 설정합니다
@@ -236,6 +236,40 @@ ChzzkVideoDownloader video_no 또는 url --display quiet
 ChzzkVideoDownloader video_no 또는 url -d
 ChzzkVideoDownloader video_no 또는 url --display
 ```
+
+## 최종 처리 방식 설정
+Chzzk Video Downloader는 `vod_status`가 `UPLOAD` 또는 `NONE`일 경우, 실시간 다운로드 단계에서는 `.ts` 확장자를 가지는 MPEGTS 형식으로 다운로드합니다. 그리고 다운로드가 완료되면 이를 최종 처리 단계에서 `.mp4` 확장자를 가지는 MPEG4 형식으로 변환합니다. 이 때, 이 과정을 처리하는 방식을 `--final` 매개 변수를 통해 지정할 수 있습니다.
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --final all
+```
+
+`--final` 매개 변수에 다음과 같은 선택 사항을 지정하여, 최종 처리 단계 방식을 지정할 수 있습니다.
+
+* `none` - 전송 스트림 파일(`.ts`)을 다운로드한 후 변환 단계를 건너뜁니다. 전송 스트림 파일을 올바르게 재생하려면 외부 변환 도구를 사용하여 별도의 변환 과정을 거쳐야 합니다.
+* `convert` - 전송 스트림 파일(`.ts`)을 비디오 파일(`.mp4`)로 변환합니다. 변환이 완료되어도 전송 스트림 파일을 삭제하지 않습니다.
+* `cleanup` - 전송 스트림 파일(`.ts`)을 비디오 파일(`.mp4`)로 변환합니다. 변환이 완료되면 전송 스트림 파일을 삭제하여 정리합니다.
+* `cconvert` - 전송 스트림 파일(`.ts`)을 비디오 파일(`.mp4`)로 변환할 때 `--custom` 매개 변수를 이용합니다. 변환이 완료되어도 전송 스트림 파일을 삭제하지 않습니다.
+* `ccleanup` - 전송 스트림 파일(`.ts`)을 비디오 파일(`.mp4`)로 변환할 때 `--custom` 매개 변수를 이용합니다. 변환이 완료되면 전송 스트림 파일을 삭제하여 정리합니다.
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --final convert
+```
+
+이 선택 사항을 기본값으로 되돌리려면 형식 없이 `--final`만 사용하세요.
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --final
+```
+
+### 최종 처리 단계에 사용자 정의 설정 적용
+`--final` 선택 사항을 사용하여 `cconvert` 또는 `ccleanup` 매개 변수와 함께 사용자 지정 인코딩 설정을 설정할 수 있습니다. 예를 들어, 다음 설정은 `FFmpeg`을 사용하여 `H.265` 코덱으로 인코딩하도록 설정합니다:
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --final cconvert --custom "-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
+```
+
+참고로 사용자 지정 인코딩은 성능이 최적화되지 않아 권장되지 않습니다. 더 나은 결과를 위해 외부의 전용 인코더를 사용하는 것을 고려하세요.
 
 ## 작업 디렉터리 설정
 올바르게 작동하는데 필요한 파일을 저장할 디렉터리를 지정하려면 다음 명령어를 사용하세요.
