@@ -7,7 +7,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.17.0, March 21, 2025 00:00:00
+Version 1.18.0, April 26, 2025 12:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -113,10 +113,10 @@ ChzzkTransportFinalizer --watch-user username --watch-pass password
 ```
 
 ### Set Finalize Encoding Parameters
-You can set encoding parameters of finalization using the `--convert` option. For example, the following options enable `FFmpeg` to encode using the `H.265` codec:
+You can set encoding parameters of finalization using the `--convert` option. When specifying options for the `--convert` parameter, since the option itself takes the form of a parameter, to avoid errors, please specify the option directly using the `=` operator and `"` quotes as shown below. For example, the following options enable `FFmpeg` to encode using the `H.265` codec:
 
 ```powershell
-ChzzkTransportFinalizer --convert "-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
+ChzzkTransportFinalizer --convert="-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
 ```
 
 If you want to set this option to default, just use `--convert` without options like below.

@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.17.0, March 21, 2025 00:00:00
+Version 1.18.0, April 26, 2025 12:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 Streamlink (Streamlink 6.8.0 또는 상위 버전 필요)
@@ -314,10 +314,10 @@ ChzzkLiveDownloader --final
 ```
 
 ### 최종 처리 단계에 사용자 정의 설정 적용
-`--final` 선택 사항을 사용하여 `cconvert` 또는 `ccleanup` 매개 변수와 함께 사용자 지정 인코딩 설정을 설정할 수 있습니다. 예를 들어, 다음 설정은 `FFmpeg`을 사용하여 `H.265` 코덱으로 인코딩하도록 설정합니다:
+`--final` 선택 사항을 사용하여 `cconvert` 또는 `ccleanup` 매개 변수와 함께 사용자 지정 인코딩 설정을 설정할 수 있습니다. `--custom` 매개 변수에 선택 사항을 지정 시, 선택 사항 자체가 일종의 매개 변수 형태를 취하고 있기 때문에 오류를 방지하기 위해 다음과 같이 `=` 연산자와 `"` 따옴표로 직접 선택 사항을 지정해 주세요. 예를 들어, 다음 설정은 `FFmpeg`을 사용하여 `H.265` 코덱으로 인코딩하도록 설정합니다:
 
 ```powershell
-ChzzkLiveDownloader --final cconvert --custom "-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
+ChzzkLiveDownloader --final cconvert --custom="-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
 ```
 
 참고로 사용자 지정 인코딩은 성능이 최적화되지 않아 권장되지 않습니다. 더 나은 결과를 위해 외부의 전용 인코더를 사용하는 것을 고려하세요.

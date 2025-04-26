@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.17.0, March 21, 2025 00:00:00
+Version 1.18.0, April 26, 2025 12:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, both of Chzzk Live Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -120,11 +120,19 @@ If the connection between Chzzk Live Downloader and Chzzk Live Manager is lost d
 
 If a download was in progress when the connection was lost, the download will be terminated at that point and then restarted.
 
-## Skipping Current Stream
-To skip the current live stream without downloading it, select the channel from the list, click the ☰ icon, and choose `Skip Current`, then click `OK` to confirm to skip.
+## Skipping Downloading Current Stream
+To skip downloading of the current live stream and wait for next one, select the channel from the list, click the ☰ icon, and choose `Skip Current`, then click `OK` to confirm to skip.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_en-US/lman_skip_current.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+## Stopping Downloading Current Stream
+To stop downloading of the current live stream and wait for next one, select the channel from the list, click the ☰ icon, and choose `Stop Current`, then click `OK` to confirm to stop.
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_en-US/lman_stop_current.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 

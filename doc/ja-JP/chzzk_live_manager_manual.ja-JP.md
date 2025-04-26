@@ -7,7 +7,7 @@ Chzzk Live Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.17.0, March 21, 2025 00:00:00
+Version 1.18.0, April 26, 2025 12:00:00
 
 ## 必要条件
 Chzzk Live Managerは、Chzzk Live DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Live DownloaderとChzzk Transport Finalizerもインストールされている必要があります。
@@ -119,11 +119,19 @@ Chzzk Live DownloaderとChzzk Live Managerの接続が、プロセスの異常�
 
 接続が失われた時点でダウンロードが進行中だった場合、その時点で終了し、再度ダウンロードが開始されます。
 
-## 現在のストリームのスキップ
-現在のストリームをダウンロードせずにスキップするには、リストからチャンネルを選択し、☰アイコンをクリックして`現在のストリームをスキップ`を選択し、確認のため`OK`をクリックします。
+## 現在のストリームのみのダウンロードをスキップ
+現在のストリームのダウンロードをスキップし、次のストリームを待つには、リストからチャンネルを選択し、☰アイコンをクリックして`現在のストリームのみをスキップ`を選択し、確認のため`OK`をクリックします。
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_ja-JP/lman_skip_current.png' />
+<p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
+</div>
+
+## 現在のストリームのみのダウンロードを停止
+現在のストリームのダウンロードを停止し、次のストリームを待つには、リストからチャンネルを選択し、☰アイコンをクリックして`現在のストリームのみを停止`を選択し、確認のため`OK`をクリックします。
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_ja-JP/lman_stop_current.png' />
 <p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
 </div>
 

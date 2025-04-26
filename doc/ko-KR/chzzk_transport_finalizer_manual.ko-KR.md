@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.17.0, March 21, 2025 00:00:00
+Version 1.18.0, April 26, 2025 12:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 FFmpeg (FFmpeg 7.0 또는 상위 버전 필요)
@@ -113,10 +113,10 @@ ChzzkTransportFinalizer --watch-user username --watch-pass password
 ```
 
 ### 최종 처리 인코딩 매개 변수 설정
-`--convert` 선택 사항을 사용하여 최종 처리에 사용할 인코딩 매개 변수를 설정할 수 있습니다. 예를 들어, 다음 설정은 `FFmpeg`을 사용하여 `H.265` 코덱으로 인코딩하도록 설정합니다:
+`--convert` 선택 사항을 사용하여 최종 처리에 사용할 인코딩 매개 변수를 설정할 수 있습니다. `--convert` 매개 변수에 선택 사항을 지정 시, 선택 사항 자체가 일종의 매개 변수 형태를 취하고 있기 때문에 오류를 방지하기 위해 다음과 같이 `=` 연산자와 `"` 따옴표로 직접 선택 사항을 지정해 주세요. 예를 들어, 다음 설정은 `FFmpeg`을 사용하여 `H.265` 코덱으로 인코딩하도록 설정합니다:
 
 ```powershell
-ChzzkTransportFinalizer --convert "-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
+ChzzkTransportFinalizer --convert="-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
 ```
 
 이 선택 사항을 기본값으로 되돌리려면 다음과 같이 `--convert`만 사용하세요.

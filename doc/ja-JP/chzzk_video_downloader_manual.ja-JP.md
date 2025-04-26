@@ -7,7 +7,7 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.17.0, March 21, 2025 00:00:00
+Version 1.18.0, April 26, 2025 12:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのStreamlink（Streamlink 6.8.0またはそれ以上が必要）
@@ -263,13 +263,13 @@ ChzzkVideoDownloader video_no または url --final
 ```
 
 ### 最終処理中のカスタムエンコード
-`--final`オプションで`cconvert`または`ccleanup`を使用して、最終処理中にカスタムエンコードオプションを設定できます。例えば、以下のオプションで`FFmpeg`を使用して`H.265`コーデックでエンコードできます。
+`--final`オプションで`cconvert`または`ccleanup`を使用して、最終処理中にカスタムエンコードオプションを設定できます。`--custom`パラメーターにオプションを指定する場合、オプション自体がパラメーターの形式を取るため、エラーを防ぐために、`=`演算子と`"`の引用符を使用して直接オプションを指定してください。例えば、以下のオプションで`FFmpeg`を使用して`H.265`コーデックでエンコードできます。
 
 ```powershell
-ChzzkVideoDownloader video_no または url --final cconvert --custom "-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
+ChzzkVideoDownloader video_no または url --final cconvert --custom="-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
 ```
 
-カスタムエンコードはパフォーマンスが最適でないため推奨されません。より良い結果を得るには、外部のプロフェッショナルエンコーダーの使用を検討してください。
+カスタムエンコードはパフォーマンスが最適でないため推奨されません。より良い結果を得るには、外部の専用プロフェッショナルエンコーダーの使用を検討してください。
 
 ## 作業ディレクトリの設定
 作業に必要なファイルが保存されるディレクトリを指定するには、以下のコマンドを使用します。

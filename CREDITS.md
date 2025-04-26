@@ -15,6 +15,7 @@
 ### Build and Development Tools
 
 * [CPython](https://python.org/) - Official Python distribution.
+* [Cursor](https://cursor.com/) - Powerful AI Code Editor based on Visual Studio Code.
 * [Inno Setup](https://jrsoftware.org/isinfo.php) - Builder for setup executable.
 * [Microsoft Visual Studio](https://visualstudio.microsoft.com/) - Builder for Chzzk Managers.
 * [Miniconda](https://docs.anaconda.com/miniconda/) - Minimal version of conda, a Python distribution.

@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.17.0, March 21, 2025 00:00:00
+Version 1.18.0, April 26, 2025 12:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -313,13 +313,13 @@ ChzzkLiveDownloader --final
 ```
 
 ### Custom Encoding During Finalization
-You can set custom encoding options during finalization using the `--final` option with either `cconvert` or `ccleanup`. For example, the following options enable `FFmpeg` to encode using the `H.265` codec:
+You can set custom encoding options during finalization using the `--final` option with either `cconvert` or `ccleanup`. When specifying options for the `--custom` parameter, since the option itself takes the form of a parameter, to avoid errors, please specify the option directly using the `=` operator and `"` quotes as shown below. For example, the following options enable `FFmpeg` to encode using the `H.265` codec:
 
 ```powershell
-ChzzkLiveDownloader --final cconvert --custom "-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
+ChzzkLiveDownloader --final cconvert --custom="-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
 ```
 
-Please note that custom encoding is not recommended due to its suboptimal performance. For better results, consider using external professional encoders.
+Please note that custom encoding is not recommended due to its suboptimal performance. For better results, consider using a dedicated external professional encoders.
 
 ## Set Start Offset
 You can use the following command to set amount of time to skip from the beginning of the stream.

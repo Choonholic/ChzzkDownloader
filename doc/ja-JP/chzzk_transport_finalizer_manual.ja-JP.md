@@ -7,7 +7,7 @@ Chzzkのストリーム用の最終処理ツール
 </div>
 
 ## バージョン
-Version 1.17.0, March 21, 2025 00:00:00
+Version 1.18.0, April 26, 2025 12:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのFFmpeg（FFmpeg 7.0またはそれ以上が必要）
@@ -113,10 +113,10 @@ ChzzkTransportFinalizer --watch-user username --watch-pass password
 ```
 
 ### 最終処理の変換パラメータの設定
-`--convert`オプションで、最終処理中に変換パラメータを設定できます。例えば、以下のオプションで`FFmpeg`を使用して`H.265`コーデックでエンコードできます。
+`--convert`オプションで、最終処理中に変換パラメータを設定できます。`--convert`パラメーターにオプションを指定する場合、オプション自体がパラメーターの形式を取るため、エラーを防ぐために、`=`演算子と`"`の引用符を使用して直接オプションを指定してください。例えば、以下のオプションで`FFmpeg`を使用して`H.265`コーデックでエンコードできます。
 
 ```powershell
-ChzzkTransportFinalizer --convert "-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
+ChzzkTransportFinalizer --convert="-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
 ```
 
 このオプションをデフォルトに設定したい場合は、以下のように`--convert`のみを使用してください。
