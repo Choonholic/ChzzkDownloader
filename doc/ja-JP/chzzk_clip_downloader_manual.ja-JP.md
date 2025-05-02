@@ -7,7 +7,7 @@ Chzzkのクリップ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.18.0, April 26, 2025 12:00:00
+Version 1.19.0, May 03, 2025 18:00:00
 
 ## 使用法
 ```powershell
