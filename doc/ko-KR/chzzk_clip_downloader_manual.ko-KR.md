@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.19.2, May 05, 2025 21:00:00
+Version 1.20.0, May 15, 2025 18:00:00
 
 ## 사용법
 ```powershell
@@ -18,50 +18,54 @@ ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] 
                     [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
                     [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                     [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnparams [PNPARAMS]]
+                    [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
                     [clip]
 ```
 
 ### 위치 매개 변수
 ```
-clip                    다운로드할 클립 UID 또는 URL
+clip                      다운로드할 클립 UID 또는 URL
 ```
 
 ### 선택적 매개 변수
 ```
--h, --help              도움말 메시지를 표시합니다
---version               버전 정보를 표시합니다
--i, --input INPUT       다운로드 목록 파일을 설정합니다
--a, --auth [AUTH]       치지직 인증 자격 증명 처리 방법을 설정합니다 (reuse|reissue|ignore)
---authaut AUTHAUT       치지직 인증 자격 증명의 인증 키를 설정합니다
---authses AUTHSES       치지직 인증 자격 증명의 세션 키를 설정합니다
---adult [ADULT]         자격 증명이 유효하지 않을 때 성인 콘텐츠 처리 방법을 설정합니다 (ask|skip)
--y, --yes               모든 확인 값을 자동으로 '예'로 설정합니다
--d, --display [DISPLAY] 표시 형식을 설정합니다 (quiet|simple|fluent|all)
---info INFO             다운로드 없이 클립 정보룰 획득합니다
---name [NAME]           저장되는 파일 이름 형식을 설정합니다
---work [WORK]           작업 디렉터리를 설정합니다
---work-user [WORK_USER] 작업 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
---work-pass [WORK_PASS] 작업 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
---out [OUT]             저장 디렉터리를 설정합니다
---out-user [WORK_USER]  저장 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
---out-pass [WORK_PASS]  저장 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
---temp [TEMP]           임시 디렉터리를 설정합니다
---temp-user [WORK_USER] 임시 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
---temp-pass [WORK_PASS] 임시 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
---category [CATEGORY]   저장 시 분류 방법을 설정합니다 (none|streamer)
---exist [EXIST]         파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
---threshold [THRESHOLD] 디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 10, 3-50)
---rpc                   JSON-RPC 서버를 활성화합니다
---rpcid [RPCID]         JSON-RPC 서버 ID를 설정합니다 (기본값: 50)
---rpcport [RPCPORT]     JSON-RPC 서버 포트를 설정합니다 (기본값: 64000, 49152-65300)
---snapshot SNAPSHOT     상태 변경 시 스냅샷을 JSON 파일로 저장합니다
---download [DOWNLOAD]   다운로드 방법을 설정합니다 (default|atxc|alter)
---limit [LIMIT]         최대 다운로드 속도를 설정합니다 (예: 512K, 10M, 1G, 기본값: 0)
---thumb [THUMB]         미리보기 이미지의 저장 여부를 설정합니다 (save|skip)
---startup [STARTUP]     시작 방법을 설정합니다 (normal|fast)
---settings [SETTINGS]   설정 저장 시 동작을 설정합니다 (default|skip|quit)
---reset                 모든 설정을 초기화합니다
+-h, --help                도움말 메시지를 표시합니다
+--version                 버전 정보를 표시합니다
+-i, --input INPUT         다운로드 목록 파일을 설정합니다
+-a, --auth [AUTH]         치지직 인증 자격 증명 처리 방법을 설정합니다 (reuse|reissue|ignore)
+--authaut AUTHAUT         치지직 인증 자격 증명의 인증 키를 설정합니다
+--authses AUTHSES         치지직 인증 자격 증명의 세션 키를 설정합니다
+--adult [ADULT]           자격 증명이 유효하지 않을 때 성인 콘텐츠 처리 방법을 설정합니다 (ask|skip)
+-y, --yes                 모든 확인 값을 자동으로 '예'로 설정합니다
+-d, --display [DISPLAY]   표시 형식을 설정합니다 (quiet|simple|fluent|all)
+--info INFO               다운로드 없이 클립 정보룰 획득합니다
+--name [NAME]             저장되는 파일 이름 형식을 설정합니다
+--work [WORK]             작업 디렉터리를 설정합니다
+--work-user [WORK_USER]   작업 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
+--work-pass [WORK_PASS]   작업 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
+--out [OUT]               저장 디렉터리를 설정합니다
+--out-user [OUT_USER]     저장 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
+--out-pass [OUT_PASS]     저장 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
+--temp [TEMP]             임시 디렉터리를 설정합니다
+--temp-user [TEMP_USER]   임시 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
+--temp-pass [TEMP_PASS]   임시 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
+--category [CATEGORY]     저장 시 분류 방법을 설정합니다 (none|streamer)
+--exist [EXIST]           파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
+--threshold [THRESHOLD]   디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 10, 3-50)
+--rpc                     JSON-RPC 서버를 활성화합니다
+--rpcid [RPCID]           JSON-RPC 서버 ID를 설정합니다 (기본값: 50)
+--rpcport [RPCPORT]       JSON-RPC 서버 포트를 설정합니다 (기본값: 64000, 49152-65300)
+--snapshot SNAPSHOT       상태 변경 시 스냅샷을 JSON 파일로 저장합니다
+--download [DOWNLOAD]     다운로드 방법을 설정합니다 (default|atxc|alter)
+--limit [LIMIT]           최대 다운로드 속도를 설정합니다 (예: 512K, 10M, 1G, 기본값: 0)
+--thumb [THUMB]           미리보기 이미지의 저장 여부를 설정합니다 (save|skip)
+--startup [STARTUP]       시작 방법을 설정합니다 (normal|fast)
+--pnpath [PNPATH]         알림 플러그인의 경로를 설정합니다
+--pnparams [PNPARAMS]     알림 플러그인의 매개 변수를 설정합니다
+--pntexttype [PNTEXTTYPE] 알림 플러그인의 텍스트 형식을 설정합니다 (plain|markdown|html)
+--settings [SETTINGS]     설정 저장 시 동작을 설정합니다 (default|skip|quit)
+--reset                   모든 설정을 초기화합니다
 ```
 
 ## 사용 예시
@@ -356,6 +360,38 @@ ChzzkClipDownloader --settings skip
 
 ```powershell
 ChzzkClipDownloader --settings quit
+```
+
+## 플러그인 기능
+Chzzk Clip Downloader는 플러그인을 통해 사용자의 개인 성향과 환경에 맞춘 부가 기능을 제공합니다.
+
+### 알림 플러그인
+알림 플러그인을 등록하면 Chzzk Clip Downloader의 동작 상태를 외부 솔루션을 통해 쉽게 확인할 수 있습니다. 기본적으로 제공하는 알림 플러그인은 다음과 같습니다.
+
+* `pn_telegram` - Telegram 알림 플러그인
+
+다음과 같이 `--pnpath` 매개 변수를 사용하면 알림 플러그인을 등록할 수 있습니다. 알림 플러그인은 한 번에 하나만 활성화되기 때문에 여러 번 등록할 경우, 가장 마지막에 등록된 플러그인만 활성화됩니다. 플러그인이 한 번 등록되면 이후 실행되는 모든 Chzzk Clip Downloader에 모두 적용됩니다.
+
+```powershell
+ChzzkClipDownloader clip_uid 또는 url --pnpath=pn_telegram
+```
+
+알림 플러그인에는 사용자 플러그인도 지정할 수 있으며, 이 때 별도로 플러그인에 전달해야 하는 매개 변수가 있다면 `--pnparams` 매개 변수를 이용해 지정할 수 있습니다. 이 때 메시지가 들어갈 위치에는 반드시 `%M`을 지정해야 합니다.
+
+```powershell
+ChzzkClipDownloader clip_uid 또는 url --pnpath=usernoti --pnparams="--user --message %M"
+```
+
+만약 알림 플러그인이 마크다운 형식이나 HTML 형식을 지원한다면 다음과 같이 `--pntexttype` 매개 변수를 이용하여 텍스트 형식을 지정할 수 있습니다.
+
+```powershell
+ChzzkClipDownloader clip_uid 또는 url --pnpath=pn_telegram --pntexttype=html
+```
+
+알림 플러그인의 등록을 해제하려면 플러그인 지정 없이 `--pnpath`만 사용하세요.
+
+```powershell
+ChzzkClipDownloader clip_uid 또는 url --pnpath
 ```
 
 ## 모든 설정 초기화

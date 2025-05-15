@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Clip Downloader
 </div>
 
 ## Version
-Version 1.19.2, May 05, 2025 21:00:00
+Version 1.20.0, May 15, 2025 18:00:00
 
 ## Prerequisites
 Since Chzzk Clip Manager is the GUI frontend application for Chzzk Clip Downloader, Chzzk Clip Downloader must be installed as well.
@@ -182,6 +182,17 @@ Double-clicking tray icon will restore the window to its original state, and rig
 * **Enable Download Speed Limit** - Limits the download speed to control network bandwidth. (e.g., 500K, 10M, 1G)
 * **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.
 * **Output Filename Format** - Set output filename format. Please refer to `chzzk_clip_downloader_manual.en-US.pdf` for detailed information on format specifiers.
+
+### Plugin
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_en-US/cman_settings_plugin.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+* **Notifications: Path** - Sets the path to the notification plugin.
+* **Notifications: Parameters** - Sets the parameters for the notification plugin.
+* **Notifications: Text Type** - Sets the text format used by the notification plugin.
 
 ### Auth
 

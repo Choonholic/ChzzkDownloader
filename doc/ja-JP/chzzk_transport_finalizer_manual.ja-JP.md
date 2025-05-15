@@ -7,7 +7,7 @@ Chzzkのストリーム用の最終処理ツール
 </div>
 
 ## バージョン
-Version 1.19.2, May 05, 2025 21:00:00
+Version 1.20.0, May 15, 2025 18:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのFFmpeg（FFmpeg 7.0またはそれ以上が必要）
@@ -18,30 +18,34 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
                         [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
                         [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
                         [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                        [--snapshot SNAPSHOT] [--startup [STARTUP]] [--settings [SETTINGS]] [--reset]
+                        [--snapshot SNAPSHOT] [--startup [STARTUP]] [--pnpath [PNPATH]]
+                        [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
 ```
 
 ## オプション
 ```
--h, --help               このヘルプメッセージを表示
---version                バージョン情報を表示
--d, --display [DISPLAY]  表示モードを設定（quiet|simple|fluent|all）
---work [WORK]            作業ディレクトリを設定
---work-user [WORK_USER]  作業ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
---work-pass [WORK_PASS]  作業ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
---watch [WATCH]          監視ディレクトリを設定
---watch-user [WORK_USER] 監視ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
---watch-pass [WORK_PASS] 監視ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
---convert [CONVERT]      変換パラメータを設定
---exist [EXIST]          対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
---threshold [THRESHOLD]  空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 10, 3-50)
---rpc                    JSON-RPCサーバーを有効化
---rpcid [RPCID]          JSON-RPCサーバーのIDを設定 （デフォルト: 70）
---rpcport [RPCPORT]      JSON-RPCサーバーのポートを設定 （デフォルト: 65000, 49152-65300）
---snapshot SNAPSHOT      ステータスが変更されるたびにJSONファイルにスナップショットを保存
---startup [STARTUP]      起動方法を設定（normal|fast）
---settings [SETTINGS]    設定保存時の動作を設定（default|skip|quit）
---reset                  すべての設定をリセット
+-h, --help                このヘルプメッセージを表示
+--version                 バージョン情報を表示
+-d, --display [DISPLAY]   表示モードを設定（quiet|simple|fluent|all）
+--work [WORK]             作業ディレクトリを設定
+--work-user [WORK_USER]   作業ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
+--work-pass [WORK_PASS]   作業ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
+--watch [WATCH]           監視ディレクトリを設定
+--watch-user [WATCH_USER] 監視ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
+--watch-pass [WATCH_PASS] 監視ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
+--convert [CONVERT]       変換パラメータを設定
+--exist [EXIST]           対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
+--threshold [THRESHOLD]   空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 10, 3-50)
+--rpc                     JSON-RPCサーバーを有効化
+--rpcid [RPCID]           JSON-RPCサーバーのIDを設定 （デフォルト: 70）
+--rpcport [RPCPORT]       JSON-RPCサーバーのポートを設定 （デフォルト: 65000, 49152-65300）
+--snapshot SNAPSHOT       ステータスが変更されるたびにJSONファイルにスナップショットを保存
+--startup [STARTUP]       起動方法を設定（normal|fast）
+--pnpath [PNPATH]         通知プラグインのパスを設定
+--pnparams [PNPARAMS]     通知プラグインのパラメーターを設定
+--pntexttype [PNTEXTTYPE] 通知プラグインのテキスト形式を設定 (plain|markdown|html)
+--settings [SETTINGS]     設定保存時の動作を設定（default|skip|quit）
+--reset                   すべての設定をリセット
 ```
 
 ## 使用例
@@ -50,7 +54,7 @@ ChzzkTransportFinalizer --work work --watch out
 ```
 
 ## 説明
-Chzzk Transport Finalizerは、Chzzk Live Downloaderが直接最終処理を行う代わりに、別のプロセスで順次最終処理を実行するよう設計されたツールです。Chzzk Transport Finalizerを使用することで、ライブストリームが短い間隔で放送される場合でも、影響を受けずにダウンロードできるように支援します。
+Chzzk Transport Finalizerは、Chzzk Live DownloaderとChzzk Video Downloaderが直接最終処理を行う代わりに、別のプロセスで順次最終処理を実行するよう設計されたツールです。Chzzk Transport Finalizerを使用することで、ライブストリームが短い間隔で放送される場合でも、影響を受けずにダウンロードできるように支援します。
 
 ## 作業ディレクトリの設定
 作業に必要なファイルが保存されるディレクトリを指定するには、以下のコマンドを使用します。
@@ -191,6 +195,38 @@ ChzzkTransportFinalizer --settings skip
 
 ```powershell
 ChzzkTransportFinalizer --settings quit
+```
+
+## プラグイン
+Chzzk Transport Finalizerは、プラグインを通じてユーザーの個人の嗜好や環境に合わせた追加機能を提供します。
+
+### 通知プラグイン
+通知プラグインを登録すると、Chzzk Transport Finalizerの動作状態を外部ソリューションを通じて簡単に確認できます。デフォルトで提供する通知プラグインは次の通りです。
+
+* `pn_telegram` - Telegramの通知プラグイン
+
+次のように`--pnpath`パラメータを使用することで通知プラグインを登録できます。通知プラグインは一度に一つのみ有効となるため、複数回登録した場合は最後に登録されたプラグインのみが有効になります。プラグインが登録されると、以降に起動されるすべてのChzzk Transport Finalizerに適用されます。
+
+```powershell
+ChzzkTransportFinalizer --pnpath=pn_telegram
+```
+
+通知プラグインにはユーザーが独自に開発したプラグインも指定することができ、その際にプラグインに渡す必要があるパラメータがある場合は、`--pnparams`パラメータを使用して指定できます。このときメッセージが入る位置には`%M`を指定する必要があります。
+
+```powershell
+ChzzkTransportFinalizer --pnpath=usernoti --pnparams="--user --message %M"
+```
+
+通知プラグインがMarkdown形式またはHTML形式をサポートしている場合は、`--pntexttype`パラメータを使用してテキスト形式を指定できます。
+
+```powershell
+ChzzkTransportFinalizer --pnpath=pn_telegram --pntexttype=html
+```
+
+通知プラグインの登録を解除するには、プラグインを指定せずに`--pnpath`のみを使用してください。
+
+```powershell
+ChzzkTransportFinalizer --pnpath
 ```
 
 ## すべての設定をリセット

@@ -7,7 +7,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.19.2, May 05, 2025 21:00:00
+Version 1.20.0, May 15, 2025 18:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -23,54 +23,57 @@ ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT]
                      [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
                      [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
                      [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
-                     [--limit [LIMIT]] [--thumb [THUMB]] [--startup [STARTUP]] [--settings [SETTINGS]]
-                     [--reset]
+                     [--limit [LIMIT]] [--thumb [THUMB]] [--startup [STARTUP]] [--pnpath [PNPATH]]
+                     [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
                      [video]
 ```
 
 ### Positional Arguments
 ```
-video                   Video number or URL to download
+video                     Video number or URL to download
 ```
 
 ### Options
 ```
--h, --help              Show this help message
---version               Show version information
--i, --input INPUT       Set the download list file
--a, --auth [AUTH]       Set Chzzk authentication credential control method (reuse|reissue|ignore)
---authaut AUTHAUT       Set auth key of Chzzk authentication credential
---authses AUTHSES       Set session key of Chzzk authentication credential
---adult [ADULT]         Set the process method for adult contents when credentials are invalid (ask|skip)
--y, --yes               Set any confirmation values to 'yes' automatically
--q, --quality [QUALITY] Set target quality to download (e.g. 1080p)
--d, --display [DISPLAY] Set display mode (quiet|simple|fluent|all)
---final [FINAL]         Set finalization method (bypass|convert|cleanup|cconvert|ccleanup, not applicable when downloading ABR_HLS type)
---custom [CUSTOM]       Set custom finalize options (applicable only to cconvert|ccleanup)
---info INFO             Retrieve video information without downloading
---name [NAME]           Set output filename format
---work [WORK]           Set working directory
---work-user [WORK_USER] Set username to use when working directory is on remote network
---work-pass [WORK_PASS] Set password to use when working directory is on remote network
---out [OUT]             Set output directory
---out-user [OUT_USER]   Set username to use when output directory is on remote network
---out-pass [OUT_PASS]   Set password to use when output directory is on remote network
---temp [TEMP]           Set temporary directory
---temp-user [TEMP_USER] Set username to use when temporary directory is on remote network
---temp-pass [TEMP_PASS] Set password to use when temporary directory is on remote network
---category [CATEGORY]   Set output categorize method (none|streamer)
---exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
---rpc                   Activate JSON-RPC server
---rpcid [RPCID]         Set ID of JSON-RPC server (default: 30)
---rpcport [RPCPORT]     Set port of JSON-RPC server (default: 63000, 49152-65300)
---snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
---download [DOWNLOAD]   Set download method (default|atxc|alter)
---limit [LIMIT]         Set max download speed (e.g., 512K, 10M, 1G, default: 0)
---thumb [THUMB]         Save thumbnail image or skip (save|skip)
---startup [STARTUP]     Set startup method (normal|fast)
---settings [SETTINGS]   Set action when saving settings (default|skip|quit)
---reset                 Reset all settings
+-h, --help                Show this help message
+--version                 Show version information
+-i, --input INPUT         Set the download list file
+-a, --auth [AUTH]         Set Chzzk authentication credential control method (reuse|reissue|ignore)
+--authaut AUTHAUT         Set auth key of Chzzk authentication credential
+--authses AUTHSES         Set session key of Chzzk authentication credential
+--adult [ADULT]           Set the process method for adult contents when credentials are invalid (ask|skip)
+-y, --yes                 Set any confirmation values to 'yes' automatically
+-q, --quality [QUALITY]   Set target quality to download (e.g. 1080p)
+-d, --display [DISPLAY]   Set display mode (quiet|simple|fluent|all)
+--final [FINAL]           Set finalization method (bypass|convert|cleanup|cconvert|ccleanup, applicable only when downloading UPLOAD type)
+--custom [CUSTOM]         Set custom finalize options (applicable only to cconvert|ccleanup)
+--info INFO               Retrieve video information without downloading
+--name [NAME]             Set output filename format
+--work [WORK]             Set working directory
+--work-user [WORK_USER]   Set username to use when working directory is on remote network
+--work-pass [WORK_PASS]   Set password to use when working directory is on remote network
+--out [OUT]               Set output directory
+--out-user [OUT_USER]     Set username to use when output directory is on remote network
+--out-pass [OUT_PASS]     Set password to use when output directory is on remote network
+--temp [TEMP]             Set temporary directory
+--temp-user [TEMP_USER]   Set username to use when temporary directory is on remote network
+--temp-pass [TEMP_PASS]   Set password to use when temporary directory is on remote network
+--category [CATEGORY]     Set output categorize method (none|streamer)
+--exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
+--threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
+--rpc                     Activate JSON-RPC server
+--rpcid [RPCID]           Set ID of JSON-RPC server (default: 30)
+--rpcport [RPCPORT]       Set port of JSON-RPC server (default: 63000, 49152-65300)
+--snapshot SNAPSHOT       Save snapshot to a JSON file whenever changing status
+--download [DOWNLOAD]     Set download method (default|atxc|alter)
+--limit [LIMIT]           Set max download speed (e.g., 512K, 10M, 1G, default: 0)
+--thumb [THUMB]           Save thumbnail image or skip (save|skip)
+--startup [STARTUP]       Set startup method (normal|fast)
+--pnpath [PNPATH]         Set the path to the notification plugin
+--pnparams [PNPARAMS]     Set the parameters for the notification plugin
+--pntexttype [PNTEXTTYPE] Set the text format used by the notification plugin (plain|markdown|html)
+--settings [SETTINGS]     Set action when saving settings (default|skip|quit)
+--reset                   Reset all settings
 ```
 
 ## Example
@@ -420,6 +423,38 @@ If you want to save the settings without downloading and exit, use the following
 
 ```powershell
 ChzzkVideoDownloader --settings quit
+```
+
+## Plugins
+Chzzk Video Downloader provides additional features tailored to the user's personal preferences and environment through plugins.
+
+### Notification Plugins
+By registering a notification plugin, you can easily monitor the operational status of Chzzk Video Downloader through an external solution. The following notification plugin is provided by default:
+
+* `pn_telegram` - Telegram notification plugin
+
+You can register a notification plugin using `--pnpath` parameter as shown below. Since only one plugin can be active at a time, if multiple registrations are made, only the last one will be active. After the plugin is registered, it applies to all future runs of Chzzk Video Downloader.
+
+```powershell
+ChzzkVideoDownloader video_no or url --pnpath=pn_telegram
+```
+
+You can also specify custom plugins as notification plugins. If additional parameters need to be passed to the plugin, use `--pnparams` parameter. In this case, `%M` should be used to indicate where the message should be inserted.
+
+```powershell
+ChzzkVideoDownloader video_no or url --pnpath=usernoti --pnparams="--user --message %M"
+```
+
+If the notification plugin supports Markdown or HTML formats, you can specify the text format using `--pntexttype` parameter as shown below.
+
+```powershell
+ChzzkVideoDownloader video_no or url --pnpath=pn_telegram --pntexttype=html
+```
+
+To unregister a notification plugin, just use `--pnpath` without specifying a plugin like below.
+
+```powershell
+ChzzkVideoDownloader video_no or url --pnpath
 ```
 
 ## Resetting All Configurations

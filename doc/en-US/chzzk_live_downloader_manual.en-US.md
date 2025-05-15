@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.19.2, May 05, 2025 21:00:00
+Version 1.20.0, May 15, 2025 18:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -22,50 +22,54 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
                     [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]]
                     [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
                     [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
-                    [--rpcbaseport [RPCPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
-                    [--settings [SETTINGS]] [--reset]
+                    [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
+                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnparams [PNPARAMS]]
+                    [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
 ```
 
 ### Options
 ```
--h, --help              Show this help message
---version               Show version information
--i, --id ID             Set streamer configuration id
--u, --uid [UID]         Set streamer unique identifier
--a, --auth [AUTH]       Set Chzzk authentication credential control method (reuse|reissue|ignore)
---authaut AUTHAUT       Set auth key of Chzzk authentication credential
---authses AUTHSES       Set session key of Chzzk authentication credential
---adult [ADULT]         Set the process method for adult contents when credentials are invalid (ask|skip)
--y, --yes               Set any confirmation values to 'yes' automatically
--q, --quality [QUALITY] Set target quality to download (e.g. 1080p)
--d, --display [DISPLAY] Set display mode (quiet|simple|fluent|all)
---once ONCE             Download a live stream only once
---stream [STREAM]       Set stream retrieving method (standard|timemachine)
---final [FINAL]         Set finalization method (bypass|convert|cleanup|cconvert|ccleanup)
---custom [CUSTOM]       Set custom finalize options (applicable only to cconvert|ccleanup)
---offset OFFSET         Set amount of time to skip from the beginning of the stream
---duration DURATION     Set the maximum stream duration to download
---detect [DETECT]       Set detection interval (default: 60, 1-600)
---name [NAME]           Set output filename format
---work [WORK]           Set working directory
---work-user [WORK_USER] Set username to use when working directory is on remote network
---work-pass [WORK_PASS] Set password to use when working directory is on remote network
---out [OUT]             Set output directory
---out-user [OUT_USER]   Set username to use when output directory is on remote network
---out-pass [OUT_PASS]   Set password to use when output directory is on remote network
---temp [TEMP]           Set temporary directory
---temp-user [TEMP_USER] Set username to use when temporary directory is on remote network
---temp-pass [TEMP_PASS] Set password to use when temporary directory is on remote network
---category [CATEGORY]   Set output categorize method (none|streamer)
---exist [EXIST]         Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD] Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
---rpc                   Activate JSON-RPC server
---rpcbaseport [RPCPORT] Set base port of JSON-RPC server (default: 62000, 49152-65300)
---snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
---thumb [THUMB]         Save thumbnail image or skip (save|skip)
---startup [STARTUP]     Set startup method (normal|fast)
---settings [SETTINGS]   Set action when saving settings (default|skip|quit)
---reset                 Reset all settings
+-h, --help                  Show this help message
+--version                   Show version information
+-i, --id ID                 Set streamer configuration id
+-u, --uid [UID]             Set streamer unique identifier
+-a, --auth [AUTH]           Set Chzzk authentication credential control method (reuse|reissue|ignore)
+--authaut AUTHAUT           Set auth key of Chzzk authentication credential
+--authses AUTHSES           Set session key of Chzzk authentication credential
+--adult [ADULT]             Set the process method for adult contents when credentials are invalid (ask|skip)
+-y, --yes                   Set any confirmation values to 'yes' automatically
+-q, --quality [QUALITY]     Set target quality to download (e.g. 1080p)
+-d, --display [DISPLAY]     Set display mode (quiet|simple|fluent|all)
+--once ONCE                 Download a live stream only once
+--stream [STREAM]           Set stream retrieving method (standard|timemachine)
+--final [FINAL]             Set finalization method (bypass|convert|cleanup|cconvert|ccleanup)
+--custom [CUSTOM]           Set custom finalize options (applicable only to cconvert|ccleanup)
+--offset OFFSET             Set amount of time to skip from the beginning of the stream
+--duration DURATION         Set the maximum stream duration to download
+--detect [DETECT]           Set detection interval (default: 60, 10-1800)
+--name [NAME]               Set output filename format
+--work [WORK]               Set working directory
+--work-user [WORK_USER]     Set username to use when working directory is on remote network
+--work-pass [WORK_PASS]     Set password to use when working directory is on remote network
+--out [OUT]                 Set output directory
+--out-user [OUT_USER]       Set username to use when output directory is on remote network
+--out-pass [OUT_PASS]       Set password to use when output directory is on remote network
+--temp [TEMP]               Set temporary directory
+--temp-user [TEMP_USER]     Set username to use when temporary directory is on remote network
+--temp-pass [TEMP_PASS]     Set password to use when temporary directory is on remote network
+--category [CATEGORY]       Set output categorize method (none|streamer)
+--exist [EXIST]             Set how to save when the target file already exists (rename|skip|overwrite)
+--threshold [THRESHOLD]     Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
+--rpc                       Activate JSON-RPC server
+--rpcbaseport [RPCBASEPORT] Set base port of JSON-RPC server (default: 62000, 49152-65300)
+--snapshot SNAPSHOT         Save snapshot to a JSON file whenever changing status
+--thumb [THUMB]             Save thumbnail image or skip (save|skip)
+--startup [STARTUP]         Set startup method (normal|fast)
+--pnpath [PNPATH]           Set the path to the notification plugin
+--pnparams [PNPARAMS]       Set the parameters for the notification plugin
+--pntexttype [PNTEXTTYPE]   Set the text format used by the notification plugin (plain|markdown|html)
+--settings [SETTINGS]       Set action when saving settings (default|skip|quit)
+--reset                     Reset all settings
 ```
 
 ### Example
@@ -240,7 +244,7 @@ For the date-related tags, the detailed elements can be expanded as below.
 * `{..._date_second}` - Second as a zero-padded decimal number. (`00`, `01`, ..., `59`)
 
 ## Setting Live Stream Detection Interval
-By default, the detection interval for live streams is set to 60 seconds. To change this, use the following command: `n` can be any value from `1` to `600`. Therefore, the detection interval can be set in seconds, from 1 second to 10 minutes.
+By default, the detection interval for live streams is set to 60 seconds. To change this, use the following command: `n` can be any value from `10` to `1800`. Therefore, the detection interval can be set in seconds, from 10 second to 30 minutes.
 
 ```powershell
 ChzzkLiveDownloader --detect n
@@ -457,7 +461,7 @@ ChzzkLiveDownloader --exist overwrite
 ChzzkLiveDownloader --exist skip
 ```
 
-If you want to set this option to default, just use `--exist` without like below.
+If you want to set this option to default, just use `--exist` like below.
 
 ```powershell
 ChzzkLiveDownloader --exist
@@ -476,7 +480,7 @@ To disable the feature that stops downloads based on free disk space, use the fo
 ChzzkLiveDownloader --threshold -
 ```
 
-If you want to set this option to default, just use `--threshold` without like below.
+If you want to set this option to default, just use `--threshold` like below.
 
 ```powershell
 ChzzkLiveDownloader --threshold
@@ -500,6 +504,38 @@ If you want to save the settings without downloading and exit, use the following
 
 ```powershell
 ChzzkLiveDownloader --settings quit
+```
+
+## Plugins
+Chzzk Live Downloader provides additional features tailored to the user's personal preferences and environment through plugins.
+
+### Notification Plugins
+By registering a notification plugin, you can easily monitor the operational status of Chzzk Live Downloader through an external solution. The following notification plugin is provided by default:
+
+* `pn_telegram` - Telegram notification plugin
+
+You can register a notification plugin using `--pnpath` parameter as shown below. Since only one plugin can be active at a time, if multiple registrations are made, only the last one will be active. After the plugin is registered, it applies to all future runs of Chzzk Live Downloader.
+
+```powershell
+ChzzkLiveDownloader --pnpath=pn_telegram
+```
+
+You can also specify custom plugins as notification plugins. If additional parameters need to be passed to the plugin, use `--pnparams` parameter. In this case, `%M` should be used to indicate where the message should be inserted.
+
+```powershell
+ChzzkLiveDownloader --pnpath=usernoti --pnparams="--user --message %M"
+```
+
+If the notification plugin supports Markdown or HTML formats, you can specify the text format using `--pntexttype` parameter as shown below.
+
+```powershell
+ChzzkLiveDownloader --pnpath=pn_telegram --pntexttype=html
+```
+
+To unregister a notification plugin, just use `--pnpath` without specifying a plugin like below.
+
+```powershell
+ChzzkLiveDownloader --pnpath
 ```
 
 ## Resetting All Configurations

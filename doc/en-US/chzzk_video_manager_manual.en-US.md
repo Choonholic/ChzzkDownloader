@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Video Downloader
 </div>
 
 ## Version
-Version 1.19.2, May 05, 2025 21:00:00
+Version 1.20.0, May 15, 2025 18:00:00
 
 ## Prerequisites
 Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, both of Chzzk Video Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -218,6 +218,17 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 * **Finalize Method** - Specifies the finalization method.
 * **Send To Chzzk Transport Finalizer** - Delegate finalizing stage to Chzzk Transport Finalizer.
 * **Custom Options** - Specifies custom options for the finalization.
+
+### Plugin
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_en-US/vman_settings_plugin.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+* **Notifications: Path** - Sets the path to the notification plugin.
+* **Notifications: Parameters** - Sets the parameters for the notification plugin.
+* **Notifications: Text Type** - Sets the text format used by the notification plugin.
 
 ### Auth
 

@@ -7,7 +7,7 @@ Chzzkのストリーム用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.19.2, May 05, 2025 21:00:00
+Version 1.20.0, May 15, 2025 18:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのStreamlink（Streamlink 6.8.0またはそれ以上が必要）
@@ -22,50 +22,54 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
                     [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]]
                     [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
                     [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
-                    [--rpcbaseport [RPCPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]] [--startup [STARTUP]]
-                    [--settings [SETTINGS]] [--reset]
+                    [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
+                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnparams [PNPARAMS]]
+                    [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
 ```
 
 ### オプション
 ```
--h, --help              このヘルプメッセージを表示
---version               バージョン情報を表示
--i, --id ID             ストリーマーのIDを設定
--u, --uid [UID]         ストリーマーの一意の識別子を設定
--a, --auth [AUTH]       Chzzk認証資格情報の処理方法を設定 (reuse|reissue|ignore)
---authaut AUTHAUT       Chzzk認証資格情報の認証キーを設定
---authses AUTHSES       Chzzk認証資格情報のセッションキーを設定
---adult [ADULT]         認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
--y, --yes               すべての確認値を自動的に「はい」に設定
--q, --quality [QUALITY] ダウンロードする目標画質を設定（例: 1080p）
--d, --display [DISPLAY] 表示モードを設定（quiet|simple|fluent|all）
---once ONCE             ストリームを一度だけダウンロード
---stream [STREAM]       ストリーム取得方法を設定（standard|timemachine）
---final [FINAL]         最終処理方法を設定（bypass|convert|cleanup|cconvert|ccleanup）
---custom [CUSTOM]       最終処理のカスタムオプションを設定（cconvert|ccleanupのみ適用可能）
---offset OFFSET         ストリームの冒頭からスキップする時間を設定
---duration DURATION     ダウンロードするストリームの最大持続時間を設定
---detect [DETECT]       検出間隔を設定（デフォルト: 60、1-600）
---name [NAME]           保存ファイル名の形式を設定
---work [WORK]           作業ディレクトリを設定
---work-user [WORK_USER] 作業ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
---work-pass [WORK_PASS] 作業ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
---out [OUT]             保存ディレクトリを設定
---out-user [WORK_USER]  保存ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
---out-pass [WORK_PASS]  保存ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
---temp [TEMP]           一時ディレクトリを設定
---temp-user [WORK_USER] 一時ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
---temp-pass [WORK_PASS] 一時ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
---category [CATEGORY]   保存時のカテゴリ分け方法を設定 (none|streamer)
---exist [EXIST]         対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
---threshold [THRESHOLD] 空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 10, 3-50)
---rpc                   JSON-RPCサーバーを有効化
---rpcbaseport [RPCPORT] JSON-RPCサーバーのベースポートを設定（デフォルト: 62000、49152-65300）
---snapshot SNAPSHOT     ステータスが変更されるたびにJSONファイルにスナップショットを保存
---thumb [THUMB]         サムネイル画像を保存またはスキップ（save|skip）
---startup [STARTUP]     起動方法を設定（normal|fast）
---settings [SETTINGS]   設定保存時の動作を設定（default|skip|quit）
---reset                 すべての設定をリセット
+-h, --help                  このヘルプメッセージを表示
+--version                   バージョン情報を表示
+-i, --id ID                 ストリーマーのIDを設定
+-u, --uid [UID]             ストリーマーの一意の識別子を設定
+-a, --auth [AUTH]           Chzzk認証資格情報の処理方法を設定 (reuse|reissue|ignore)
+--authaut AUTHAUT           Chzzk認証資格情報の認証キーを設定
+--authses AUTHSES           Chzzk認証資格情報のセッションキーを設定
+--adult [ADULT]             認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
+-y, --yes                   すべての確認値を自動的に「はい」に設定
+-q, --quality [QUALITY]     ダウンロードする目標画質を設定（例: 1080p）
+-d, --display [DISPLAY]     表示モードを設定（quiet|simple|fluent|all）
+--once ONCE                 ストリームを一度だけダウンロード
+--stream [STREAM]           ストリーム取得方法を設定（standard|timemachine）
+--final [FINAL]             最終処理方法を設定（bypass|convert|cleanup|cconvert|ccleanup）
+--custom [CUSTOM]           最終処理のカスタムオプションを設定（cconvert|ccleanupのみ適用可能）
+--offset OFFSET             ストリームの冒頭からスキップする時間を設定
+--duration DURATION         ダウンロードするストリームの最大持続時間を設定
+--detect [DETECT]           検出間隔を設定（デフォルト: 60、10-1800）
+--name [NAME]               保存ファイル名の形式を設定
+--work [WORK]               作業ディレクトリを設定
+--work-user [WORK_USER]     作業ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
+--work-pass [WORK_PASS]     作業ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
+--out [OUT]                 保存ディレクトリを設定
+--out-user [OUT_USER]       保存ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
+--out-pass [OUT_PASS]       保存ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
+--temp [TEMP]               一時ディレクトリを設定
+--temp-user [TEMP_USER]     一時ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
+--temp-pass [TEMP_PASS]     一時ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
+--category [CATEGORY]       保存時のカテゴリ分け方法を設定 (none|streamer)
+--exist [EXIST]             対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
+--threshold [THRESHOLD]     空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 10, 3-50)
+--rpc                       JSON-RPCサーバーを有効化
+--rpcbaseport [RPCBASEPORT] JSON-RPCサーバーのベースポートを設定（デフォルト: 62000、49152-65300）
+--snapshot SNAPSHOT         ステータスが変更されるたびにJSONファイルにスナップショットを保存
+--thumb [THUMB]             サムネイル画像を保存またはスキップ（save|skip）
+--startup [STARTUP]         起動方法を設定（normal|fast）
+--pnpath [PNPATH]           通知プラグインのパスを設定
+--pnparams [PNPARAMS]       通知プラグインのパラメーターを設定
+--pntexttype [PNTEXTTYPE]   通知プラグインのテキスト形式を設定 (plain|markdown|html)
+--settings [SETTINGS]       設定保存時の動作を設定（default|skip|quit）
+--reset                     すべての設定をリセット
 ```
 
 ### 使用例
@@ -241,7 +245,7 @@ ChzzkLiveDownloader --name
 * `{..._date_second}` - 秒（ゼロ埋め形式, `00`, `01`, ..., `59`）。
 
 ## ストリーム検出間隔の設定
-デフォルトでは、ストリームの検出間隔は60秒に設定されています。これを変更するには、以下のコマンドを使用します。`n`は`1`から`600`の範囲で指定できます。したがって、検出間隔は1秒から最大10分まで設定できます。
+デフォルトでは、ストリームの検出間隔は60秒に設定されています。これを変更するには、以下のコマンドを使用します。`n`は`10`から`1800`の範囲で指定できます。したがって、検出間隔は10秒から最大30分まで設定できます。
 
 ```powershell
 ChzzkLiveDownloader --detect n
@@ -499,6 +503,38 @@ ChzzkLiveDownloader --settings skip
 
 ```powershell
 ChzzkLiveDownloader --settings quit
+```
+
+## プラグイン
+Chzzk Live Downloaderは、プラグインを通じてユーザーの個人の嗜好や環境に合わせた追加機能を提供します。
+
+### 通知プラグイン
+通知プラグインを登録すると、Chzzk Live Downloaderの動作状態を外部ソリューションを通じて簡単に確認できます。デフォルトで提供する通知プラグインは次の通りです。
+
+* `pn_telegram` - Telegramの通知プラグイン
+
+次のように`--pnpath`パラメータを使用することで通知プラグインを登録できます。通知プラグインは一度に一つのみ有効となるため、複数回登録した場合は最後に登録されたプラグインのみが有効になります。プラグインが登録されると、以降に起動されるすべてのChzzk Live Downloaderに適用されます。
+
+```powershell
+ChzzkLiveDownloader --pnpath=pn_telegram
+```
+
+通知プラグインにはユーザーが独自に開発したプラグインも指定することができ、その際にプラグインに渡す必要があるパラメータがある場合は、`--pnparams`パラメータを使用して指定できます。このときメッセージが入る位置には`%M`を指定する必要があります。
+
+```powershell
+ChzzkLiveDownloader --pnpath=usernoti --pnparams="--user --message %M"
+```
+
+通知プラグインがMarkdown形式またはHTML形式をサポートしている場合は、`--pntexttype`パラメータを使用してテキスト形式を指定できます。
+
+```powershell
+ChzzkLiveDownloader --pnpath=pn_telegram --pntexttype=html
+```
+
+通知プラグインの登録を解除するには、プラグインを指定せずに`--pnpath`のみを使用してください。
+
+```powershell
+ChzzkLiveDownloader --pnpath
 ```
 
 ## すべての設定をリセット

@@ -7,7 +7,7 @@ Chzzk Live Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.19.2, May 05, 2025 21:00:00
+Version 1.20.0, May 15, 2025 18:00:00
 
 ## 必要条件
 Chzzk Live Managerは、Chzzk Live DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Live DownloaderとChzzk Transport Finalizerもインストールされている必要があります。
@@ -336,6 +336,17 @@ Chzzk Live Managerの使用を続行する場合。
 * **Chzzk Transport Finalizerで処理** - 最終処理をChzzk Transport Finalizerに任せます。
 * **カスタムオプション** - 最終処理のカスタムオプションを設定します。
 
+### プラグイン
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_ja-JP/lman_settings_plugin.png' />
+<p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
+</div>
+
+* **通知: パス** - 通知プラグインのパスを設定します。
+* **通知: パラメーター** - 通知プラグインのパラメーターを設定します。
+* **通知: テキスト形式** - 通知プラグインのテキスト形式を設定します。
+
 ### 認証
 
 <div style='text-align: center'>
@@ -343,7 +354,7 @@ Chzzk Live Managerの使用を続行する場合。
 <p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
 </div>
 
-* **認証キー (NID_AUT)** - * NAVER IDの認証キーを指定します。
+* **認証キー (NID_AUT)** - NAVER IDの認証キーを指定します。
 * **セッションキー (NID_SES)** - NAVER IDのセッションキーを指定します。
 * **一時的に認証情報を無視する** - 一時的に認証情報を無視するかどうかを設定します。
 

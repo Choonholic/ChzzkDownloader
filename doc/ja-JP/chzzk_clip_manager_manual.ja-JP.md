@@ -7,7 +7,7 @@ Chzzk Clip Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.19.2, May 05, 2025 21:00:00
+Version 1.20.0, May 15, 2025 18:00:00
 
 ## 必要条件
 Chzzk Clip Managerは、Chzzk Clip DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Clip Downloaderもインストールされている必要があります。
@@ -182,6 +182,17 @@ Chzzk Clip Downloaderの設定を表示するには、☰アイコンをクリ�
 * **ダウンロード速度制限を有効にする** - ネットワーク帯域幅を調整するためにダウンロード速度を制限します。(例: 500K, 10M, 1G)
 * **対象ファイルが既に存在する場合の保存方法** - 対象ファイルが既に存在する場合の保存方法を設定します。
 * **保存ファイル名の形式** - 保存ファイル名の形式を指定します。フォーマット指定子の詳細については、`chzzk_clip_downloader_manual.ja-JP.pdf`をご参照ください。
+
+### プラグイン
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_ja-JP/cman_settings_plugin.png' />
+<p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
+</div>
+
+* **通知: パス** - 通知プラグインのパスを設定します。
+* **通知: パラメーター** - 通知プラグインのパラメーターを設定します。
+* **通知: テキスト形式** - 通知プラグインのテキスト形式を設定します。
 
 ### 認証
 

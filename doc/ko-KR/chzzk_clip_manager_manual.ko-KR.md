@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.19.2, May 05, 2025 21:00:00
+Version 1.20.0, May 15, 2025 18:00:00
 
 ## 선행 요건
 Chzzk Clip Manager는 Chzzk Clip Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Clip Downloader가 함께 설치되어 있어야 합니다.
@@ -182,6 +182,17 @@ Chzzk Clip Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `다운
 * **다운로드 속도 제한 활성화** – 네트워크 대역폭을 제어하기 위해 다운로드 속도를 제한합니다. (예: 500K, 10M, 1G)
 * **대상 파일이 이미 존재할 경우 저장 방법** - 파일이 이미 존재할 때 파일 저장 방법을 설정합니다.
 * **저장 파일 이름 형식** - 저장 파일 이름 형식을 지정합니다. 형식 지정자에 대한 자세한 내용은 `chzzk_clip_downloader_manual.ko-KR.pdf`를 참조하세요.
+
+### 플러그인
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_ko-KR/cman_settings_plugin.png' />
+<p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
+</div>
+
+* **알림: 경로** - 알림 플러그인의 경로를 설정합니다.
+* **알림: 매개 변수** - 알림 플러그인의 매개 변수를 설정합니다.
+* **알림: 텍스트 형식** - 알림 플러그인에 전달할 텍스트의 형식을 설정합니다.
 
 ### 인증
 
