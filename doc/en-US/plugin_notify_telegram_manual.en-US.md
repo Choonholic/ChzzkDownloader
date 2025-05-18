@@ -1,6 +1,6 @@
-# Telegram-based Notification Plugin
+# Telegram Notification Plugin
 
-This plugin delivers messages to users using Telegram's bot functionality.
+This plugin delivers messages to users using Telegram.
 
 ## Initial Setup
 
@@ -31,3 +31,6 @@ To check if messages are being sent correctly, run the following command in Comm
 ```powershell
 .\pn_telegram.exe "Message sending test"
 ```
+
+## Limitations
+This plugin only supports notification text formats of `plain`, `markdown`, or `html`.

@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.20.0, May 15, 2025 18:00:00
+Version 1.20.1, May 19, 2025 00:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 Streamlink (Streamlink 6.8.0 또는 상위 버전 필요)
@@ -23,8 +23,8 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
                     [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
                     [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
                     [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnparams [PNPARAMS]]
-                    [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
+                    [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
 ```
 
 ### 선택적 매개 변수
@@ -66,8 +66,9 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --thumb [THUMB]             미리보기 이미지의 저장 여부를 설정합니다 (save|skip)
 --startup [STARTUP]         시작 방법을 설정합니다 (normal|fast)
 --pnpath [PNPATH]           알림 플러그인의 경로를 설정합니다
+--pnlanguage [PNLANGUAGE]   알림 플러그인이 사용할 언어를 설정합니다
 --pnparams [PNPARAMS]       알림 플러그인의 매개 변수를 설정합니다
---pntexttype [PNTEXTTYPE]   알림 플러그인의 텍스트 형식을 설정합니다 (plain|markdown|html)
+--pntexttype [PNTEXTTYPE]   알림 플러그인이 사용할 텍스트 형식을 설정합니다 (plain|markdown|html)
 --settings [SETTINGS]       설정 저장 시 동작을 설정합니다 (default|skip|quit)
 --reset                     모든 설정을 초기화합니다
 ```
@@ -493,24 +494,31 @@ Chzzk Live Downloader는 플러그인을 통해 사용자의 개인 성향과 �
 ### 알림 플러그인
 알림 플러그인을 등록하면 Chzzk Live Downloader의 동작 상태를 외부 솔루션을 통해 쉽게 확인할 수 있습니다. 기본적으로 제공하는 알림 플러그인은 다음과 같습니다.
 
+* `pn_slack` - Slack 알림 플러그인
 * `pn_telegram` - Telegram 알림 플러그인
 
 다음과 같이 `--pnpath` 매개 변수를 사용하면 알림 플러그인을 등록할 수 있습니다. 알림 플러그인은 한 번에 하나만 활성화되기 때문에 여러 번 등록할 경우, 가장 마지막에 등록된 플러그인만 활성화됩니다. 플러그인이 한 번 등록되면 이후 실행되는 모든 Chzzk Live Downloader에 모두 적용됩니다.
 
 ```powershell
-ChzzkLiveDownloader --pnpath=pn_telegram
+ChzzkLiveDownloader --pnpath=pn_...
 ```
 
-알림 플러그인에는 사용자 플러그인도 지정할 수 있으며, 이 때 별도로 플러그인에 전달해야 하는 매개 변수가 있다면 `--pnparams` 매개 변수를 이용해 지정할 수 있습니다. 이 때 메시지가 들어갈 위치에는 반드시 `%M`을 지정해야 합니다.
+이 때, 다음과 같이 `--pnlanguage` 매개 변수를 이용하여 알림 메시지의 언어를 지정할 수 있습니다.
 
 ```powershell
-ChzzkLiveDownloader --pnpath=usernoti --pnparams="--user --message %M"
+ChzzkLiveDownloader --pnpath=pn_... --pnlanguage=ko-KR
 ```
 
 만약 알림 플러그인이 마크다운 형식이나 HTML 형식을 지원한다면 다음과 같이 `--pntexttype` 매개 변수를 이용하여 텍스트 형식을 지정할 수 있습니다.
 
 ```powershell
-ChzzkLiveDownloader --pnpath=pn_telegram --pntexttype=html
+ChzzkLiveDownloader --pnpath=pn_... --pntexttype=html
+```
+
+알림 플러그인에는 사용자 플러그인도 지정할 수 있으며, 이 때 별도로 플러그인에 전달해야 하는 매개 변수가 있다면 `--pnparams` 매개 변수를 이용해 지정할 수 있습니다. 이 때 메시지가 들어갈 위치에는 반드시 `%M`을 지정해야 합니다.
+
+```powershell
+ChzzkLiveDownloader --pnpath=userpn_... --pnparams="--user --message %M"
 ```
 
 알림 플러그인의 등록을 해제하려면 플러그인 지정 없이 `--pnpath`만 사용하세요.

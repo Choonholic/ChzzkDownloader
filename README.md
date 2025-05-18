@@ -14,7 +14,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.20.0, May 15, 2025 18:00:00
+Version 1.20.1, May 19, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -30,8 +30,8 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
                     [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
                     [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
                     [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnparams [PNPARAMS]]
-                    [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
+                    [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
 ```
 
 ### Options
@@ -73,6 +73,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --thumb [THUMB]             Save thumbnail image or skip (save|skip)
 --startup [STARTUP]         Set startup method (normal|fast)
 --pnpath [PNPATH]           Set the path to the notification plugin
+--pnlanguage [PNLANGUAGE]   Set the language used by the notification plugin
 --pnparams [PNPARAMS]       Set the parameters for the notification plugin
 --pntexttype [PNTEXTTYPE]   Set the text format used by the notification plugin (plain|markdown|html)
 --settings [SETTINGS]       Set action when saving settings (default|skip|quit)
@@ -93,7 +94,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.20.0, May 15, 2025 18:00:00
+Version 1.20.1, May 19, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -110,7 +111,8 @@ ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT]
                      [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
                      [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
                      [--limit [LIMIT]] [--thumb [THUMB]] [--startup [STARTUP]] [--pnpath [PNPATH]]
-                     [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                     [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
+                     [--settings [SETTINGS]] [--reset]
                      [video]
 ```
 
@@ -156,6 +158,7 @@ video                     Video number or URL to download
 --thumb [THUMB]           Save thumbnail image or skip (save|skip)
 --startup [STARTUP]       Set startup method (normal|fast)
 --pnpath [PNPATH]         Set the path to the notification plugin
+--pnlanguage [PNLANGUAGE] Set the language used by the notification plugin
 --pnparams [PNPARAMS]     Set the parameters for the notification plugin
 --pntexttype [PNTEXTTYPE] Set the text format used by the notification plugin (plain|markdown|html)
 --settings [SETTINGS]     Set action when saving settings (default|skip|quit)
@@ -176,7 +179,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.20.0, May 15, 2025 18:00:00
+Version 1.20.1, May 19, 2025 00:00:00
 
 ### Usage
 ```powershell
@@ -187,8 +190,8 @@ ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] 
                     [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
                     [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                     [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnparams [PNPARAMS]]
-                    [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
+                    [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
                     [clip]
 ```
 
@@ -231,6 +234,7 @@ clip                      Clip UID or URL to download
 --thumb [THUMB]           Save thumbnail image or skip (save|skip)
 --startup [STARTUP]       Set startup method (normal|fast)
 --pnpath [PNPATH]         Set the path to the notification plugin
+--pnlanguage [PNLANGUAGE] Set the language used by the notification plugin
 --pnparams [PNPARAMS]     Set the parameters for the notification plugin
 --pntexttype [PNTEXTTYPE] Set the text format used by the notification plugin (plain|markdown|html)
 --settings [SETTINGS]     Set action when saving settings (default|skip|quit)
@@ -251,7 +255,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.20.0, May 15, 2025 18:00:00
+Version 1.20.1, May 19, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -263,7 +267,8 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
                         [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
                         [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                         [--snapshot SNAPSHOT] [--startup [STARTUP]] [--pnpath [PNPATH]]
-                        [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                        [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
+                        [--settings [SETTINGS]] [--reset]
 ```
 
 ### Options
@@ -286,6 +291,7 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --snapshot SNAPSHOT       Save snapshot to a JSON file whenever changing status
 --startup [STARTUP]       Set startup method (normal|fast)
 --pnpath [PNPATH]         Set the path to the notification plugin
+--pnlanguage [PNLANGUAGE] Set the language used by the notification plugin
 --pnparams [PNPARAMS]     Set the parameters for the notification plugin
 --pntexttype [PNTEXTTYPE] Set the text format used by the notification plugin (plain|markdown|html)
 --settings [SETTINGS]     Set action when saving settings (default|skip|quit)

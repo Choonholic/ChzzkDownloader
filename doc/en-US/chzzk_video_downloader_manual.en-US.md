@@ -7,7 +7,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.20.0, May 15, 2025 18:00:00
+Version 1.20.1, May 19, 2025 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -24,7 +24,8 @@ ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT]
                      [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
                      [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
                      [--limit [LIMIT]] [--thumb [THUMB]] [--startup [STARTUP]] [--pnpath [PNPATH]]
-                     [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                     [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
+                     [--settings [SETTINGS]] [--reset]
                      [video]
 ```
 
@@ -70,6 +71,7 @@ video                     Video number or URL to download
 --thumb [THUMB]           Save thumbnail image or skip (save|skip)
 --startup [STARTUP]       Set startup method (normal|fast)
 --pnpath [PNPATH]         Set the path to the notification plugin
+--pnlanguage [PNLANGUAGE] Set the language used by the notification plugin
 --pnparams [PNPARAMS]     Set the parameters for the notification plugin
 --pntexttype [PNTEXTTYPE] Set the text format used by the notification plugin (plain|markdown|html)
 --settings [SETTINGS]     Set action when saving settings (default|skip|quit)
@@ -431,24 +433,31 @@ Chzzk Video Downloader provides additional features tailored to the user's perso
 ### Notification Plugins
 By registering a notification plugin, you can easily monitor the operational status of Chzzk Video Downloader through an external solution. The following notification plugin is provided by default:
 
+* `pn_slack` - Slack notification plugin
 * `pn_telegram` - Telegram notification plugin
 
 You can register a notification plugin using `--pnpath` parameter as shown below. Since only one plugin can be active at a time, if multiple registrations are made, only the last one will be active. After the plugin is registered, it applies to all future runs of Chzzk Video Downloader.
 
 ```powershell
-ChzzkVideoDownloader video_no or url --pnpath=pn_telegram
+ChzzkVideoDownloader video_no or url --pnpath=pn_...
+```
+
+You can specify the language for the notification messages using `--pnlanguage` parameter as shown below.
+
+```powershell
+ChzzkVideoDownloader video_no or url --pnpath=pn_... --pnlanguage=ko-KR
+```
+
+If the notification plugin supports Markdown or HTML formats, you can specify the text format of the notification messages using `--pntexttype` parameter as shown below.
+
+```powershell
+ChzzkVideoDownloader video_no or url --pnpath=pn_... --pntexttype=html
 ```
 
 You can also specify custom plugins as notification plugins. If additional parameters need to be passed to the plugin, use `--pnparams` parameter. In this case, `%M` should be used to indicate where the message should be inserted.
 
 ```powershell
-ChzzkVideoDownloader video_no or url --pnpath=usernoti --pnparams="--user --message %M"
-```
-
-If the notification plugin supports Markdown or HTML formats, you can specify the text format using `--pntexttype` parameter as shown below.
-
-```powershell
-ChzzkVideoDownloader video_no or url --pnpath=pn_telegram --pntexttype=html
+ChzzkVideoDownloader video_no or url --pnpath=userpn_... --pnparams="--user --message %M"
 ```
 
 To unregister a notification plugin, just use `--pnpath` without specifying a plugin like below.

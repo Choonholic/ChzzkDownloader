@@ -7,7 +7,7 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.20.0, May 15, 2025 18:00:00
+Version 1.20.1, May 19, 2025 00:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのStreamlink（Streamlink 6.8.0またはそれ以上が必要）
@@ -24,7 +24,8 @@ ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT]
                      [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
                      [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
                      [--limit [LIMIT]] [--thumb [THUMB]] [--startup [STARTUP]] [--pnpath [PNPATH]]
-                     [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                     [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
+                     [--settings [SETTINGS]] [--reset]
                      [video]
 ```
 
@@ -70,8 +71,9 @@ video                     ダウンロードするビデオ番号またはURL
 --thumb [THUMB]           サムネイル画像を保存またはスキップ（save|skip）
 --startup [STARTUP]       起動方法を設定（normal|fast）
 --pnpath [PNPATH]         通知プラグインのパスを設定
+--pnlanguage [PNLANGUAGE] 通知プラグインで使用する言語を設定
 --pnparams [PNPARAMS]     通知プラグインのパラメーターを設定
---pntexttype [PNTEXTTYPE] 通知プラグインのテキスト形式を設定 (plain|markdown|html)
+--pntexttype [PNTEXTTYPE] 通知プラグインで使用するテキスト形式を設定 (plain|markdown|html)
 --settings [SETTINGS]     設定保存時の動作を設定（default|skip|quit）
 --reset                   すべての設定をリセット
 ```
@@ -431,24 +433,31 @@ Chzzk Video Downloaderは、プラグインを通じてユーザーの個人の�
 ### 通知プラグイン
 通知プラグインを登録すると、Chzzk Video Downloaderの動作状態を外部ソリューションを通じて簡単に確認できます。デフォルトで提供する通知プラグインは次の通りです。
 
-* `pn_telegram` - Telegramの通知プラグイン
+* `pn_slack` - Slack通知プラグイン
+* `pn_telegram` - Telegram通知プラグイン
 
 次のように`--pnpath`パラメータを使用することで通知プラグインを登録できます。通知プラグインは一度に一つのみ有効となるため、複数回登録した場合は最後に登録されたプラグインのみが有効になります。プラグインが登録されると、以降に起動されるすべてのChzzk Video Downloaderに適用されます。
 
 ```powershell
-ChzzkVideoDownloader video_no または url --pnpath=pn_telegram
+ChzzkVideoDownloader video_no または url --pnpath=pn_...
+```
+
+`--pnlanguage`パラメータを使用して通知メッセージの言語を指定できます。
+
+```powershell
+ChzzkVideoDownloader video_no または url --pnpath=pn_... --pnlanguage=ko-KR
+```
+
+通知プラグインがMarkdown形式またはHTML形式をサポートしている場合は、`--pntexttype`パラメータを使用して通知メッセージのテキスト形式を指定できます。
+
+```powershell
+ChzzkVideoDownloader video_no または url --pnpath=pn_... --pntexttype=html
 ```
 
 通知プラグインにはユーザーが独自に開発したプラグインも指定することができ、その際にプラグインに渡す必要があるパラメータがある場合は、`--pnparams`パラメータを使用して指定できます。このときメッセージが入る位置には`%M`を指定する必要があります。
 
 ```powershell
-ChzzkVideoDownloader video_no または url --pnpath=usernoti --pnparams="--user --message %M"
-```
-
-通知プラグインがMarkdown形式またはHTML形式をサポートしている場合は、`--pntexttype`パラメータを使用してテキスト形式を指定できます。
-
-```powershell
-ChzzkVideoDownloader video_no または url --pnpath=pn_telegram --pntexttype=html
+ChzzkVideoDownloader video_no または url --pnpath=userpn_... --pnparams="--user --message %M"
 ```
 
 通知プラグインの登録を解除するには、プラグインを指定せずに`--pnpath`のみを使用してください。

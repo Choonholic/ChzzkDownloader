@@ -7,7 +7,7 @@ Chzzkのストリーム用の最終処理ツール
 </div>
 
 ## バージョン
-Version 1.20.0, May 15, 2025 18:00:00
+Version 1.20.1, May 19, 2025 00:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのFFmpeg（FFmpeg 7.0またはそれ以上が必要）
@@ -19,7 +19,8 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
                         [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
                         [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                         [--snapshot SNAPSHOT] [--startup [STARTUP]] [--pnpath [PNPATH]]
-                        [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                        [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
+                        [--settings [SETTINGS]] [--reset]
 ```
 
 ## オプション
@@ -42,8 +43,9 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --snapshot SNAPSHOT       ステータスが変更されるたびにJSONファイルにスナップショットを保存
 --startup [STARTUP]       起動方法を設定（normal|fast）
 --pnpath [PNPATH]         通知プラグインのパスを設定
+--pnlanguage [PNLANGUAGE] 通知プラグインで使用する言語を設定
 --pnparams [PNPARAMS]     通知プラグインのパラメーターを設定
---pntexttype [PNTEXTTYPE] 通知プラグインのテキスト形式を設定 (plain|markdown|html)
+--pntexttype [PNTEXTTYPE] 通知プラグインで使用するテキスト形式を設定 (plain|markdown|html)
 --settings [SETTINGS]     設定保存時の動作を設定（default|skip|quit）
 --reset                   すべての設定をリセット
 ```
@@ -203,24 +205,31 @@ Chzzk Transport Finalizerは、プラグインを通じてユーザーの個人�
 ### 通知プラグイン
 通知プラグインを登録すると、Chzzk Transport Finalizerの動作状態を外部ソリューションを通じて簡単に確認できます。デフォルトで提供する通知プラグインは次の通りです。
 
-* `pn_telegram` - Telegramの通知プラグイン
+* `pn_slack` - Slack通知プラグイン
+* `pn_telegram` - Telegram通知プラグイン
 
 次のように`--pnpath`パラメータを使用することで通知プラグインを登録できます。通知プラグインは一度に一つのみ有効となるため、複数回登録した場合は最後に登録されたプラグインのみが有効になります。プラグインが登録されると、以降に起動されるすべてのChzzk Transport Finalizerに適用されます。
 
 ```powershell
-ChzzkTransportFinalizer --pnpath=pn_telegram
+ChzzkTransportFinalizer --pnpath=pn_...
+```
+
+`--pnlanguage`パラメータを使用して通知メッセージの言語を指定できます。
+
+```powershell
+ChzzkTransportFinalizer --pnpath=pn_... --pnlanguage=ko-KR
+```
+
+通知プラグインがMarkdown形式またはHTML形式をサポートしている場合は、`--pntexttype`パラメータを使用して通知メッセージのテキスト形式を指定できます。
+
+```powershell
+ChzzkTransportFinalizer --pnpath=pn_... --pntexttype=html
 ```
 
 通知プラグインにはユーザーが独自に開発したプラグインも指定することができ、その際にプラグインに渡す必要があるパラメータがある場合は、`--pnparams`パラメータを使用して指定できます。このときメッセージが入る位置には`%M`を指定する必要があります。
 
 ```powershell
-ChzzkTransportFinalizer --pnpath=usernoti --pnparams="--user --message %M"
-```
-
-通知プラグインがMarkdown形式またはHTML形式をサポートしている場合は、`--pntexttype`パラメータを使用してテキスト形式を指定できます。
-
-```powershell
-ChzzkTransportFinalizer --pnpath=pn_telegram --pntexttype=html
+ChzzkTransportFinalizer --pnpath=userpn_... --pnparams="--user --message %M"
 ```
 
 通知プラグインの登録を解除するには、プラグインを指定せずに`--pnpath`のみを使用してください。

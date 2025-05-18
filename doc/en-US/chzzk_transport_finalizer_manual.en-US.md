@@ -7,7 +7,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.20.0, May 15, 2025 18:00:00
+Version 1.20.1, May 19, 2025 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -19,7 +19,8 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
                         [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
                         [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                         [--snapshot SNAPSHOT] [--startup [STARTUP]] [--pnpath [PNPATH]]
-                        [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                        [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
+                        [--settings [SETTINGS]] [--reset]
 ```
 
 ## Options
@@ -42,6 +43,7 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --snapshot SNAPSHOT       Save snapshot to a JSON file whenever changing status
 --startup [STARTUP]       Set startup method (normal|fast)
 --pnpath [PNPATH]         Set the path to the notification plugin
+--pnlanguage [PNLANGUAGE] Set the language used by the notification plugin
 --pnparams [PNPARAMS]     Set the parameters for the notification plugin
 --pntexttype [PNTEXTTYPE] Set the text format used by the notification plugin (plain|markdown|html)
 --settings [SETTINGS]     Set action when saving settings (default|skip|quit)
@@ -203,24 +205,31 @@ Chzzk Transport Finalizer provides additional features tailored to the user's pe
 ### Notification Plugins
 By registering a notification plugin, you can easily monitor the operational status of Chzzk Transport Finalizer through an external solution. The following notification plugin is provided by default:
 
+* `pn_slack` - Slack notification plugin
 * `pn_telegram` - Telegram notification plugin
 
 You can register a notification plugin using `--pnpath` parameter as shown below. Since only one plugin can be active at a time, if multiple registrations are made, only the last one will be active. After the plugin is registered, it applies to all future runs of Chzzk Transport Finalizer.
 
 ```powershell
-ChzzkTransportFinalizer --pnpath=pn_telegram
+ChzzkTransportFinalizer --pnpath=pn_...
+```
+
+You can specify the language for the notification messages using `--pnlanguage` parameter as shown below.
+
+```powershell
+ChzzkTransportFinalizer --pnpath=pn_... --pnlanguage=ko-KR
+```
+
+If the notification plugin supports Markdown or HTML formats, you can specify the text format of the notification messages using `--pntexttype` parameter as shown below.
+
+```powershell
+ChzzkTransportFinalizer --pnpath=pn_... --pntexttype=html
 ```
 
 You can also specify custom plugins as notification plugins. If additional parameters need to be passed to the plugin, use `--pnparams` parameter. In this case, `%M` should be used to indicate where the message should be inserted.
 
 ```powershell
-ChzzkTransportFinalizer --pnpath=usernoti --pnparams="--user --message %M"
-```
-
-If the notification plugin supports Markdown or HTML formats, you can specify the text format using `--pntexttype` parameter as shown below.
-
-```powershell
-ChzzkTransportFinalizer --pnpath=pn_telegram --pntexttype=html
+ChzzkTransportFinalizer --pnpath=userpn_... --pnparams="--user --message %M"
 ```
 
 To unregister a notification plugin, just use `--pnpath` without specifying a plugin like below.
