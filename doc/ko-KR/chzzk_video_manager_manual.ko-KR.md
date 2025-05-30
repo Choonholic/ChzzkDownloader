@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.21.0, May 24, 2025 00:00:00
+Version 1.22.0, May 31, 2025 00:00:00
 
 ## 선행 요건
 Chzzk Video Manager는 Chzzk Video Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Video Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
@@ -133,6 +133,15 @@ Chzzk Video Manager의 모든 기능을 활용하려면, Chzzk Video Downloader�
 ## 저장 디렉터리 열기
 다운로드한 비디오가 저장된 디렉터리를 열려면, ☰ 아이콘을 누르고 `다운로드 도구` 항목에서 `저장 디렉터리 열기` 항목을 선택합니다.
 
+## 손상된 파일 제거하기
+다운로드 도중에 네트워크 연결이 끊어지거나 시스템이 종료되는 등 비정상 상황이 발생하면, 임시 디렉터리에 손상된 파일이 남을 수 있습니다.
+남아 있는 손상된 파일을 제거하려면, ☰ 아이콘을 누르고 `다운로드 도구` 항목에서 `손상된 파일 제거` 항목을 선택합니다.
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/vman_ko-KR/vman_purge_broken.png' />
+<p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
+</div>
+
 ## 다운로드 도구 설정 보기
 Chzzk Video Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `다운로드 도구` 항목에서 `설정 보기...` 항목을 선택합니다.
 
@@ -222,7 +231,7 @@ Chzzk Video Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `다�
 ### 플러그인
 
 <div style='text-align: center'>
-<img src='../../img/screenshots/lman_ko-KR/vman_settings_plugin.png' />
+<img src='../../img/screenshots/vman_ko-KR/vman_settings_plugin.png' />
 <p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
 </div>
 

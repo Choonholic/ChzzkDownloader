@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.21.0, May 24, 2025 00:00:00
+Version 1.22.0, May 31, 2025 00:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, both of Chzzk Live Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -218,6 +218,15 @@ To open Chzzk Downloader Environment, click the ☰ icon, and choose `Open Envir
 
 ## Opening the Output Directory
 To open the output directory for downloaded streams, click the ☰ icon, and choose `Open Output Directory` under `Downloader`.
+
+## Purging Broken Files
+If an abnormal situation occurs—such as a network disconnection or system shutdown during download—broken files may remain in the temporary directory.
+To remove any remaining broken files, click the ☰ icon, and choose `Purge Broken Files` under `Downloader`.
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_en-US/lman_purge_broken.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
 
 ## Viewing Downloader Configuration
 To view configuration of Chzzk Live Downloader, click the ☰ icon, and choose `View Configuration...` under `Downloader`.

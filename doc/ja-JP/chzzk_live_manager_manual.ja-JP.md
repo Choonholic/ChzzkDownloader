@@ -7,7 +7,7 @@ Chzzk Live Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.21.0, May 24, 2025 00:00:00
+Version 1.22.0, May 31, 2025 00:00:00
 
 ## 必要条件
 Chzzk Live Managerは、Chzzk Live DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Live DownloaderとChzzk Transport Finalizerもインストールされている必要があります。
@@ -217,6 +217,15 @@ Chzzk Downloader Suiteの環境を開くには、☰アイコンをクリック�
 
 ## 保存ディレクトリを開く
 ダウンロードしたストリームの保存ディレクトリを開くには、☰アイコンをクリックし、`ダウンローダー`の下にある`保存ディレクトリを開く`を選択します。
+
+## 破損ファイルの削除
+ダウンロード中にネットワーク接続が切れたり、システムがシャットダウンされるなどの異常な状況が発生すると、一時ディレクトリに破損したファイルが残る場合があります。
+残っている破損ファイルを削除するには、☰アイコンをタップし、`ダウンローダー`の下にある`破損ファイルの削除`を選択します。
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_ja-JP/lman_purge_broken.png' />
+<p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
+</div>
 
 ## Chzzk Live Downloaderの設定の表示
 Chzzk Live Downloaderの設定を表示するには、☰アイコンをクリックし、`ダウンローダー`の下にある`設定を表示...`を選択します。
