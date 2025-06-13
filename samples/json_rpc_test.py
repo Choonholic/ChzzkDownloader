@@ -105,6 +105,7 @@ if __name__ == "__main__":
                 'reload_settings',
                 'skip_current',
                 'stop_current',
+                'resume_download',
                 'quit_app',
                 'quit_empty'
             ]:

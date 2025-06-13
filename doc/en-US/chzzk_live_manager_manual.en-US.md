@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.22.0, May 31, 2025 00:00:00
+Version 1.23.0, June 13, 2025 18:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, both of Chzzk Live Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -135,6 +135,9 @@ To stop downloading of the current live stream and wait for next one, select the
 <img src='../../img/screenshots/lman_en-US/lman_stop_current.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
+
+## Resuming Stopped Live Stream Download
+To resume downloading a previously stopped live stream, select the channel from the list, click the ☰ icon, and choose `Resume Download`. This feature is only available if the forcibly stopped stream has not yet ended. If the live stream has newly started, the download will begin automatically without needing to use this feature.
 
 ## Browsing Channel Properties
 To browse the properties of the channel, select the channel from the list, click the ☰ icon, and choose `Properties...`.

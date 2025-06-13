@@ -7,7 +7,7 @@ Chzzk Live Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.22.0, May 31, 2025 00:00:00
+Version 1.23.0, June 13, 2025 18:00:00
 
 ## 必要条件
 Chzzk Live Managerは、Chzzk Live DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Live DownloaderとChzzk Transport Finalizerもインストールされている必要があります。
@@ -134,6 +134,9 @@ Chzzk Live DownloaderとChzzk Live Managerの接続が、プロセスの異常�
 <img src='../../img/screenshots/lman_ja-JP/lman_stop_current.png' />
 <p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
 </div>
+
+## 中断したストリームのダウンロードを再開
+中断したストリームのダウンロードを再開するには、リストからチャンネルを選択し、☰アイコンをタップして`ダウンロードの再開`を選択します。この機能は、強制的に中断したストリームがまだ終了していない場合にのみ利用できます。新しく開始されたストリームの場合は、この機能を使用しなくても自動的にダウンロードが開始されます。
 
 ## チャンネルプロパティの表示
 チャンネルのプロパティを参照するには、リストからチャンネルを選択し、☰アイコンをクリックして`プロパティ...`を選択します。

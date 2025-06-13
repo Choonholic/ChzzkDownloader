@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.22.0, May 31, 2025 00:00:00
+Version 1.23.0, June 13, 2025 18:00:00
 
 ## 선행 요건
 Chzzk Live Manager는 Chzzk Live Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Live Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
@@ -134,6 +134,9 @@ Chzzk Live Manager의 모든 기능을 활용하려면, Chzzk Live Downloader와
 <img src='../../img/screenshots/lman_ko-KR/lman_stop_current.png' />
 <p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
 </div>
+
+## 중지했던 라이브 스트리밍 다운로드 재시작하기
+중지했던 라이브 스트리밍의 다운로드를 다시 시작하려면, 목록에서 채널을 선택한 다음 ☰ 아이콘을 누르고 `다운로드 재시작하기` 항목을 선택합니다. 이 기능은 강제로 중지한 스트리밍이 아직 종료되지 않은 경우에만 사용할 수 있으며, 만약 새롭게 시작된 스트리밍이라면 이 기능을 사용하지 않아도 자동으로 다운로드를 시작합니다.
 
 ## 채널 등록 정보 확인
 채널의 등록 정보를 확인하려면, 목록에서 등록 정보를 확인할 채널을 선택한 다음 ☰ 아이콘을 누르고 `등록 정보...` 항목을 선택합니다.

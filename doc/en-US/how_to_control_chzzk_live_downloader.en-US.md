@@ -31,8 +31,11 @@ To request action from Chzzk Live Downloader, send the object like below through
 * `get_version` – Retrieves the application version.
 * `get_settings` – Retrieves the application settings.
 * `get_channel` – Retrieves channel information.
-* `get_live` – Retrieves live stream information if a live stream is currently being downloaded.
 * `get_status` – Retrieves the current status.
+* `get_live` – Retrieves live stream information if a live stream is currently being downloaded.
+* `skip_current` - Skips the current stream and waiting the next one.
+* `stop_current` - Stops downloading the current stream and waiting the next one.
+* `resume_download` - Resumed downloading the forcibly stopped stream.
 * `set_settings` – Changes the application settings.
 * `reload_settings` – Reloads the application settings from configuration file.
 * `quit_app` – Stops the current download (if in progress) and exits the application.
