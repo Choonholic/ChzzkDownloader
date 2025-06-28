@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.23.0, June 13, 2025 18:00:00
+Version 1.24.0, June 28, 2025 00:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 Streamlink (Streamlink 6.8.0 또는 상위 버전 필요)
@@ -23,8 +23,9 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
                     [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
                     [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
                     [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
-                    [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                    [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
+                    [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
+                    [--settings [SETTINGS]] [--reset]
 ```
 
 ### 선택적 매개 변수
@@ -64,6 +65,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --rpcbaseport [RPCBASEPORT] JSON-RPC 서버 기본 포트를 설정합니다 (기본값: 62000, 49152-65300)
 --snapshot SNAPSHOT         상태 변경 시 스냅샷을 JSON 파일로 저장합니다
 --thumb [THUMB]             미리보기 이미지의 저장 여부를 설정합니다 (save|skip)
+--metadata [METADATA]       메타데이터의 저장 여부를 설정합니다（save|skip）
 --startup [STARTUP]         시작 방법을 설정합니다 (normal|fast)
 --pnpath [PNPATH]           알림 플러그인의 경로를 설정합니다
 --pnlanguage [PNLANGUAGE]   알림 플러그인이 사용할 언어를 설정합니다
@@ -257,7 +259,7 @@ ChzzkLiveDownloader --detect n
 ChzzkLiveDownloader --detect
 ```
 
-## 미리보기 이미지 처리
+## 미리보기 이미지 저장
 미리보기 이미지를 별도로 저장하려면 다음 명령어를 사용하세요.
 
 ```powershell
@@ -268,6 +270,19 @@ ChzzkLiveDownloader --thumb save
 
 ```powershell
 ChzzkLiveDownloader --thumb skip
+```
+
+## 메타데이터 저장
+라이브 스트림 정보를 기반으로 메타데이터를 저장하려면 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkLiveDownloader --metadata save
+```
+
+메타데이터를 저장하지 않으려면 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkLiveDownloader --metadata skip
 ```
 
 ## 표시 형식 설정

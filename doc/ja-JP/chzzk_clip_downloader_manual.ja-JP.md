@@ -7,7 +7,7 @@ Chzzkのクリップ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.23.0, June 13, 2025 18:00:00
+Version 1.24.0, June 28, 2025 00:00:00
 
 ## 使用法
 ```powershell
@@ -18,8 +18,9 @@ ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] 
                     [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
                     [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                     [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
-                    [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                    [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
+                    [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
+                    [--settings [SETTINGS]] [--reset]
                     [clip]
 ```
 
@@ -60,6 +61,7 @@ clip                      ダウンロードするクリップUIDまたはURL
 --download [DOWNLOAD]     ダウンロード方法を設定（default|atxc|alter）
 --limit [LIMIT]           最大ダウンロード速度を設定 (例: 512K, 10M, 1G, デフォルト: 0)
 --thumb [THUMB]           サムネイル画像を保存またはスキップ（save|skip）
+--metadata [METADATA]     メタデータを保存またはスキップ（save|skip）
 --startup [STARTUP]       起動方法を設定（normal|fast）
 --pnpath [PNPATH]         通知プラグインのパスを設定
 --pnlanguage [PNLANGUAGE] 通知プラグインで使用する言語を設定
@@ -177,7 +179,7 @@ ChzzkClipDownloader clip_uid または url --name
 * `{..._date_minute}` - 分（ゼロ埋め形式, `00`, `01`, ..., `59`）。
 * `{..._date_second}` - 秒（ゼロ埋め形式, `00`, `01`, ..., `59`）。
 
-## サムネイル画像の処理
+## サムネイル画像の保存
 サムネイル画像を別途保存するには、以下のコマンドを使用します。
 
 ```powershell
@@ -188,6 +190,19 @@ ChzzkClipDownloader clip_uid または url --thumb save
 
 ```powershell
 ChzzkClipDownloader clip_uid または url --thumb skip
+```
+
+## メタデータの保存
+クリップ情報を基に動画にメタデータを保存するには、以下のコマンドを使用します。
+
+```powershell
+ChzzkClipDownloader clip_uid または url --metadata save
+```
+
+この機能をオフにするには、以下のコマンドを使用します。
+
+```powershell
+ChzzkClipDownloader clip_uid または url --metadata skip
 ```
 
 ## 表示モードの設定

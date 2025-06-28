@@ -53,5 +53,6 @@
 * [Aria2](https://aria2.github.io/) - Light-weight multi-protocol download tool.
 * [Beyond Compare](https://www.scootersoftware.com/) - High efficient data comparison tool.
 * [Notepad++](https://notepad-plus-plus.org/) - Very powerful text editor.
+* [OpenSSL](https://slproweb.com/products/Win32OpenSSL.html) - SSL Certificate Tools for Code Signing.
 * [Postman](https://www.postman.com/) - Powerful API platform to design, build, test and collaborate on APIs.
 * [Total Commander](https://www.ghisler.com/) - Powerful file manager for Windows.

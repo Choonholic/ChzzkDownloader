@@ -7,7 +7,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.23.0, June 13, 2025 18:00:00
+Version 1.24.0, June 28, 2025 00:00:00
 
 ## Usage
 ```powershell
@@ -18,8 +18,9 @@ ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] 
                     [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
                     [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                     [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
-                    [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                    [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
+                    [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
+                    [--settings [SETTINGS]] [--reset]
                     [clip]
 ```
 
@@ -60,6 +61,7 @@ clip                      Clip UID or URL to download
 --download [DOWNLOAD]     Set download method (default|atxc|alter)
 --limit [LIMIT]           Set max download speed (e.g., 512K, 10M, 1G, default: 0)
 --thumb [THUMB]           Save thumbnail image or skip (save|skip)
+--metadata [METADATA]     Save metadata or skip (save|skip)
 --startup [STARTUP]       Set startup method (normal|fast)
 --pnpath [PNPATH]         Set the path to the notification plugin
 --pnlanguage [PNLANGUAGE] Set the language used by the notification plugin
@@ -74,7 +76,7 @@ clip                      Clip UID or URL to download
 ChzzkClipDownloader C46IcpG11p --thumb save --work work --out out --temp temp
 ```
 
-## Setup Clips to Download
+## Setting up Clips to Download
 The Clip UID or URL can be set directly to download a clip.
 
 For example, Clip UID is **C46IcpG11p** if clip URL is https://chzzk.naver.com/clips/C46IcpG11p. To download this clip, use the following commands.
@@ -177,7 +179,7 @@ For the date-related tags, the detailed elements can be expanded as below.
 * `{..._date_minute}` - Minute as a zero-padded decimal number. (`00`, `01`, ..., `59`)
 * `{..._date_second}` - Second as a zero-padded decimal number. (`00`, `01`, ..., `59`)
 
-## Handling Thumbnail Images
+## Saving Thumbnail Images
 To save thumbnail images separately, use the following command.
 
 ```powershell
@@ -190,7 +192,20 @@ To turn off this feature, use the following command.
 ChzzkClipDownloader clip_uid or url --thumb skip
 ```
 
-## Set Display Mode
+## Saving Metadata
+To save metadata based on clip information, use the following command.
+
+```powershell
+ChzzkClipDownloader clip_uid or url --metadata save
+```
+
+To turn off this feature, use the following command.
+
+```powershell
+ChzzkClipDownloader clip_uid or url --metadata skip
+```
+
+## Setting Display Mode
 By default, fluent details will be displayed. However, if you don't need the details, you can use the following command to supress them.
 
 ```powershell
@@ -212,7 +227,7 @@ ChzzkClipDownloader clip_uid or url -d
 ChzzkClipDownloader clip_uid or url --display
 ```
 
-## Set Working Directory
+## Setting Working Directory
 You can use the following command to specify the directory where required files are stored to work properly.
 
 ```powershell
@@ -225,7 +240,7 @@ If you want to set this option to default, just use `--work` without directory l
 ChzzkClipDownloader clip_uid or url --work
 ```
 
-## Set Output Directory
+## Setting Output Directory
 You can use the following command to specify the directory where downloaded files are saved.
 
 ```powershell
@@ -244,7 +259,7 @@ If you want to set this option to default, just use `--out` and `--category` wit
 ChzzkClipDownloader clip_uid or url --out --category
 ```
 
-## Set Temporary Directory
+## Setting Temporary Directory
 You can use the following command to specify the temporary directory where the files being downloaded are saved.
 
 ```powershell
@@ -292,7 +307,7 @@ ChzzkClipDownloader clip_uid or url --out-user username --out-pass password
 ChzzkClipDownloader clip_uid or url --temp-user username --temp-pass password
 ```
 
-## Set how to save when the target file already exists
+## Setting how to save when the target file already exists
 By default, when a file with the same name already exists, the file is saved with `(n)` appended to its name. However, you can use the following command to overwrite the file or skip download itself instead.
 
 ```powershell
@@ -306,7 +321,7 @@ If you want to set this option to default, just use `--exist` without like below
 ChzzkClipDownloader clip_uid or url --exist
 ```
 
-## Set max download speed to control network bandwidth
+## Setting max download speed to control network bandwidth
 Use the following command when you need to limit the download speed to control network bandwidth. `0` means unrestricted. You can append `K`, `M` or `G`. (`1K`=`1024`, `1M`=`1024K`, `1G`=`1024M`)
 
 ```powershell
@@ -319,7 +334,7 @@ If you want to set this option to default, just use `--limit` without like below
 ChzzkClipDownloader clip_uid or url --limit
 ```
 
-## Set the threshold % for stopping downloads when disk space is low
+## Setting the threshold % for stopping downloads when disk space is low
 By default, downloading will stop if the free space in the storage directory or temporary directory drops below 10%. To set the free disk space threshold, use the following command. The acceptable range is `3` to `30`.
 
 ```powershell
@@ -338,14 +353,14 @@ If you want to set this option to default, just use `--threshold` without like b
 ChzzkClipDownloader clip_uid or url --threshold
 ```
 
-## Set Download Method
+## Setting Download Method
 A lightweight download module was included as an alternative. To try out the alternative module, use the following command.
 
 ```powershell
 ChzzkClipDownloader clip_uid or url --download alter
 ```
 
-## Set Action When Saving Settings
+## Setting Action When Saving Settings
 All options are always saved to configuration files by default. If you want to apply settings to current session only without saving, use the following command.
 
 ```powershell
@@ -417,7 +432,7 @@ This will reset the following information.
 * Settings for displaying download details
 * Settings for output and temporary directories
 
-## Display Version Information
+## Displaying Version Information
 You can check the version information by using the following command.
 
 ```powershell

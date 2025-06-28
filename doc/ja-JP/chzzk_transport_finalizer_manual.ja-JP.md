@@ -7,7 +7,7 @@ Chzzkのストリーム用の最終処理ツール
 </div>
 
 ## バージョン
-Version 1.23.0, June 13, 2025 18:00:00
+Version 1.24.0, June 28, 2025 00:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのFFmpeg（FFmpeg 7.0またはそれ以上が必要）
@@ -18,9 +18,9 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
                         [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
                         [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
                         [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                        [--snapshot SNAPSHOT] [--startup [STARTUP]] [--pnpath [PNPATH]]
-                        [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
-                        [--settings [SETTINGS]] [--reset]
+                        [--snapshot SNAPSHOT] [--metadata [METADATA]] [--startup [STARTUP]]
+                        [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
+                        [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
 ```
 
 ## オプション
@@ -41,6 +41,7 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --rpcid [RPCID]           JSON-RPCサーバーのIDを設定 （デフォルト: 70）
 --rpcport [RPCPORT]       JSON-RPCサーバーのポートを設定 （デフォルト: 65000, 49152-65300）
 --snapshot SNAPSHOT       ステータスが変更されるたびにJSONファイルにスナップショットを保存
+--metadata [METADATA]     メタデータを保存またはスキップ（save|skip）
 --startup [STARTUP]       起動方法を設定（normal|fast）
 --pnpath [PNPATH]         通知プラグインのパスを設定
 --pnlanguage [PNLANGUAGE] 通知プラグインで使用する言語を設定
@@ -129,6 +130,19 @@ ChzzkTransportFinalizer --convert="-c:v libx265 -preset medium -crf 23 -c:a aac 
 
 ```powershell
 ChzzkTransportFinalizer --convert
+```
+
+## メタデータの保存
+ストリーム情報を基に動画にメタデータを保存するには、以下のコマンドを使用します。Chzzk Transport Finalizerは、Chzzk Live DownloaderまたはChzzk Video Downloaderによってトランスポートファイルと共に`JSON`形式で出力されたストリーム情報を使用します。このファイルが作成されていないか、削除されている場合、メタデータは保存されません。
+
+```powershell
+ChzzkTransportFinalizer --metadata save
+```
+
+この機能をオフにするには、以下のコマンドを使用します。
+
+```powershell
+ChzzkTransportFinalizer --metadata skip
 ```
 
 ## 表示モードの設定

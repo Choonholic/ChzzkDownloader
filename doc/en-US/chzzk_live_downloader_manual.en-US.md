@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.23.0, June 13, 2025 18:00:00
+Version 1.24.0, June 28, 2025 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -23,8 +23,9 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
                     [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
                     [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
                     [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
-                    [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                    [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
+                    [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
+                    [--settings [SETTINGS]] [--reset]
 ```
 
 ### Options
@@ -64,6 +65,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --rpcbaseport [RPCBASEPORT] Set base port of JSON-RPC server (default: 62000, 49152-65300)
 --snapshot SNAPSHOT         Save snapshot to a JSON file whenever changing status
 --thumb [THUMB]             Save thumbnail image or skip (save|skip)
+--metadata [METADATA]       Save metadata or skip (save|skip)
 --startup [STARTUP]         Set startup method (normal|fast)
 --pnpath [PNPATH]           Set the path to the notification plugin
 --pnlanguage [PNLANGUAGE]   Set the language used by the notification plugin
@@ -101,7 +103,7 @@ ChzzkLiveDownloader --id n
 
 The specific UID will be used again when you set the same parameters the next time, and automatically search for and download live streams with the UID.
 
-## Setting or Resetting UID of a Specific ID
+## Managing UID Assignments
 
 ### Setting UID
 To set the UID assigned to a specific ID, use the following commands.
@@ -257,7 +259,7 @@ If you want to set this option to default, just use `--detect` like below.
 ChzzkLiveDownloader --detect
 ```
 
-## Handling Thumbnail Images
+## Saving Thumbnail Images
 To save thumbnail images separately, use the following command.
 
 ```powershell
@@ -270,7 +272,20 @@ To turn off this feature, use the following command.
 ChzzkLiveDownloader --thumb skip
 ```
 
-## Set Display Mode
+## Saving Metadata
+To save metadata based on live stream information, use the following command.
+
+```powershell
+ChzzkLiveDownloader --metadata save
+```
+
+To turn off this feature, use the following command.
+
+```powershell
+ChzzkLiveDownloader --metadata skip
+```
+
+## Setting Display Mode
 By default, fluent details will be displayed. However, if you don't need the details, you can use the following command to supress them.
 
 ```powershell
@@ -326,7 +341,7 @@ ChzzkLiveDownloader --final cconvert --custom="-c:v libx265 -preset medium -crf 
 
 Please note that custom encoding is not recommended due to its suboptimal performance. For better results, consider using a dedicated external professional encoders.
 
-## Set Start Offset
+## Setting Start Offset
 You can use the following command to set amount of time to skip from the beginning of the stream.
 
 ```powershell
@@ -341,7 +356,7 @@ ChzzkLiveDownloader --offset 1:23:45.67
 ChzzkLiveDownloader --offset 1h30m45.67s
 ```
 
-## Set Duration and Split Downloading
+## Setting Duration and Split Downloading
 You can use the following command to set the stream duration to download. If the `--once` parameter is not specified, the downloaded stream will be split into the specified duration.
 
 ```powershell
@@ -356,7 +371,7 @@ ChzzkLiveDownloader --duration 1:23:45.67
 ChzzkLiveDownloader --duration 1h30m45.67s
 ```
 
-## Set Stream Retrieving Method
+## Setting Stream Retrieving Method
 By default, ChzzkLiveDownloader retrieves stream information from the Chzzk Time Machine API to download the stream at the earliest possible time. However, you can set stream retrieving method based of your preferences with the following command.
 
 ```powershell
@@ -374,7 +389,7 @@ If you want to set this option to default, just use `--stream` like below.
 ChzzkLiveDownloader --stream
 ```
 
-## Set Working Directory
+## Setting Working Directory
 You can use the following command to specify the directory where required files are stored to work properly.
 
 ```powershell
@@ -387,7 +402,7 @@ If you want to set this option to default, just use `--work` without directory l
 ChzzkLiveDownloader --work
 ```
 
-## Set Output Directory
+## Setting Output Directory
 You can use the following command to specify the directory where downloaded files are finally saved.
 
 ```powershell
@@ -406,7 +421,7 @@ If you want to set this option to default, just use `--out` and `--category` wit
 ChzzkLiveDownloader --out --category
 ```
 
-## Set Temporary Directory
+## Setting Temporary Directory
 You can use the following command to specify the temporary directory where the files being downloaded are saved.
 
 ```powershell
@@ -454,7 +469,7 @@ ChzzkLiveDownloader --out-user username --out-pass password
 ChzzkLiveDownloader --temp-user username --temp-pass password
 ```
 
-## Set how to save when the target file already exists
+## Setting how to save when the target file already exists
 By default, when a file with the same name already exists, the file is saved with `(n)` appended to its name. However, you can use the following command to overwrite the file or skip download itself instead.
 
 ```powershell
@@ -468,7 +483,7 @@ If you want to set this option to default, just use `--exist` like below.
 ChzzkLiveDownloader --exist
 ```
 
-## Set the threshold % for stopping downloads when disk space is low
+## Setting the threshold % for stopping downloads when disk space is low
 By default, downloading will stop if the free space in the storage directory or temporary directory drops below 10%. To set the free disk space threshold, use the following command. The acceptable range is `3` to `30`.
 
 ```powershell
@@ -487,7 +502,7 @@ If you want to set this option to default, just use `--threshold` like below.
 ChzzkLiveDownloader --threshold
 ```
 
-## Set Action When Saving Settings
+## Setting Action When Saving Settings
 All options are always saved to configuration files by default. If you want to apply settings to current session only without saving, use the following command.
 
 ```powershell
@@ -565,7 +580,7 @@ This will reset the following information.
 * Settings for the finalization
 * Settings for output and temporary directories
 
-## Display Version Information
+## Displaying Version Information
 You can check the version information by using the following command.
 
 ```powershell

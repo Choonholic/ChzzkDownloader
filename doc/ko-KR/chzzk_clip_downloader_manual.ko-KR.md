@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.23.0, June 13, 2025 18:00:00
+Version 1.24.0, June 28, 2025 00:00:00
 
 ## 사용법
 ```powershell
@@ -18,8 +18,9 @@ ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] 
                     [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
                     [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                     [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
-                    [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                    [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
+                    [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
+                    [--settings [SETTINGS]] [--reset]
                     [clip]
 ```
 
@@ -60,6 +61,7 @@ clip                      다운로드할 클립 UID 또는 URL
 --download [DOWNLOAD]     다운로드 방법을 설정합니다 (default|atxc|alter)
 --limit [LIMIT]           최대 다운로드 속도를 설정합니다 (예: 512K, 10M, 1G, 기본값: 0)
 --thumb [THUMB]           미리보기 이미지의 저장 여부를 설정합니다 (save|skip)
+--metadata [METADATA]     메타데이터의 저장 여부를 설정합니다（save|skip）
 --startup [STARTUP]       시작 방법을 설정합니다 (normal|fast)
 --pnpath [PNPATH]         알림 플러그인의 경로를 설정합니다
 --pnlanguage [PNLANGUAGE] 알림 플러그인이 사용할 언어를 설정합니다
@@ -177,7 +179,7 @@ ChzzkClipDownloader clip_uid 또는 url --name
 * `{..._date_minute}` - 두 자리 수 분. (`00`, `01`, ..., `59`)
 * `{..._date_second}` - 두 자리 수 초. (`00`, `01`, ..., `59`)
 
-## 미리보기 이미지 처리
+## 미리보기 이미지 저장
 미리보기 이미지를 별도로 저장하려면 다음 명령어를 사용하세요.
 
 ```powershell
@@ -188,6 +190,19 @@ ChzzkClipDownloader clip_uid 또는 url --thumb save
 
 ```powershell
 ChzzkClipDownloader clip_uid 또는 url --thumb skip
+```
+
+## 메타데이터 저장
+클립 정보를 기반으로 메타데이터를 저장하려면 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkClipDownloader clip_uid 또는 url --metadata save
+```
+
+메타데이터를 저장하지 않으려면 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkClipDownloader clip_uid 또는 url --metadata skip
 ```
 
 ## 표시 형식 설정

@@ -7,7 +7,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.23.0, June 13, 2025 18:00:00
+Version 1.24.0, June 28, 2025 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -18,9 +18,9 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
                         [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
                         [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
                         [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                        [--snapshot SNAPSHOT] [--startup [STARTUP]] [--pnpath [PNPATH]]
-                        [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
-                        [--settings [SETTINGS]] [--reset]
+                        [--snapshot SNAPSHOT] [--metadata [METADATA]] [--startup [STARTUP]]
+                        [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
+                        [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
 ```
 
 ## Options
@@ -41,6 +41,7 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --rpcid [RPCID]           Set ID of JSON-RPC server (default: 70)
 --rpcport [RPCPORT]       Set port of JSON-RPC server (default: 65000, 49152-65300)
 --snapshot SNAPSHOT       Save snapshot to a JSON file whenever changing status
+--metadata [METADATA]     Save metadata or skip (save|skip)
 --startup [STARTUP]       Set startup method (normal|fast)
 --pnpath [PNPATH]         Set the path to the notification plugin
 --pnlanguage [PNLANGUAGE] Set the language used by the notification plugin
@@ -58,7 +59,7 @@ ChzzkTransportFinalizer --work work --watch out
 ## Description
 Chzzk Transport Finalizer is a tool designed to handle final processing sequentially in a separate process, instead of Chzzk Live Downloader and Chzzk Video Downloader directly performing the final processing. Using Chzzk Transport Finalizer ensures that live streams can be downloaded without interruption, even when they are broadcast in short intervals.
 
-## Set Working Directory
+## Setting Working Directory
 You can use the following command to specify the directory where required files are stored to work properly.
 
 ```powershell
@@ -71,7 +72,7 @@ If you want to set this option to default, just use `--work` without directory l
 ChzzkTransportFinalizer --work
 ```
 
-## Set Watching Directory
+## Setting Watching Directory
 Chzzk Transport Finalizer watches the directory where stream files are saved and automatically performs the final conversion when new files are added. Use the following command to specify the directory to watch.
 
 ```powershell
@@ -118,7 +119,7 @@ ChzzkTransportFinalizer --work-user username --work-pass password
 ChzzkTransportFinalizer --watch-user username --watch-pass password
 ```
 
-### Set Finalize Encoding Parameters
+### Setting Finalize Encoding Parameters
 You can set encoding parameters of finalization using the `--convert` option. When specifying options for the `--convert` parameter, since the option itself takes the form of a parameter, to avoid errors, please specify the option directly using the `=` operator and `"` quotes as shown below. For example, the following options enable `FFmpeg` to encode using the `H.265` codec:
 
 ```powershell
@@ -131,7 +132,20 @@ If you want to set this option to default, just use `--convert` without options 
 ChzzkTransportFinalizer --convert
 ```
 
-## Set Display Mode
+## Saving Metadata
+To save metadata based on transport stream information, use the following command. Chzzk Transport Finalizer uses stream information exported as a `JSON` file along with the transport files from Chzzk Live Downloader or Chzzk Video Downloader. If this file is not created or has been deleted, the metadata will not be saved.
+
+```powershell
+ChzzkTransportFinalizer --metadata save
+```
+
+To turn off this feature, use the following command.
+
+```powershell
+ChzzkTransportFinalizer --metadata skip
+```
+
+## Setting Display Mode
 By default, fluent details will be displayed. However, if you don't need the details, you can use the following command to supress them.
 
 ```powershell
@@ -153,7 +167,7 @@ ChzzkTransportFinalizer -d
 ChzzkTransportFinalizer --display
 ```
 
-## Set how to save when the target file already exists
+## Setting how to save when the target file already exists
 By default, when a file with the same name already exists, the file is saved with `(n)` appended to its name. However, you can use the following command to overwrite the file or skip converting itself instead.
 
 ```powershell
@@ -167,7 +181,7 @@ If you want to set this option to default, just use `--exist` without like below
 ChzzkTransportFinalizer --exist
 ```
 
-## Set the threshold % for stopping finalization when disk space is low
+## Setting the threshold % for stopping finalization when disk space is low
 By default, finalization will stop if the free space in the watching directory drops below 10%. To set the free disk space threshold, use the following command. The acceptable range is `3` to `30`.
 
 ```powershell
@@ -186,7 +200,7 @@ If you want to set this option to default, just use `--threshold` without like b
 ChzzkTransportFinalizer --threshold
 ```
 
-## Set Action When Saving Settings
+## Setting Action When Saving Settings
 All options are always saved to configuration files by default. If you want to apply settings to current session only without saving, use the following command.
 
 ```powershell
@@ -251,7 +265,7 @@ This will reset the following information.
 * Settings for watching directory
 * Settings for converting parameters
 
-## Display Version Information
+## Displaying Version Information
 You can check the version information by using the following command.
 
 ```powershell

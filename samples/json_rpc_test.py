@@ -1,6 +1,6 @@
 # json_rpc_test.py
 # Test code for JSON-RPC features of Chzzk Downloader Suite
-# Written by Choonholic, April 26, 2025
+# Written by Choonholic, June 13, 2025
 
 # Minimal Requirements: Chzzk Downloader Suite Version 1.13.0 or higher
 

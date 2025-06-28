@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Clip Downloader
 </div>
 
 ## Version
-Version 1.23.0, June 13, 2025 18:00:00
+Version 1.24.0, June 28, 2025 00:00:00
 
 ## Prerequisites
 Since Chzzk Clip Manager is the GUI frontend application for Chzzk Clip Downloader, Chzzk Clip Downloader must be installed as well.
@@ -176,6 +176,7 @@ Double-clicking tray icon will restore the window to its original state, and rig
 * **Stop downloading if free disk space is less than** - Sets the threshold % for stopping downloads when disk space is low.
 * **Sleep Mode** - Sets the system's sleep mode while the Chzzk Clip Manager is running.
 * **Performance Level** - Specify the performance of the system where Chzzk Clip Manager is currently running. If you encounter errors due to timeouts when adding or refreshing clips, try lowering the performance level by one step and attempt again.
+* **Save metadata based on clip information** - Checks to save metadata based on clip information.
 
 ### Downloader
 

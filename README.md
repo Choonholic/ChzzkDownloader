@@ -14,7 +14,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.23.0, June 13, 2025 18:00:00
+Version 1.24.0, June 28, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -30,8 +30,9 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
                     [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
                     [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
                     [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
-                    [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                    [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
+                    [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
+                    [--settings [SETTINGS]] [--reset]
 ```
 
 ### Options
@@ -71,6 +72,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --rpcbaseport [RPCBASEPORT] Set base port of JSON-RPC server (default: 62000, 49152-65300)
 --snapshot SNAPSHOT         Save snapshot to a JSON file whenever changing status
 --thumb [THUMB]             Save thumbnail image or skip (save|skip)
+--metadata [METADATA]       Save metadata or skip (save|skip)
 --startup [STARTUP]         Set startup method (normal|fast)
 --pnpath [PNPATH]           Set the path to the notification plugin
 --pnlanguage [PNLANGUAGE]   Set the language used by the notification plugin
@@ -94,7 +96,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.23.0, June 13, 2025 18:00:00
+Version 1.24.0, June 28, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -110,9 +112,9 @@ ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT]
                      [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
                      [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
                      [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
-                     [--limit [LIMIT]] [--thumb [THUMB]] [--startup [STARTUP]] [--pnpath [PNPATH]]
-                     [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
-                     [--settings [SETTINGS]] [--reset]
+                     [--limit [LIMIT]] [--thumb [THUMB]] [--metadata [METADATA]] [--startup [STARTUP]]
+                     [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
+                     [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
                      [video]
 ```
 
@@ -156,6 +158,7 @@ video                     Video number or URL to download
 --download [DOWNLOAD]     Set download method (default|atxc|alter)
 --limit [LIMIT]           Set max download speed (e.g., 512K, 10M, 1G, default: 0)
 --thumb [THUMB]           Save thumbnail image or skip (save|skip)
+--metadata [METADATA]     Save metadata or skip (save|skip)
 --startup [STARTUP]       Set startup method (normal|fast)
 --pnpath [PNPATH]         Set the path to the notification plugin
 --pnlanguage [PNLANGUAGE] Set the language used by the notification plugin
@@ -179,7 +182,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.23.0, June 13, 2025 18:00:00
+Version 1.24.0, June 28, 2025 00:00:00
 
 ### Usage
 ```powershell
@@ -190,8 +193,9 @@ ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] 
                     [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
                     [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                     [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
-                    [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                    [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
+                    [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
+                    [--settings [SETTINGS]] [--reset]
                     [clip]
 ```
 
@@ -232,6 +236,7 @@ clip                      Clip UID or URL to download
 --download [DOWNLOAD]     Set download method (default|atxc|alter)
 --limit [LIMIT]           Set max download speed (e.g., 512K, 10M, 1G, default: 0)
 --thumb [THUMB]           Save thumbnail image or skip (save|skip)
+--metadata [METADATA]     Save metadata or skip (save|skip)
 --startup [STARTUP]       Set startup method (normal|fast)
 --pnpath [PNPATH]         Set the path to the notification plugin
 --pnlanguage [PNLANGUAGE] Set the language used by the notification plugin
@@ -255,7 +260,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.23.0, June 13, 2025 18:00:00
+Version 1.24.0, June 28, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -266,9 +271,9 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
                         [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
                         [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
                         [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                        [--snapshot SNAPSHOT] [--startup [STARTUP]] [--pnpath [PNPATH]]
-                        [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
-                        [--settings [SETTINGS]] [--reset]
+                        [--snapshot SNAPSHOT] [--metadata [METADATA]] [--startup [STARTUP]]
+                        [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
+                        [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
 ```
 
 ### Options
@@ -289,6 +294,7 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --rpcid [RPCID]           Set ID of JSON-RPC server (default: 70)
 --rpcport [RPCPORT]       Set port of JSON-RPC server (default: 65000, 49152-65300)
 --snapshot SNAPSHOT       Save snapshot to a JSON file whenever changing status
+--metadata [METADATA]     Save metadata or skip (save|skip)
 --startup [STARTUP]       Set startup method (normal|fast)
 --pnpath [PNPATH]         Set the path to the notification plugin
 --pnlanguage [PNLANGUAGE] Set the language used by the notification plugin

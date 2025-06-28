@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.23.0, June 13, 2025 18:00:00
+Version 1.24.0, June 28, 2025 00:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, both of Chzzk Live Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -320,6 +320,7 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 * **Sleep Mode** - Sets the system's sleep mode while the Chzzk Live Manager is running.
 * **Performance Level** - Specify the performance of the system where Chzzk Live Manager is currently running. If you encounter errors due to timeouts when adding or refreshing channels, try lowering the performance level by one step and attempt again.
 * **Instance Management** - The shutdown method of instances can be predefined, eliminating the need to select it each time in the Exit dialog.
+* **Save metadata based on live stream information** - Checks to save metadata based on live stream information.
 
 ### Downloader
 

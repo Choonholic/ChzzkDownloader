@@ -7,7 +7,7 @@ Chzzkのストリーム用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.23.0, June 13, 2025 18:00:00
+Version 1.24.0, June 28, 2025 00:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのStreamlink（Streamlink 6.8.0またはそれ以上が必要）
@@ -23,8 +23,9 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
                     [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
                     [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
                     [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
-                    [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
-                    [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+                    [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
+                    [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
+                    [--settings [SETTINGS]] [--reset]
 ```
 
 ### オプション
@@ -64,6 +65,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --rpcbaseport [RPCBASEPORT] JSON-RPCサーバーのベースポートを設定（デフォルト: 62000、49152-65300）
 --snapshot SNAPSHOT         ステータスが変更されるたびにJSONファイルにスナップショットを保存
 --thumb [THUMB]             サムネイル画像を保存またはスキップ（save|skip）
+--metadata [METADATA]       メタデータを保存またはスキップ（save|skip）
 --startup [STARTUP]         起動方法を設定（normal|fast）
 --pnpath [PNPATH]           通知プラグインのパスを設定
 --pnlanguage [PNLANGUAGE]   通知プラグインで使用する言語を設定
@@ -104,7 +106,6 @@ ChzzkLiveDownloader --id n
 ## 特定IDのUID設定またはリセット
 
 ### UID設定
-
 特定のIDに割り当てるUIDを設定するには、以下のコマンドを使用します。
 
 ```powershell
@@ -258,7 +259,7 @@ ChzzkLiveDownloader --detect n
 ChzzkLiveDownloader --detect
 ```
 
-## サムネイル画像の処理
+## サムネイル画像の保存
 サムネイル画像を別途保存するには、以下のコマンドを使用します。
 
 ```powershell
@@ -269,6 +270,19 @@ ChzzkLiveDownloader --thumb save
 
 ```powershell
 ChzzkLiveDownloader --thumb skip
+```
+
+## メタデータの保存
+ライブストリーム情報を基に動画にメタデータを保存するには、以下のコマンドを使用します。
+
+```powershell
+ChzzkLiveDownloader --metadata save
+```
+
+この機能をオフにするには、以下のコマンドを使用します。
+
+```powershell
+ChzzkLiveDownloader --metadata skip
 ```
 
 ## 表示モードの設定

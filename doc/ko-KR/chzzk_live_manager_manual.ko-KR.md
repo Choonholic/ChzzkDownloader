@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.23.0, June 13, 2025 18:00:00
+Version 1.24.0, June 28, 2025 00:00:00
 
 ## 선행 요건
 Chzzk Live Manager는 Chzzk Live Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Live Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
@@ -319,6 +319,7 @@ Chzzk Live Manager를 종료할 때, 백그라운드에서 Chzzk Live Downloader
 * **절전 상태** - Chzzk Live Manager가 실행되는 동안 사용될 시스템의 절전 상태를 설정합니다.
 * **성능 수준** - Chzzk Live Manager가 실행 중인 시스템의 성능을 지정합니다. 채널을 추가하거나 새로 고칠 때 시간 초과로 인한 오류가 발생한다면, 이 설정을 한 단계 아래로 낮추는 것을 고려해 볼 수 있습니다.
 * **인스턴스 관리** - 인스턴스 종료 방식을 매번 종료 대화 상자에서 설정하는 대신 미리 설정해 둘 수 있습니다.
+* **라이브 스트리밍 정보를 기반으로 메타데이터 저장** - 라이브 스트리밍 정보를 기반으로 메타데이터를 저장합니다.
 
 ### 다운로드 도구
 

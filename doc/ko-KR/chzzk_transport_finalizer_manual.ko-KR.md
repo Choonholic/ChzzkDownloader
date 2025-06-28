@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.23.0, June 13, 2025 18:00:00
+Version 1.24.0, June 28, 2025 00:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 FFmpeg (FFmpeg 7.0 또는 상위 버전 필요)
@@ -18,9 +18,9 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
                         [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
                         [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
                         [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                        [--snapshot SNAPSHOT] [--startup [STARTUP]] [--pnpath [PNPATH]]
-                        [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
-                        [--settings [SETTINGS]] [--reset]
+                        [--snapshot SNAPSHOT] [--metadata [METADATA]] [--startup [STARTUP]]
+                        [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
+                        [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
 ```
 
 ## 선택적 매개 변수
@@ -41,6 +41,7 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --rpcid [RPCID]           JSON-RPC 서버 ID를 설정합니다 (기본값: 70)
 --rpcport [RPCPORT]       JSON-RPC 서버 포트를 설정합니다 (기본값: 65000, 49152-65300)
 --snapshot SNAPSHOT       상태 변경 시 스냅샷을 JSON 파일로 저장합니다
+--metadata [METADATA]     메타데이터의 저장 여부를 설정합니다（save|skip）
 --startup [STARTUP]       시작 방법을 설정합니다 (normal|fast)
 --pnpath [PNPATH]         알림 플러그인의 경로를 설정합니다
 --pnlanguage [PNLANGUAGE] 알림 플러그인이 사용할 언어를 설정합니다
@@ -129,6 +130,19 @@ ChzzkTransportFinalizer --convert="-c:v libx265 -preset medium -crf 23 -c:a aac 
 
 ```powershell
 ChzzkTransportFinalizer --convert
+```
+
+## 메타데이터 저장
+스트림 정보를 기반으로 메타데이터를 저장하려면 다음 명령어를 사용하세요. Chzzk Transport Finalizer는 Chzzk Live Downloader 또는 Chzzk Video Downloader에서 스트림 파일과 함께 JSON 형식의 파일로 내보낸 스트림 정보를 사용하며, 이 파일이 생성되지 않았거나 삭제되었을 경우 메타데이터를 저장하지 않습니다.
+
+```powershell
+ChzzkTransportFinalizer --metadata save
+```
+
+메타데이터를 저장하지 않으려면 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkTransportFinalizer --metadata skip
 ```
 
 ## 표시 형식 설정
