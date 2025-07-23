@@ -18,7 +18,7 @@
 * [Cursor](https://cursor.com/) - Powerful AI Code Editor based on Visual Studio Code.
 * [Inno Setup](https://jrsoftware.org/isinfo.php) - Builder for setup executable.
 * [Microsoft Visual Studio](https://visualstudio.microsoft.com/) - Builder for Chzzk Managers.
-* [Miniconda](https://docs.anaconda.com/miniconda/) - Minimal version of conda, a Python distribution.
+* [Miniconda](https://docs.anaconda.com/miniconda/) - Minimal version of conda, a Python distribution. (Archives: https://repo.anaconda.com/archive/)
 * [Nuitka](https://nuitka.net/) - Builder for Python codes.
 * [Visual Studio Code](https://code.visualstudio.com/) - Multi purposed development tools including high-end editors.
 

@@ -7,7 +7,7 @@ Chzzkのストリーム用の最終処理ツール
 </div>
 
 ## バージョン
-Version 1.24.1, July 03, 2025 18:00:00
+Version 1.25.0, July 23, 2025 18:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのFFmpeg（FFmpeg 7.0またはそれ以上が必要）
@@ -16,7 +16,7 @@ Version 1.24.1, July 03, 2025 18:00:00
 ```powershell
 ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
                         [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
-                        [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
+                        [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--ext [EXT]] [--exist [EXIST]]
                         [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                         [--snapshot SNAPSHOT] [--metadata [METADATA]] [--startup [STARTUP]]
                         [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
@@ -35,6 +35,7 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --watch-user [WATCH_USER] 監視ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
 --watch-pass [WATCH_PASS] 監視ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
 --convert [CONVERT]       変換パラメータを設定
+--ext [EXT]               保存ファイルの拡張子を設定
 --exist [EXIST]           対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
 --threshold [THRESHOLD]   空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 10, 3-50)
 --rpc                     JSON-RPCサーバーを有効化
@@ -120,16 +121,34 @@ ChzzkTransportFinalizer --watch-user username --watch-pass password
 ```
 
 ### 最終処理の変換パラメータの設定
-`--convert`オプションで、最終処理中に変換パラメータを設定できます。`--convert`パラメーターにオプションを指定する場合、オプション自体がパラメーターの形式を取るため、エラーを防ぐために、`=`演算子と`"`の引用符を使用して直接オプションを指定してください。例えば、以下のオプションで`FFmpeg`を使用して`H.265`コーデックでエンコードできます。
+`--convert`パラメータを使用して最終処理に使用するエンコードオプションを指定できます。エンコードオプション自体がコマンドライン引数の形式を取るため、エラーを防ぐには`=`演算子と`"`の引用符で囲む必要があります。例えば、次の設定は`HEVC`コーデックでエンコードするように指定しています:
 
 ```powershell
-ChzzkTransportFinalizer --convert="-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
+ChzzkTransportFinalizer --convert="-c:v libx265 -crf 25 -c:a aac -b:a 128k"
+```
+
+設定内容を変換パラメータセットファイルとして保存しておき、実行時にその内容を読み込んで処理することも可能です。
+
+```text
+-c:v libx265 -crf 25 -c:a aac -b:a 128k
+```
+
+たとえば、`hevc_sw_128k.set`というファイルに上記の内容が保存されている場合、以下のようにファイル名を指定できます。
+
+```powershell
+ChzzkTransportFinalizer --convert=hevc_sw_128k.set
 ```
 
 このオプションをデフォルトに設定したい場合は、以下のように`--convert`のみを使用してください。
 
 ```powershell
 ChzzkTransportFinalizer --convert
+```
+
+また、変換パラメータに応じて拡張子を変更する必要がある場合は、`--ext` パラメータで指定できます。
+
+```powershell
+ChzzkTransportFinalizer --convert=av1_nvenc_128k.set --ext=.av1
 ```
 
 ## メタデータの保存

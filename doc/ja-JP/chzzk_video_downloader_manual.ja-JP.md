@@ -7,7 +7,7 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.24.1, July 03, 2025 18:00:00
+Version 1.25.0, July 23, 2025 18:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのStreamlink（Streamlink 6.8.0またはそれ以上が必要）
@@ -17,7 +17,7 @@ Version 1.24.1, July 03, 2025 18:00:00
 ```powershell
 ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
                      [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--final [FINAL]]
-                     [--custom [CUSTOM]] [--info INFO] [--name [NAME]] [--work [WORK]]
+                     [--custom [CUSTOM]] [--ext [EXT]] [--info INFO] [--name [NAME]] [--work [WORK]]
                      [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
                      [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
                      [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
@@ -48,6 +48,7 @@ video                     ダウンロードするビデオ番号またはURL
 -d, --display [DISPLAY]   表示モードを設定（quiet|simple|fluent|all）
 --final [FINAL]           最終処理方法を設定（bypass|convert|cleanup|cconvert|ccleanup, ABR_HLS形式をダウンロードする時には適用不可能）
 --custom [CUSTOM]         最終処理のカスタムオプションを設定（cconvert|ccleanupのみ適用可能）
+--ext [EXT]               保存ファイルの拡張子を設定（cconvert|ccleanupのみ適用可能）
 --info INFO               ダウンロードせずにビデオ情報を取得
 --name [NAME]             保存ファイル名の形式を設定
 --work [WORK]             作業ディレクトリを設定
@@ -282,10 +283,34 @@ ChzzkVideoDownloader video_no または url --final
 ```
 
 ### 最終処理中のカスタムエンコード
-`--final`オプションで`cconvert`または`ccleanup`を使用して、最終処理中にカスタムエンコードオプションを設定できます。`--custom`パラメーターにオプションを指定する場合、オプション自体がパラメーターの形式を取るため、エラーを防ぐために、`=`演算子と`"`の引用符を使用して直接オプションを指定してください。例えば、以下のオプションで`FFmpeg`を使用して`H.265`コーデックでエンコードできます。
+`--final`パラメータに`cconvert`または`ccleanup`を指定した場合は、`--custom`パラメータを使用して最終処理に使用するエンコードオプションを指定できます。エンコードオプション自体がコマンドライン引数の形式を取るため、エラーを防ぐには`=`演算子と`"`の引用符で囲む必要があります。例えば、次の設定は`HEVC`コーデックでエンコードするように指定しています:
 
 ```powershell
-ChzzkVideoDownloader video_no または url --final cconvert --custom="-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
+ChzzkVideoDownloader video_no または url --final cconvert --custom="-c:v libx265 -crf 25 -c:a aac -b:a 128k"
+```
+
+設定内容をカスタムオプションセットファイルとして保存しておき、実行時にその内容を読み込んで処理することも可能です。
+
+```text
+-c:v libx265 -crf 25 -c:a aac -b:a 128k
+```
+
+たとえば、`hevc_sw_128k.set`というファイルに上記の内容が保存されている場合、以下のようにファイル名を指定できます。
+
+```powershell
+ChzzkVideoDownloader video_no または url --final cconvert --custom=hevc_sw_128k.set
+```
+
+このオプションをデフォルトに設定したい場合は、以下のように`--custom`のみを使用してください。
+
+```powershell
+ChzzkVideoDownloader video_no または url --custom
+```
+
+また、カスタムオプションに応じて拡張子を変更する必要がある場合は、`--ext` パラメータで指定できます。
+
+```powershell
+ChzzkVideoDownloader video_no または url --final cconvert --custom=av1_nvenc_128k.set --ext=.av1
 ```
 
 カスタムエンコードはパフォーマンスが最適でないため推奨されません。より良い結果を得るには、外部の専用プロフェッショナルエンコーダーの使用を検討してください。

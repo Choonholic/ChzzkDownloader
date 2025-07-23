@@ -14,7 +14,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.24.1, July 03, 2025 18:00:00
+Version 1.25.0, July 23, 2025 18:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -24,13 +24,13 @@ Version 1.24.1, July 03, 2025 18:00:00
 ```powershell
 ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--once ONCE] [--stream [STREAM]]
-                    [--final [FINAL]] [--custom [CUSTOM]] [--offset OFFSET] [--duration DURATION]
-                    [--detect [DETECT]] [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
-                    [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]]
-                    [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
-                    [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
-                    [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
-                    [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
+                    [--final [FINAL]] [--custom [CUSTOM]] [--ext [EXT]] [--offset OFFSET]
+                    [--duration DURATION] [--detect [DETECT]] [--name [NAME]] [--work [WORK]]
+                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
+                    [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
+                    [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
+                    [--threshold [THRESHOLD]] [--rpc] [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT]
+                    [--thumb [THUMB]] [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
                     [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
                     [--settings [SETTINGS]] [--reset]
 ```
@@ -51,7 +51,8 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --once ONCE                 Download a live stream only once
 --stream [STREAM]           Set stream retrieving method (standard|timemachine)
 --final [FINAL]             Set finalization method (bypass|convert|cleanup|cconvert|ccleanup)
---custom [CUSTOM]           Set custom finalize options (applicable only to cconvert|ccleanup)
+--custom [CUSTOM]           Set custom finalize options (applicable only with cconvert|ccleanup)
+--ext [EXT]                 Set output file extension (applicable only with cconvert|ccleanup)
 --offset OFFSET             Set amount of time to skip from the beginning of the stream
 --duration DURATION         Set the maximum stream duration to download
 --detect [DETECT]           Set detection interval (default: 60, 10-1800)
@@ -96,7 +97,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.24.1, July 03, 2025 18:00:00
+Version 1.25.0, July 23, 2025 18:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -106,7 +107,7 @@ Version 1.24.1, July 03, 2025 18:00:00
 ```powershell
 ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
                      [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--final [FINAL]]
-                     [--custom [CUSTOM]] [--info INFO] [--name [NAME]] [--work [WORK]]
+                     [--custom [CUSTOM]] [--ext [EXT]] [--info INFO] [--name [NAME]] [--work [WORK]]
                      [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
                      [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
                      [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
@@ -136,7 +137,8 @@ video                     Video number or URL to download
 -q, --quality [QUALITY]   Set target quality to download (e.g. 1080p)
 -d, --display [DISPLAY]   Set display mode (quiet|simple|fluent|all)
 --final [FINAL]           Set finalization method (bypass|convert|cleanup|cconvert|ccleanup, applicable only when downloading UPLOAD type)
---custom [CUSTOM]         Set custom finalize options (applicable only to cconvert|ccleanup)
+--custom [CUSTOM]         Set custom finalize options (applicable only with cconvert|ccleanup)
+--ext [EXT]               Set output file extension (applicable only with cconvert|ccleanup)
 --info INFO               Retrieve video information without downloading
 --name [NAME]             Set output filename format
 --work [WORK]             Set working directory
@@ -182,7 +184,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.24.1, July 03, 2025 18:00:00
+Version 1.25.0, July 23, 2025 18:00:00
 
 ### Usage
 ```powershell
@@ -260,7 +262,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.24.1, July 03, 2025 18:00:00
+Version 1.25.0, July 23, 2025 18:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -269,7 +271,7 @@ Version 1.24.1, July 03, 2025 18:00:00
 ```powershell
 ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
                         [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
-                        [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
+                        [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--ext [EXT]] [--exist [EXIST]]
                         [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                         [--snapshot SNAPSHOT] [--metadata [METADATA]] [--startup [STARTUP]]
                         [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
@@ -288,6 +290,7 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --watch-user [WATCH_USER] Set username to use when watching directory is on remote network
 --watch-pass [WATCH_PASS] Set password to use when watching directory is on remote network
 --convert [CONVERT]       Set convert parameters
+--ext [EXT]               Set output file extension
 --exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
 --rpc                     Activate JSON-RPC server

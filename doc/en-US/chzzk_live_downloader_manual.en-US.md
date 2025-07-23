@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.24.1, July 03, 2025 18:00:00
+Version 1.25.0, July 23, 2025 18:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -17,13 +17,13 @@ Version 1.24.1, July 03, 2025 18:00:00
 ```powershell
 ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--once ONCE] [--stream [STREAM]]
-                    [--final [FINAL]] [--custom [CUSTOM]] [--offset OFFSET] [--duration DURATION]
-                    [--detect [DETECT]] [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
-                    [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]]
-                    [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
-                    [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
-                    [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
-                    [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
+                    [--final [FINAL]] [--custom [CUSTOM]] [--ext [EXT]] [--offset OFFSET]
+                    [--duration DURATION] [--detect [DETECT]] [--name [NAME]] [--work [WORK]]
+                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
+                    [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
+                    [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
+                    [--threshold [THRESHOLD]] [--rpc] [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT]
+                    [--thumb [THUMB]] [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
                     [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
                     [--settings [SETTINGS]] [--reset]
 ```
@@ -44,7 +44,8 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --once ONCE                 Download a live stream only once
 --stream [STREAM]           Set stream retrieving method (standard|timemachine)
 --final [FINAL]             Set finalization method (bypass|convert|cleanup|cconvert|ccleanup)
---custom [CUSTOM]           Set custom finalize options (applicable only to cconvert|ccleanup)
+--custom [CUSTOM]           Set custom finalize options (applicable only with cconvert|ccleanup)
+--ext [EXT]                 Set output file extension (applicable only with cconvert|ccleanup)
 --offset OFFSET             Set amount of time to skip from the beginning of the stream
 --duration DURATION         Set the maximum stream duration to download
 --detect [DETECT]           Set detection interval (default: 60, 10-1800)
@@ -333,10 +334,34 @@ ChzzkLiveDownloader --final
 ```
 
 ### Custom Encoding During Finalization
-You can set custom encoding options during finalization using the `--final` option with either `cconvert` or `ccleanup`. When specifying options for the `--custom` parameter, since the option itself takes the form of a parameter, to avoid errors, please specify the option directly using the `=` operator and `"` quotes as shown below. For example, the following options enable `FFmpeg` to encode using the `H.265` codec:
+When `cconvert` or `ccleanup` is specified for the `--final` parameter, you can use the `--custom` parameter to specify the encoding options for finalization. Since the encoding options themselves take the form of command-line arguments, you must wrap them using the `=` operator and double quotes (`"`), to prevent errors. For example, the following setting configures encoding with the `HEVC` codec:
 
 ```powershell
-ChzzkLiveDownloader --final cconvert --custom="-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
+ChzzkLiveDownloader --final cconvert --custom="-c:v libx265 -crf 25 -c:a aac -b:a 128k"
+```
+
+You can also save the settings as a custom option set file and load it at runtime to apply the configurations.
+
+```text
+-c:v libx265 -crf 25 -c:a aac -b:a 128k
+```
+
+For example, if the file `hevc_sw_128k.set` contains the above settings, you can specify the file name as follows:
+
+```powershell
+ChzzkLiveDownloader --final cconvert --custom=hevc_sw_128k.set
+```
+
+If you want to set this option to default, just use `--custom` without options like below.
+
+```powershell
+ChzzkLiveDownloader --custom
+```
+
+You can also use the `--ext` parameter to specify a different file extension when the custom options require it.
+
+```powershell
+ChzzkLiveDownloader --final cconvert --custom=av1_nvenc_128k.set --ext=.av1
 ```
 
 Please note that custom encoding is not recommended due to its suboptimal performance. For better results, consider using a dedicated external professional encoders.

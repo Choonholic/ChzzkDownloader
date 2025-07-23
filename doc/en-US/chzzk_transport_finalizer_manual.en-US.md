@@ -7,7 +7,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.24.1, July 03, 2025 18:00:00
+Version 1.25.0, July 23, 2025 18:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -16,7 +16,7 @@ Version 1.24.1, July 03, 2025 18:00:00
 ```powershell
 ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
                         [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
-                        [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
+                        [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--ext [EXT]] [--exist [EXIST]]
                         [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                         [--snapshot SNAPSHOT] [--metadata [METADATA]] [--startup [STARTUP]]
                         [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
@@ -35,6 +35,7 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --watch-user [WATCH_USER] Set username to use when watching directory is on remote network
 --watch-pass [WATCH_PASS] Set password to use when watching directory is on remote network
 --convert [CONVERT]       Set convert parameters
+--ext [EXT]               Set output file extension
 --exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
 --rpc                     Activate JSON-RPC server
@@ -120,16 +121,34 @@ ChzzkTransportFinalizer --watch-user username --watch-pass password
 ```
 
 ### Setting Finalize Encoding Parameters
-You can set encoding parameters of finalization using the `--convert` option. When specifying options for the `--convert` parameter, since the option itself takes the form of a parameter, to avoid errors, please specify the option directly using the `=` operator and `"` quotes as shown below. For example, the following options enable `FFmpeg` to encode using the `H.265` codec:
+You can use the `--convert` parameter to specify the encoding options for finalization. Since the encoding options themselves take the form of command-line arguments, you must wrap them using the `=` operator and double quotes (`"`), to prevent errors. For example, the following setting configures encoding with the `HEVC` codec:
 
 ```powershell
-ChzzkTransportFinalizer --convert="-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
+ChzzkTransportFinalizer --convert="-c:v libx265 -crf 25 -c:a aac -b:a 128k"
+```
+
+You can also save the settings as a convert parameter set file and load it at runtime to apply the configurations.
+
+```text
+-c:v libx265 -crf 25 -c:a aac -b:a 128k
+```
+
+For example, if the file `hevc_sw_128k.set` contains the above settings, you can specify the file name as follows:
+
+```powershell
+ChzzkTransportFinalizer --convert=hevc_sw_128k.set
 ```
 
 If you want to set this option to default, just use `--convert` without options like below.
 
 ```powershell
 ChzzkTransportFinalizer --convert
+```
+
+You can also use the `--ext` parameter to specify a different file extension when the convert parameters require it.
+
+```powershell
+ChzzkTransportFinalizer --convert=av1_nvenc_128k.set --ext=.av1
 ```
 
 ## Saving Metadata

@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.24.1, July 03, 2025 18:00:00
+Version 1.25.0, July 23, 2025 18:00:00
 
 ## 선행 요건
 Chzzk Live Manager는 Chzzk Live Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Live Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
@@ -286,10 +286,10 @@ Chzzk Live Manager를 종료할 때, 백그라운드에서 Chzzk Live Downloader
 </div>
 
 ### 최종 처리 단계 사용자 정의 설정
-`최종 처리` 설정의 `사용자 정의 선택 사항`에 매개 변수를 지정하면, 최종 처리 시에 이 매개 변수가 `FFmpeg`에 전달됩니다. 예를 들어, 다음 설정은 `FFmpeg`을 사용하여 `H.265` 코덱으로 인코딩하도록 설정합니다:
+`최종 처리` 설정의 `사용자 정의 선택 사항`에 매개 변수를 지정하면, 최종 처리 시에 이 매개 변수가 `FFmpeg`에 전달됩니다. 예를 들어, 다음 설정은 `FFmpeg`을 사용하여 `HEVC` 코덱으로 인코딩하도록 설정합니다:
 
 ```powershell
--c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k
+-c:v libx265 -crf 25 -c:a aac -b:a 128k
 ```
 
 참고로 사용자 지정 인코딩은 성능이 최적화되지 않아 권장되지 않습니다. 더 나은 결과를 위해 외부의 전용 인코더를 사용하는 것을 고려하세요.
@@ -347,7 +347,8 @@ Chzzk Live Manager를 종료할 때, 백그라운드에서 Chzzk Live Downloader
 * **JSON-RPC 서버: ID** - JSON-RPC 서버의 ID를 설정합니다.
 * **최종 처리 방법** - 최종 처리 방법을 설정합니다.
 * **Chzzk Transport Finalizer로 보내기** - 최종 처리를 Chzzk Transport Finalizer에게 맡깁니다.
-* **사용자 정의 선택 사항** - 최종 처리의 사용자 정의 선택 사항을 설정합니다.
+* **사용자 정의 선택 사항** - 최종 처리의 사용자 정의 선택 사항을 설정합니다. `...` 버튼을 클릭하여 사용자 정의 선택 사항 파일을 불러와서 지정할 수도 있습니다.
+* **사용자 정의 최종 처리 확장자** - 확장자를 변경해야 할 경우에는 이곳에서 파일의 확장자를 지정할 수 있습니다.
 
 ### 플러그인
 

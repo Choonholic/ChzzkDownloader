@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.24.1, July 03, 2025 18:00:00
+Version 1.25.0, July 23, 2025 18:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, both of Chzzk Live Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -287,10 +287,10 @@ Double-clicking tray icon will restore the window to its original state, and rig
 </div>
 
 ## Set Custom Finalize Options
-If extra options are set in the `Custom Finalize Options` parameter in the `Downloader` settings, those options will be passed to `FFmpeg` during the finalization process. For example, the following options enable `FFmpeg` to encode using the `H.265` codec:
+If extra options are set in the `Custom Finalize Options` parameter in the `Downloader` settings, those options will be passed to `FFmpeg` during the finalization process. For example, the following options enable `FFmpeg` to encode using the `HEVC` codec:
 
 ```powershell
--c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k
+-c:v libx265 -crf 25 -c:a aac -b:a 128k
 ```
 
 Please note that custom encoding is not recommended due to its suboptimal performance. For tter results, consider using external professional encoders.
@@ -348,7 +348,8 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 * **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
 * **Finalize Method** - Specifies the finalization method.
 * **Send To Chzzk Transport Finalizer** - Delegate finalizing stage to Chzzk Transport Finalizer.
-* **Custom Options** - Specifies custom options for the finalization.
+* **Custom Options** - Specifies custom options for the finalization. You can also click the `...` button to load and specify a custom option set file.
+* **Extension for Custom Finalization** - Specifies file extension when the custom options require it.
 
 ### Plugin
 

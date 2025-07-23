@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.24.1, July 03, 2025 18:00:00
+Version 1.25.0, July 23, 2025 18:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 FFmpeg (FFmpeg 7.0 또는 상위 버전 필요)
@@ -16,7 +16,7 @@ Version 1.24.1, July 03, 2025 18:00:00
 ```powershell
 ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
                         [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
-                        [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--exist [EXIST]]
+                        [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--ext [EXT]] [--exist [EXIST]]
                         [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                         [--snapshot SNAPSHOT] [--metadata [METADATA]] [--startup [STARTUP]]
                         [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
@@ -35,6 +35,7 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --watch-user [WATCH_USER] 감시 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
 --watch-pass [WATCH_PASS] 감시 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
 --convert [CONVERT]       변환 매개 변수를 설정합니다
+--ext [EXT]               저장되는 파일의 확장자를 설정합니다
 --exist [EXIST]           파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
 --threshold [THRESHOLD]   디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 10, 3-50)
 --rpc                     JSON-RPC 서버를 활성화합니다
@@ -120,16 +121,34 @@ ChzzkTransportFinalizer --watch-user username --watch-pass password
 ```
 
 ### 최종 처리 인코딩 매개 변수 설정
-`--convert` 선택 사항을 사용하여 최종 처리에 사용할 인코딩 매개 변수를 설정할 수 있습니다. `--convert` 매개 변수에 선택 사항을 지정 시, 선택 사항 자체가 일종의 매개 변수 형태를 취하고 있기 때문에 오류를 방지하기 위해 다음과 같이 `=` 연산자와 `"` 따옴표로 직접 선택 사항을 지정해 주세요. 예를 들어, 다음 설정은 `FFmpeg`을 사용하여 `H.265` 코덱으로 인코딩하도록 설정합니다:
+`--convert` 매개 변수를 사용하여 최종 처리에 사용할 인코딩 선택 사항을 지정할 수 있습니다. 인코딩 선택 사항 자체가 일종의 매개 변수 형태를 취하고 있기 때문에 오류를 방지하기 위해 다음과 같이 `=` 연산자와 `"` 따옴표로 인코딩 선택 사항을 묶어 주어야 합니다. 예를 들어, 다음 설정은 `HEVC` 코덱으로 인코딩하도록 설정합니다:
 
 ```powershell
-ChzzkTransportFinalizer --convert="-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
+ChzzkTransportFinalizer --convert="-c:v libx265 -crf 25 -c:a aac -b:a 128k"
+```
+
+설정 내용을 사용자 정의 선택 사항 파일로 저장해 두었다가 실행 시에 해당 내용을 읽어 처리할 수도 있습니다.
+
+```text
+-c:v libx265 -crf 25 -c:a aac -b:a 128k
+```
+
+만약 `hevc_sw_128k.set` 파일의 내용이 위와 같다면, 다음과 같이 파일 이름을 지정할 수 있습니다.
+
+```powershell
+ChzzkTransportFinalizer --convert=hevc_sw_128k.set
 ```
 
 이 선택 사항을 기본값으로 되돌리려면 다음과 같이 `--convert`만 사용하세요.
 
 ```powershell
 ChzzkTransportFinalizer --convert
+```
+
+또한 인코딩 매개 변수에 따라 확장자를 변경해야 할 경우에는 `--ext` 매개 변수를 사용하여 지정할 수 있습니다.
+
+```powershell
+ChzzkTransportFinalizer --convert=av1_nvenc_128k.set --ext=.av1
 ```
 
 ## 메타데이터 저장

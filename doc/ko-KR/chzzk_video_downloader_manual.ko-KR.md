@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.24.1, July 03, 2025 18:00:00
+Version 1.25.0, July 23, 2025 18:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 Streamlink (Streamlink 6.8.0 또는 상위 버전 필요)
@@ -17,13 +17,13 @@ Version 1.24.1, July 03, 2025 18:00:00
 ```powershell
 ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
                      [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--final [FINAL]]
-                     [--custom [CUSTOM]] [--info INFO] [--name [NAME]] [--work [WORK]]
+                     [--custom [CUSTOM]] [--ext [EXT]] [--info INFO] [--name [NAME]] [--work [WORK]]
                      [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
                      [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
                      [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
                      [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
-                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
-                     [--limit [LIMIT]] [--thumb [THUMB]] [--metadata [METADATA]] [--startup [STARTUP]]
+                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--metadata [METADATA]]
+                     [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]] [--startup [STARTUP]]
                      [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
                      [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
                      [video]
@@ -48,6 +48,7 @@ video                     다운로드할 비디오 번호 또는 URL
 -d, --display [DISPLAY]   표시 형식을 설정합니다 (quiet|simple|fluent|all)
 --final [FINAL]           최종 처리 방식을 설정합니다 (bypass|convert|cleanup|cconvert|ccleanup, ABR_HLS 형식 다운로드 시에는 적용 불가능)
 --custom [CUSTOM]         최종 처리 시 사용할 사용자 정의 선택 사항을 설정합니다 (cconvert|ccleanup에만 적용 가능)
+--ext [EXT]               저장되는 파일의 확장자를 설정합니다 (cconvert|ccleanup에만 적용 가능)
 --info INFO               다운로드 없이 비디오 정보룰 획득합니다
 --name [NAME]             저장되는 파일 이름 형식을 설정합니다
 --work [WORK]             작업 디렉터리를 설정합니다
@@ -282,10 +283,34 @@ ChzzkVideoDownloader video_no 또는 url --final
 ```
 
 ### 최종 처리 단계에 사용자 정의 설정 적용
-`--final` 선택 사항을 사용하여 `cconvert` 또는 `ccleanup` 매개 변수와 함께 사용자 지정 인코딩 설정을 설정할 수 있습니다. `--custom` 매개 변수에 선택 사항을 지정 시, 선택 사항 자체가 일종의 매개 변수 형태를 취하고 있기 때문에 오류를 방지하기 위해 다음과 같이 `=` 연산자와 `"` 따옴표로 직접 선택 사항을 지정해 주세요. 예를 들어, 다음 설정은 `FFmpeg`을 사용하여 `H.265` 코덱으로 인코딩하도록 설정합니다:
+`--final` 매개 변수에 `cconvert` 또는 `ccleanup` 선택 사항을 지정한 경우에는. `--custom` 매개 변수를 사용하여 최종 처리에 사용할 인코딩 선택 사항을 지정할 수 있습니다. 인코딩 선택 사항 자체가 일종의 매개 변수 형태를 취하고 있기 때문에 오류를 방지하기 위해 다음과 같이 `=` 연산자와 `"` 따옴표로 인코딩 선택 사항을 묶어 주어야 합니다. 예를 들어, 다음 설정은 `HEVC` 코덱으로 인코딩하도록 설정합니다:
 
 ```powershell
-ChzzkVideoDownloader video_no 또는 url --final cconvert --custom="-c:v libx265 -preset medium -crf 23 -c:a aac -b:a 128k"
+ChzzkVideoDownloader video_no 또는 url --final cconvert --custom="-c:v libx265 -crf 25 -c:a aac -b:a 128k"
+```
+
+설정 내용을 사용자 정의 선택 사항 파일로 저장해 두었다가 실행 시에 해당 내용을 읽어 처리할 수도 있습니다.
+
+```text
+-c:v libx265 -crf 25 -c:a aac -b:a 128k
+```
+
+만약 `hevc_sw_128k.set` 파일의 내용이 위와 같다면, 다음과 같이 파일 이름을 지정할 수 있습니다.
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --final cconvert --custom=hevc_sw_128k.set
+```
+
+이 선택 사항을 기본값으로 되돌리려면 다음과 같이 `--custom`만 사용하세요.
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --custom
+```
+
+또한 사용자 정의 선택 사항에 따라 확장자를 변경해야 할 경우에는 `--ext` 매개 변수를 사용하여 지정할 수 있습니다.
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --final cconvert --custom=av1_nvenc_128k.set --ext=.av1
 ```
 
 참고로 사용자 지정 인코딩은 성능이 최적화되지 않아 권장되지 않습니다. 더 나은 결과를 위해 외부의 전용 인코더를 사용하는 것을 고려하세요.
