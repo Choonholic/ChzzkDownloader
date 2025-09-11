@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.27.0, August 25, 2025 00:00:00
+Version 1.28.0, September 12, 2025 18:00:00
 
 ## 선행 요건
 Chzzk Live Manager는 Chzzk Live Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Live Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
@@ -234,41 +234,9 @@ Chzzk Live Downloader는 Chzzk Live Manager 없이도 단독 실행이 가능한
 Chzzk Live Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `다운로드 도구` 항목에서 `설정 보기...` 항목을 선택합니다.
 
 <div style='text-align: center'>
-<img src='../../img/screenshots/lman_ko-KR/lman_configurations.png' />
+<img src='../../img/screenshots/lman_ko-KR/lman_configuration.png' />
 <p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
 </div>
-
-## 종료 시 Chzzk Live Downloader 종료 방식
-Chzzk Live Manager를 종료할 때, 백그라운드에서 Chzzk Live Downloader가 다운로드를 계속 하도록 설정하거나, 모든 인스턴스를 종료시키도록 설정할 수 있습니다.
-
-<div style='text-align: center'>
-<img src='../../img/screenshots/lman_ko-KR/lman_exit.png' />
-<p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
-</div>
-
-종료 시 다음 조건을 만족하면 위와 같은 대화 상자가 표시됩니다.
-
-* 채널 목록에 관리 중인 채널이 존재하는 경우
-* 외부에서 하나 이상의 Chzzk Live Downloader 인스턴스가 실행 중인 경우
-
-외부에서 실행 중인 인스턴스를 포함한 모든 인스턴스를 강제로 종료하려면 다음 단계를 따릅니다.
-
-* `모든 인스턴스 강제 종료 (관리자 권한 필요)` 항목을 선택하고 `예` 버튼을 누릅니다.
-* 이 종료 방식이 기본 설정입니다.
-
-채널 목록에서 현재 관리 중인 채널만 종료하려면 다음 단계를 따릅니다.
-
-* `우아하게 종료 (관리 중인 인스턴스 전용)` 항목을 선택하고 `예` 버튼을 누릅니다.
-
-백그라운드에서 다운로드를 계속하려면 다음 단계를 따릅니다.
-
-* `아니오` 버튼을 누릅니다.
-
-계속 Chzzk Live Manager를 사용하려면 다음 단계를 따릅니다.
-
-* `취소` 버튼을 누릅니다.
-
-종료할 때마다 매번 설정하는 대신, 설정의 `다운로드 도구` 탭에서 이 기능을 미리 설정해 둘 수 있습니다.
 
 ## 최소화 시 트레이로 이동
 `기능` 설정에서 `최소화 시 트레이로 이동` 항목을 활성화하면, Chzzk Live Manager가 최소화될 때 트레이로 이동합니다.
@@ -318,7 +286,6 @@ Chzzk Live Manager를 종료할 때, 백그라운드에서 Chzzk Live Downloader
 * **남은 저장 공간이 다음 값보다 적으면 다운로드 중지** - 디스크 공간 부족 시 중지 임계값(%)을 설정합니다.
 * **절전 상태** - Chzzk Live Manager가 실행되는 동안 사용될 시스템의 절전 상태를 설정합니다.
 * **성능 수준** - Chzzk Live Manager가 실행 중인 시스템의 성능을 지정합니다. 채널을 추가하거나 새로 고칠 때 시간 초과로 인한 오류가 발생한다면, 이 설정을 한 단계 아래로 낮추는 것을 고려해 볼 수 있습니다.
-* **인스턴스 관리** - 인스턴스 종료 방식을 매번 종료 대화 상자에서 설정하는 대신 미리 설정해 둘 수 있습니다.
 * **라이브 스트리밍 정보를 기반으로 메타데이터 저장** - 라이브 스트리밍 정보를 기반으로 메타데이터를 저장합니다.
 
 ### 다운로드 도구

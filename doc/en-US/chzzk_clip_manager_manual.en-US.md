@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Clip Downloader
 </div>
 
 ## Version
-Version 1.27.0, August 25, 2025 00:00:00
+Version 1.28.0, September 12, 2025 18:00:00
 
 ## Prerequisites
 Since Chzzk Clip Manager is the GUI frontend application for Chzzk Clip Downloader, Chzzk Clip Downloader must be installed as well.
@@ -134,7 +134,7 @@ To remove any remaining broken files, click the ☰ icon, and choose `Purge Brok
 To view configuration of Chzzk Clip Downloader, click the ☰ icon, and choose `View Configuration...` under `Downloader`.
 
 <div style='text-align: center'>
-<img src='../../img/screenshots/cman_en-US/cman_configurations.png' />
+<img src='../../img/screenshots/cman_en-US/cman_configuration.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 

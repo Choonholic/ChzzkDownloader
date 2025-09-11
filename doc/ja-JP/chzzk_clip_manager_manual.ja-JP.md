@@ -7,7 +7,7 @@ Chzzk Clip Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.27.0, August 25, 2025 00:00:00
+Version 1.28.0, September 12, 2025 18:00:00
 
 ## 必要条件
 Chzzk Clip Managerは、Chzzk Clip DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Clip Downloaderもインストールされている必要があります。
@@ -134,7 +134,7 @@ Chzzk Downloader Suiteの環境を開くには、☰アイコンをクリック�
 Chzzk Clip Downloaderの設定を表示するには、☰アイコンをクリックし、`ダウンローダー`の下にある`設定を表示...`を選択します。
 
 <div style='text-align: center'>
-<img src='../../img/screenshots/cman_ja-JP/cman_configurations.png' />
+<img src='../../img/screenshots/cman_ja-JP/cman_configuration.png' />
 <p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
 </div>
 

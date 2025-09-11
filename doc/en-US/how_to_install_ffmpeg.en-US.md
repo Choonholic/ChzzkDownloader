@@ -19,7 +19,7 @@
 2. Run the following command.
 
 ```powershell
-winget install --id gyan.FFmpeg --source winget
+winget install --id Gyan.FFmpeg --source winget
 ```
 
 3. After installation has finished, Restart your computer to apply configurations and system environments.

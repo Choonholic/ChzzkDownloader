@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.27.0, August 25, 2025 00:00:00
+Version 1.28.0, September 12, 2025 18:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, both of Chzzk Live Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -235,41 +235,9 @@ To remove any remaining broken files, click the ☰ icon, and choose `Purge Brok
 To view configuration of Chzzk Live Downloader, click the ☰ icon, and choose `View Configuration...` under `Downloader`.
 
 <div style='text-align: center'>
-<img src='../../img/screenshots/lman_en-US/lman_configurations.png' />
+<img src='../../img/screenshots/lman_en-US/lman_configuration.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
-
-## Chzzk Live Downloader Shutdown Method on Exit
-You can choose whether to allow Chzzk Live Downloader to continue downloading in the background or to shut down all instances along with Chzzk Live Manager when exiting.
-
-<div style='text-align: center'>
-<img src='../../img/screenshots/lman_en-US/lman_exit.png' />
-<p><i>(This image may not reflect the latest information.)</i></p>
-</div>
-
-If the confirm dialog appears upon exit, it means the following conditions are met:
-
-* There are managed channels in the channel list.
-* One or more instances of Chzzk Live Downloader are running externally.
-
-To forcefully shutdown all instances, including those running externally:
-
-* Choose the `Forcefully shutdown all instances (Administrator privileges may be required)`, then click `Yes`.
-* This is the default shutdown method.
-
-To quit only the channels currently managed by the list:
-
-* Choose `Requests shutdown gracefully (for managed instances only)`, then click `Yes`.
-
-To allow downloads to continue running in the background:
-
-* Click `No`.
-
-To continue using Chzzk Live Manager:
-
-* Click `Cancel`.
-
-You can preset this feature in the `Downloader` tab of the settings, instead of choosing it each time on exit.
 
 ## Moving to Tray on Minimize
 If the `Move to tray on minimize` option is enabled in `Features` settings, Chzzk Live Manager will move to the system tray when minimized.
@@ -319,7 +287,6 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 * **Stop downloading if free disk space is less than** - Sets the threshold % for stopping downloads when disk space is low.
 * **Sleep Mode** - Sets the system's sleep mode while the Chzzk Live Manager is running.
 * **Performance Level** - Specify the performance of the system where Chzzk Live Manager is currently running. If you encounter errors due to timeouts when adding or refreshing channels, try lowering the performance level by one step and attempt again.
-* **Instance Management** - The shutdown method of instances can be predefined, eliminating the need to select it each time in the Exit dialog.
 * **Save metadata based on live stream information** - Checks to save metadata based on live stream information.
 
 ### Downloader
