@@ -7,7 +7,7 @@ Chzzkのストリーム用の最終処理ツール
 </div>
 
 ## バージョン
-Version 1.28.0, September 12, 2025 18:00:00
+Version 1.28.1, September 13, 2025 12:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのFFmpeg（FFmpeg 7.0またはそれ以上が必要）
@@ -37,7 +37,7 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --convert [CONVERT]       変換パラメータを設定
 --ext [EXT]               保存ファイルの拡張子を設定
 --exist [EXIST]           対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
---threshold [THRESHOLD]   空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 10, 3-50)
+--threshold [THRESHOLD]   空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 5, 1-50)
 --rpc                     JSON-RPCサーバーを有効化
 --rpcid [RPCID]           JSON-RPCサーバーのIDを設定 （デフォルト: 70）
 --rpcport [RPCPORT]       JSON-RPCサーバーのポートを設定 （デフォルト: 65000, 49152-65300）
@@ -201,7 +201,7 @@ ChzzkTransportFinalizer --exist
 ```
 
 ## 空き容量が閾値を下回った場合に最終処理を停止する設定
-デフォルトでは、保存ディレクトリまたは一時ディレクトリの空き容量が10%を下回ると、最終処理を停止します。空き容量の閾値を設定するには、以下のコマンドを使用してください。設定可能な値の範囲は`3`から`30`です。
+デフォルトでは、保存ディレクトリまたは一時ディレクトリの空き容量が10%を下回ると、最終処理を停止します。空き容量の閾値を設定するには、以下のコマンドを使用してください。設定可能な値の範囲は`1`から`50`です。
 
 ```powershell
 ChzzkTransportFinalizer --threshold 20

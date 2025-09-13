@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.28.0, September 12, 2025 18:00:00
+Version 1.28.1, September 13, 2025 12:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 Streamlink (Streamlink 6.8.0 또는 상위 버전 필요)
@@ -62,7 +62,7 @@ video                     다운로드할 비디오 번호 또는 URL
 --temp-pass [TEMP_PASS]   임시 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
 --category [CATEGORY]     저장 시 분류 방법을 설정합니다 (none|streamer)
 --exist [EXIST]           파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
---threshold [THRESHOLD]   디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 10, 3-50)
+--threshold [THRESHOLD]   디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 5, 1-50)
 --rpc                     JSON-RPC 서버를 활성화합니다
 --rpcid [RPCID]           JSON-RPC 서버 ID를 설정합니다 (기본값: 30)
 --rpcport [RPCPORT]       JSON-RPC 서버 포트를 설정합니다 (기본값: 63000, 49152-65300)
@@ -423,7 +423,7 @@ ChzzkVideoDownloader video_no 또는 url --limit
 ```
 
 ## 여유 저장 공간이 임계점 이하로 낮아질 때 다운로드 중지 설정
-기본적으로, 저장 디렉터리와 임시 디렉터리의 여유 공간이 10% 이하로 낮아질 때 다운로드를 중지합니다. 여유 저장 공간의 임계점을 설정하려면 다음 명령어를 사용하세요. 이 때 설정 가능한 값은 3부터 30까지입니다.
+기본적으로, 저장 디렉터리와 임시 디렉터리의 여유 공간이 10% 이하로 낮아질 때 다운로드를 중지합니다. 여유 저장 공간의 임계점을 설정하려면 다음 명령어를 사용하세요. 이 때 설정 가능한 값은 `1`부터 `50`까지입니다.
 
 ```powershell
 ChzzkVideoDownloader video_no 또는 url --threshold 20

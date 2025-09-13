@@ -7,7 +7,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.28.0, September 12, 2025 18:00:00
+Version 1.28.1, September 13, 2025 12:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -37,7 +37,7 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --convert [CONVERT]       Set convert parameters
 --ext [EXT]               Set output file extension
 --exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
+--threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 5, 1-50)
 --rpc                     Activate JSON-RPC server
 --rpcid [RPCID]           Set ID of JSON-RPC server (default: 70)
 --rpcport [RPCPORT]       Set port of JSON-RPC server (default: 65000, 49152-65300)
@@ -201,7 +201,7 @@ ChzzkTransportFinalizer --exist
 ```
 
 ## Setting the threshold % for stopping finalization when disk space is low
-By default, finalization will stop if the free space in the watching directory drops below 10%. To set the free disk space threshold, use the following command. The acceptable range is `3` to `30`.
+By default, finalization will stop if the free space in the watching directory drops below 10%. To set the free disk space threshold, use the following command. The acceptable range is `1` to `50`.
 
 ```powershell
 ChzzkTransportFinalizer --threshold 20

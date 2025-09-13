@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.28.0, September 12, 2025 18:00:00
+Version 1.28.1, September 13, 2025 12:00:00
 
 ## 선행 요건
 Chzzk Clip Manager는 Chzzk Clip Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Clip Downloader가 함께 설치되어 있어야 합니다.

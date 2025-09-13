@@ -7,7 +7,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.28.0, September 12, 2025 18:00:00
+Version 1.28.1, September 13, 2025 12:00:00
 
 ## Usage
 ```powershell
@@ -53,7 +53,7 @@ clip                      Clip UID or URL to download
 --temp-pass [TEMP_PASS]   Set password to use when temporary directory is on remote network
 --category [CATEGORY]     Set output categorize method (none|streamer)
 --exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
+--threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 5, 1-50)
 --rpc                     Activate JSON-RPC server
 --rpcid [RPCID]           Set ID of JSON-RPC server (default: 50)
 --rpcport [RPCPORT]       Set port of JSON-RPC server (default: 64000, 49152-65300)
@@ -335,7 +335,7 @@ ChzzkClipDownloader clip_uid or url --limit
 ```
 
 ## Setting the threshold % for stopping downloads when disk space is low
-By default, downloading will stop if the free space in the storage directory or temporary directory drops below 10%. To set the free disk space threshold, use the following command. The acceptable range is `3` to `30`.
+By default, downloading will stop if the free space in the storage directory or temporary directory drops below 10%. To set the free disk space threshold, use the following command. The acceptable range is `1` to `50`.
 
 ```powershell
 ChzzkClipDownloader clip_uid or url --threshold 20

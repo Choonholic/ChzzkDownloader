@@ -7,7 +7,7 @@ Chzzkのストリーム用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.28.0, September 12, 2025 18:00:00
+Version 1.28.1, September 13, 2025 12:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのStreamlink（Streamlink 6.8.0またはそれ以上が必要）
@@ -61,7 +61,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --temp-pass [TEMP_PASS]     一時ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
 --category [CATEGORY]       保存時のカテゴリ分け方法を設定 (none|streamer)
 --exist [EXIST]             対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
---threshold [THRESHOLD]     空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 10, 3-50)
+--threshold [THRESHOLD]     空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 5, 1-50)
 --rpc                       JSON-RPCサーバーを有効化
 --rpcbaseport [RPCBASEPORT] JSON-RPCサーバーのベースポートを設定（デフォルト: 62000、49152-65300）
 --snapshot SNAPSHOT         ステータスが変更されるたびにJSONファイルにスナップショットを保存
@@ -507,7 +507,7 @@ ChzzkLiveDownloader --exist
 ```
 
 ## 空き容量が閾値を下回った場合にダウンロードを停止する設定
-デフォルトでは、保存ディレクトリまたは一時ディレクトリの空き容量が10%を下回ると、ダウンロードが停止します。空き容量の閾値を設定するには、以下のコマンドを使用してください。設定可能な値の範囲は`3`から`30`です。
+デフォルトでは、保存ディレクトリまたは一時ディレクトリの空き容量が10%を下回ると、ダウンロードが停止します。空き容量の閾値を設定するには、以下のコマンドを使用してください。設定可能な値の範囲は`1`から`50`です。
 
 ```powershell
 ChzzkLiveDownloader --threshold 20

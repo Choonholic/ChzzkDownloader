@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.28.0, September 12, 2025 18:00:00
+Version 1.28.1, September 13, 2025 12:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 FFmpeg (FFmpeg 7.0 또는 상위 버전 필요)
@@ -37,7 +37,7 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --convert [CONVERT]       변환 매개 변수를 설정합니다
 --ext [EXT]               저장되는 파일의 확장자를 설정합니다
 --exist [EXIST]           파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
---threshold [THRESHOLD]   디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 10, 3-50)
+--threshold [THRESHOLD]   디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 5, 1-50)
 --rpc                     JSON-RPC 서버를 활성화합니다
 --rpcid [RPCID]           JSON-RPC 서버 ID를 설정합니다 (기본값: 70)
 --rpcport [RPCPORT]       JSON-RPC 서버 포트를 설정합니다 (기본값: 65000, 49152-65300)
@@ -201,7 +201,7 @@ ChzzkTransportFinalizer --exist
 ```
 
 ## 여유 저장 공간이 임계점 이하로 낮아질 때 최종 변환 중지 설정
-기본적으로, 저장 디렉터리와 임시 디렉터리의 여유 공간이 10% 이하로 낮아질 때 최종 변환을 중지합니다. 여유 저장 공간의 임계점을 설정하려면 다음 명령어를 사용하세요. 이 때 설정 가능한 값은 `3`부터 `30`까지입니다.
+기본적으로, 저장 디렉터리와 임시 디렉터리의 여유 공간이 10% 이하로 낮아질 때 최종 변환을 중지합니다. 여유 저장 공간의 임계점을 설정하려면 다음 명령어를 사용하세요. 이 때 설정 가능한 값은 `1`부터 `50`까지입니다.
 
 ```powershell
 ChzzkTransportFinalizer --threshold 20

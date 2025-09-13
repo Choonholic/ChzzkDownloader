@@ -14,7 +14,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.28.0, September 12, 2025 18:00:00
+Version 1.28.1, September 13, 2025 12:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -68,7 +68,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --temp-pass [TEMP_PASS]     Set password to use when temporary directory is on remote network
 --category [CATEGORY]       Set output categorize method (none|streamer)
 --exist [EXIST]             Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD]     Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
+--threshold [THRESHOLD]     Set the threshold % for stopping downloads when disk space is low (disable: -, default: 5, 1-50)
 --rpc                       Activate JSON-RPC server
 --rpcbaseport [RPCBASEPORT] Set base port of JSON-RPC server (default: 62000, 49152-65300)
 --snapshot SNAPSHOT         Save snapshot to a JSON file whenever changing status
@@ -97,7 +97,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.28.0, September 12, 2025 18:00:00
+Version 1.28.1, September 13, 2025 12:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -152,7 +152,7 @@ video                     Video number or URL to download
 --temp-pass [TEMP_PASS]   Set password to use when temporary directory is on remote network
 --category [CATEGORY]     Set output categorize method (none|streamer)
 --exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
+--threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 5, 1-50)
 --rpc                     Activate JSON-RPC server
 --rpcid [RPCID]           Set ID of JSON-RPC server (default: 30)
 --rpcport [RPCPORT]       Set port of JSON-RPC server (default: 63000, 49152-65300)
@@ -184,7 +184,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.28.0, September 12, 2025 18:00:00
+Version 1.28.1, September 13, 2025 12:00:00
 
 ### Usage
 ```powershell
@@ -230,7 +230,7 @@ clip                      Clip UID or URL to download
 --temp-pass [TEMP_PASS]   Set password to use when temporary directory is on remote network
 --category [CATEGORY]     Set output categorize method (none|streamer)
 --exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
+--threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 5, 1-50)
 --rpc                     Activate JSON-RPC server
 --rpcid [RPCID]           Set ID of JSON-RPC server (default: 50)
 --rpcport [RPCPORT]       Set port of JSON-RPC server (default: 64000, 49152-65300)
@@ -262,7 +262,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.28.0, September 12, 2025 18:00:00
+Version 1.28.1, September 13, 2025 12:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -292,7 +292,7 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --convert [CONVERT]       Set convert parameters
 --ext [EXT]               Set output file extension
 --exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 10, 3-50)
+--threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 5, 1-50)
 --rpc                     Activate JSON-RPC server
 --rpcid [RPCID]           Set ID of JSON-RPC server (default: 70)
 --rpcport [RPCPORT]       Set port of JSON-RPC server (default: 65000, 49152-65300)
