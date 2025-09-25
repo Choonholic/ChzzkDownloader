@@ -7,7 +7,7 @@ Chzzk Clip Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.28.1, September 13, 2025 12:00:00
+Version 1.29.0, September 26, 2025 00:00:00
 
 ## 必要条件
 Chzzk Clip Managerは、Chzzk Clip DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Clip Downloaderもインストールされている必要があります。
@@ -83,6 +83,16 @@ Chzzk Clip Managerが正常に機能するためには、Chzzk Clip Downloader�
 </div>
 
 ダウンロードを停止すると、進行中のすべてのダウンロードが中断されます。
+
+## ダウンロード完了項目の整理
+リストからダウンロードが完了した項目を整理するには、☰アイコンをクリックし、`ダウンロード完了項目を整理`を選択します。
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/cman_ja-JP/cman_clear_completed.png' />
+<p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
+</div>
+
+この機能は、ダウンロードが途中で中止された場合、または完了した後にのみ使用できます。
 
 ## クリップのプロパティの表示
 クリップのプロパティを参照するには、リストからクリップを選択し、☰アイコンをクリックして`プロパティ...`を選択します。

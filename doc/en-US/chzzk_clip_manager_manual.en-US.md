@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Clip Downloader
 </div>
 
 ## Version
-Version 1.28.1, September 13, 2025 12:00:00
+Version 1.29.0, September 26, 2025 00:00:00
 
 ## Prerequisites
 Since Chzzk Clip Manager is the GUI frontend application for Chzzk Clip Downloader, Chzzk Clip Downloader must be installed as well.
@@ -83,6 +83,16 @@ To stop download the clips of the list, click the ☰ icon, and choose `Stop Dow
 </div>
 
 If a download was in progress when stopping, all remaining downloads will be aborted.
+
+## Clearing Completed Downloads
+To clear the completed downloads from the list, click the ☰ icon, and choose `Clear Completed`.
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/cman_en-US/cman_clear_completed.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+This function is available only when the downloads are stopped midway or after it has been completed.
 
 ## Browsing Clip Properties
 To browse the properties of the clip, select the clip from the list, click the ☰ icon, and choose `Properties...`.

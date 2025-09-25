@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Video Downloader
 </div>
 
 ## Version
-Version 1.28.1, September 13, 2025 12:00:00
+Version 1.29.0, September 26, 2025 00:00:00
 
 ## Prerequisites
 Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, both of Chzzk Video Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -95,6 +95,16 @@ To stop download the videos of the list, click the ☰ icon, and choose `Stop Do
 </div>
 
 If a download was in progress when stopping, all remaining downloads will be aborted.
+
+## Clearing Completed Downloads
+To clear the completed downloads from the list, click the ☰ icon, and choose `Clear Completed`.
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/vman_en-US/vman_clear_completed.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+This function is available only when the downloads are stopped midway or after it has been completed.
 
 ## Browsing Video Properties
 To browse the properties of the video, select the video from the list, click the ☰ icon, and choose `Properties...`.

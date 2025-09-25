@@ -7,7 +7,7 @@ Chzzk Live Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.28.1, September 13, 2025 12:00:00
+Version 1.29.0, September 26, 2025 00:00:00
 
 ## 必要条件
 Chzzk Live Managerは、Chzzk Live DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Live DownloaderとChzzk Transport Finalizerもインストールされている必要があります。

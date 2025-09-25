@@ -14,7 +14,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.28.1, September 13, 2025 12:00:00
+Version 1.29.0, September 26, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -97,7 +97,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.28.1, September 13, 2025 12:00:00
+Version 1.29.0, September 26, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -184,7 +184,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.28.1, September 13, 2025 12:00:00
+Version 1.29.0, September 26, 2025 00:00:00
 
 ### Usage
 ```powershell
@@ -262,7 +262,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.28.1, September 13, 2025 12:00:00
+Version 1.29.0, September 26, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)

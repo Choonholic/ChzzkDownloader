@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.28.1, September 13, 2025 12:00:00
+Version 1.29.0, September 26, 2025 00:00:00
 
 ## 선행 요건
 Chzzk Clip Manager는 Chzzk Clip Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Clip Downloader가 함께 설치되어 있어야 합니다.
@@ -83,6 +83,16 @@ Chzzk Clip Manager의 모든 기능을 활용하려면, Chzzk Clip Downloader가
 </div>
 
 현재 다운로드 중인 클립을 포함한 아직 다운로드되지 않은 클립의 다운로드 작업이 모두 중지됩니다.
+
+## 다운로드가 완료된 비디오 정리
+다운로드가 완료된 비디오를 목록에서 정리하려면, ☰ 아이콘을 누르고 `다운로드 완료 항목 정리` 항목을 선택합니다.
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/cman_ko-KR/cman_clear_completed.png' />
+<p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
+</div>
+
+이 기능은 다운로드가 도중에 중지되었거나 완료된 후에만 사용할 수 있습니다.
 
 ## 클립 등록 정보 확인
 클립의 등록 정보를 확인하려면, 목록에서 등록 정보를 확인할 클립을 선택한 다음 ☰ 아이콘을 누르고 `등록 정보...` 항목을 선택합니다.
