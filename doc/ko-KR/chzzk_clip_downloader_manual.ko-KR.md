@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.30.0, October 19, 2025 00:00:00
+Version 1.30.1, October 19, 2025 02:00:00
 
 ## 사용법
 ```powershell
