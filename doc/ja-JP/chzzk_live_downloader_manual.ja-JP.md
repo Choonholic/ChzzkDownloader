@@ -7,7 +7,7 @@ Chzzkのストリーム用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.29.0, September 26, 2025 00:00:00
+Version 1.30.0, October 19, 2025 00:00:00
 
 ## 必須事項
 * **[必須]** 最新バージョンのStreamlink（Streamlink 6.8.0またはそれ以上が必要）
@@ -42,7 +42,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 -q, --quality [QUALITY]     ダウンロードする目標画質を設定（例: 1080p）
 -d, --display [DISPLAY]     表示モードを設定（quiet|simple|fluent|all）
 --once ONCE                 ストリームを一度だけダウンロード
---stream [STREAM]           ストリーム取得方法を設定（standard|timemachine）
+--stream [STREAM]           ストリーム取得方法を設定（standard|request-timemachine|force-timemachine）
 --final [FINAL]             最終処理方法を設定（bypass|convert|cleanup|cconvert|ccleanup）
 --custom [CUSTOM]           最終処理のカスタムオプションを設定（cconvert|ccleanupのみ適用可能）
 --ext [EXT]                 保存ファイルの拡張子を設定（cconvert|ccleanupのみ適用可能）
@@ -404,7 +404,8 @@ ChzzkLiveDownloader --stream standard
 `--stream`パラメータで設定可能なストリーム方法は以下の通りです。
 
 * `standard` - Chzzkの基本APIからストリーム情報を取得します。
-* `timemachine` - ChzzkのタイムマシンAPIからストリーム情報を取得します。
+* `request-timemachine` - 可能であれば、ChzzkのタイムマシンAPIからストリーム情報を取得します。
+* `force-timemachine` - タイムマシンが有効になっていない場合でも、ChzzkのタイムマシンAPIからストリーム情報を強制的に取得します。
 
 このオプションをデフォルトに設定したい場合は、以下のように`--stream`のみを使用してください。
 

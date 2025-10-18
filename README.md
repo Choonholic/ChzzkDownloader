@@ -14,7 +14,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.29.0, September 26, 2025 00:00:00
+Version 1.30.0, October 19, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -49,7 +49,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 -q, --quality [QUALITY]     Set target quality to download (e.g. 1080p)
 -d, --display [DISPLAY]     Set display mode (quiet|simple|fluent|all)
 --once ONCE                 Download a live stream only once
---stream [STREAM]           Set stream retrieving method (standard|timemachine)
+--stream [STREAM]           Set stream retrieving method (standard|request-timemachine|force-timemachine)
 --final [FINAL]             Set finalization method (bypass|convert|cleanup|cconvert|ccleanup)
 --custom [CUSTOM]           Set custom finalize options (applicable only with cconvert|ccleanup)
 --ext [EXT]                 Set output file extension (applicable only with cconvert|ccleanup)
@@ -97,7 +97,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.29.0, September 26, 2025 00:00:00
+Version 1.30.0, October 19, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -184,7 +184,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.29.0, September 26, 2025 00:00:00
+Version 1.30.0, October 19, 2025 00:00:00
 
 ### Usage
 ```powershell
@@ -262,7 +262,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.29.0, September 26, 2025 00:00:00
+Version 1.30.0, October 19, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)

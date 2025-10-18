@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.29.0, September 26, 2025 00:00:00
+Version 1.30.0, October 19, 2025 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 6.8.0 or higher)
@@ -42,7 +42,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 -q, --quality [QUALITY]     Set target quality to download (e.g. 1080p)
 -d, --display [DISPLAY]     Set display mode (quiet|simple|fluent|all)
 --once ONCE                 Download a live stream only once
---stream [STREAM]           Set stream retrieving method (standard|timemachine)
+--stream [STREAM]           Set stream retrieving method (standard|request-timemachine|force-timemachine)
 --final [FINAL]             Set finalization method (bypass|convert|cleanup|cconvert|ccleanup)
 --custom [CUSTOM]           Set custom finalize options (applicable only with cconvert|ccleanup)
 --ext [EXT]                 Set output file extension (applicable only with cconvert|ccleanup)
@@ -405,8 +405,9 @@ ChzzkLiveDownloader --stream standard
 
 The following stream methods can be set with options of `--stream` parameter.
 
-* `standard` - Retrieves stream information from the Chzzk default API.
-* `timemachine` - Retrieves stream information from the Chzzk Time Machine API.
+* `standard` - Retrieves the stream information from the Chzzk default API.
+* `request-timemachine` - Retrieves the stream information from the Chzzk Time Machine API if possible.
+* `force-timemachine` - Retrieves forcibly the stream information from the Chzzk Time Machine API even if the Time Machine is not enabled.
 
 If you want to set this option to default, just use `--stream` like below.
 

@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.29.0, September 26, 2025 00:00:00
+Version 1.30.0, October 19, 2025 00:00:00
 
 ## 선행 요건
 * **[필수]** 최신 버전의 Streamlink (Streamlink 6.8.0 또는 상위 버전 필요)
@@ -42,7 +42,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 -q, --quality [QUALITY]     다운로드하려는 목표 화질을 설정합니다 (예: 1080p)
 -d, --display [DISPLAY]     표시 형식을 설정합니다 (quiet|simple|fluent|all)
 --once ONCE                 별도의 설정 저장 앖이 라이브 스트리밍을 한 번만 다운로드합니다
---stream [STREAM]           스트리밍 획득 방식을 설정합니다 (standard|timemachine)
+--stream [STREAM]           스트리밍 획득 방식을 설정합니다 (standard|request-timemachine|force-timemachine)
 --final [FINAL]             최종 처리 방식을 설정합니다 (bypass|convert|cleanup|cconvert|ccleanup)
 --custom [CUSTOM]           최종 처리 시 사용할 사용자 정의 선택 사항을 설정합니다 (cconvert|ccleanup에만 적용 가능)
 --ext [EXT]                 저장되는 파일의 확장자를 설정합니다 (cconvert|ccleanup에만 적용 가능)
@@ -403,11 +403,9 @@ ChzzkLiveDownloader --stream standard
 
 `--stream` 매개 변수에 다음과 같은 선택 사항을 지정하여, 스트리밍 데이터 처리 방식을 지정할 수 있습니다.
 
-설정을 다시 초기화하려면 다음의 명령어를 사용합니다.
-The following stream methods can be set with options of `--stream` parameter.
-
 * `standard` - 치지직 기본 API를 통해 스트림 정보를 확인합니다.
-* `timemachine` - 치지직 타임 머신 API를 통해 스트림 정보를 확인합니다.
+* `request-timemachine` - 가능하다면 치지직 타임 머신 API를 통해 스트림 정보를 확인합니다.
+* `force-timemachine` - 타임 머신이 적용되어 있지 않더라도 강제로 치지직 타임 머신 API를 통해 스트림 정보를 확인합니다.
 
 이 선택 사항을 기본값으로 되돌리려면 형식 없이 `--stream`만 사용하세요.
 
