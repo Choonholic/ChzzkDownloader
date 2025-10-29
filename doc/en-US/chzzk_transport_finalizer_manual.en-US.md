@@ -7,7 +7,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.30.1, October 19, 2025 02:00:00
+Version 1.31.0, October 30, 2025 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
@@ -39,8 +39,8 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 5, 1-50)
 --rpc                     Activate JSON-RPC server
---rpcid [RPCID]           Set ID of JSON-RPC server (default: 70)
---rpcport [RPCPORT]       Set port of JSON-RPC server (default: 65000, 49152-65300)
+--rpcid [RPCID]           Set JSON-RPC server ID (default: 70)
+--rpcport [RPCPORT]       Set JSON-RPC server port (default: 65000, 49152-65300)
 --snapshot SNAPSHOT       Save snapshot to a JSON file whenever changing status
 --metadata [METADATA]     Save metadata or skip (save|skip)
 --startup [STARTUP]       Set startup method (normal|fast)

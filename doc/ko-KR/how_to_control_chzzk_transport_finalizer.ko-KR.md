@@ -29,9 +29,11 @@ Chzzk Transport Finalizer에 작업을 요청하려면, 아래와 같은 객체�
 * `get_version` – 애플리케이션 버전을 가져옵니다.
 * `get_settings` – 애플리케이션 설정을 가져옵니다.
 * `get_status` – 현재 상태를 가져옵니다.
+* `remove_item` - 대기열에서 파일을 제거합니다.
+* `skip_current` - 현재 파일의 처리를 중지하고 다음 파일로 건너뜁니다.
 * `set_settings` – 애플리케이션 설정을 변경합니다.
 * `reload_settings` – 설정 파일에서 애플리케이션 설정을 다시 읽습니다.
-* `quit_app` – (현재 처리 중이라면) 처리을 중지하고 애플리케이션을 종료합니다.
+* `quit_app` – (현재 처리 중이라면) 처리를 중지하고 애플리케이션을 종료합니다.
 
 ## 응답 형식
 Chzzk Transport Finalizer는 다음과 같은 형식으로 응답을 반환합니다.

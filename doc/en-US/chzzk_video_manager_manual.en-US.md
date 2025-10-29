@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Video Downloader
 </div>
 
 ## Version
-Version 1.30.1, October 19, 2025 02:00:00
+Version 1.31.0, October 30, 2025 00:00:00
 
 ## Prerequisites
 Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, both of Chzzk Video Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -20,7 +20,7 @@ For portable versions, consider storing Chzzk Video Manager, Chzzk Video Downloa
 Click `Chzzk Video Manager` in Start menu, or execute `ChzzkVideoManager.exe` in `Chzzk Downloader Environment`.
 
 ## Verifying Prerequisites
-Chzzk Video Manager requires Chzzk Video Downloader and Chzzk Transport Finalizer to be properly set up for full functionality. Additionally, Chzzk Video Downloader requires proper configurations of Streamlink (Version 6.8.0 or higher) and FFmpeg (Version 7.0 or higher). When Chzzk Video Manager starts, it checks whether this prerequisite is met, and if not, it will display the following dialog.
+Chzzk Video Manager requires Chzzk Video Downloader and Chzzk Transport Finalizer to be properly set up for full functionality. Additionally, Chzzk Video Downloader requires proper configurations of Streamlink (Version 7.0.0 or higher) and FFmpeg (Version 7.0 or higher). When Chzzk Video Manager starts, it checks whether this prerequisite is met, and if not, it will display the following dialog.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_en-US/vman_prerequisites.png' />
@@ -237,6 +237,7 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 * **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
 * **Finalize Method** - Specifies the finalization method.
 * **Send To Chzzk Transport Finalizer** - Delegate finalizing stage to Chzzk Transport Finalizer.
+* **Shutdown Chzzk Transport Finalizer When Exit** - Specifies whether to also shutdown Chzzk Transport Finalizer when exiting.
 * **Custom Options** - Specifies custom options for the finalization. You can also click the `...` button to load and specify a custom option set file.
 * **Extension for Custom Finalization** - Specifies file extension when the custom options require it.
 

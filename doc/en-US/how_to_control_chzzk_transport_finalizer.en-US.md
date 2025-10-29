@@ -29,6 +29,8 @@ To request action from Chzzk Transport Finalizer, send the object like below thr
 * `get_version` – Retrieves the application version.
 * `get_settings` – Retrieves the application settings.
 * `get_status` – Retrieves the current status.
+* `remove_item` - Remove a file from the waiting queue.
+* `skip_current` - Stops finalizing the current file and skips to the next one.
 * `set_settings` – Changes the application settings.
 * `reload_settings` – Reloads the application settings from configuration file.
 * `quit_app` – Stops the current download (if in progress) and exits the application.

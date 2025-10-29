@@ -7,7 +7,7 @@ Chzzk Video Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.30.1, October 19, 2025 02:00:00
+Version 1.31.0, October 30, 2025 00:00:00
 
 ## 必要条件
 Chzzk Video Managerは、Chzzk Video DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Video DownloaderとChzzk Transport Finalizerもインストールされている必要があります。
@@ -20,7 +20,7 @@ Chzzk Video Manager、Chzzk Video Downloader、Chzzk Transport Finalizerがす�
 スタートメニューから`Chzzk Video Manager`をクリックするか、`Chzzk Downloader Environment`で`ChzzkVideoManager.exe`を実行します。
 
 ## 必要条件の確認
-Chzzk Video Managerが正常に機能するためには、Chzzk Video DownloaderとChzzk Transport Finalizerが正しく設定されている必要があります。また、Chzzk Video DownloaderはStreamlink（バージョン6.8.0またはそれ以上）とFFmpeg（バージョン7.0またはそれ以上）の設定が必要です。Chzzk Video Managerの起動時に、この必要条件が満たされているかチェックし、満たされていない場合は、以下のダイアログが表示されます。
+Chzzk Video Managerが正常に機能するためには、Chzzk Video DownloaderとChzzk Transport Finalizerが正しく設定されている必要があります。また、Chzzk Video DownloaderはStreamlink（バージョン7.0.0またはそれ以上）とFFmpeg（バージョン7.0またはそれ以上）の設定が必要です。Chzzk Video Managerの起動時に、この必要条件が満たされているかチェックし、満たされていない場合は、以下のダイアログが表示されます。
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_ja-JP/vman_prerequisites.png' />
@@ -193,7 +193,7 @@ Chzzk Video Downloaderの設定を表示するには、☰アイコンをクリ�
 <p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
 </div>
 
-* **起動時にウィンドウのサイズと位置を記憶** - 終了時にウィンドウのサイズと位置を保存し、次回起動時に復元します。
+* **ウィンドウのサイズと位置を記憶** - 終了時にウィンドウのサイズと位置を保存し、次回起動時に復元します。
 * **起動時にChzzk Video Managerの最新アップデートを確認** - 起動時にChzzk Video Managerの最新アップデートを確認するかどうかを設定します。手動で確認する場合は、`アップデート確認`ボタンをクリックします。
 
 ### 機能
@@ -237,6 +237,7 @@ Chzzk Video Downloaderの設定を表示するには、☰アイコンをクリ�
 * **JSON-RPCサーバー: ID** - JSON-RPCサーバーのIDを設定します。
 * **最終処理方法** - 最終処理方法を設定します。
 * **Chzzk Transport Finalizerで処理** - 最終処理をChzzk Transport Finalizerに任せます。
+* **終了時にChzzk Transport Finalizerも同時に終了** - 終了時にChzzk Transport Finalizerも同時に終了するかどうかを指定します。
 * **カスタムオプション** - 最終処理のカスタムオプションを設定します。`...`ボタンをクリックして、カスタムオプションセットファイルを読み込み、指定することもできます。
 * **カスタム最終処理の拡張子** - 拡張子を変更する必要がある場合、ファイルの拡張子を設定します。
 

@@ -7,7 +7,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.30.1, October 19, 2025 02:00:00
+Version 1.31.0, October 30, 2025 00:00:00
 
 ## Usage
 ```powershell
@@ -55,8 +55,8 @@ clip                      Clip UID or URL to download
 --exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 5, 1-50)
 --rpc                     Activate JSON-RPC server
---rpcid [RPCID]           Set ID of JSON-RPC server (default: 50)
---rpcport [RPCPORT]       Set port of JSON-RPC server (default: 64000, 49152-65300)
+--rpcid [RPCID]           Set JSON-RPC server ID (default: 50)
+--rpcport [RPCPORT]       Set JSON-RPC server port (default: 64000, 49152-65300)
 --snapshot SNAPSHOT       Save snapshot to a JSON file whenever changing status
 --download [DOWNLOAD]     Set download method (default|atxc|alter)
 --limit [LIMIT]           Set max download speed (e.g., 512K, 10M, 1G, default: 0)
