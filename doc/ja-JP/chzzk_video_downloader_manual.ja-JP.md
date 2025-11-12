@@ -7,18 +7,18 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.31.0, October 30, 2025 00:00:00
+Version 1.32.0, November 14, 2025 00:00:00
 
 ## 必須事項
-* **[必須]** 最新バージョンのStreamlink（Streamlink 7.0.0またはそれ以上が必要）
-* **[必須]** 最新バージョンのFFmpeg（FFmpeg 7.0またはそれ以上が必要）
+* **[必須]** Streamlink（Streamlink 7.0.0またはそれ以上が必要）
+* **[必須]** FFmpegの公式メジャーバージョン（FFmpeg 7.0またはそれ以上が必要）
 
 ## 使用法
 ```powershell
 ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--final [FINAL]]
-                     [--custom [CUSTOM]] [--ext [EXT]] [--info INFO] [--name [NAME]] [--work [WORK]]
-                     [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
+                     [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]]
+                     [--final [FINAL]] [--custom [CUSTOM]] [--ext [EXT]] [--info INFO] [--name [NAME]]
+                     [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
                      [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
                      [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
                      [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
@@ -42,6 +42,7 @@ video                     ダウンロードするビデオ番号またはURL
 -a, --auth [AUTH]         Chzzk認証資格情報の処理方法を設定 (reuse|reissue|ignore)
 --authaut AUTHAUT         Chzzk認証資格情報の認証キーを設定
 --authses AUTHSES         Chzzk認証資格情報のセッションキーを設定
+--authcookie AUTHCOOKIE   Chzzk認証資格情報を取得するためのNetscape形式のクッキーファイルを設定
 --adult [ADULT]           認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
 -y, --yes                 すべての確認値を自動的に「はい」に設定
 -q, --quality [QUALITY]   ダウンロードする目標画質を設定（例: 1080p）

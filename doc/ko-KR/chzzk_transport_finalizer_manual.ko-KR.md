@@ -7,10 +7,10 @@
 </div>
 
 ## 버전
-Version 1.31.0, October 30, 2025 00:00:00
+Version 1.32.0, November 14, 2025 00:00:00
 
 ## 선행 요건
-* **[필수]** 최신 버전의 FFmpeg (FFmpeg 7.0 또는 상위 버전 필요)
+* **[필수]** FFmpeg 공식 메이저 버전 (FFmpeg 7.0 또는 상위 버전 필요)
 
 ## 사용법
 ```powershell

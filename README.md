@@ -14,20 +14,20 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.31.0, October 30, 2025 00:00:00
+Version 1.32.0, November 14, 2025 00:00:00
 
 ### Prerequisites For Executables
-* **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 7.0.0 or higher)
-* **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
+* **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
+* **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
 
 ### Usage
 ```powershell
 ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-                    [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--once ONCE] [--stream [STREAM]]
-                    [--final [FINAL]] [--custom [CUSTOM]] [--ext [EXT]] [--offset OFFSET]
-                    [--duration DURATION] [--detect [DETECT]] [--name [NAME]] [--work [WORK]]
-                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
-                    [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
+                    [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]]
+                    [--once ONCE] [--stream [STREAM]] [--final [FINAL]] [--custom [CUSTOM]] [--ext [EXT]]
+                    [--offset OFFSET] [--duration DURATION] [--detect [DETECT]] [--name [NAME]]
+                    [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
+                    [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
                     [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
                     [--threshold [THRESHOLD]] [--rpc] [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT]
                     [--thumb [THUMB]] [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
@@ -44,6 +44,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 -a, --auth [AUTH]           Set Chzzk authentication credential control method (reuse|reissue|ignore)
 --authaut AUTHAUT           Set auth key of Chzzk authentication credential
 --authses AUTHSES           Set session key of Chzzk authentication credential
+--authcookie AUTHCOOKIE     Set Netscape cookie file of Chzzk authentication credential
 --adult [ADULT]             Set the process method for adult contents when credentials are invalid (ask|skip)
 -y, --yes                   Set any confirmation values to 'yes' automatically
 -q, --quality [QUALITY]     Set target quality to download (e.g. 1080p)
@@ -97,18 +98,18 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.31.0, October 30, 2025 00:00:00
+Version 1.32.0, November 14, 2025 00:00:00
 
 ### Prerequisites For Executables
-* **[Mandatory]** Latest version of Streamlink. (Requires Streamlink 7.0.0 or higher)
-* **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
+* **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
+* **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
 
 ### Usage
 ```powershell
 ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-                     [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--final [FINAL]]
-                     [--custom [CUSTOM]] [--ext [EXT]] [--info INFO] [--name [NAME]] [--work [WORK]]
-                     [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
+                     [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]]
+                     [--final [FINAL]] [--custom [CUSTOM]] [--ext [EXT]] [--info INFO] [--name [NAME]]
+                     [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
                      [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
                      [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
                      [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
@@ -132,6 +133,7 @@ video                     Video number or URL to download
 -a, --auth [AUTH]         Set Chzzk authentication credential control method (reuse|reissue|ignore)
 --authaut AUTHAUT         Set auth key of Chzzk authentication credential
 --authses AUTHSES         Set session key of Chzzk authentication credential
+--authcookie AUTHCOOKIE   Set Netscape cookie file of Chzzk authentication credential
 --adult [ADULT]           Set the process method for adult contents when credentials are invalid (ask|skip)
 -y, --yes                 Set any confirmation values to 'yes' automatically
 -q, --quality [QUALITY]   Set target quality to download (e.g. 1080p)
@@ -184,18 +186,18 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.31.0, October 30, 2025 00:00:00
+Version 1.32.0, November 14, 2025 00:00:00
 
 ### Usage
 ```powershell
 ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-                    [--adult [ADULT]] [-y] [-d [DISPLAY]] [--info INFO] [--name [NAME]] [--work [WORK]]
-                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
-                    [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
-                    [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
-                    [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                    [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]]
-                    [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
+                    [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y] [-d [DISPLAY]] [--info INFO]
+                    [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
+                    [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
+                    [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
+                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
+                    [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--limit [LIMIT]]
+                    [--thumb [THUMB]] [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
                     [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
                     [--settings [SETTINGS]] [--reset]
                     [clip]
@@ -214,6 +216,7 @@ clip                      Clip UID or URL to download
 -a, --auth [AUTH]         Set Chzzk authentication credential control method (reuse|reissue|ignore)
 --authaut AUTHAUT         Set auth key of Chzzk authentication credential
 --authses AUTHSES         Set session key of Chzzk authentication credential
+--authcookie AUTHCOOKIE   Set Netscape cookie file of Chzzk authentication credential
 --adult [ADULT]           Set the process method for adult contents when credentials are invalid (ask|skip)
 -y, --yes                 Set any confirmation values to 'yes' automatically
 -d, --display [DISPLAY]   Set display mode (quiet|simple|fluent|all)
@@ -262,10 +265,10 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.31.0, October 30, 2025 00:00:00
+Version 1.32.0, November 14, 2025 00:00:00
 
 ### Prerequisites For Executables
-* **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
+* **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
 
 ### Usage
 ```powershell

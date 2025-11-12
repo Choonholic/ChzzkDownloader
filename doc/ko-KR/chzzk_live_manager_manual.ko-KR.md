@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.31.0, October 30, 2025 00:00:00
+Version 1.32.0, November 14, 2025 00:00:00
 
 ## 선행 요건
 Chzzk Live Manager는 Chzzk Live Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Live Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
@@ -20,7 +20,7 @@ Chzzk Live Manager, Chzzk Live Downloader, Chzzk Transport Finalizer가 모두 �
 시작 메뉴에서 `Chzzk Live Manager`를 실행하거나, `Chzzk Downloader Environment`에서 `ChzzkLiveManager.exe`를 실행합니다.
 
 ## 선행 요건 확인
-Chzzk Live Manager의 모든 기능을 활용하려면, Chzzk Live Downloader와 Chzzk Transport Finalizer가 올바르게 설정되어 있어야 하며, Chzzk Live Downloader를 실행하려면 Streamlink(버전 7.0.0 이상)와 FFmpeg(버전 7.0 이상)이 올바르게 설정되어 있어야 합니다. Chzzk Live Manager가 처음 실행될 때 이와 같은 선행 요건을 모두 확인하는 과정을 거치며, 이를 만족하지 못할 경우 다음 그림과 같은 대화 상자가 표시됩니다.
+Chzzk Live Manager의 모든 기능을 활용하려면, Chzzk Live Downloader와 Chzzk Transport Finalizer가 올바르게 설정되어 있어야 하며, Chzzk Live Downloader를 실행하려면 Streamlink(버전 7.0.0 이상)와 FFmpeg의 공식 메이저 버전(버전 7.0 이상)이 올바르게 설정되어 있어야 합니다. Chzzk Live Manager가 처음 실행될 때 이와 같은 선행 요건을 모두 확인하는 과정을 거치며, 이를 만족하지 못할 경우 다음 그림과 같은 대화 상자가 표시됩니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_ko-KR/lman_prerequisites.png' />

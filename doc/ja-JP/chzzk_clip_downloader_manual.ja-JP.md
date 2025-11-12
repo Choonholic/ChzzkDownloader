@@ -7,18 +7,18 @@ Chzzkのクリップ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.31.0, October 30, 2025 00:00:00
+Version 1.32.0, November 14, 2025 00:00:00
 
 ## 使用法
 ```powershell
 ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-                    [--adult [ADULT]] [-y] [-d [DISPLAY]] [--info INFO] [--name [NAME]] [--work [WORK]]
-                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
-                    [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
-                    [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
-                    [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                    [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]]
-                    [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
+                    [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y] [-d [DISPLAY]] [--info INFO]
+                    [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
+                    [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
+                    [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
+                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
+                    [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--limit [LIMIT]]
+                    [--thumb [THUMB]] [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
                     [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
                     [--settings [SETTINGS]] [--reset]
                     [clip]
@@ -37,6 +37,7 @@ clip                      ダウンロードするクリップUIDまたはURL
 -a, --auth [AUTH]         Chzzk認証資格情報の処理方法を設定 (reuse|reissue|ignore)
 --authaut AUTHAUT         Chzzk認証資格情報の認証キーを設定
 --authses AUTHSES         Chzzk認証資格情報のセッションキーを設定
+--authcookie AUTHCOOKIE   Chzzk認証資格情報を取得するためのNetscape形式のクッキーファイルを設定
 --adult [ADULT]           認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
 -y, --yes                 すべての確認値を自動的に「はい」に設定
 -d, --display [DISPLAY]   表示モードを設定（quiet|simple|fluent|all）

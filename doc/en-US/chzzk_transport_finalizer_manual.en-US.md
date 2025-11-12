@@ -7,10 +7,10 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.31.0, October 30, 2025 00:00:00
+Version 1.32.0, November 14, 2025 00:00:00
 
 ## Prerequisites
-* **[Mandatory]** Latest version of FFmpeg. (Requires FFmpeg 7.0 or higher)
+* **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
 
 ## Usage
 ```powershell

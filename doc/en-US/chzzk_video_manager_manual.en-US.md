@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Video Downloader
 </div>
 
 ## Version
-Version 1.31.0, October 30, 2025 00:00:00
+Version 1.32.0, November 14, 2025 00:00:00
 
 ## Prerequisites
 Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, both of Chzzk Video Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -20,7 +20,7 @@ For portable versions, consider storing Chzzk Video Manager, Chzzk Video Downloa
 Click `Chzzk Video Manager` in Start menu, or execute `ChzzkVideoManager.exe` in `Chzzk Downloader Environment`.
 
 ## Verifying Prerequisites
-Chzzk Video Manager requires Chzzk Video Downloader and Chzzk Transport Finalizer to be properly set up for full functionality. Additionally, Chzzk Video Downloader requires proper configurations of Streamlink (Version 7.0.0 or higher) and FFmpeg (Version 7.0 or higher). When Chzzk Video Manager starts, it checks whether this prerequisite is met, and if not, it will display the following dialog.
+Chzzk Video Manager requires Chzzk Video Downloader and Chzzk Transport Finalizer to be properly set up for full functionality. Additionally, Chzzk Video Downloader requires proper configurations of Streamlink (Version 7.0.0 or higher) and the official major versions of FFmpeg (Version 7.0 or higher). When Chzzk Video Manager starts, it checks whether this prerequisite is met, and if not, it will display the following dialog.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_en-US/vman_prerequisites.png' />

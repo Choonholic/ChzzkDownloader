@@ -7,18 +7,18 @@
 </div>
 
 ## 버전
-Version 1.31.0, October 30, 2025 00:00:00
+Version 1.32.0, November 14, 2025 00:00:00
 
 ## 사용법
 ```powershell
 ChzzkClipDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-                    [--adult [ADULT]] [-y] [-d [DISPLAY]] [--info INFO] [--name [NAME]] [--work [WORK]]
-                    [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
-                    [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
-                    [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
-                    [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                    [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]]
-                    [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
+                    [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y] [-d [DISPLAY]] [--info INFO]
+                    [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
+                    [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
+                    [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
+                    [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
+                    [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]] [--limit [LIMIT]]
+                    [--thumb [THUMB]] [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
                     [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
                     [--settings [SETTINGS]] [--reset]
                     [clip]
@@ -37,6 +37,7 @@ clip                      다운로드할 클립 UID 또는 URL
 -a, --auth [AUTH]         치지직 인증 자격 증명 처리 방법을 설정합니다 (reuse|reissue|ignore)
 --authaut AUTHAUT         치지직 인증 자격 증명의 인증 키를 설정합니다
 --authses AUTHSES         치지직 인증 자격 증명의 세션 키를 설정합니다
+--authcookie AUTHCOOKIE   치지직 인증 자격 증명을 가져올 Netscape 형식의 쿠키 파일을 설정합니다
 --adult [ADULT]           자격 증명이 유효하지 않을 때 성인 콘텐츠 처리 방법을 설정합니다 (ask|skip)
 -y, --yes                 모든 확인 값을 자동으로 '예'로 설정합니다
 -d, --display [DISPLAY]   표시 형식을 설정합니다 (quiet|simple|fluent|all)
