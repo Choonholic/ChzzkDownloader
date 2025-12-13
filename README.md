@@ -14,7 +14,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.32.0, November 14, 2025 00:00:00
+Version 1.33.0, December 14, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -80,7 +80,7 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --pnlanguage [PNLANGUAGE]   Set the language used by the notification plugin
 --pnparams [PNPARAMS]       Set the parameters for the notification plugin
 --pntexttype [PNTEXTTYPE]   Set the text format used by the notification plugin (plain|markdown|html)
---settings [SETTINGS]       Set action when saving settings (default|skip|quit)
+--settings [SETTINGS]       Set action when saving settings (default|update|show|skip|quit)
 --reset                     Reset all settings
 ```
 
@@ -98,7 +98,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.32.0, November 14, 2025 00:00:00
+Version 1.33.0, December 14, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -168,7 +168,7 @@ video                     Video number or URL to download
 --pnlanguage [PNLANGUAGE] Set the language used by the notification plugin
 --pnparams [PNPARAMS]     Set the parameters for the notification plugin
 --pntexttype [PNTEXTTYPE] Set the text format used by the notification plugin (plain|markdown|html)
---settings [SETTINGS]     Set action when saving settings (default|skip|quit)
+--settings [SETTINGS]     Set action when saving settings (default|update|show|skip|quit)
 --reset                   Reset all settings
 ```
 
@@ -186,7 +186,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.32.0, November 14, 2025 00:00:00
+Version 1.33.0, December 14, 2025 00:00:00
 
 ### Usage
 ```powershell
@@ -247,7 +247,7 @@ clip                      Clip UID or URL to download
 --pnlanguage [PNLANGUAGE] Set the language used by the notification plugin
 --pnparams [PNPARAMS]     Set the parameters for the notification plugin
 --pntexttype [PNTEXTTYPE] Set the text format used by the notification plugin (plain|markdown|html)
---settings [SETTINGS]     Set action when saving settings (default|skip|quit)
+--settings [SETTINGS]     Set action when saving settings (default|update|show|skip|quit)
 --reset                   Reset all settings
 ```
 
@@ -265,7 +265,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.32.0, November 14, 2025 00:00:00
+Version 1.33.0, December 14, 2025 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
@@ -273,8 +273,10 @@ Version 1.32.0, November 14, 2025 00:00:00
 ### Usage
 ```powershell
 ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
-                        [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
-                        [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--ext [EXT]] [--exist [EXIST]]
+                        [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-trav [WATCH_TRAV]]
+                        [--watch-user [WATCH_USER]] [--watch-pass [WATCH_PASS]] [--exclude [EXCLUDE]]
+                        [--exclude-trav [EXCLUDE_TRAV]] [--exclude-user [EXCLUDE_USER]]
+                        [--exclude-pass [EXCLUDE_PASS]] [--convert [CONVERT]] [--ext [EXT]] [--exist [EXIST]]
                         [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                         [--snapshot SNAPSHOT] [--metadata [METADATA]] [--startup [STARTUP]]
                         [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
@@ -283,31 +285,36 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 
 ### Options
 ```
--h, --help                Show this help message
---version                 Show version information
--d, --display [DISPLAY]   Set display mode (quiet|simple|fluent|all)
---work [WORK]             Set working directory
---work-user [WORK_USER]   Set username to use when working directory is on remote network
---work-pass [WORK_PASS]   Set password to use when working directory is on remote network
---watch [WATCH]           Set watching directory
---watch-user [WATCH_USER] Set username to use when watching directory is on remote network
---watch-pass [WATCH_PASS] Set password to use when watching directory is on remote network
---convert [CONVERT]       Set convert parameters
---ext [EXT]               Set output file extension
---exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD]   Set the threshold % for stopping downloads when disk space is low (disable: -, default: 5, 1-50)
---rpc                     Activate JSON-RPC server
---rpcid [RPCID]           Set JSON-RPC server ID (default: 70)
---rpcport [RPCPORT]       Set JSON-RPC server port (default: 65000, 49152-65300)
---snapshot SNAPSHOT       Save snapshot to a JSON file whenever changing status
---metadata [METADATA]     Save metadata or skip (save|skip)
---startup [STARTUP]       Set startup method (normal|fast)
---pnpath [PNPATH]         Set the path to the notification plugin
---pnlanguage [PNLANGUAGE] Set the language used by the notification plugin
---pnparams [PNPARAMS]     Set the parameters for the notification plugin
---pntexttype [PNTEXTTYPE] Set the text format used by the notification plugin (plain|markdown|html)
---settings [SETTINGS]     Set action when saving settings (default|skip|quit)
---reset                   Reset all settings
+-h, --help                    Show this help message
+--version                     Show version information
+-d, --display [DISPLAY]       Set display mode (quiet|simple|fluent|all)
+--work [WORK]                 Set working directory
+--work-user [WORK_USER]       Set username to use when working directory is on remote network
+--work-pass [WORK_PASS]       Set password to use when working directory is on remote network
+--watch [WATCH]               Set watching directory
+--watch-trav [WATCH_TRAV]     Set the traversal method for watching directory (direct|recursive)
+--watch-user [WATCH_USER]     Set username to use when watching directory is on remote network
+--watch-pass [WATCH_PASS]     Set password to use when watching directory is on remote network
+--exclude [EXCLUDE]           Set the directory excluded from watching
+--exclude-trav [EXCLUDE_TRAV] Set the traversal method for excluded directory (direct|recursive)
+--exclude-user [EXCLUDE_USER] Set username to use when excluded directory is on remote network
+--exclude-pass [EXCLUDE_PASS] Set password to use when excluded directory is on remote network
+--convert [CONVERT]           Set convert parameters
+--ext [EXT]                   Set output file extension
+--exist [EXIST]               Set how to save when the target file already exists (rename|skip|overwrite)
+--threshold [THRESHOLD]       Set the threshold % for stopping downloads when disk space is low (disable: -, default: 5, 1-50)
+--rpc                         Activate JSON-RPC server
+--rpcid [RPCID]               Set JSON-RPC server ID (default: 70)
+--rpcport [RPCPORT]           Set JSON-RPC server port (default: 65000, 49152-65300)
+--snapshot SNAPSHOT           Save snapshot to a JSON file whenever changing status
+--metadata [METADATA]         Save metadata or skip (save|skip)
+--startup [STARTUP]           Set startup method (normal|fast)
+--pnpath [PNPATH]             Set the path to the notification plugin
+--pnlanguage [PNLANGUAGE]     Set the language used by the notification plugin
+--pnparams [PNPARAMS]         Set the parameters for the notification plugin
+--pntexttype [PNTEXTTYPE]     Set the text format used by the notification plugin (plain|markdown|html)
+--settings [SETTINGS]         Set action when saving settings (default|update|show|skip|quit)
+--reset                       Reset all settings
 ```
 
 ### Example

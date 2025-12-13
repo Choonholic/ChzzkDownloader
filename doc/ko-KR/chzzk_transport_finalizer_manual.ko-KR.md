@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.32.0, November 14, 2025 00:00:00
+Version 1.33.0, December 14, 2025 00:00:00
 
 ## 선행 요건
 * **[필수]** FFmpeg 공식 메이저 버전 (FFmpeg 7.0 또는 상위 버전 필요)
@@ -15,8 +15,10 @@ Version 1.32.0, November 14, 2025 00:00:00
 ## 사용법
 ```powershell
 ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
-                        [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
-                        [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--ext [EXT]] [--exist [EXIST]]
+                        [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-trav [WATCH_TRAV]]
+                        [--watch-user [WATCH_USER]] [--watch-pass [WATCH_PASS]] [--exclude [EXCLUDE]]
+                        [--exclude-trav [EXCLUDE_TRAV]] [--exclude-user [EXCLUDE_USER]]
+                        [--exclude-pass [EXCLUDE_PASS]] [--convert [CONVERT]] [--ext [EXT]] [--exist [EXIST]]
                         [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                         [--snapshot SNAPSHOT] [--metadata [METADATA]] [--startup [STARTUP]]
                         [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
@@ -25,31 +27,36 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 
 ## 선택적 매개 변수
 ```
--h, --help                도움말 페이지를 표시합니다
---version                 버전 정보를 표시합니다
--d, --display [DISPLAY]   표시 형식을 설정합니다 (quiet|simple|fluent|all)
---work [WORK]             작업 디렉터리를 설정합니다
---work-user [WORK_USER]   작업 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
---work-pass [WORK_PASS]   작업 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
---watch [WATCH]           감시 디렉터리를 설정합니다.
---watch-user [WATCH_USER] 감시 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
---watch-pass [WATCH_PASS] 감시 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
---convert [CONVERT]       변환 매개 변수를 설정합니다
---ext [EXT]               저장되는 파일의 확장자를 설정합니다
---exist [EXIST]           파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
---threshold [THRESHOLD]   디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 5, 1-50)
---rpc                     JSON-RPC 서버를 활성화합니다
---rpcid [RPCID]           JSON-RPC 서버 ID를 설정합니다 (기본값: 70)
---rpcport [RPCPORT]       JSON-RPC 서버 포트를 설정합니다 (기본값: 65000, 49152-65300)
---snapshot SNAPSHOT       상태 변경 시 스냅샷을 JSON 파일로 저장합니다
---metadata [METADATA]     메타데이터의 저장 여부를 설정합니다（save|skip）
---startup [STARTUP]       시작 방법을 설정합니다 (normal|fast)
---pnpath [PNPATH]         알림 플러그인의 경로를 설정합니다
---pnlanguage [PNLANGUAGE] 알림 플러그인이 사용할 언어를 설정합니다
---pnparams [PNPARAMS]     알림 플러그인의 매개 변수를 설정합니다
---pntexttype [PNTEXTTYPE] 알림 플러그인이 사용할 텍스트 형식을 설정합니다 (plain|markdown|html)
---settings [SETTINGS]     설정 저장 시 동작을 설정합니다 (default|skip|quit)
---reset                   모든 설정을 초기화합니다
+-h, --help                    도움말 페이지를 표시합니다
+--version                     버전 정보를 표시합니다
+-d, --display [DISPLAY]       표시 형식을 설정합니다 (quiet|simple|fluent|all)
+--work [WORK]                 작업 디렉터리를 설정합니다
+--work-user [WORK_USER]       작업 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
+--work-pass [WORK_PASS]       작업 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
+--watch [WATCH]               감시 디렉터리를 설정합니다
+--watch-trav [WATCH_TRAV]     감시 디렉터리의 탐색 방식을 설정합니다 (direct|recursive)
+--watch-user [WATCH_USER]     감시 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
+--watch-pass [WATCH_PASS]     감시 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
+--exclude [EXCLUDE]           감시에서 제외할 디렉터리를 설정합니다
+--exclude-trav [EXCLUDE_TRAV] 제외 디렉터리의 탐색 방식을 설정합니다 (direct|recursive)
+--exclude-user [EXCLUDE_USER] 제외 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
+--exclude-pass [EXCLUDE_PASS] 제외 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
+--convert [CONVERT]           변환 매개 변수를 설정합니다
+--ext [EXT]                   저장되는 파일의 확장자를 설정합니다
+--exist [EXIST]               파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
+--threshold [THRESHOLD]       디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 5, 1-50)
+--rpc                         JSON-RPC 서버를 활성화합니다
+--rpcid [RPCID]               JSON-RPC 서버 ID를 설정합니다 (기본값: 70)
+--rpcport [RPCPORT]           JSON-RPC 서버 포트를 설정합니다 (기본값: 65000, 49152-65300)
+--snapshot SNAPSHOT           상태 변경 시 스냅샷을 JSON 파일로 저장합니다
+--metadata [METADATA]         메타데이터의 저장 여부를 설정합니다（save|skip）
+--startup [STARTUP]           시작 방법을 설정합니다 (normal|fast)
+--pnpath [PNPATH]             알림 플러그인의 경로를 설정합니다
+--pnlanguage [PNLANGUAGE]     알림 플러그인이 사용할 언어를 설정합니다
+--pnparams [PNPARAMS]         알림 플러그인의 매개 변수를 설정합니다
+--pntexttype [PNTEXTTYPE]     알림 플러그인이 사용할 텍스트 형식을 설정합니다 (plain|markdown|html)
+--settings [SETTINGS]         설정 저장 시 동작을 설정합니다 (default|update|show|skip|quit)
+--reset                       모든 설정을 초기화합니다
 ```
 
 ## 사용 예시
@@ -86,8 +93,47 @@ ChzzkTransportFinalizer --watch out
 ChzzkTransportFinalizer --watch
 ```
 
+## 감시 디렉터리 탐색 방법 설정
+Chzzk Transport Finalizer는 디렉터리를 감시할 때 기본적으로 지정한 디렉터리와 하위 디렉터리를 모두 탐색합니다. 만약 지정한 디렉터리만 감시하고 싶을 때는 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkTransportFinalizer --watch out --watch-trav direct
+```
+
+이 선택 사항을 기본값으로 되돌리려면 디렉터리 지정 없이 `--watch-trav`만 사용하세요.
+
+```powershell
+ChzzkTransportFinalizer --watch out --watch-trav
+```
+
+## 감시 제외 디렉터리 설정
+Chzzk Transport Finalizer는 선택 사항에 따라 감시 디렉터리 전부 또는 최상위 디렉터리를 감시합니다. 이 때 다음 명령어를 사용하면 감시 디렉터리의 하위 디렉터리나 다른 디렉터리가 감시되지 않도록 지정할 수 있습니다.
+
+```powershell
+ChzzkTransportFinalizer --watch out --exclude out\exc
+```
+
+감시 제외 디렉터리를 해제하려면 디렉터리 지정 없이 `--exclude`만 사용하세요.
+
+```powershell
+ChzzkTransportFinalizer --watch out --exclude
+```
+
+## 제외 디렉터리 탐색 방법 설정
+Chzzk Transport Finalizer는 감시 제외 디렉터리가 지정되면 기본적으로 지정한 디렉터리만 탐색합니다. 만약 지정한 디렉터리의 하위 디렉터리도 모두 제외하고 싶을 때는 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkTransportFinalizer --watch out --excluded out\exc --exclude-trav recursive
+```
+
+이 선택 사항을 기본값으로 되돌리려면 디렉터리 지정 없이 `--exclude-trav`만 사용하세요.
+
+```powershell
+ChzzkTransportFinalizer --watch out --excluded out\exc --exclude-trav
+```
+
 ## 디렉터리 지정 방법
-디렉터리는 다음과 같이 여러 가지 방법으로 지정할 수 있습니다.
+`--work`, `--watch`, `--exclude` 선택 사항에서 디렉터리를 지정할 때 다음과 같이 여러 가지 방법을 사용할 수 있습니다.
 
 ```powershell
 ChzzkTransportFinalizer --work work
@@ -218,6 +264,21 @@ ChzzkTransportFinalizer --threshold -
 ```powershell
 ChzzkTransportFinalizer --threshold
 ```
+
+## 설정 저장 시 동작 설정
+모든 선택 사항은 기본적으로 설정 파일에 자동으로 저장됩니다.
+
+하지만 `--settings` 매개 변수 뒤에 다음과 같이 선택 사항을 지정하면 설정 저장 여부를 지정하거나 설정 내용을 확인할 수 있습니다.
+
+```powershell
+ChzzkTransportFinalizer --settings skip
+```
+
+* `default` - 선택 사항을 설정 파일에 저장한 후 최종 변환을 실행합니다.
+* `skip` - 선택 사항을 설정 파일에 저장하는 대신 현재 세션에만 적용한 후 최종 변환을 실행합니다.
+* `update` - 선택 사항을 설정 파일에 저장한 후 변경된 설정 내용을 표시하고 종료합니다.
+* `show` - 선택 사항을 모두 무시하고 기존 설정 내용을 표시하고 종료합니다.
+* `quit` - 선택 사항을 설정 파일에 저장한 후 종료합니다.
 
 ## 설정 저장 시 동작 설정
 모든 선택 사항은 기본적으로 항상 설정 파일에 저장됩니다. 현재 세션에만 설정을 적용하고 저장하지 않으려면 다음 명령어를 사용하세요.

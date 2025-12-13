@@ -7,7 +7,7 @@ Chzzkのストリーム用の最終処理ツール
 </div>
 
 ## バージョン
-Version 1.32.0, November 14, 2025 00:00:00
+Version 1.33.0, December 14, 2025 00:00:00
 
 ## 必須事項
 * **[必須]** FFmpegの公式メジャーバージョン（FFmpeg 7.0またはそれ以上が必要）
@@ -15,41 +15,49 @@ Version 1.32.0, November 14, 2025 00:00:00
 ## 使用法
 ```powershell
 ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
-                        [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-user [WATCH_USER]]
-                        [--watch-pass [WATCH_PASS]] [--convert [CONVERT]] [--ext [EXT]] [--exist [EXIST]]
+                        [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-trav [WATCH_TRAV]]
+                        [--watch-user [WATCH_USER]] [--watch-pass [WATCH_PASS]] [--exclude [EXCLUDE]]
+                        [--exclude-trav [EXCLUDE_TRAV]] [--exclude-user [EXCLUDE_USER]]
+                        [--exclude-pass [EXCLUDE_PASS]] [--convert [CONVERT]] [--ext [EXT]] [--exist [EXIST]]
                         [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
                         [--snapshot SNAPSHOT] [--metadata [METADATA]] [--startup [STARTUP]]
                         [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
                         [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+
 ```
 
 ## オプション
 ```
--h, --help                このヘルプメッセージを表示
---version                 バージョン情報を表示
--d, --display [DISPLAY]   表示モードを設定（quiet|simple|fluent|all）
---work [WORK]             作業ディレクトリを設定
---work-user [WORK_USER]   作業ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
---work-pass [WORK_PASS]   作業ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
---watch [WATCH]           監視ディレクトリを設定
---watch-user [WATCH_USER] 監視ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
---watch-pass [WATCH_PASS] 監視ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
---convert [CONVERT]       変換パラメータを設定
---ext [EXT]               保存ファイルの拡張子を設定
---exist [EXIST]           対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
---threshold [THRESHOLD]   空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 5, 1-50)
---rpc                     JSON-RPCサーバーを有効化
---rpcid [RPCID]           JSON-RPCサーバーのIDを設定 （デフォルト: 70）
---rpcport [RPCPORT]       JSON-RPCサーバーのポートを設定 （デフォルト: 65000, 49152-65300）
---snapshot SNAPSHOT       ステータスが変更されるたびにJSONファイルにスナップショットを保存
---metadata [METADATA]     メタデータを保存またはスキップ（save|skip）
---startup [STARTUP]       起動方法を設定（normal|fast）
---pnpath [PNPATH]         通知プラグインのパスを設定
---pnlanguage [PNLANGUAGE] 通知プラグインで使用する言語を設定
---pnparams [PNPARAMS]     通知プラグインのパラメーターを設定
---pntexttype [PNTEXTTYPE] 通知プラグインで使用するテキスト形式を設定 (plain|markdown|html)
---settings [SETTINGS]     設定保存時の動作を設定（default|skip|quit）
---reset                   すべての設定をリセット
+-h, --help                    このヘルプメッセージを表示
+--version                     バージョン情報を表示
+-d, --display [DISPLAY]       表示モードを設定（quiet|simple|fluent|all）
+--work [WORK]                 作業ディレクトリを設定
+--work-user [WORK_USER]       作業ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
+--work-pass [WORK_PASS]       作業ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
+--watch [WATCH]               監視ディレクトリを設定
+--watch-trav [WATCH_TRAV]     監視ディレクトリの探索方式を設定 (direct|recursive)
+--watch-user [WATCH_USER]     監視ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
+--watch-pass [WATCH_PASS]     監視ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
+--exclude [EXCLUDE]           監視除外ディレクトリを設定
+--exclude-trav [EXCLUDE_TRAV] 除外ディレクトリの探索方式を設定 (direct|recursive)
+--exclude-user [EXCLUDE_USER] 除外ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
+--exclude-pass [EXCLUDE_PASS] 除外ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
+--convert [CONVERT]           変換パラメータを設定
+--ext [EXT]                   保存ファイルの拡張子を設定
+--exist [EXIST]               対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
+--threshold [THRESHOLD]       空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 5, 1-50)
+--rpc                         JSON-RPCサーバーを有効化
+--rpcid [RPCID]               JSON-RPCサーバーのIDを設定 （デフォルト: 70）
+--rpcport [RPCPORT]           JSON-RPCサーバーのポートを設定 （デフォルト: 65000, 49152-65300）
+--snapshot SNAPSHOT           ステータスが変更されるたびにJSONファイルにスナップショットを保存
+--metadata [METADATA]         メタデータを保存またはスキップ（save|skip）
+--startup [STARTUP]           起動方法を設定（normal|fast）
+--pnpath [PNPATH]             通知プラグインのパスを設定
+--pnlanguage [PNLANGUAGE]     通知プラグインで使用する言語を設定
+--pnparams [PNPARAMS]         通知プラグインのパラメーターを設定
+--pntexttype [PNTEXTTYPE]     通知プラグインで使用するテキスト形式を設定 (plain|markdown|html)
+--settings [SETTINGS]         設定保存時の動作を設定（default|skip|quit）
+--reset                       すべての設定をリセット
 ```
 
 ## 使用例
@@ -86,8 +94,47 @@ ChzzkTransportFinalizer --watch out
 ChzzkTransportFinalizer --watch
 ```
 
+## 監視ディレクトリの探索方式の設定
+Chzzk Transport Finalizerはディレクトリを監視する際、デフォルトでは指定したディレクトリとその配下のすべてのサブディレクトリを探索します。指定したディレクトリのみを監視したい場合は、次のコマンドを使用してください。
+
+```powershell
+ChzzkTransportFinalizer --watch out --watch-trav direct
+```
+
+このオプションをデフォルトの動作に戻したい場合は、探索方式を指定せずに`--watch-trav`のみを使用してください。
+
+```powershell
+ChzzkTransportFinalizer --watch out --watch-trav
+```
+
+## 監視除外ディレクトリの設定
+Chzzk Transport Finalizerは、選択したオプションに応じて、監視ディレクトリ全体または最上位ディレクトリのみを監視します。次のコマンドを使用すると、監視ディレクトリのサブディレクトリや他のディレクトリを監視対象から除外することができます。
+
+```powershell
+ChzzkTransportFinalizer --watch out --exclude out\exc
+```
+
+監視除外ディレクトリの設定を解除したい場合は、ディレクトリを指定せずに`--exclude`のみを使用してください。
+
+```powershell
+ChzzkTransportFinalizer --watch out --exclude
+```
+
+## 除外ディレクトリの探索方式の設定
+監視除外ディレクトリが指定されている場合、Chzzk Transport Finalizerはデフォルトでは指定したディレクトリのみを探索します。指定したディレクトリの配下にあるすべてのサブディレクトリも除外したい場合は、次のコマンドを使用してください。
+
+```powershell
+ChzzkTransportFinalizer --watch out --excluded out\exc --exclude-trav recursive
+```
+
+このオプションをデフォルトの動作に戻したい場合は、探索方式を指定せずに`--exclude-trav`のみを使用してください。
+
+```powershell
+ChzzkTransportFinalizer --watch out --excluded out\exc --exclude-trav
+```
+
 ## ディレクトリ指定方法
-ディレクトリは次のように指定できます。
+`--work`、`--watch`、`--exclude` オプションでディレクトリを指定する場合、ディレクトリは次のように指定できます。
 
 ```powershell
 ChzzkTransportFinalizer --work work
@@ -218,6 +265,21 @@ ChzzkTransportFinalizer --threshold -
 ```powershell
 ChzzkTransportFinalizer --threshold
 ```
+
+## 設定保存時の動作設定
+すべてのオプションは、デフォルトで設定ファイルに自動保存されます。
+
+ただし、`--settings`パラメーターの後にオプションを指定することで、設定を保存するかどうか、または設定内容を確認するかを選択できます。
+
+```powershell
+ChzzkTransportFinalizer --settings skip
+```
+
+* `default` – 選択したオプションを設定ファイルに保存してから、最終処理を進めます。
+* `skip` – 選択したオプションを保存せず、現在のセッションにのみ適用してから、最終処理を進めます。
+* `update` – 選択したオプションを設定ファイルに保存し、変更された設定内容を表示して終了します。
+* `show` – 選択したオプションをすべて無視し、既存の設定内容を表示して終了します。
+* `quit` – 選択したオプションを設定ファイルに保存して終了します。
 
 ## 設定保存時の動作を設定
 すべてのオプションはデフォルトで設定ファイルに保存されますが、現在のセッションにのみ適用し、保存しない場合は以下のコマンドを使用してください。

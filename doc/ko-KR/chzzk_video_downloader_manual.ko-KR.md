@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.32.0, November 14, 2025 00:00:00
+Version 1.33.0, December 14, 2025 00:00:00
 
 ## 선행 요건
 * **[필수]** Streamlink (Streamlink 7.0.0 또는 상위 버전 필요)
@@ -77,7 +77,7 @@ video                     다운로드할 비디오 번호 또는 URL
 --pnlanguage [PNLANGUAGE] 알림 플러그인이 사용할 언어를 설정합니다
 --pnparams [PNPARAMS]     알림 플러그인의 매개 변수를 설정합니다
 --pntexttype [PNTEXTTYPE] 알림 플러그인이 사용할 텍스트 형식을 설정합니다 (plain|markdown|html)
---settings [SETTINGS]     설정 저장 시 동작을 설정합니다 (default|skip|quit)
+--settings [SETTINGS]     설정 저장 시 동작을 설정합니다 (default|update|show|skip|quit)
 --reset                   모든 설정을 초기화합니다
 ```
 
@@ -450,22 +450,24 @@ ChzzkVideoDownloader video_no 또는 url --download alter
 ```
 
 ## 설정 저장 시 동작 설정
-모든 선택 사항은 기본적으로 항상 설정 파일에 저장됩니다. 현재 세션에만 설정을 적용하고 저장하지 않으려면 다음 명령어를 사용하세요.
+모든 선택 사항은 기본적으로 설정 파일에 자동으로 저장됩니다.
+
+하지만 `--settings` 매개 변수 뒤에 다음과 같이 선택 사항을 지정하면 설정 저장 여부를 지정하거나 설정 내용을 확인할 수 있습니다.
 
 ```powershell
 ChzzkVideoDownloader video_no 또는 url --settings skip
 ```
 
-단, 다음 정보는 항상 저장됩니다.
+* `default` - 선택 사항을 설정 파일에 저장한 후 다운로드를 진행합니다.
+* `skip` - 선택 사항을 설정 파일에 저장하는 대신 현재 세션에만 적용한 후 다운로드를 진행합니다.
+* `update` - 선택 사항을 설정 파일에 저장한 후 변경된 설정 내용을 표시하고 종료합니다.
+* `show` - 선택 사항을 모두 무시하고 기존 설정 내용을 표시하고 종료합니다.
+* `quit` - 선택 사항을 설정 파일에 저장한 후 종료합니다.
+
+단, 다음 정보는 따로 관리되며 `--settings` 매개 변수의 선택 사항과 관계 없이 항상 저장됩니다.
 
 * 치지직 쿠키에서 얻은 NAVER ID 인증 키 (`NID_AUT`)
 * 치지직 쿠키에서 얻은 NAVER ID 세션 키 (`NID_SES`)
-
-다운로드 없이 설정만 저장하고 종료하려면 다음 명령어를 사용하세요.
-
-```powershell
-ChzzkVideoDownloader --settings quit
-```
 
 ## 플러그인 기능
 Chzzk Video Downloader는 플러그인을 통해 사용자의 개인 성향과 환경에 맞춘 부가 기능을 제공합니다.

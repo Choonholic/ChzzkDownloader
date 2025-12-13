@@ -7,7 +7,7 @@ Chzzkのクリップ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.32.0, November 14, 2025 00:00:00
+Version 1.33.0, December 14, 2025 00:00:00
 
 ## 使用法
 ```powershell
@@ -107,8 +107,8 @@ ChzzkClipDownloader --input list.txt
 ## 認証資格情報のリセット
 成人限定クリップなど、NAVER認証資格情報が必要なクリップをダウンロードするには、以下の情報を指定する必要があります。
 
-* ChzzkクッキーからのNAVER IDの認証キー（`NID_AUT`）
-* ChzzkクッキーからのNAVER IDのセッションキー（`NID_SES`）
+* Chzzkのクッキーから取得したNAVER IDの認証キー（`NID_AUT`）
+* Chzzkのクッキーから取得したNAVER IDのセッションキー（`NID_SES`）
 
 認証資格情報が必要なクリップをダウンロードする際に、認証資格情報が見つからない場合は、認証情報の入力プロンプトが自動的に表示されます。
 
@@ -361,23 +361,25 @@ ChzzkClipDownloader clip_uid または url --threshold
 ChzzkClipDownloader clip_uid または url --download alter
 ```
 
-## 設定保存時の動作を設定
-すべてのオプションはデフォルトで設定ファイルに保存されますが、現在のセッションにのみ適用し、保存しない場合は以下のコマンドを使用してください。
+## 設定保存時の動作設定
+すべてのオプションは、デフォルトで設定ファイルに自動保存されます。
+
+ただし、`--settings`パラメーターの後にオプションを指定することで、設定を保存するかどうか、または設定内容を確認するかを選択できます。
 
 ```powershell
-ChzzkClipDownloader --settings skip
+ChzzkClipDownloader clip_uid または url --settings skip
 ```
 
-ただし、以下の情報は常に保存されます。
+* `default` – 選択したオプションを設定ファイルに保存してから、ダウンロードを進めます。
+* `skip` – 選択したオプションを保存せず、現在のセッションにのみ適用してから、ダウンロードを進めます。
+* `update` – 選択したオプションを設定ファイルに保存し、変更された設定内容を表示して終了します。
+* `show` – 選択したオプションをすべて無視し、既存の設定内容を表示して終了します。
+* `quit` – 選択したオプションを設定ファイルに保存して終了します。
 
-* ChzzkクッキーからのNAVER IDの認証キー（`NID_AUT`）
-* ChzzkクッキーからのNAVER IDのセッションキー（`NID_SES`）
+なお、次の情報は別途管理されており、`--settings`パラメーターのオプションに関係なく常に保存されます。
 
-ダウンロードせずに設定を保存して終了したい場合は、以下のコマンドを使用してください。
-
-```powershell
-ChzzkClipDownloader --settings quit
-```
+* Chzzkのクッキーから取得したNAVER IDの認証キー（`NID_AUT`）
+* Chzzkのクッキーから取得したNAVER IDのセッションキー（`NID_SES`）
 
 ## プラグイン
 Chzzk Clip Downloaderは、プラグインを通じてユーザーの個人の嗜好や環境に合わせた追加機能を提供します。
@@ -427,8 +429,8 @@ ChzzkClipDownloader --reset
 
 これにより、以下の情報がリセットされます。
 
-* ChzzkクッキーからのNAVER IDの認証キー（`NID_AUT`）
-* ChzzkクッキーからのNAVER IDのセッションキー（`NID_SES`）
+* Chzzkのクッキーから取得したNAVER IDの認証キー（`NID_AUT`）
+* Chzzkのクッキーから取得したNAVER IDのセッションキー（`NID_SES`）
 * サムネイル画像の保存設定
 * ダウンロード詳細の表示設定
 * 保存ディレクトリと一時ディレクトリの設定

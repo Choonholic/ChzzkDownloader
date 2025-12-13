@@ -7,7 +7,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.32.0, November 14, 2025 00:00:00
+Version 1.33.0, December 14, 2025 00:00:00
 
 ## Usage
 ```powershell
@@ -68,7 +68,7 @@ clip                      Clip UID or URL to download
 --pnlanguage [PNLANGUAGE] Set the language used by the notification plugin
 --pnparams [PNPARAMS]     Set the parameters for the notification plugin
 --pntexttype [PNTEXTTYPE] Set the text format used by the notification plugin (plain|markdown|html)
---settings [SETTINGS]     Set action when saving settings (default|skip|quit)
+--settings [SETTINGS]     Set action when saving settings (default|update|show|skip|quit)
 --reset                   Reset all settings
 ```
 
@@ -107,8 +107,8 @@ ChzzkClipDownloader --input list.txt
 ## Resetting Authentication Credential
 To download a clip that requires NAVER authentication credential, such as an adult-only clip, you must specify the following information.
 
-* NAVER ID Authorization Key from Chzzk cookie (`NID_AUT`)
-* NAVER ID Session Key from Chzzk cookie (`NID_SES`)
+* NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
+* NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
 
 When the authentication credential is not found when downloading a clip that requires it, a prompt to enter your authorization will be activated.
 
@@ -362,22 +362,24 @@ ChzzkClipDownloader clip_uid or url --download alter
 ```
 
 ## Setting Action When Saving Settings
-All options are always saved to configuration files by default. If you want to apply settings to current session only without saving, use the following command.
+All options are automatically saved to the configuration file by default.
+
+However, by specifying an option after the `--settings` parameter, you can control whether to save the settings or view the current settings.
 
 ```powershell
-ChzzkClipDownloader --settings skip
+ChzzkClipDownloader clip_uid or url --settings skip
 ```
 
-However, the following information is always saved.
+* `default` – Saves the selected options to the configuration file and proceeds with the downloads.
+* `skip` – Applies the selected options only to the current session without saving, and then proceeds with the downloads.
+* `update` – Saves the selected options to the configuration file, displays the updated settings, and then quits.
+* `show` – Ignores all selected options, displays the existing settings, and then quits.
+* `quit` – Saves the selected options to the configuration file and then quits.
 
-* NAVER ID Authorization key from Chzzk cookie (`NID_AUT`)
-* NAVER ID Session key from Chzzk cookie (`NID_SES`)
+The following information is managed separately and is always saved regardless of the `--settings` parameter:
 
-If you want to save the settings without downloading and exit, use the following command.
-
-```powershell
-ChzzkClipDownloader --settings quit
-```
+* NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
+* NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
 
 ## Plugins
 Chzzk Clip Downloader provides additional features tailored to the user's personal preferences and environment through plugins.
@@ -427,8 +429,8 @@ ChzzkClipDownloader --reset
 
 This will reset the following information.
 
-* NAVER ID Authorization key from Chzzk cookie (`NID_AUT`)
-* NAVER ID Session key from Chzzk cookie (`NID_SES`)
+* NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
+* NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
 * Settings for Saving thumbnail image
 * Settings for displaying download details
 * Settings for output and temporary directories
