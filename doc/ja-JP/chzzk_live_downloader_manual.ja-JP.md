@@ -7,7 +7,7 @@ Chzzkのストリーム用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.33.0, December 14, 2025 00:00:00
+Version 1.34.0, January 01, 2026 00:00:00
 
 ## 必須事項
 * **[必須]** Streamlink（Streamlink 7.0.0またはそれ以上が必要）
