@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Video Downloader
 </div>
 
 ## Version
-Version 1.34.0, January 01, 2026 00:00:00
+Version 1.35.0, January 09, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, both of Chzzk Video Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -204,7 +204,7 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 </div>
 
 * **Update Interval (Seconds)** - Sets the screen refresh interval for the list.
-* **Stop downloading if free disk space is less than** - Sets the threshold % for stopping downloads when disk space is low.
+* **Stop downloading if free space is less than** - Sets the stop threshold when disk space is low, using either a percentage (%) or a size value. When using a size value, you can specify SI units (KB, MB, GB...) or IEC units (KiB, MiB, GiB...). You may also specify prefixes only (K, Ki, M, Mi, G, Gi...). Of course, you can also specify the value in bytes without any unit.
 * **Sleep Mode** - Sets the system's sleep mode while the Chzzk Video Manager is running.
 * **Performance Level** - Specify the performance of the system where Chzzk Video Manager is currently running. If you encounter errors due to timeouts when adding or refreshing videos, try lowering the performance level by one step and attempt again.
 * **Save metadata based on replay information** - Checks to save metadata based on replay information.
