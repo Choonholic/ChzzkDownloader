@@ -7,7 +7,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.35.0, January 09, 2026 00:00:00
+Version 1.35.1, January 12, 2026 08:00:00
 
 ## Prerequisites
 * **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)

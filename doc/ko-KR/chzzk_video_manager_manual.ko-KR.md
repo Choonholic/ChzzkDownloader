@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.35.0, January 09, 2026 00:00:00
+Version 1.35.1, January 12, 2026 08:00:00
 
 ## 선행 요건
 Chzzk Video Manager는 Chzzk Video Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Video Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
