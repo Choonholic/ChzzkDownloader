@@ -9,7 +9,7 @@ Execute Chzzk Video Downloader with `--rpc` option.
 ## How To Connect To Server
 Internal JSON-RPC server accepts socket connections.
 
-* **Host IP Address** - Default address is `localhost`.
+* **Host IP Address** - Default address is `localhost`. If you want to allow connections from outside the local PC, set the `--rpcexpose` option to `open` to expose the server externally. In this case, you may need to modify the Windows Firewall settings.
 * **Port Number** - Default port number is `63000`. Use `--rpcport` option to change. (available range: `49152`~`65300`)
 * **RPC ID** - Default ID is `30`. Use `--rpcid` option to change.
 

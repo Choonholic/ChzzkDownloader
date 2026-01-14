@@ -7,23 +7,25 @@ Chzzkのストリーム用の最終処理ツール
 </div>
 
 ## バージョン
-Version 1.34.0, January 01, 2026 00:00:00
+Version 1.36.0, January 15, 2026 00:00:00
 
 ## 必須事項
 * **[必須]** FFmpegの公式メジャーバージョン（FFmpeg 7.0またはそれ以上が必要）
 
 ## 使用法
-```powershell
-ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
-                        [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-trav [WATCH_TRAV]]
-                        [--watch-user [WATCH_USER]] [--watch-pass [WATCH_PASS]] [--exclude [EXCLUDE]]
-                        [--exclude-trav [EXCLUDE_TRAV]] [--exclude-user [EXCLUDE_USER]]
-                        [--exclude-pass [EXCLUDE_PASS]] [--convert [CONVERT]] [--ext [EXT]] [--exist [EXIST]]
-                        [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                        [--snapshot SNAPSHOT] [--metadata [METADATA]] [--startup [STARTUP]]
-                        [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
-                        [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
-
+```
+ChzzkTransportFinalizer
+  [-h] [--version] [-d [DISPLAY]] [--work [WORK]]
+  [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--watch [WATCH]]
+  [--watch-trav [WATCH_TRAV]] [--watch-user [WATCH_USER]]
+  [--watch-pass [WATCH_PASS]] [--exclude [EXCLUDE]]
+  [--exclude-trav [EXCLUDE_TRAV]] [--exclude-user [EXCLUDE_USER]]
+  [--exclude-pass [EXCLUDE_PASS]] [--convert [CONVERT]] [--ext [EXT]]
+  [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
+  [--rpcexpose [RPCEXPOSE]] [--rpcport [RPCPORT]] [--rpcid [RPCID]]
+  [--snapshot SNAPSHOT] [--metadata [METADATA]] [--startup [STARTUP]]
+  [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
+  [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
 ```
 
 ## オプション
@@ -45,10 +47,11 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --convert [CONVERT]           変換パラメータを設定
 --ext [EXT]                   保存ファイルの拡張子を設定
 --exist [EXIST]               対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
---threshold [THRESHOLD]       空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 5, 1-50)
+--threshold [THRESHOLD]       ディスク容量が不足している場合にダウンロードを停止するしきい値を、サイズまたはパーセント(%)で設定 (無効化: -, 既定値: 5%, 有効範囲: ディスク総容量の1～50%)
 --rpc                         JSON-RPCサーバーを有効化
---rpcid [RPCID]               JSON-RPCサーバーのIDを設定 （デフォルト: 70）
+--rpcexpose [RPCEXPOSE]       JSON-RPCサーバーの公開方法を設定 (close|open)
 --rpcport [RPCPORT]           JSON-RPCサーバーのポートを設定 （デフォルト: 65000, 49152-65300）
+--rpcid [RPCID]               JSON-RPCサーバーのIDを設定 （デフォルト: 70）
 --snapshot SNAPSHOT           ステータスが変更されるたびにJSONファイルにスナップショットを保存
 --metadata [METADATA]         メタデータを保存またはスキップ（save|skip）
 --startup [STARTUP]           起動方法を設定（normal|fast）
@@ -248,11 +251,16 @@ ChzzkTransportFinalizer --exist
 ```
 
 ## 空き容量が閾値を下回った場合に最終処理を停止する設定
-デフォルトでは、保存ディレクトリまたは一時ディレクトリの空き容量が10%を下回ると、最終処理を停止します。空き容量の閾値を設定するには、以下のコマンドを使用してください。設定可能な値の範囲は`1`から`50`です。
+デフォルトでは、保存ディレクトリおよび一時ディレクトリの空き容量が5%以下になると、最終処理を停止します。空き容量のしきい値を変更するには、次のコマンドを使用してください。しきい値はサイズまたはパーセント(%)で指定でき、有効範囲はディスク総容量の 1～50%です。
 
 ```powershell
-ChzzkTransportFinalizer --threshold 20
+ChzzkTransportFinalizer --threshold 20%
+ChzzkTransportFinalizer --threshold 1GB
+ChzzkTransportFinalizer --threshold 100M
+ChzzkTransportFinalizer --threshold 800MiB
 ```
+
+サイズでしきい値を指定する場合は、SI 単位（KB、MB、GB...）または IEC 単位（KiB、MiB、GiB...）を使用できます。また、接頭辞のみ（K、Ki、M、Mi、G、Gi...）を指定することも可能です。もちろん、単位を付けずにバイト単位で指定することもできます。
 
 空き容量に応じた最終処理停止機能を無効化するには、以下のコマンドを使用してください。
 

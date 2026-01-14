@@ -7,22 +7,25 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.34.0, January 01, 2026 00:00:00
+Version 1.36.0, January 15, 2026 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
 
 ## Usage
-```powershell
-ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
-                        [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-trav [WATCH_TRAV]]
-                        [--watch-user [WATCH_USER]] [--watch-pass [WATCH_PASS]] [--exclude [EXCLUDE]]
-                        [--exclude-trav [EXCLUDE_TRAV]] [--exclude-user [EXCLUDE_USER]]
-                        [--exclude-pass [EXCLUDE_PASS]] [--convert [CONVERT]] [--ext [EXT]] [--exist [EXIST]]
-                        [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]] [--rpcport [RPCPORT]]
-                        [--snapshot SNAPSHOT] [--metadata [METADATA]] [--startup [STARTUP]]
-                        [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
-                        [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+```
+ChzzkTransportFinalizer
+  [-h] [--version] [-d [DISPLAY]] [--work [WORK]]
+  [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--watch [WATCH]]
+  [--watch-trav [WATCH_TRAV]] [--watch-user [WATCH_USER]]
+  [--watch-pass [WATCH_PASS]] [--exclude [EXCLUDE]]
+  [--exclude-trav [EXCLUDE_TRAV]] [--exclude-user [EXCLUDE_USER]]
+  [--exclude-pass [EXCLUDE_PASS]] [--convert [CONVERT]] [--ext [EXT]]
+  [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
+  [--rpcexpose [RPCEXPOSE]] [--rpcport [RPCPORT]] [--rpcid [RPCID]]
+  [--snapshot SNAPSHOT] [--metadata [METADATA]] [--startup [STARTUP]]
+  [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
+  [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
 ```
 
 ## Options
@@ -44,10 +47,11 @@ ChzzkTransportFinalizer [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-
 --convert [CONVERT]           Set convert parameters
 --ext [EXT]                   Set output file extension
 --exist [EXIST]               Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD]       Set the threshold % for stopping downloads when disk space is low (disable: -, default: 5, 1-50)
+--threshold [THRESHOLD]       Set the threshold by size or percent for stopping downloads when disk space is low (disable: -, default: 5%, valid range: 1-50% of total disk space, even for size values)
 --rpc                         Activate JSON-RPC server
---rpcid [RPCID]               Set JSON-RPC server ID (default: 70)
+--rpcexpose [RPCEXPOSE]       Set JSON-RPC server exposure method (close|open)
 --rpcport [RPCPORT]           Set JSON-RPC server port (default: 65000, 49152-65300)
+--rpcid [RPCID]               Set JSON-RPC server ID (default: 70)
 --snapshot SNAPSHOT           Save snapshot to a JSON file whenever changing status
 --metadata [METADATA]         Save metadata or skip (save|skip)
 --startup [STARTUP]           Set startup method (normal|fast)
@@ -246,12 +250,17 @@ If you want to set this option to default, just use `--exist` without like below
 ChzzkTransportFinalizer --exist
 ```
 
-## Setting the threshold % for stopping finalization when disk space is low
-By default, finalization will stop if the free space in the watching directory drops below 10%. To set the free disk space threshold, use the following command. The acceptable range is `1` to `50`.
+## Setting the threshold for stopping finalization when disk space is low
+By default, finalizations stop when the free space in the output directory and the temporary directory drops to 5% or less. To set a different free-space threshold, use the following command. The threshold can be specified as an absolute size or as a percentage (%), and the valid range is 1% to 50% of the total disk capacity.
 
 ```powershell
-ChzzkTransportFinalizer --threshold 20
+ChzzkTransportFinalizer --threshold 20%
+ChzzkTransportFinalizer --threshold 1GB
+ChzzkTransportFinalizer --threshold 100M
+ChzzkTransportFinalizer --threshold 800MiB
 ```
+
+When specifying the threshold as an absolute size, you can use SI units (KB, MB, GB...) or IEC units (KiB, MiB, GiB...). You may also specify prefixes only (K, Ki, M, Mi, G, Gi...). Of course, you can also specify the value in bytes without any unit.
 
 To disable the feature that stops finalization based on free disk space, use the following command.
 

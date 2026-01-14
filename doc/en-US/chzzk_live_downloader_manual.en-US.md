@@ -7,25 +7,29 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.34.0, January 01, 2026 00:00:00
+Version 1.36.0, January 15, 2026 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
 * **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
 
 ## Usage
-```powershell
-ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-                    [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]]
-                    [--once ONCE] [--stream [STREAM]] [--final [FINAL]] [--custom [CUSTOM]] [--ext [EXT]]
-                    [--offset OFFSET] [--duration DURATION] [--detect [DETECT]] [--name [NAME]]
-                    [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
-                    [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
-                    [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
-                    [--threshold [THRESHOLD]] [--rpc] [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT]
-                    [--thumb [THUMB]] [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
-                    [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
-                    [--settings [SETTINGS]] [--reset]
+```
+ChzzkLiveDownloader
+  [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT]
+  [--authses AUTHSES] [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y]
+  [-q [QUALITY]] [-d [DISPLAY]] [--once ONCE] [--stream [STREAM]]
+  [--final [FINAL]] [--custom [CUSTOM]] [--ext [EXT]] [--offset OFFSET]
+  [--duration DURATION] [--detect [DETECT]] [--name [NAME]]
+  [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
+  [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]]
+  [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
+  [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]]
+  [--rpc] [--rpcexpose [RPCEXPOSE]] [--rpcbaseport [RPCBASEPORT]]
+  [--snapshot SNAPSHOT] [--thumb [THUMB]] [--metadata [METADATA]]
+  [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
+  [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
+  [--settings [SETTINGS]] [--reset]
 ```
 
 ### Options
@@ -62,8 +66,9 @@ ChzzkLiveDownloader [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut A
 --temp-pass [TEMP_PASS]     Set password to use when temporary directory is on remote network
 --category [CATEGORY]       Set output categorize method (none|streamer)
 --exist [EXIST]             Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD]     Set the threshold % for stopping downloads when disk space is low (disable: -, default: 5, 1-50)
+--threshold [THRESHOLD]     Set the threshold by size or percent for stopping downloads when disk space is low (disable: -, default: 5%, valid range: 1-50% of total disk space, even for size values)
 --rpc                       Activate JSON-RPC server
+--rpcexpose [RPCEXPOSE]     Set JSON-RPC server exposure method (close|open)
 --rpcbaseport [RPCBASEPORT] Set base port of JSON-RPC server (default: 62000, 49152-65300)
 --snapshot SNAPSHOT         Save snapshot to a JSON file whenever changing status
 --thumb [THUMB]             Save thumbnail image or skip (save|skip)
@@ -510,12 +515,17 @@ If you want to set this option to default, just use `--exist` like below.
 ChzzkLiveDownloader --exist
 ```
 
-## Setting the threshold % for stopping downloads when disk space is low
-By default, downloading will stop if the free space in the storage directory or temporary directory drops below 10%. To set the free disk space threshold, use the following command. The acceptable range is `1` to `50`.
+## Setting the threshold for stopping downloads when disk space is low
+By default, downloads stop when the free space in the output directory and the temporary directory drops to 5% or less. To set a different free-space threshold, use the following command. The threshold can be specified as an absolute size or as a percentage (%), and the valid range is 1% to 50% of the total disk capacity.
 
 ```powershell
-ChzzkLiveDownloader --threshold 20
+ChzzkLiveDownloader --threshold 20%
+ChzzkLiveDownloader --threshold 1GB
+ChzzkLiveDownloader --threshold 100M
+ChzzkLiveDownloader --threshold 800MiB
 ```
+
+When specifying the threshold as an absolute size, you can use SI units (KB, MB, GB...) or IEC units (KiB, MiB, GiB...). You may also specify prefixes only (K, Ki, M, Mi, G, Gi...). Of course, you can also specify the value in bytes without any unit.
 
 To disable the feature that stops downloads based on free disk space, use the following command.
 

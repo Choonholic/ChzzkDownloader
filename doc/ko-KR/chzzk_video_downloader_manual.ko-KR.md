@@ -7,26 +7,29 @@
 </div>
 
 ## 버전
-Version 1.34.0, January 01, 2026 00:00:00
+Version 1.36.0, January 15, 2026 00:00:00
 
 ## 선행 요건
 * **[필수]** Streamlink (Streamlink 7.0.0 또는 상위 버전 필요)
 * **[필수]** FFmpeg 공식 메이저 버전 (FFmpeg 7.0 또는 상위 버전 필요)
 
 ## 사용법
-```powershell
-ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-                     [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]]
-                     [--final [FINAL]] [--custom [CUSTOM]] [--ext [EXT]] [--info INFO] [--name [NAME]]
-                     [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
-                     [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
-                     [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
-                     [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
-                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--metadata [METADATA]]
-                     [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]] [--startup [STARTUP]]
-                     [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
-                     [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
-                     [video]
+```
+ChzzkVideoDownloader
+  [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT]
+  [--authses AUTHSES] [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y]
+  [-q [QUALITY]] [-d [DISPLAY]] [--final [FINAL]] [--custom [CUSTOM]]
+  [--ext [EXT]] [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
+  [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
+  [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
+  [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
+  [--threshold [THRESHOLD]] [--rpc] [--rpcexpose [RPCEXPOSE]]
+  [--rpcport [RPCPORT]] [--rpcid [RPCID]] [--snapshot SNAPSHOT]
+  [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]]
+  [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
+  [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
+  [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+  [video]
 ```
 
 ### 위치 매개 변수
@@ -63,10 +66,11 @@ video                     다운로드할 비디오 번호 또는 URL
 --temp-pass [TEMP_PASS]   임시 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
 --category [CATEGORY]     저장 시 분류 방법을 설정합니다 (none|streamer)
 --exist [EXIST]           파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
---threshold [THRESHOLD]   디스크 공간 부족 시 중지 임계값(%)을 설정합니다 (비활성화: -, 기본값: 5, 1-50)
+--threshold [THRESHOLD]   디스크 공간 부족 시 중지 임계값을 크기 또는 퍼센트(%)로 설정합니다 (비활성화: -, 기본값: 5%, 유효 범위: 디스크 총 용량의 1–50%)
 --rpc                     JSON-RPC 서버를 활성화합니다
---rpcid [RPCID]           JSON-RPC 서버 ID를 설정합니다 (기본값: 30)
+--rpcexpose [RPCEXPOSE]   JSON-RPC 서버 노출 방식을 설정합니다. (close|open)
 --rpcport [RPCPORT]       JSON-RPC 서버 포트를 설정합니다 (기본값: 63000, 49152-65300)
+--rpcid [RPCID]           JSON-RPC 서버 ID를 설정합니다 (기본값: 30)
 --snapshot SNAPSHOT       상태 변경 시 스냅샷을 JSON 파일로 저장합니다
 --download [DOWNLOAD]     다운로드 방법을 설정합니다 (default|atxc|alter)
 --limit [LIMIT]           최대 다운로드 속도를 설정합니다 (예: 512K, 10M, 1G, 기본값: 0)
@@ -424,11 +428,16 @@ ChzzkVideoDownloader video_no 또는 url --limit
 ```
 
 ## 여유 저장 공간이 임계점 이하로 낮아질 때 다운로드 중지 설정
-기본적으로, 저장 디렉터리와 임시 디렉터리의 여유 공간이 10% 이하로 낮아질 때 다운로드를 중지합니다. 여유 저장 공간의 임계점을 설정하려면 다음 명령어를 사용하세요. 이 때 설정 가능한 값은 `1`부터 `50`까지입니다.
+기본적으로, 저장 디렉터리와 임시 디렉터리의 여유 공간이 5% 이하로 낮아질 때 다운로드를 중지합니다. 여유 저장 공간의 임계값을 다르게 설정하려면 다음 명령어를 사용하세요. 임계값은 실제 크기 또는 % 단위로 지정할 수 있으며, 범위는 디스크 전체 용량의 1~50%의 범위 내애서 지정할 수 있습니다.
 
 ```powershell
-ChzzkVideoDownloader video_no 또는 url --threshold 20
+ChzzkVideoDownloader video_no 또는 url --threshold 20%
+ChzzkVideoDownloader video_no 또는 url --threshold 1GB
+ChzzkVideoDownloader video_no 또는 url --threshold 100M
+ChzzkVideoDownloader video_no 또는 url --threshold 800MiB
 ```
+
+실제 크기로 임계점을 지정할 때는 SI 단위(KB, MB, GB...), IEC 단위(KiB, MiB, GiB...)를 사용할 수 있으며, 접두사(K, Ki, M, Mi, G, Gi...)만 사용할 수도 있습니다. 물론 단위 없이 바이트 단위로 지정할 수도 있습니다.
 
 여유 저장 공간에 따른 다운로드 중지 기능을 비활성화하려면 다음 명령어를 사용하세요.
 

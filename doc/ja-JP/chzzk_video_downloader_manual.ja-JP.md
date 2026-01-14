@@ -7,26 +7,29 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.34.0, January 01, 2026 00:00:00
+Version 1.36.0, January 15, 2026 00:00:00
 
 ## 必須事項
 * **[必須]** Streamlink（Streamlink 7.0.0またはそれ以上が必要）
 * **[必須]** FFmpegの公式メジャーバージョン（FFmpeg 7.0またはそれ以上が必要）
 
 ## 使用法
-```powershell
-ChzzkVideoDownloader [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-                     [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]]
-                     [--final [FINAL]] [--custom [CUSTOM]] [--ext [EXT]] [--info INFO] [--name [NAME]]
-                     [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]]
-                     [--out-user [OUT_USER]] [--out-pass [OUT_PASS]] [--temp [TEMP]]
-                     [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
-                     [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcid [RPCID]]
-                     [--rpcport [RPCPORT]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
-                     [--limit [LIMIT]] [--thumb [THUMB]] [--metadata [METADATA]] [--startup [STARTUP]]
-                     [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
-                     [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
-                     [video]
+```
+ChzzkVideoDownloader
+  [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT]
+  [--authses AUTHSES] [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y]
+  [-q [QUALITY]] [-d [DISPLAY]] [--final [FINAL]] [--custom [CUSTOM]]
+  [--ext [EXT]] [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
+  [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
+  [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
+  [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
+  [--threshold [THRESHOLD]] [--rpc] [--rpcexpose [RPCEXPOSE]]
+  [--rpcport [RPCPORT]] [--rpcid [RPCID]] [--snapshot SNAPSHOT]
+  [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]]
+  [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
+  [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
+  [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+  [video]
 ```
 
 ### 位置引数
@@ -63,10 +66,11 @@ video                     ダウンロードするビデオ番号またはURL
 --temp-pass [TEMP_PASS]   一時ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
 --category [CATEGORY]     保存時のカテゴリ分け方法を設定 (none|streamer)
 --exist [EXIST]           対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
---threshold [THRESHOLD]   空き容量が少ない場合に停止する閾値(%)を設定 (無効化: -, デフォルト: 5, 1-50)
+--threshold [THRESHOLD]   ディスク容量が不足している場合にダウンロードを停止するしきい値を、サイズまたはパーセント(%)で設定 (無効化: -, 既定値: 5%, 有効範囲: ディスク総容量の1～50%)
 --rpc                     JSON-RPCサーバーを有効化
---rpcid [RPCID]           JSON-RPCサーバーのIDを設定 （デフォルト: 30）
+--rpcexpose [RPCEXPOSE]   JSON-RPCサーバーの公開方法を設定 (close|open)
 --rpcport [RPCPORT]       JSON-RPCサーバーのポートを設定 （デフォルト: 63000, 49152-65300）
+--rpcid [RPCID]           JSON-RPCサーバーのIDを設定 （デフォルト: 30）
 --snapshot SNAPSHOT       ステータスが変更されるたびにJSONファイルにスナップショットを保存
 --download [DOWNLOAD]     ダウンロード方法を設定（default|atxc|alter）
 --limit [LIMIT]           最大ダウンロード速度を設定 (例: 512K, 10M, 1G, デフォルト: 0)
@@ -424,11 +428,16 @@ ChzzkVideoDownloader video_no または url --limit
 ```
 
 ## 空き容量が閾値を下回った場合にダウンロードを停止する設定
-デフォルトでは、保存ディレクトリまたは一時ディレクトリの空き容量が10%を下回ると、ダウンロードが停止します。空き容量の閾値を設定するには、以下のコマンドを使用してください。設定可能な値の範囲は`1`から`50`です。
+デフォルトでは、保存ディレクトリおよび一時ディレクトリの空き容量が5%以下になると、ダウンロードを停止します。空き容量のしきい値を変更するには、次のコマンドを使用してください。しきい値はサイズまたはパーセント(%)で指定でき、有効範囲はディスク総容量の 1～50%です。
 
 ```powershell
-ChzzkVideoDownloader video_no または url --threshold 20
+ChzzkVideoDownloader video_no または url --threshold 20%
+ChzzkVideoDownloader video_no または url --threshold 1GB
+ChzzkVideoDownloader video_no または url --threshold 100M
+ChzzkVideoDownloader video_no または url --threshold 800MiB
 ```
+
+サイズでしきい値を指定する場合は、SI 単位（KB、MB、GB...）または IEC 単位（KiB、MiB、GiB...）を使用できます。また、接頭辞のみ（K、Ki、M、Mi、G、Gi...）を指定することも可能です。もちろん、単位を付けずにバイト単位で指定することもできます。
 
 空き容量に応じたダウンロード停止機能を無効化するには、以下のコマンドを使用してください。
 

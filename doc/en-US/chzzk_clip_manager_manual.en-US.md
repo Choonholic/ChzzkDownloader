@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Clip Downloader
 </div>
 
 ## Version
-Version 1.34.0, January 01, 2026 00:00:00
+Version 1.36.0, January 15, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Clip Manager is the GUI frontend application for Chzzk Clip Downloader, Chzzk Clip Downloader must be installed as well.
@@ -183,7 +183,8 @@ Double-clicking tray icon will restore the window to its original state, and rig
 </div>
 
 * **Update Interval (Seconds)** - Sets the screen refresh interval for the list.
-* **Stop downloading if free disk space is less than** - Sets the threshold % for stopping downloads when disk space is low.
+* **Stop downloading if free space is less than** - Sets the stop threshold when disk space is low, using either a percentage (%) or a size value. When using a size value, you can specify SI units (KB, MB, GB...) or IEC units (KiB, MiB, GiB...). You may also specify prefixes only (K, Ki, M, Mi, G, Gi...). Of course, you can also specify the value in bytes without any unit.
+Sets the threshold % for stopping downloads when disk space is low.
 * **Sleep Mode** - Sets the system's sleep mode while the Chzzk Clip Manager is running.
 * **Performance Level** - Specify the performance of the system where Chzzk Clip Manager is currently running. If you encounter errors due to timeouts when adding or refreshing clips, try lowering the performance level by one step and attempt again.
 * **Save metadata based on clip information** - Checks to save metadata based on clip information.
@@ -195,7 +196,7 @@ Double-clicking tray icon will restore the window to its original state, and rig
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **JSON-RPC Server: Host Address** - Sets the host address of the JSON-RPC server.
+* **JSON-RPC Server: Allow External Remote Access** - Allows remote access to the JSON-RPC server from outside the PC running the downloader.
 * **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
 * **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
 * **Save Thumbnail Image** - Checks to save thumbnail images separately.
