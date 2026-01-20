@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.36.0, January 15, 2026 00:00:00
+Version 1.37.0, January 23, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, both of Chzzk Live Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -91,7 +91,7 @@ You can set amount of time to skip from the beginning of the stream. By default,
 1h30m45.67s
 ```
 
-## Duration and Split Downloading
+### Duration and Split Downloading
 You can set the stream duration to download and the downloaded stream will be split into the specified duration. By default, the unit of time is seconds. However, you can also set through hours, minutes, seconds and milliseconds as follows.
 
 
@@ -99,6 +99,9 @@ You can set the stream duration to download and the downloaded stream will be sp
 1:23:45.67
 1h30m45.67s
 ```
+
+### Allowing External Remote Access
+When enabled, external systems can monitor the status of the downloader or control its functions via the JSON-RPC 2.0 specification.
 
 ## Removing the Channel
 To remove a channel you no longer wish to manage, select the channel from the list, click the ☰ icon, and choose `Remove Channel`, then click `OK` to confirm to remove.
@@ -217,14 +220,14 @@ However, even in such cases, you can configure the following settings to automat
 * If both channel scanning and channel list loading are enabled, it will first scan for running channels and then load the channel list, filling in any gaps by adding new channels.
 
 ## Opening Chzzk Downloader Environment
-To open Chzzk Downloader Environment, click the ☰ icon, and choose `Open Environment (Command Prompt)` or `Open Environment (PowerShell)` under `Downloader`.
+To open Chzzk Downloader Environment, click the ☰ icon, and choose `Open Environment (Command Prompt)` or `Open Environment (PowerShell)` under `Tools`.
 
 ## Opening the Output Directory
-To open the output directory for downloaded streams, click the ☰ icon, and choose `Open Output Directory` under `Downloader`.
+To open the output directory for downloaded streams, click the ☰ icon, and choose `Open Output Directory` under `Tools`.
 
 ## Purging Broken Files
 If an abnormal situation occurs—such as a network disconnection or system shutdown during download—broken files may remain in the temporary directory.
-To remove any remaining broken files, click the ☰ icon, and choose `Purge Broken Files` under `Downloader`.
+To remove any remaining broken files, click the ☰ icon, and choose `Purge Broken Files` under `Tools`.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_en-US/lman_purge_broken.png' />
@@ -232,10 +235,23 @@ To remove any remaining broken files, click the ☰ icon, and choose `Purge Brok
 </div>
 
 ## Viewing Downloader Configuration
-To view configuration of Chzzk Live Downloader, click the ☰ icon, and choose `View Configuration...` under `Downloader`.
+To view configuration of Chzzk Live Downloader, click the ☰ icon, and choose `View Configuration...` under `Tools`.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_en-US/lman_configuration.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+## Restarting Chzzk Transport Finalizer
+If you enable `Send to Chzzk Transport Finalizer` in the `Finalize` settings, Chzzk Transport Finalizer will be launched automatically and handle the finalization. However, depending on the situation, Chzzk Transport Finalizer may be forced to terminate or may not function as expected. In such cases, restarting Chzzk Transport Finalizer may be necessary.
+
+To restart Chzzk Transport Finalizer, click the ☰ icon, and choose `Restart Chzzk Transport Finalizer` under `Tools`.
+
+If there was a file being finalized at the time of restart, it may become corrupted.
+In this case, deleting the affected file will automatically restart the finalization.
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_en-US/lman_restart_finalizer.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 

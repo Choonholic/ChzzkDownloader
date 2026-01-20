@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.36.0, January 15, 2026 00:00:00
+Version 1.37.0, January 23, 2026 00:00:00
 
 ## 선행 요건
 Chzzk Live Manager는 Chzzk Live Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Live Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
@@ -91,13 +91,16 @@ Chzzk Live Manager의 모든 기능을 활용하려면, Chzzk Live Downloader와
 1h30m45.67s
 ```
 
-## 다운로드 길이 설정 및 분할 다운로드
+### 다운로드 길이 설정 및 분할 다운로드
 다운로드할 스트리밍의 길이를 지정하면 지정된 길이마다 분할되어 다운로드됩니다. 기본적으로 지정되는 시간은 초 단위입니다. 하지만 다음과 같이 시, 분, 초, 밀리초를 사용하여 지정할 수도 있습니다.
 
 ```powershell
 1:23:45.67
 1h30m45.67s
 ```
+
+### 외부 원격 접속 허용
+이 설정을 활성화하면 외부에서 JSON-RPC 2.0 규격을 통해 다운로드 도구의 현황을 확인하거나 기능을 지정할 수 있습니다.
 
 ## 채널 삭제
 더 이상 관리할 필요가 없는 채널을 삭제하려면, 목록에서 삭제할 채널을 선택한 다음 ☰ 아이콘을 누르고 `채널 삭제` 항목을 선택합니다. 채널 삭제 여부를 확인하는 대화 상자에서 `OK` 버튼을 누르면 채널이 삭제됩니다.
@@ -216,14 +219,14 @@ Chzzk Live Downloader는 Chzzk Live Manager 없이도 단독 실행이 가능한
 * 채널 탐색과 채널 목록 불러오기 기능을 함께 설정했을 경우에는, 먼저 채널을 탐색한 다음 채널 목록을 불러와 빈 자리를 채우면서 추가됩니다.
 
 ## 도구 환경 열기
-도구 환경을 열려면, ☰ 아이콘을 누르고 `다운로드 도구` 항목에서 `도구 환경 (Command Prompt)` 또는 `도구 환경 (PowerShell)` 항목을 선택합니다.
+도구 환경을 열려면, ☰ 아이콘을 누르고 `도구` 항목에서 `도구 환경 (Command Prompt)` 또는 `도구 환경 (PowerShell)` 항목을 선택합니다.
 
 ## 저장 디렉터리 열기
-다운로드한 스트리밍이 저장된 디렉터리를 열려면, ☰ 아이콘을 누르고 `다운로드 도구` 항목에서 `저장 디렉터리 열기` 항목을 선택합니다.
+다운로드한 스트리밍이 저장된 디렉터리를 열려면, ☰ 아이콘을 누르고 `도구` 항목에서 `저장 디렉터리 열기` 항목을 선택합니다.
 
 ## 손상된 파일 제거하기
 다운로드 도중에 네트워크 연결이 끊어지거나 시스템이 종료되는 등 비정상 상황이 발생하면, 임시 디렉터리에 손상된 파일이 남을 수 있습니다.
-남아 있는 손상된 파일을 제거하려면, ☰ 아이콘을 누르고 `다운로드 도구` 항목에서 `손상된 파일 제거` 항목을 선택합니다.
+남아 있는 손상된 파일을 제거하려면, ☰ 아이콘을 누르고 `도구` 항목에서 `손상된 파일 제거` 항목을 선택합니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_ko-KR/lman_purge_broken.png' />
@@ -231,10 +234,22 @@ Chzzk Live Downloader는 Chzzk Live Manager 없이도 단독 실행이 가능한
 </div>
 
 ## 다운로드 도구 설정 보기
-Chzzk Live Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `다운로드 도구` 항목에서 `설정 보기...` 항목을 선택합니다.
+Chzzk Live Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `도구` 항목에서 `설정 보기...` 항목을 선택합니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_ko-KR/lman_configuration.png' />
+<p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
+</div>
+
+## Chzzk Transport Finalizer 재시작하기
+`최종 처리` 설정에서 `Chzzk Transport Finalizer로 보내기` 항목을 활성화하면, 자동으로 Chzzk Transport Finalizer가 실행되어 최종 처리를 담당하게 됩니다. 하지만 여러 가지 이유로 Chzzk Transport Finalizer가 도중에 강제 종료되거나 원하는 형태로 동작하지 않을 수 있습니다. 이럴 때는 Chzzk Transport Finalizer를 재시작할 필요가 있습니다.
+
+Chzzk Transport Finalizer를 재시작하려면, ☰ 아이콘을 누르고 `도구` 항목에서 `Chzzk Transport Finalizer 재시작` 항목을 선택합니다.
+
+재시작 시점에 최종 처리 중인 파일이 있었다면 손상될 가능성이 있습니다. 이 때는 해당 파일을 삭제하면 자동으로 다시 최종 처리가 시작됩니다.
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_ko-KR/lman_restart_finalizer.png' />
 <p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
 </div>
 

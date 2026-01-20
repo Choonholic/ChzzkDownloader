@@ -7,7 +7,7 @@ Chzzk Clip Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.36.0, January 15, 2026 00:00:00
+Version 1.37.0, January 23, 2026 00:00:00
 
 ## 必要条件
 Chzzk Clip Managerは、Chzzk Clip DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Clip Downloaderもインストールされている必要があります。
@@ -126,14 +126,14 @@ Chzzk Clip Managerが正常に機能するためには、Chzzk Clip Downloader�
 リストをすぐに更新するには、☰アイコンをクリックし、`更新`を選択します。
 
 ## Chzzk Downloader Suiteの環境を開く
-Chzzk Downloader Suiteの環境を開くには、☰アイコンをクリックし、`ダウンローダー`の下にある`環境（Command Prompt）`または`環境（PowerShell）`を選択します。
+Chzzk Downloader Suiteの環境を開くには、☰アイコンをクリックし、`ツール`の下にある`環境（Command Prompt）`または`環境（PowerShell）`を選択します。
 
 ## 保存ディレクトリを開く
-ダウンロードしたクリップの保存ディレクトリを開くには、☰アイコンをクリックし、`ダウンローダー`の下にある`保存ディレクトリを開く`を選択します。
+ダウンロードしたクリップの保存ディレクトリを開くには、☰アイコンをクリックし、`ツール`の下にある`保存ディレクトリを開く`を選択します。
 
 ## 破損ファイルの削除
 ダウンロード中にネットワーク接続が切れたり、システムがシャットダウンされるなどの異常な状況が発生すると、一時ディレクトリに破損したファイルが残る場合があります。
-残っている破損ファイルを削除するには、☰アイコンをタップし、`ダウンローダー`の下にある`破損ファイルの削除`を選択します。
+残っている破損ファイルを削除するには、☰アイコンをタップし、`ツール`の下にある`破損ファイルの削除`を選択します。
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/cman_ja-JP/cman_purge_broken.png' />
@@ -141,7 +141,7 @@ Chzzk Downloader Suiteの環境を開くには、☰アイコンをクリック�
 </div>
 
 ## Chzzk Clip Downloaderの設定の表示
-Chzzk Clip Downloaderの設定を表示するには、☰アイコンをクリックし、`ダウンローダー`の下にある`設定を表示...`を選択します。
+Chzzk Clip Downloaderの設定を表示するには、☰アイコンをクリックし、`ツール`の下にある`設定を表示...`を選択します。
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/cman_ja-JP/cman_configuration.png' />

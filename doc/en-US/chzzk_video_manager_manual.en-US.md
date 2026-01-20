@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Video Downloader
 </div>
 
 ## Version
-Version 1.36.0, January 15, 2026 00:00:00
+Version 1.37.0, January 23, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, both of Chzzk Video Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -138,14 +138,14 @@ If a video from the loaded list already exists in the current list, it will be a
 To refresh the list immediately, click the ☰ icon, and choose `Refresh`.
 
 ## Opening Chzzk Downloader Environment
-To open Chzzk Downloader Environment, click the ☰ icon, and choose `Open Environment (Command Prompt)` or `Open Environment (PowerShell)` under `Downloader`.
+To open Chzzk Downloader Environment, click the ☰ icon, and choose `Open Environment (Command Prompt)` or `Open Environment (PowerShell)` under `Tools`.
 
 ## Opening the Output Directory
-To open the output directory for downloaded videos, click the ☰ icon, and choose `Open Output Directory` under `Downloader`.
+To open the output directory for downloaded videos, click the ☰ icon, and choose `Open Output Directory` under `Tools`.
 
 ## Purging Broken Files
 If an abnormal situation occurs—such as a network disconnection or system shutdown during download—broken files may remain in the temporary directory.
-To remove any remaining broken files, click the ☰ icon, and choose `Purge Broken Files` under `Downloader`.
+To remove any remaining broken files, click the ☰ icon, and choose `Purge Broken Files` under `Tools`.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_en-US/vman_purge_broken.png' />
@@ -153,10 +153,23 @@ To remove any remaining broken files, click the ☰ icon, and choose `Purge Brok
 </div>
 
 ## Viewing Downloader Configuration
-To view configuration of Chzzk Video Downloader, click the ☰ icon, and choose `View Configuration...` under `Downloader`.
+To view configuration of Chzzk Video Downloader, click the ☰ icon, and choose `View Configuration...` under `Tools`.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_en-US/vman_configuration.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
+## Restarting Chzzk Transport Finalizer
+If you enable `Send to Chzzk Transport Finalizer` in the `Finalize` settings, Chzzk Transport Finalizer will be launched automatically and handle the finalization. However, depending on the situation, Chzzk Transport Finalizer may be forced to terminate or may not function as expected. In such cases, restarting Chzzk Transport Finalizer may be necessary.
+
+To restart Chzzk Transport Finalizer, click the ☰ icon, and choose `Restart Chzzk Transport Finalizer` under `Tools`.
+
+If there was a file being finalized at the time of restart, it may become corrupted.
+In this case, deleting the affected file will automatically restart the finalization.
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/vman_en-US/vman_restart_finalizer.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 

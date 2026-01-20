@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.36.0, January 15, 2026 00:00:00
+Version 1.37.0, January 23, 2026 00:00:00
 
 ## 선행 요건
 * **[필수]** FFmpeg 공식 메이저 버전 (FFmpeg 7.0 또는 상위 버전 필요)
@@ -15,17 +15,14 @@ Version 1.36.0, January 15, 2026 00:00:00
 ## 사용법
 ```
 ChzzkTransportFinalizer
-  [-h] [--version] [-d [DISPLAY]] [--work [WORK]]
-  [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--watch [WATCH]]
-  [--watch-trav [WATCH_TRAV]] [--watch-user [WATCH_USER]]
-  [--watch-pass [WATCH_PASS]] [--exclude [EXCLUDE]]
-  [--exclude-trav [EXCLUDE_TRAV]] [--exclude-user [EXCLUDE_USER]]
-  [--exclude-pass [EXCLUDE_PASS]] [--convert [CONVERT]] [--ext [EXT]]
-  [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
-  [--rpcexpose [RPCEXPOSE]] [--rpcport [RPCPORT]] [--rpcid [RPCID]]
-  [--snapshot SNAPSHOT] [--metadata [METADATA]] [--startup [STARTUP]]
-  [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
-  [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+  [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
+  [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-trav [WATCH_TRAV]]
+  [--watch-user [WATCH_USER]] [--watch-pass [WATCH_PASS]] [--exclude [EXCLUDE]]
+  [--exclude-trav [EXCLUDE_TRAV]] [--exclude-user [EXCLUDE_USER]] [--exclude-pass [EXCLUDE_PASS]]
+  [--convert [CONVERT]] [--ext [EXT]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
+  [--rpcexpose [RPCEXPOSE]] [--rpcport [RPCPORT]] [--rpcid [RPCID]] [--snapshot SNAPSHOT]
+  [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
+  [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
 ```
 
 ## 선택적 매개 변수

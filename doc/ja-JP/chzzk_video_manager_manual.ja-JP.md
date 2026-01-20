@@ -7,7 +7,7 @@ Chzzk Video Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.36.0, January 15, 2026 00:00:00
+Version 1.37.0, January 23, 2026 00:00:00
 
 ## 必要条件
 Chzzk Video Managerは、Chzzk Video DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Video DownloaderとChzzk Transport Finalizerもインストールされている必要があります。
@@ -138,14 +138,14 @@ Chzzk Video Managerが正常に機能するためには、Chzzk Video Downloader
 リストをすぐに更新するには、☰アイコンをクリックし、`更新`を選択します。
 
 ## Chzzk Downloader Suiteの環境を開く
-Chzzk Downloader Suiteの環境を開くには、☰アイコンをクリックし、`ダウンローダー`の下にある`環境（Command Prompt）`または`環境（PowerShell）`を選択します。
+Chzzk Downloader Suiteの環境を開くには、☰アイコンをクリックし、`ツール`の下にある`環境（Command Prompt）`または`環境（PowerShell）`を選択します。
 
 ## 保存ディレクトリを開く
-ダウンロードしたビデオの保存ディレクトリを開くには、☰アイコンをクリックし、`ダウンローダー`の下にある`保存ディレクトリを開く`を選択します。
+ダウンロードしたビデオの保存ディレクトリを開くには、☰アイコンをクリックし、`ツール`の下にある`保存ディレクトリを開く`を選択します。
 
 ## 破損ファイルの削除
 ダウンロード中にネットワーク接続が切れたり、システムがシャットダウンされるなどの異常な状況が発生すると、一時ディレクトリに破損したファイルが残る場合があります。
-残っている破損ファイルを削除するには、☰アイコンをタップし、`ダウンローダー`の下にある`破損ファイルの削除`を選択します。
+残っている破損ファイルを削除するには、☰アイコンをタップし、`ツール`の下にある`破損ファイルの削除`を選択します。
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_ja-JP/vman_purge_broken.png' />
@@ -153,10 +153,22 @@ Chzzk Downloader Suiteの環境を開くには、☰アイコンをクリック�
 </div>
 
 ## Chzzk Video Downloaderの設定の表示
-Chzzk Video Downloaderの設定を表示するには、☰アイコンをクリックし、`ダウンローダー`の下にある`設定を表示...`を選択します。
+Chzzk Video Downloaderの設定を表示するには、☰アイコンをクリックし、`ツール`の下にある`設定を表示...`を選択します。
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_ja-JP/vman_configuration.png' />
+<p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
+</div>
+
+## Chzzk Transport Finalizerの再起動
+`最終処理`設定で`Chzzk Transport Finalizerで処理`を有効にすると、Chzzk Transport Finalizerが自動的に起動し、最終処理を担当します。ただし、状況によってはChzzk Transport Finalizerが途中で強制終了されたり、意図したとおりに動作しない場合があります。そのような場合は、Chzzk Transport Finalizerを再起動する必要があります。
+
+Chzzk Transport Finalizerを再起動するには、☰アイコンをクリックし、`ツール`の下にある`Chzzk Transport Finalizerを再起動`を選択します。
+
+再起動時に最終処理中のファイルがあった場合、そのファイルが破損する可能性があります。その場合、該当ファイルを削除すると、最終処理が自動的に再開されます。
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/vman_ja-JP/vman_restart_finalizer.png' />
 <p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
 </div>
 

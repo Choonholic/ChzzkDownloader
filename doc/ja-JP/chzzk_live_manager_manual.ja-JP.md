@@ -7,7 +7,7 @@ Chzzk Live Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 1.36.0, January 15, 2026 00:00:00
+Version 1.37.0, January 23, 2026 00:00:00
 
 ## 必要条件
 Chzzk Live Managerは、Chzzk Live DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Live DownloaderとChzzk Transport Finalizerもインストールされている必要があります。
@@ -91,13 +91,16 @@ Chzzk Live Downloaderと同様に、非標準の解像度が使用されてい�
 1h30m45.67s
 ```
 
-## ダウンロード時間と分割
+### ダウンロード時間と分割
 ダウンロードするストリームの継続時間を設定し、指定した継続時間でストリームを分割してダウンロードすることができます。デフォルトでは、時間の単位は秒ですが、以下のように時間、分、秒、ミリ秒で設定することもできます。
 
 ```powershell
 1:23:45.67
 1h30m45.67s
 ```
+
+### 外部からのリモート接続を許可
+この設定を有効にすると、JSON-RPC 2.0規格を通じて、外部からダウンローダーの状態を確認したり、機能を指定・操作したりできます。
 
 ## チャンネルの削除
 管理を終了したいチャンネルを削除するには、リストからチャンネルを選択し、☰アイコンをクリックして`チャンネルの削除`を選択し、確認のため`OK`をクリックします。
@@ -216,14 +219,14 @@ Chzzk Live Downloaderは、Chzzk Live Managerを使用せずに独立して実�
 * チャンネルスキャンとチャンネルリストの読み込みの両方が有効になっている場合、最初に実行中のチャンネルをスキャンし、その後にチャンネルリストを読み込み、新しいチャンネルを追加してギャップを埋めます。
 
 ## Chzzk Downloader Suiteの環境を開く
-Chzzk Downloader Suiteの環境を開くには、☰アイコンをクリックし、`ダウンローダー`の下にある`環境（Command Prompt）`または`環境（PowerShell）`を選択します。
+Chzzk Downloader Suiteの環境を開くには、☰アイコンをクリックし、`ツール`の下にある`環境 (Command Prompt)`または`環境 (PowerShell)`を選択します。
 
 ## 保存ディレクトリを開く
-ダウンロードしたストリームの保存ディレクトリを開くには、☰アイコンをクリックし、`ダウンローダー`の下にある`保存ディレクトリを開く`を選択します。
+ダウンロードしたストリームの保存ディレクトリを開くには、☰アイコンをクリックし、`ツール`の下にある`保存ディレクトリを開く`を選択します。
 
 ## 破損ファイルの削除
 ダウンロード中にネットワーク接続が切れたり、システムがシャットダウンされるなどの異常な状況が発生すると、一時ディレクトリに破損したファイルが残る場合があります。
-残っている破損ファイルを削除するには、☰アイコンをタップし、`ダウンローダー`の下にある`破損ファイルの削除`を選択します。
+残っている破損ファイルを削除するには、☰アイコンをタップし、`ツール`の下にある`破損ファイルの削除`を選択します。
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_ja-JP/lman_purge_broken.png' />
@@ -231,10 +234,22 @@ Chzzk Downloader Suiteの環境を開くには、☰アイコンをクリック�
 </div>
 
 ## Chzzk Live Downloaderの設定の表示
-Chzzk Live Downloaderの設定を表示するには、☰アイコンをクリックし、`ダウンローダー`の下にある`設定を表示...`を選択します。
+Chzzk Live Downloaderの設定を表示するには、☰アイコンをクリックし、`ツール`の下にある`設定を表示...`を選択します。
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_ja-JP/lman_configuration.png' />
+<p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
+</div>
+
+## Chzzk Transport Finalizerの再起動
+`最終処理`設定で`Chzzk Transport Finalizerで処理`を有効にすると、Chzzk Transport Finalizerが自動的に起動し、最終処理を担当します。ただし、状況によってはChzzk Transport Finalizerが途中で強制終了されたり、意図したとおりに動作しない場合があります。そのような場合は、Chzzk Transport Finalizerを再起動する必要があります。
+
+Chzzk Transport Finalizerを再起動するには、☰アイコンをクリックし、`ツール`の下にある`Chzzk Transport Finalizerを再起動`を選択します。
+
+再起動時に最終処理中のファイルがあった場合、そのファイルが破損する可能性があります。その場合、該当ファイルを削除すると、最終処理が自動的に再開されます。
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_ja-JP/lman_restart_finalizer.png' />
 <p><i>(この画像は最新の情報と異なる場合があります。)</i></p>
 </div>
 

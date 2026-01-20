@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.36.0, January 15, 2026 00:00:00
+Version 1.37.0, January 23, 2026 00:00:00
 
 ## 선행 요건
 Chzzk Clip Manager는 Chzzk Clip Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Clip Downloader가 함께 설치되어 있어야 합니다.
@@ -126,14 +126,14 @@ Chzzk Clip Manager의 모든 기능을 활용하려면, Chzzk Clip Downloader가
 목록을 즉시 갱신하려면, ☰ 아이콘을 누르고, `새로 고치기` 항목을 선택합니다.
 
 ## 도구 환경 열기
-도구 환경을 열려면, ☰ 아이콘을 누르고 `다운로드 도구` 항목에서 `도구 환경 (Command Prompt)` 또는 `도구 환경 (PowerShell)` 항목을 선택합니다.
+도구 환경을 열려면, ☰ 아이콘을 누르고 `도구` 항목에서 `도구 환경 (Command Prompt)` 또는 `도구 환경 (PowerShell)` 항목을 선택합니다.
 
 ## 저장 디렉터리 열기
-다운로드한 클립이 저장된 디렉터리를 열려면, ☰ 아이콘을 누르고 `다운로드 도구` 항목에서 `저장 디렉터리 열기` 항목을 선택합니다.
+다운로드한 클립이 저장된 디렉터리를 열려면, ☰ 아이콘을 누르고 `도구` 항목에서 `저장 디렉터리 열기` 항목을 선택합니다.
 
 ## 손상된 파일 제거하기
 다운로드 도중에 네트워크 연결이 끊어지거나 시스템이 종료되는 등 비정상 상황이 발생하면, 임시 디렉터리에 손상된 파일이 남을 수 있습니다.
-남아 있는 손상된 파일을 제거하려면, ☰ 아이콘을 누르고 `다운로드 도구` 항목에서 `손상된 파일 제거` 항목을 선택합니다.
+남아 있는 손상된 파일을 제거하려면, ☰ 아이콘을 누르고 `도구` 항목에서 `손상된 파일 제거` 항목을 선택합니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/cman_ko-KR/cman_purge_broken.png' />
@@ -141,7 +141,7 @@ Chzzk Clip Manager의 모든 기능을 활용하려면, Chzzk Clip Downloader가
 </div>
 
 ## 다운로드 도구 설정 보기
-Chzzk Clip Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `다운로드 도구` 항목에서 `설정 보기...` 항목을 선택합니다.
+Chzzk Clip Downloader의 설정을 보려면, ☰ 아이콘을 누르고 `도구` 항목에서 `설정 보기...` 항목을 선택합니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/cman_ko-KR/cman_configuration.png' />

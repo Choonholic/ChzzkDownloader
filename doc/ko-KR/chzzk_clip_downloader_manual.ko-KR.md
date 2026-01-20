@@ -7,22 +7,19 @@
 </div>
 
 ## 버전
-Version 1.36.0, January 15, 2026 00:00:00
+Version 1.37.0, January 23, 2026 00:00:00
 
 ## 사용법
 ```
 ChzzkClipDownloader
-  [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT]
-  [--authses AUTHSES] [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y]
-  [-d [DISPLAY]] [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
-  [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
-  [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]]
-  [--temp-pass [TEMP_PASS]] [--category [CATEGORY]] [--exist [EXIST]]
-  [--threshold [THRESHOLD]] [--rpc] [--rpcexpose [RPCEXPOSE]]
-  [--rpcport [RPCPORT]] [--rpcid [RPCID]] [--snapshot SNAPSHOT]
-  [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]]
-  [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]]
-  [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
+  [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
+  [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y] [-d [DISPLAY]] [--name [NAME]] [--work [WORK]]
+  [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
+  [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
+  [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
+  [--rpcexpose [RPCEXPOSE]] [--rpcport [RPCPORT]] [--rpcid [RPCID]] [--snapshot SNAPSHOT]
+  [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]] [--metadata [METADATA]]
+  [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
   [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
   [clip]
 ```

@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Clip Downloader
 </div>
 
 ## Version
-Version 1.36.0, January 15, 2026 00:00:00
+Version 1.37.0, January 23, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Clip Manager is the GUI frontend application for Chzzk Clip Downloader, Chzzk Clip Downloader must be installed as well.
@@ -126,14 +126,14 @@ If a clip from the loaded list already exists in the current list, it will be au
 To refresh the list immediately, click the ☰ icon, and choose `Refresh`.
 
 ## Opening Chzzk Downloader Environment
-To open Chzzk Downloader Environment, click the ☰ icon, and choose `Open Environment (Command Prompt)` or `Open Environment (PowerShell)` under `Downloader`.
+To open Chzzk Downloader Environment, click the ☰ icon, and choose `Open Environment (Command Prompt)` or `Open Environment (PowerShell)` under `Tools`.
 
 ## Opening the Output Directory
-To open the output directory for downloaded clips, click the ☰ icon, and choose `Open Output Directory` under `Downloader`.
+To open the output directory for downloaded clips, click the ☰ icon, and choose `Open Output Directory` under `Tools`.
 
 ## Purging Broken Files
 If an abnormal situation occurs—such as a network disconnection or system shutdown during download—broken files may remain in the temporary directory.
-To remove any remaining broken files, click the ☰ icon, and choose `Purge Broken Files` under `Downloader`.
+To remove any remaining broken files, click the ☰ icon, and choose `Purge Broken Files` under `Tools`.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/cman_en-US/cman_purge_broken.png' />
@@ -141,7 +141,7 @@ To remove any remaining broken files, click the ☰ icon, and choose `Purge Brok
 </div>
 
 ## Viewing Downloader Configuration
-To view configuration of Chzzk Clip Downloader, click the ☰ icon, and choose `View Configuration...` under `Downloader`.
+To view configuration of Chzzk Clip Downloader, click the ☰ icon, and choose `View Configuration...` under `Tools`.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/cman_en-US/cman_configuration.png' />

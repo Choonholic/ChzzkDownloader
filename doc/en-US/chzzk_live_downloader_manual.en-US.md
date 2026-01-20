@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.36.0, January 15, 2026 00:00:00
+Version 1.37.0, January 23, 2026 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -16,20 +16,16 @@ Version 1.36.0, January 15, 2026 00:00:00
 ## Usage
 ```
 ChzzkLiveDownloader
-  [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT]
-  [--authses AUTHSES] [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y]
-  [-q [QUALITY]] [-d [DISPLAY]] [--once ONCE] [--stream [STREAM]]
-  [--final [FINAL]] [--custom [CUSTOM]] [--ext [EXT]] [--offset OFFSET]
-  [--duration DURATION] [--detect [DETECT]] [--name [NAME]]
-  [--work [WORK]] [--work-user [WORK_USER]] [--work-pass [WORK_PASS]]
-  [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]]
-  [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
-  [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]]
-  [--rpc] [--rpcexpose [RPCEXPOSE]] [--rpcbaseport [RPCBASEPORT]]
-  [--snapshot SNAPSHOT] [--thumb [THUMB]] [--metadata [METADATA]]
-  [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
-  [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]]
-  [--settings [SETTINGS]] [--reset]
+  [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
+  [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--once ONCE]
+  [--stream [STREAM]] [--final [FINAL]] [--custom [CUSTOM]] [--ext [EXT]] [--offset OFFSET]
+  [--duration DURATION] [--detect [DETECT]] [--name [NAME]] [--work [WORK]]
+  [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
+  [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
+  [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
+  [--rpcexpose [RPCEXPOSE]] [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
+  [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
+  [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
 ```
 
 ### Options

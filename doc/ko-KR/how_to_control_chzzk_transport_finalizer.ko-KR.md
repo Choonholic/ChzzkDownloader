@@ -9,12 +9,17 @@ Chzzk Transport Finalizer를 실행할 때 `--rpc` 선택 사항을 지정합니
 ## 서버 연결 방법
 내부 JSON-RPC 서버는 소켓 연결을 허용합니다.
 
-* **호스트 IP 주소** - 기본 주소는 `localhost`입니다. 만약 단일 PC 내에서가 아닌 외부에서 연결하려면 `--rpcexpose` 선택 사항에 `open`을 지정하여 서버를 외부에 노출해야 합니다. 이 때 Windows 방화벽의 설정 변경이 필요할 수 있습니다.
+* **호스트 IP 주소** - 기본 주소는 `localhost`입니다. 만약 단일 PC 내에서가 아닌 외부에서 연결하려면 `--rpcexpose` 선택 사항에 `open`을 지정하여 서버를 외부에 노출해야 합니다. 이 때 다음 그림과 같이 Windows Defender 방화벽의 설정 변경이 필요할 수 있습니다.
 * **포트 번호** - 기본 포트 번호는 `65000`입니다. `--rpcport` 선택 사항을 사용해 변경할 수 있습니다. (사용 가능 범위: `49152`~`65300`)
 * **RPC ID** - 기본 ID는 `70`입니다. `--rpcid` 선택 사항을 사용해 변경할 수 있습니다.
 
+<div style='text-align: center'>
+<img src='../../img/screenshots/ctf_firewall.png' />
+<p><i>(이 이미지는 운영 체제 또는 시스템 환경에 따라 다를 수 있습니다.)</i></p>
+</div>
+
 ## 요청 방법
-Chzzk Transport Finalizer에 작업을 요청하려면, 아래와 같은 객체를 소켓을 통해 전송합니다.
+Chzzk Transport Finalizer에 작업을 요청하려면, 아래와 같은 객체를 TCP 소켓을 통해 전송합니다.
 
 ```json
 {
