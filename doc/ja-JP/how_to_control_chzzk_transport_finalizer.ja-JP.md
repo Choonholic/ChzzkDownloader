@@ -25,20 +25,22 @@ Chzzk Transport Finalizerにアクションをリクエストするには、次�
 {
     "jsonrpc": "2.0",
     "method": "get_status",
-    "id": 30
+    "id": 70
 }
 ```
 
 ### メソッド一覧
+* `add_item` - 最終処理キューにファイルを追加します。
 * `get_info` - 全情報を一括で取得します。
-* `get_version` – アプリケーションのバージョンを取得します。
 * `get_settings` – アプリケーションの設定を取得します。
 * `get_status` – 現在のステータスを取得します。
-* `remove_item` - 待機中のキューからファイルを削除します。
-* `skip_current` - 現在ファイルの最終処理を停止し、次のファイルにスキップします。
-* `set_settings` – アプリケーションの設定を変更します。
-* `reload_settings` – 設定ファイルからアプリケーションの設定を再読み込みします。
+* `get_version` – アプリケーションのバージョンを取得します。
 * `quit_app` – 現在のプロセス（進行中の場合）を停止し、アプリケーションを終了します。
+* `quit_empty` – 最終処理キューが空の場合にアプリケーションを終了します。
+* `reload_settings` – 設定ファイルからアプリケーションの設定を再読み込みします。
+* `remove_item` - 最終処理キューからファイルを削除します。
+* `set_settings` – アプリケーションの設定を変更します。
+* `skip_current` - 現在ファイルの最終処理を停止し、次のファイルにスキップします。
 
 ## レスポンス
 Chzzk Transport Finalizerは、以下の形式でレスポンスを返します。
@@ -46,18 +48,22 @@ Chzzk Transport Finalizerは、以下の形式でレスポンスを返します�
 ```json
 {
     "jsonrpc": "2.0",
-    "result": "Success",
-    "id": 30
+    "result": {
+        "timestamp": "2026-01-01T00:00:00.000Z",
+        "...": "...",
+    },
+    "id": 70
 }
 ```
 
 ### リクエストが正常に処理された場合
-* `result` - リクエストされたメソッドの結果を示します。
+* `result` - リクエストされたメソッドの結果。
+* `timestamp` - UTCを基準とした応答時間。
 
 ### リクエストが正しく処理されなかった場合
 * `error` - レスポンスがエラーであることを示します。
-* `code` - エラー コード。
-* `message` - エラー メッセージ。
+* `code` - エラーコード。
+* `message` - エラーメッセージ。
 
 ## サンプル
 GitHubリポジトリ内の[samples](https://github.com/Choonholic/ChzzkDownloader/blob/main/samples/)を参照してください。

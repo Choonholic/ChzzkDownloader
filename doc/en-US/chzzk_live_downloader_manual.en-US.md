@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.37.0, January 23, 2026 00:00:00
+Version 1.38.0, January 31, 2026 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -49,7 +49,7 @@ ChzzkLiveDownloader
 --ext [EXT]                 Set output file extension (applicable only with cconvert|ccleanup)
 --offset OFFSET             Set amount of time to skip from the beginning of the stream
 --duration DURATION         Set the maximum stream duration to download
---detect [DETECT]           Set detection interval (default: 60, 10-1800)
+--detect [DETECT]           Set detection interval (default: 60, 10-300)
 --name [NAME]               Set output filename format
 --work [WORK]               Set working directory
 --work-user [WORK_USER]     Set username to use when working directory is on remote network
@@ -250,7 +250,7 @@ For the date-related tags, the detailed elements can be expanded as below.
 * `{..._date_second}` - Second as a zero-padded decimal number. (`00`, `01`, ..., `59`)
 
 ## Setting Live Stream Detection Interval
-By default, the detection interval for live streams is set to 60 seconds. To change this, use the following command: `n` can be any value from `10` to `1800`. Therefore, the detection interval can be set in seconds, from 10 second to 30 minutes.
+By default, the detection interval for live streams is set to 60 seconds. To change this, use the following command: `n` can be any value from `10` to `300`. Therefore, the detection interval can be set in seconds, from 10 second to 5 minutes.
 
 ```powershell
 ChzzkLiveDownloader --detect n

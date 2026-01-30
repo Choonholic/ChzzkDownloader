@@ -30,15 +30,15 @@ Chzzk Clip Downloader에 작업을 요청하려면, 아래와 같은 객체를 T
 ```
 
 ### 메서드 목록
-* `get_info` - 모든 정보를 한 번에 가져옵니다.
-* `get_version` – 애플리케이션 버전을 가져옵니다.
-* `get_settings` – 애플리케이션 설정을 가져옵니다.
 * `get_channel` – 채널 정보를 가져옵니다.
 * `get_clip` – 현재 클립을 다운로드 중인 경우 해당 정보를 가져옵니다.
+* `get_info` - 모든 정보를 한 번에 가져옵니다.
+* `get_settings` – 애플리케이션 설정을 가져옵니다.
 * `get_status` – 현재 상태를 가져옵니다.
-* `set_settings` – 애플리케이션 설정을 변경합니다.
-* `reload_settings` – 설정 파일에서 애플리케이션 설정을 다시 읽습니다.
+* `get_version` – 애플리케이션 버전을 가져옵니다.
 * `quit_app` – 현재 진행 중인 다운로드를 중지하고 애플리케이션을 종료합니다.
+* `reload_settings` – 설정 파일에서 애플리케이션 설정을 다시 읽습니다.
+* `set_settings` – 애플리케이션 설정을 변경합니다.
 
 ## 응답 형식
 Chzzk Clip Downloader는 다음과 같은 형식으로 응답을 반환합니다.
@@ -46,13 +46,17 @@ Chzzk Clip Downloader는 다음과 같은 형식으로 응답을 반환합니다
 ```json
 {
     "jsonrpc": "2.0",
-    "result": "Success",
+    "result": {
+        "timestamp": "2026-01-01T00:00:00.000Z",
+        "...": "...",
+    },
     "id": 50
 }
 ```
 
 ### 요청이 성공적으로 처리된 경우
-* `result` - 요청된 메서드의 결과를 나타냅니다.
+* `result` - 요청된 메서드의 결과.
+* `timestamp` - UTC 기반의 응답 시간.
 
 ### 요청이 정상적으로 처리되지 않은 경우
 * `error` - 오류 응답임을 나타냅니다.

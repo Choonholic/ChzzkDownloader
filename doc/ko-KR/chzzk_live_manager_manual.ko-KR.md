@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.37.0, January 23, 2026 00:00:00
+Version 1.38.0, January 31, 2026 00:00:00
 
 ## 선행 요건
 Chzzk Live Manager는 Chzzk Live Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Live Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
@@ -300,7 +300,7 @@ Chzzk Transport Finalizer를 재시작하려면, ☰ 아이콘을 누르고 `도
 * **갱신 주기 (초)** - 목록의 화면 갱신 주기를 설정합니다. 이는 화면에만 영향을 미치며, 다운로드 확인 주기와는 관계가 없습니다. Chzzk Live Downloader의 다운로드 확인 주기는 기본적으로 60초로 설정되어 있으며, 다른 도구와 달리 API의 호출 제한에 영향받지 않도록 설계되어 있습니다.
 * **남은 공간이 다음 값보다 적으면 다운로드 중지** - 디스크 공간 부족 시 중지 임계값을 % 단위 또는 크기 단위로 설정합니다. 크기 단위로 설정할 때는 SI 단위(KB, MB, GB...), IEC 단위(KiB, MiB, GiB...)를 사용할 수 있으며, 접두사(K, Ki, M, Mi, G, Gi...)만 사용할 수도 있습니다. 물론 단위 없이 바이트 단위로 지정할 수도 있습니다.
 * **절전 상태** - Chzzk Live Manager가 실행되는 동안 사용될 시스템의 절전 상태를 설정합니다.
-* **성능 수준** - Chzzk Live Manager가 실행 중인 시스템의 성능을 지정합니다. 채널을 추가하거나 새로 고칠 때 시간 초과로 인한 오류가 발생한다면, 이 설정을 한 단계 아래로 낮추는 것을 고려해 볼 수 있습니다.
+* **시스템 성능** - Chzzk Live Manager가 실행 중인 시스템의 성능을 지정합니다. 채널을 추가하거나 새로 고칠 때 시간 초과로 인한 오류가 발생한다면, 이 설정을 한 단계 아래로 낮추는 것을 고려해 볼 수 있습니다.
 * **라이브 스트리밍 정보를 기반으로 메타데이터 저장** - 라이브 스트리밍 정보를 기반으로 메타데이터를 저장합니다.
 
 ### 다운로드 도구
@@ -311,7 +311,7 @@ Chzzk Transport Finalizer를 재시작하려면, ☰ 아이콘을 누르고 `도
 </div>
 
 * **JSON-RPC 서버: 외부 원격 접속 허용** - 다운로드 도구를 실행 중인 PC의 외부에서 원격으로 JSON-RPC 서버에 접근하는 것을 허용합니다.
-* **JSON-RPC 서버: 포트** - JSON-RPC 서버의 포트 번호를 설정합니다.
+* **JSON-RPC 서버: 기반 포트** - JSON-RPC 서버의 기반 포트 번호를 설정합니다. 실제 채널별 포트 번호는 기반 포트와 채널 ID를 결합한 값으로 지정됩니다. 예를 들어 기반 포트가 `62000`이고 채널 ID가 `3`일 경우 실제 포트 번호는 `62003`으로 설정됩니다.
 * **미리보기 이미지 저장** - 미리보기 이미지를 함께 저장합니다.
 * **스트리밍 획득 방식** - 스트리밍 획득 방식을 설정합니다.
 * **대상 파일이 이미 존재할 경우 저장 방법** - 파일이 이미 존재할 때 파일 저장 방법을 설정합니다.
@@ -324,9 +324,9 @@ Chzzk Transport Finalizer를 재시작하려면, ☰ 아이콘을 누르고 `도
 <p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
 </div>
 
-* **JSON-RPC 서버: 외부 원격 접속 허용** - 최종 변환 도구를 실행 중인 PC의 외부에서 원격으로 JSON-RPC 서버에 접근하는 것을 허용합니다.
-* **JSON-RPC 서버: 포트** - JSON-RPC 서버의 포트 번호를 설정합니다.
-* **JSON-RPC 서버: ID** - JSON-RPC 서버의 ID를 설정합니다.
+* **JSON-RPC 서버: 외부 원격 접속 허용** - Chzzk Transport Finalizer를 실행 중인 PC의 외부에서 원격으로 JSON-RPC 서버에 접근하는 것을 허용합니다.
+* **JSON-RPC 서버: 포트** - Chzzk Transport Finalizer의 JSON-RPC 서버의 포트 번호를 설정합니다.
+* **JSON-RPC 서버: ID** - Chzzk Transport Finalizer의 JSON-RPC 서버의 ID를 설정합니다.
 * **최종 처리 방법** - 최종 처리 방법을 설정합니다.
 * **Chzzk Transport Finalizer로 보내기** - 최종 처리를 Chzzk Transport Finalizer에게 맡깁니다.
 * **종료 시 Chzzk Transport Finalizer도 함께 종료** - 종료 시 Chzzk Transport Finalizer도 함께 종료할 것인지 설정합니다.

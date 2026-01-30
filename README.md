@@ -14,7 +14,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.37.0, January 23, 2026 00:00:00
+Version 1.38.0, January 31, 2026 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -56,7 +56,7 @@ ChzzkLiveDownloader
 --ext [EXT]                 Set output file extension (applicable only with cconvert|ccleanup)
 --offset OFFSET             Set amount of time to skip from the beginning of the stream
 --duration DURATION         Set the maximum stream duration to download
---detect [DETECT]           Set detection interval (default: 60, 10-1800)
+--detect [DETECT]           Set detection interval (default: 60, 10-300)
 --name [NAME]               Set output filename format
 --work [WORK]               Set working directory
 --work-user [WORK_USER]     Set username to use when working directory is on remote network
@@ -99,7 +99,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.37.0, January 23, 2026 00:00:00
+Version 1.38.0, January 31, 2026 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -187,7 +187,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.37.0, January 23, 2026 00:00:00
+Version 1.38.0, January 31, 2026 00:00:00
 
 ### Usage
 ```
@@ -266,7 +266,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.37.0, January 23, 2026 00:00:00
+Version 1.38.0, January 31, 2026 00:00:00
 
 ### Prerequisites For Executables
 * **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)

@@ -7,7 +7,7 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.37.0, January 23, 2026 00:00:00
+Version 1.38.0, January 31, 2026 00:00:00
 
 ## 必須事項
 * **[必須]** Streamlink（Streamlink 7.0.0またはそれ以上が必要）

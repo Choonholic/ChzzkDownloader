@@ -25,20 +25,22 @@ To request action from Chzzk Transport Finalizer, send the object like below thr
 {
     "jsonrpc": "2.0",
     "method": "get_status",
-    "id": 30
+    "id": 70
 }
 ```
 
 ### Method List
+* `add_item` - Adds a file to the finalization queue.
 * `get_info` - Retrieves all information at once.
-* `get_version` – Retrieves the application version.
 * `get_settings` – Retrieves the application settings.
 * `get_status` – Retrieves the current status.
-* `remove_item` - Remove a file from the waiting queue.
-* `skip_current` - Stops finalizing the current file and skips to the next one.
-* `set_settings` – Changes the application settings.
-* `reload_settings` – Reloads the application settings from configuration file.
+* `get_version` – Retrieves the application version.
 * `quit_app` – Stops the current download (if in progress) and exits the application.
+* `quit_empty` – Exits the application when the finalization queue is empty.
+* `reload_settings` – Reloads the application settings from configuration file.
+* `remove_item` - Remove the file from the finalization queue.
+* `set_settings` – Changes the application settings.
+* `skip_current` - Stops finalizing the current file and skips to the next one.
 
 ## Responses
 Chzzk Transport Finalizer returns responses in the following format.
@@ -46,18 +48,22 @@ Chzzk Transport Finalizer returns responses in the following format.
 ```json
 {
     "jsonrpc": "2.0",
-    "result": "Success",
-    "id": 30
+    "result": {
+        "timestamp": "2026-01-01T00:00:00.000Z",
+        "...": "...",
+    },
+    "id": 70
 }
 ```
 
 ### When The Request was Processed Successfully
-* `result` - Results of the requested method.
+* `result` - The results of the requested method.
+* `timestamp` - The response time based on UTC.
 
 ### When The Request was not Processed Properly
 * `error` - Indicates response is error.
-* `code` - Error code.
-* `message` - Error message.
+* `code` - The error code.
+* `message` - The error message.
 
 ## Sample Codes
 Please refer to [samples](https://github.com/Choonholic/ChzzkDownloader/blob/main/samples/) in GitHub repository.

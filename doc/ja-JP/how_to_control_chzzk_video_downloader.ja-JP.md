@@ -30,15 +30,15 @@ Chzzk Video Downloaderにアクションをリクエストするには、次の�
 ```
 
 ### メソッド一覧
-* `get_info` - 全情報を一括で取得します。
-* `get_version` – アプリケーションのバージョンを取得します。
-* `get_settings` – アプリケーションの設定を取得します。
 * `get_channel` – チャンネル情報を取得します。
-* `get_video` – ビデオが現在ダウンロード中の場合、ビデオ情報を取得します。
+* `get_info` - 全情報を一括で取得します。
+* `get_settings` – アプリケーションの設定を取得します。
 * `get_status` – 現在のステータスを取得します。
-* `set_settings` – アプリケーションの設定を変更します。
-* `reload_settings` – 設定ファイルからアプリケーションの設定を再読み込みします。
+* `get_version` – アプリケーションのバージョンを取得します。
+* `get_video` – ビデオが現在ダウンロード中の場合、ビデオ情報を取得します。
 * `quit_app` – 現在のダウンロード（進行中の場合）を停止し、アプリケーションを終了します。
+* `reload_settings` – 設定ファイルからアプリケーションの設定を再読み込みします。
+* `set_settings` – アプリケーションの設定を変更します。
 
 ## レスポンス
 Chzzk Video Downloaderは、以下の形式でレスポンスを返します。
@@ -46,18 +46,22 @@ Chzzk Video Downloaderは、以下の形式でレスポンスを返します。
 ```json
 {
     "jsonrpc": "2.0",
-    "result": "Success",
+    "result": {
+        "timestamp": "2026-01-01T00:00:00.000Z",
+        "...": "...",
+    },
     "id": 30
 }
 ```
 
 ### リクエストが正常に処理された場合
-* `result` - リクエストされたメソッドの結果を示します。
+* `result` - リクエストされたメソッドの結果。
+* `timestamp` - UTCを基準とした応答時間。
 
 ### リクエストが正しく処理されなかった場合
 * `error` - レスポンスがエラーであることを示します。
-* `code` - エラー コード。
-* `message` - エラー メッセージ。
+* `code` - エラーコード。
+* `message` - エラーメッセージ。
 
 ## サンプル
 GitHubリポジトリ内の[samples](https://github.com/Choonholic/ChzzkDownloader/blob/main/samples/)を参照してください。

@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.37.0, January 23, 2026 00:00:00
+Version 1.38.0, January 31, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, both of Chzzk Live Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -302,7 +302,7 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 * **Update Interval (Seconds)** - Sets the screen refresh interval for the list. This only affects the display and is not related to the download detection interval. The download detection interval of Chzzk Live Downloader is set to 10 seconds by default and is designed to avoid being impacted by API rate limits, unlike other tools.
 * **Stop downloading if free space is less than** - Sets the stop threshold when disk space is low, using either a percentage (%) or a size value. When using a size value, you can specify SI units (KB, MB, GB...) or IEC units (KiB, MiB, GiB...). You may also specify prefixes only (K, Ki, M, Mi, G, Gi...). Of course, you can also specify the value in bytes without any unit.
 * **Sleep Mode** - Sets the system's sleep mode while the Chzzk Live Manager is running.
-* **Performance Level** - Specify the performance of the system where Chzzk Live Manager is currently running. If you encounter errors due to timeouts when adding or refreshing channels, try lowering the performance level by one step and attempt again.
+* **System Performance** - Specify the performance of the system where Chzzk Live Manager is currently running. If you encounter errors due to timeouts when adding or refreshing channels, try lowering the performance level by one step and attempt again.
 * **Save metadata based on live stream information** - Checks to save metadata based on live stream information.
 
 ### Downloader
@@ -313,7 +313,7 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 </div>
 
 * **JSON-RPC Server: Allow External Remote Access** - Allows remote access to the JSON-RPC server from outside the PC running the downloader.
-* **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
+* **JSON-RPC Server: Base Port** - Sets the base port number for the JSON-RPC server. The actual port number for each channel is determined by combining the base port with the channel ID. For example, if the base port is `62000` and the channel ID is `3`, the actual port number is set to `62003`.
 * **Save Thumbnail Image** - Checks to save thumbnail images separately.
 * **Stream Retrieve Method** - Sets stream retrieving method.
 * **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.
@@ -327,8 +327,8 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 </div>
 
 * **JSON-RPC Server: Allow External Remote Access** - Allows remote access to the JSON-RPC server from outside the PC running the finalizer.
-* **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
-* **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
+* **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server of Chzzk Transport Finalizer.
+* **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server of Chzzk Transport Finalizer.
 * **Finalize Method** - Specifies the finalization method.
 * **Send To Chzzk Transport Finalizer** - Delegate finalizing stage to Chzzk Transport Finalizer.
 * **Shutdown Chzzk Transport Finalizer When Exit** - Specifies whether to also shutdown Chzzk Transport Finalizer when exiting.
