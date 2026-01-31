@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.38.0, January 31, 2026 00:00:00
+Version 1.38.1, February 01, 2026 00:00:00
 
 ## 선행 요건
 * **[필수]** FFmpeg 공식 메이저 버전 (FFmpeg 7.0 또는 상위 버전 필요)
