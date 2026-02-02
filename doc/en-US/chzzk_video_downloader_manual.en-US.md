@@ -7,7 +7,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.38.1, February 01, 2026 00:00:00
+Version 1.38.2, February 03, 2026 00:00:00
 
 ## Prerequisites
 * **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
