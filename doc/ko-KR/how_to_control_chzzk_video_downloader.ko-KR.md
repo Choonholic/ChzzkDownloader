@@ -9,9 +9,9 @@ Chzzk Video Downloader를 실행할 때 `--rpc` 선택 사항을 지정합니다
 ## 서버 연결 방법
 내부 JSON-RPC 서버는 소켓 연결을 허용합니다.
 
-* **호스트 IP 주소** - 기본 주소는 `localhost`입니다. 만약 단일 PC 내에서가 아닌 외부에서 연결하려면 `--rpcexpose` 선택 사항에 `open`을 지정하여 서버를 외부에 노출해야 합니다. 이 때 다음 그림과 같이 Windows Defender 방화벽의 설정 변경이 필요할 수 있습니다.
-* **포트 번호** - 기본 포트 번호는 `63000`입니다. `--rpcport` 선택 사항을 사용해 변경할 수 있습니다. (사용 가능 범위: `49152`~`65300`)
-* **RPC ID** - 기본 ID는 `30`입니다. `--rpcid` 선택 사항을 사용해 변경할 수 있습니다.
+- **호스트 IP 주소** - 기본 주소는 `localhost`입니다. 만약 단일 PC 내에서가 아닌 외부에서 연결하려면 `--rpcexpose` 선택 사항에 `open`을 지정하여 서버를 외부에 노출해야 합니다. 이 때 다음 그림과 같이 Windows Defender 방화벽의 설정 변경이 필요할 수 있습니다.
+- **포트 번호** - 기본 포트 번호는 `63000`입니다. `--rpcport` 선택 사항을 사용해 변경할 수 있습니다. (사용 가능 범위: `49152`~`65300`)
+- **RPC ID** - 기본 ID는 `30`입니다. `--rpcid` 선택 사항을 사용해 변경할 수 있습니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/cvd_firewall.png' />
@@ -30,15 +30,15 @@ Chzzk Video Downloader에 작업을 요청하려면, 아래와 같은 객체를 
 ```
 
 ### 메서드 목록
-* `get_channel` – 채널 정보를 가져옵니다.
-* `get_info` - 모든 정보를 한 번에 가져옵니다.
-* `get_settings` – 애플리케이션 설정을 가져옵니다.
-* `get_status` – 현재 상태를 가져옵니다.
-* `get_version` – 애플리케이션 버전을 가져옵니다.
-* `get_video` – 현재 다시보기 비디오를 다운로드 중인 경우 해당 정보를 가져옵니다.
-* `quit_app` – 현재 진행 중인 다운로드를 중지하고 애플리케이션을 종료합니다.
-* `reload_settings` – 설정 파일에서 애플리케이션 설정을 다시 읽습니다.
-* `set_settings` – 애플리케이션 설정을 변경합니다.
+- `get_channel` – 채널 정보를 가져옵니다.
+- `get_info` - 모든 정보를 한 번에 가져옵니다.
+- `get_settings` – 애플리케이션 설정을 가져옵니다.
+- `get_status` – 현재 상태를 가져옵니다.
+- `get_version` – 애플리케이션 버전을 가져옵니다.
+- `get_video` – 현재 다시보기 비디오를 다운로드 중인 경우 해당 정보를 가져옵니다.
+- `quit_app` – 현재 진행 중인 다운로드를 중지하고 애플리케이션을 종료합니다.
+- `reload_settings` – 설정 파일에서 애플리케이션 설정을 다시 읽습니다.
+- `set_settings` – 애플리케이션 설정을 변경합니다.
 
 ## 응답 형식
 Chzzk Video Downloader는 다음과 같은 형식으로 응답을 반환합니다.
@@ -55,13 +55,13 @@ Chzzk Video Downloader는 다음과 같은 형식으로 응답을 반환합니�
 ```
 
 ### 요청이 성공적으로 처리된 경우
-* `result` - 요청된 메서드의 결과.
-* `timestamp` - UTC 기반의 응답 시간.
+- `result` - 요청된 메서드의 결과.
+- `timestamp` - UTC 기반의 응답 시간.
 
 ### 요청이 정상적으로 처리되지 않은 경우
-* `error` - 오류 응답임을 나타냅니다.
-* `code` - 오류 코드.
-* `message` - 오류 메시지.
+- `error` - 오류 응답임을 나타냅니다.
+- `code` - 오류 코드.
+- `message` - 오류 메시지.
 
 ## 예제 코드
 예제 코드는 GitHub 저장소의 [samples](https://github.com/Choonholic/ChzzkDownloader/blob/main/samples/)에서 확인하실 수 있습니다.

@@ -2,8 +2,8 @@
 Downloader for live streams, replay videos and clips of Chzzk.
 
 ## Downloads
-* https://github.com/Choonholic/ChzzkDownloader/releases/latest
-* https://blog.choonholic.com/downloads
+- https://github.com/Choonholic/ChzzkDownloader/releases/latest
+- https://blog.choonholic.com/downloads
 
 ## Chzzk Live Downloader
 Downloader for Chzzk live streams
@@ -14,11 +14,11 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.38.2, February 03, 2026 00:00:00
+Version 1.39.0, February 12, 2026 00:00:00
 
 ### Prerequisites For Executables
-* **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
-* **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
+- **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
+- **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
 
 ### Usage
 ```
@@ -99,11 +99,11 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.38.2, February 03, 2026 00:00:00
+Version 1.39.0, February 12, 2026 00:00:00
 
 ### Prerequisites For Executables
-* **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
-* **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
+- **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
+- **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
 
 ### Usage
 ```
@@ -187,7 +187,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.38.2, February 03, 2026 00:00:00
+Version 1.39.0, February 12, 2026 00:00:00
 
 ### Usage
 ```
@@ -266,10 +266,10 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.38.2, February 03, 2026 00:00:00
+Version 1.39.0, February 12, 2026 00:00:00
 
 ### Prerequisites For Executables
-* **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
+- **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
 
 ### Usage
 ```

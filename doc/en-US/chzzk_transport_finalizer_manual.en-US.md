@@ -7,10 +7,10 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.38.2, February 03, 2026 00:00:00
+Version 1.39.0, February 12, 2026 00:00:00
 
 ## Prerequisites
-* **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
+- **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
 
 ## Usage
 ```
@@ -221,10 +221,10 @@ ChzzkTransportFinalizer --display quiet
 
 The following display methods can be set with options of `--display` parameter.
 
-* `quiet` - Suppress all details.
-* `simple` - Show simplified details only.
-* `fluent` - Show fluent details.
-* `all` - Show all details.
+- `quiet` - Suppress all details.
+- `simple` - Show simplified details only.
+- `fluent` - Show fluent details.
+- `all` - Show all details.
 
 If you want to set this option to default, just use `-d` or `--display` like below.
 
@@ -280,11 +280,11 @@ However, by specifying an option after the `--settings` parameter, you can contr
 ChzzkTransportFinalizer --settings skip
 ```
 
-* `default` – Saves the selected options to the configuration file and proceeds with the finalizations.
-* `skip` – Applies the selected options only to the current session without saving, and then proceeds with the finalizations.
-* `update` – Saves the selected options to the configuration file, displays the updated settings, and then quits.
-* `show` – Ignores all selected options, displays the existing settings, and then quits.
-* `quit` – Saves the selected options to the configuration file and then quits.
+- `default` – Saves the selected options to the configuration file and proceeds with the finalizations.
+- `skip` – Applies the selected options only to the current session without saving, and then proceeds with the finalizations.
+- `update` – Saves the selected options to the configuration file, displays the updated settings, and then quits.
+- `show` – Ignores all selected options, displays the existing settings, and then quits.
+- `quit` – Saves the selected options to the configuration file and then quits.
 
 ## Plugins
 Chzzk Transport Finalizer provides additional features tailored to the user's personal preferences and environment through plugins.
@@ -292,8 +292,8 @@ Chzzk Transport Finalizer provides additional features tailored to the user's pe
 ### Notification Plugins
 By registering a notification plugin, you can easily monitor the operational status of Chzzk Transport Finalizer through an external solution. The following notification plugin is provided by default:
 
-* `pn_slack` - Slack notification plugin
-* `pn_telegram` - Telegram notification plugin
+- `pn_slack` - Slack notification plugin
+- `pn_telegram` - Telegram notification plugin
 
 You can register a notification plugin using `--pnpath` parameter as shown below. Since only one plugin can be active at a time, if multiple registrations are made, only the last one will be active. After the plugin is registered, it applies to all future runs of Chzzk Transport Finalizer.
 
@@ -334,9 +334,9 @@ ChzzkTransportFinalizer --reset
 
 This will reset the following information.
 
-* Settings for displaying process details
-* Settings for watching directory
-* Settings for converting parameters
+- Settings for displaying process details
+- Settings for watching directory
+- Settings for converting parameters
 
 ## Displaying Version Information
 You can check the version information by using the following command.

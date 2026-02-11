@@ -7,7 +7,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 1.38.2, February 03, 2026 00:00:00
+Version 1.39.0, February 12, 2026 00:00:00
 
 ## Usage
 ```
@@ -90,7 +90,7 @@ ChzzkClipDownloader https://chzzk.naver.com/clips/C46IcpG11p
 
 If you want to download several clips sequentially, you can create a list file as following, then save as a text file encoded as UTF-8. (e.g. `list.txt`)
 
-```python
+```
 # List Samples
 https://chzzk.naver.com/clips/YY9plBpybL
 C46IcpG11p
@@ -108,8 +108,8 @@ ChzzkClipDownloader --input list.txt
 ## Resetting Authentication Credential
 To download a clip that requires NAVER authentication credential, such as an adult-only clip, you must specify the following information.
 
-* NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
-* NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
+- NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
+- NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
 
 When the authentication credential is not found when downloading a clip that requires it, a prompt to enter your authorization will be activated.
 
@@ -152,34 +152,34 @@ ChzzkClipDownloader clip_uid or url --name
 ### Filename Format Tags
 The following pre-defined tags can be used for filename format.
 
-* `{name}` - Channel Name.
-* `{verified}` - If channel is verified one, this tag will be `[✓]` or empty.
-* `{clip_uid}` - Clip UID.
-* `{title}` - Title of the clip.
-* `{download_date...}` - Date-related tags when the stream started.
-* `{media...}` - Media information-related tags.
+- `{name}` - Channel Name.
+- `{verified}` - If channel is verified one, this tag will be `[✓]` or empty.
+- `{clip_uid}` - Clip UID.
+- `{title}` - Title of the clip.
+- `{download_date...}` - Date-related tags when the stream started.
+- `{media...}` - Media information-related tags.
 
 For the media-related tags, the following elements are available.
 
-* `{media_quality}` - Media Quality. (e.g. `1080p`)
-* `{media_video_width}` - Video width as pixels. (e.g. `1920`)
-* `{media_video_height}` - Video height as pixels. (e.g. `1080`)
-* `{media_video_bitrate}` - Video bitrate as bit-per-second. (e.g. `8000000`)
-* `{media_audio_bitrate}` - Audio bitrate as bit-per-second. (e.g. `192000`)
-* `{media_video_codec}` - Video codec. (e.g. `H264`)
+- `{media_quality}` - Media Quality. (e.g. `1080p`)
+- `{media_video_width}` - Video width as pixels. (e.g. `1920`)
+- `{media_video_height}` - Video height as pixels. (e.g. `1080`)
+- `{media_video_bitrate}` - Video bitrate as bit-per-second. (e.g. `8000000`)
+- `{media_audio_bitrate}` - Audio bitrate as bit-per-second. (e.g. `192000`)
+- `{media_video_codec}` - Video codec. (e.g. `H264`)
 
 For the date-related tags, the detailed elements can be expanded as below.
 
-* `{..._date}` - Date with `%Y%m%d%H%M%S` format. (e.g. `20240607014327`)
-* `{..._date_year}` or `{..._date_year_full}` - Year with century as a decimal number. (e.g. `2024`)
-* `{..._date_year_short}` - Year without century as a zero-padded decimal number. (e.g. `24`)
-* `{..._date_month}` - Month as a zero-padded decimal number. (`01`, `02`, ..., `12`)
-* `{..._date_month_full}` - Month as full name. (`January`, `February`, ..., `December`)
-* `{..._date_month_short}` - Month as abbreviated name. (`Jan`, `Feb`, ..., `Dec`)
-* `{..._date_day}` - Day of the month as a zero-padded decimal number. (`01`, `02`, ..., `31`)
-* `{..._date_hour}` - Hour (24-hour clock) as a zero-padded decimal number. (`00`, `01`, ..., `23`)
-* `{..._date_minute}` - Minute as a zero-padded decimal number. (`00`, `01`, ..., `59`)
-* `{..._date_second}` - Second as a zero-padded decimal number. (`00`, `01`, ..., `59`)
+- `{..._date}` - Date with `%Y%m%d%H%M%S` format. (e.g. `20240607014327`)
+- `{..._date_year}` or `{..._date_year_full}` - Year with century as a decimal number. (e.g. `2024`)
+- `{..._date_year_short}` - Year without century as a zero-padded decimal number. (e.g. `24`)
+- `{..._date_month}` - Month as a zero-padded decimal number. (`01`, `02`, ..., `12`)
+- `{..._date_month_full}` - Month as full name. (`January`, `February`, ..., `December`)
+- `{..._date_month_short}` - Month as abbreviated name. (`Jan`, `Feb`, ..., `Dec`)
+- `{..._date_day}` - Day of the month as a zero-padded decimal number. (`01`, `02`, ..., `31`)
+- `{..._date_hour}` - Hour (24-hour clock) as a zero-padded decimal number. (`00`, `01`, ..., `23`)
+- `{..._date_minute}` - Minute as a zero-padded decimal number. (`00`, `01`, ..., `59`)
+- `{..._date_second}` - Second as a zero-padded decimal number. (`00`, `01`, ..., `59`)
 
 ## Saving Thumbnail Images
 To save thumbnail images separately, use the following command.
@@ -217,10 +217,10 @@ ChzzkClipDownloader clip_uid or url --display quiet
 
 The following display methods can be set with options of `--display` parameter.
 
-* `quiet` - Suppress all details.
-* `simple` - Show simplified details only.
-* `fluent` - Show fluent details.
-* `all` - Show all details.
+- `quiet` - Suppress all details.
+- `simple` - Show simplified details only.
+- `fluent` - Show fluent details.
+- `all` - Show all details.
 
 If you want to set this option to default, just use `-d` or `--display` like below.
 
@@ -376,16 +376,16 @@ However, by specifying an option after the `--settings` parameter, you can contr
 ChzzkClipDownloader clip_uid or url --settings skip
 ```
 
-* `default` – Saves the selected options to the configuration file and proceeds with the downloads.
-* `skip` – Applies the selected options only to the current session without saving, and then proceeds with the downloads.
-* `update` – Saves the selected options to the configuration file, displays the updated settings, and then quits.
-* `show` – Ignores all selected options, displays the existing settings, and then quits.
-* `quit` – Saves the selected options to the configuration file and then quits.
+- `default` – Saves the selected options to the configuration file and proceeds with the downloads.
+- `skip` – Applies the selected options only to the current session without saving, and then proceeds with the downloads.
+- `update` – Saves the selected options to the configuration file, displays the updated settings, and then quits.
+- `show` – Ignores all selected options, displays the existing settings, and then quits.
+- `quit` – Saves the selected options to the configuration file and then quits.
 
 The following information is managed separately and is always saved regardless of the `--settings` parameter:
 
-* NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
-* NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
+- NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
+- NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
 
 ## Plugins
 Chzzk Clip Downloader provides additional features tailored to the user's personal preferences and environment through plugins.
@@ -393,8 +393,8 @@ Chzzk Clip Downloader provides additional features tailored to the user's person
 ### Notification Plugins
 By registering a notification plugin, you can easily monitor the operational status of Chzzk Clip Downloader through an external solution. The following notification plugin is provided by default:
 
-* `pn_slack` - Slack notification plugin
-* `pn_telegram` - Telegram notification plugin
+- `pn_slack` - Slack notification plugin
+- `pn_telegram` - Telegram notification plugin
 
 You can register a notification plugin using `--pnpath` parameter as shown below. Since only one plugin can be active at a time, if multiple registrations are made, only the last one will be active. After the plugin is registered, it applies to all future runs of Chzzk Clip Downloader.
 
@@ -435,11 +435,11 @@ ChzzkClipDownloader --reset
 
 This will reset the following information.
 
-* NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
-* NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
-* Settings for Saving thumbnail image
-* Settings for displaying download details
-* Settings for output and temporary directories
+- NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
+- NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
+- Settings for Saving thumbnail image
+- Settings for displaying download details
+- Settings for output and temporary directories
 
 ## Displaying Version Information
 You can check the version information by using the following command.

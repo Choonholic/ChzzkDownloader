@@ -2,13 +2,13 @@
 
 ## Notices
 
-* Chzzk Downloader Suite only supports the official major versions of FFmpeg and does not support test builds or any other unofficial releases.
-* The minimum supported version of FFmpeg is 7.0.
-* If FFmpeg is already installed, you can skip the following steps and simply add the path to the FFmpeg installation directory to the Path system environment variable.
+- Chzzk Downloader Suite only supports the official major versions of FFmpeg and does not support test builds or any other unofficial releases.
+- The minimum supported version of FFmpeg is 7.0.
+- If FFmpeg is already installed, you can skip the following steps and simply add the path to the FFmpeg installation directory to the Path system environment variable.
 
 ## Installing Using the Installer
 
-* Note: The binary installed using this method may not immediately reflect the latest version.
+- Note: The binary installed using this method may not immediately reflect the latest version.
 
 1. Open [https://getffmpeg.org/](https://getffmpeg.org/).
 2. Click **Download ffmpeg-setup.exe Installer** button to download `ffmpeg-setup.exe` file.

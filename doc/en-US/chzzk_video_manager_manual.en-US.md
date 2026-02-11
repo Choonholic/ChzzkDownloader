@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Video Downloader
 </div>
 
 ## Version
-Version 1.38.2, February 03, 2026 00:00:00
+Version 1.39.0, February 12, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, both of Chzzk Video Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -72,8 +72,8 @@ To add a video, click the ☰ icon, and choose `Add Video...`, then Add Video di
 ### Video Number / Video URL
 Video number will automatically recognize one of the following values when entered:
 
-* Video URL - `https://chzzk.naver.com/video/Number`
-* Video Number - `Number`
+- Video URL - `https://chzzk.naver.com/video/Number`
+- Video Number - `Number`
 
 ## Removing the Video
 To remove a video, select the video from the list, click the ☰ icon, and choose `Remove Video`, then click `OK` to confirm to remove.
@@ -125,14 +125,37 @@ When you select a video from the list and right-click, a context menu of the vid
 ## Saving the Video List
 The video list can be saved to a list file and loaded later when needed.
 
-If the list contains one or more videos, click the ☰ icon and select `Save Video List...`, then a file dialog box will appear, allowing you to change the directory and file name where the list will be saved.
+If the list contains one or more videos, click the ☰ icon and select `Save Video List...` to open a dialog where you can choose the destination video list file.
 
-## Loading the Video List
+## Loading a Video List
 Instead of adding videos manually each time, you can load a previously saved video list.
 
-Click the ☰ icon and select `Load Video List...`. A dialog box will appear, allowing you to choose a video list file.
+Click the ☰ icon and select `Load Video List...` to open a dialog where you can choose a video list file.
 
-If a video from the loaded list already exists in the current list, it will be automatically recognized and handled accordingly.
+Videos included in the loaded list will be automatically detected and handled, even if they already exist in the current list.
+
+## Importing a Video List
+Instead of using a binary format list file, you can import a video number list saved in plain text format.
+
+Click the ☰ icon and select `Import...` to open a dialog where you can choose a text file.
+
+Videos included in the imported list will be automatically detected and handled, even if they already exist in the current list.
+
+The text file must be encoded in UTF-8 and follow the format below:
+
+```
+https://chzzk.naver.com/video/2676946
+2555164
+https://chzzk.naver.com/video/2631744
+https://chzzk.naver.com/video/2620211
+https://chzzk.naver.com/video/2590216
+2453109
+```
+
+## Exporting the Video List
+To edit the video list externally or share it with others, you can export it in plain text format.
+
+Click the ☰ icon and select `Export...` to open a dialog where you can choose the destination text file.
 
 ## Refreshing List
 To refresh the list immediately, click the ☰ icon, and choose `Refresh`.
@@ -206,8 +229,8 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Remember window size and position on startup** - Saves the window size and position on exit and restores them on the next launch.
-* **Check latest updates of Chzzk Video Manager at startup** - Decides whether check latest updates of Chzzk Video Manager at startup or not. Otherwise, Click `Check Updates` button to check updates manually.
+- **Remember window size and position on startup** - Saves the window size and position on exit and restores them on the next launch.
+- **Check latest updates of Chzzk Video Manager at startup** - Decides whether check latest updates of Chzzk Video Manager at startup or not. Otherwise, Click `Check Updates` button to check updates manually.
 
 ### Features
 
@@ -216,11 +239,11 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Update Interval (Seconds)** - Sets the screen refresh interval for the list.
-* **Stop downloading if free space is less than** - Sets the stop threshold when disk space is low, using either a percentage (%) or a size value. When using a size value, you can specify SI units (KB, MB, GB...) or IEC units (KiB, MiB, GiB...). You may also specify prefixes only (K, Ki, M, Mi, G, Gi...). Of course, you can also specify the value in bytes without any unit.
-* **Sleep Mode** - Sets the system's sleep mode while the Chzzk Video Manager is running.
-* **System Performance** - Specify the performance of the system where Chzzk Video Manager is currently running. If you encounter errors due to timeouts when adding or refreshing videos, try lowering the performance level by one step and attempt again.
-* **Save metadata based on replay information** - Checks to save metadata based on replay information.
+- **Update Interval (Seconds)** - Sets the screen refresh interval for the list.
+- **Stop downloading if free space is less than** - Sets the stop threshold when disk space is low, using either a percentage (%) or a size value. When using a size value, you can specify SI units (KB, MB, GB...) or IEC units (KiB, MiB, GiB...). You may also specify prefixes only (K, Ki, M, Mi, G, Gi...). Of course, you can also specify the value in bytes without any unit.
+- **Sleep Mode** - Sets the system's sleep mode while the Chzzk Video Manager is running.
+- **System Performance** - Specify the performance of the system where Chzzk Video Manager is currently running. If you encounter errors due to timeouts when adding or refreshing videos, try lowering the performance level by one step and attempt again.
+- **Save metadata based on replay information** - Checks to save metadata based on replay information.
 
 ### Downloader
 
@@ -229,14 +252,14 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **JSON-RPC Server: Allow External Remote Access** - Allows remote access to the JSON-RPC server from outside the PC running the downloader.
-* **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
-* **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
-* **Save Thumbnail Image** - Checks to save thumbnail images separately.
-* **Enable Download Speed Limit** - Limits the download speed to control network bandwidth. (e.g., 500K, 10M, 1G)
-* **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.
-* **Output Filename Format** - Set output filename format. Please refer to `chzzk_video_downloader_manual.en-US.pdf` for detailed information on format specifiers.
-* **Target Quality** - Sets target quality to download.
+- **JSON-RPC Server: Allow External Remote Access** - Allows remote access to the JSON-RPC server from outside the PC running the downloader.
+- **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
+- **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
+- **Save Thumbnail Image** - Checks to save thumbnail images separately.
+- **Enable Download Speed Limit** - Limits the download speed to control network bandwidth. (e.g., 500K, 10M, 1G)
+- **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.
+- **Output Filename Format** - Set output filename format. Please refer to `chzzk_video_downloader_manual.en-US.pdf` for detailed information on format specifiers.
+- **Target Quality** - Sets target quality to download.
 
 ### Finalize
 
@@ -245,14 +268,14 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **JSON-RPC Server: Allow External Remote Access** - Allows remote access to the JSON-RPC server from outside the PC running the finalizer.
-* **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
-* **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
-* **Finalize Method** - Specifies the finalization method.
-* **Send To Chzzk Transport Finalizer** - Delegate finalizing stage to Chzzk Transport Finalizer.
-* **Shutdown Chzzk Transport Finalizer When Exit** - Specifies whether to also shutdown Chzzk Transport Finalizer when exiting.
-* **Custom Options** - Specifies custom options for the finalization. You can also click the `...` button to load and specify a custom option set file.
-* **Extension for Custom Finalization** - Specifies file extension when the custom options require it.
+- **JSON-RPC Server: Allow External Remote Access** - Allows remote access to the JSON-RPC server from outside the PC running the finalizer.
+- **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
+- **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
+- **Finalize Method** - Specifies the finalization method.
+- **Send To Chzzk Transport Finalizer** - Delegate finalizing stage to Chzzk Transport Finalizer.
+- **Shutdown Chzzk Transport Finalizer When Exit** - Specifies whether to also shutdown Chzzk Transport Finalizer when exiting.
+- **Custom Options** - Specifies custom options for the finalization. You can also click the `...` button to load and specify a custom option set file.
+- **Extension for Custom Finalization** - Specifies file extension when the custom options require it.
 
 ### Plugin
 
@@ -261,9 +284,9 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Notifications: Path** - Sets the path to the notification plugin.
-* **Notifications: Parameters** - Sets the parameters for the notification plugin.
-* **Notifications: Text Type** - Sets the text format used by the notification plugin.
+- **Notifications: Path** - Sets the path to the notification plugin.
+- **Notifications: Parameters** - Sets the parameters for the notification plugin.
+- **Notifications: Text Type** - Sets the text format used by the notification plugin.
 
 ### Auth
 
@@ -272,9 +295,9 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Auth Key (NID_AUT)** - Specifies the authorization key of NAVER ID.
-* **Session Key (NID_SES)** - Specifies the session key of NAVER ID.
-* **Ignore authentication credential temporarily** - Sets whether ignore authentication credential temporarily or not.
+- **Auth Key (NID_AUT)** - Specifies the authorization key of NAVER ID.
+- **Session Key (NID_SES)** - Specifies the session key of NAVER ID.
+- **Ignore authentication credential temporarily** - Sets whether ignore authentication credential temporarily or not.
 
 For more information on how to get Chzzk authentication credential, please refer to `how_to_get_chzzk_credential.en-US.pdf`.
 
@@ -285,10 +308,10 @@ For more information on how to get Chzzk authentication credential, please refer
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Working Directory** - Specifies the directory where the configuration files of Chzzk Video Downloader are saved.
-* **Output Directory** - Specifies the directory where downloaded video files are saved.
-* **Temporary Directory** - Specifies the directory where temporary files are created.
-* **Categorize Method** - Sets the categorization method for directories where downloaded video files are saved.
+- **Working Directory** - Specifies the directory where the configuration files of Chzzk Video Downloader are saved.
+- **Output Directory** - Specifies the directory where downloaded video files are saved.
+- **Temporary Directory** - Specifies the directory where temporary files are created.
+- **Categorize Method** - Sets the categorization method for directories where downloaded video files are saved.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/vman_en-US/vman_settings_network.png' />
@@ -304,8 +327,8 @@ You can click the `Network...` button to enter the information required to acces
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Version Information** - Displays version information of Chzzk Video Manager.
-* **Contact Links** - Links to contact to authors.
+- **Version Information** - Displays version information of Chzzk Video Manager.
+- **Contact Links** - Links to contact to authors.
 
 ## Contact Us
 If you have any questions, bug reports, or improvement requests regarding the Chzzk Downloader Suite, please submit them through [GitHub](https://github.com/Choonholic/ChzzkDownloader/)‘s [Issues](https://github.com/Choonholic/ChzzkDownloader/issues/new) feature. We can respond to all languages; however, the languages we directly support are Korean, English, Japanese, and Chinese. For other languages, responses may not be fully accurate due to the use of machine translation.

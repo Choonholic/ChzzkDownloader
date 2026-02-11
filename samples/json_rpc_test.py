@@ -32,7 +32,6 @@ def connect_nonblocking(sock, host, port, timeout=5.0):
     if so_error != 0:
         raise OSError(so_error, f"connect failed with SO_ERROR={so_error}")
 
-
 def _scan_complete_json_prefix(s: str) -> int:
     n = len(s)
     i = 0

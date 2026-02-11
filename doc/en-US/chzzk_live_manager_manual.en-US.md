@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.38.2, February 03, 2026 00:00:00
+Version 1.39.0, February 12, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, both of Chzzk Live Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -74,9 +74,9 @@ Additionally, the following items can be specified in this dialog box.
 ### Streamer UID / Live URL
 Streamer unique identifier will automatically recognize one of the following three values when entered.
 
-* Stream URL - `https://chzzk.naver.com/live/UID`
-* Channel URL - `https://chzzk.naver.com/UID`
-* Streamer UID - `UID`
+- Stream URL - `https://chzzk.naver.com/live/UID`
+- Channel URL - `https://chzzk.naver.com/UID`
+- Streamer UID - `UID`
 
 ### Target Quality
 You can enter values such as `best`, `1080p`, or `720p`.
@@ -169,14 +169,34 @@ You can change the download options in real-time if the channel is not currently
 ## Saving the Channel List
 The currently managed channel list can be saved to a list file and loaded later when needed.
 
-If the list contains one or more channels, click the ☰ icon and select `Save Channels...`, then a file dialog box will appear, allowing you to change the directory and file name where the list will be saved.
+If the list contains one or more channels, click the ☰ icon and select `Save Channels...` to open a dialog where you can choose the destination channel list file.
 
-## Loading the Channel List
+## Loading a Channel List
 Instead of adding channels manually each time, you can load a previously saved channel list.
 
-Click the ☰ icon and select `Load Channels...`. A dialog box will appear, allowing you to choose a channel list file.
+Click the ☰ icon and select `Load Channels...` to open a dialog where you can choose a channel list file.
 
-If a channel from the loaded list already exists in the current list, it will be automatically recognized and handled accordingly.
+Channels included in the imported list will be automatically detected and handled, even if they already exist in the current list.
+
+## Importing a Channel List
+Instead of using a binary format list file, you can import a channel list saved in plain text format.
+
+Click the ☰ icon and select `Import...` to open a dialog where you can choose a text file.
+
+Channels included in the imported list will be automatically detected and handled, even if they already exist in the current list.
+
+The text file must be encoded in UTF-8 and follow the format below:
+
+```
+e8767e4653473e66a720b5d245993c1f
+https://chzzk.naver.com/live/2fe88ab2b731edd48b7b11feaedbf294
+65c3035bdc598c81f15a8fe0e958b3ce
+```
+
+## Exporting the Channel List
+To edit the channel list externally or share it with others, you can export it in plain text format.
+
+Click the ☰ icon and select `Export...` to open a dialog where you can choose the destination text file.
 
 ## Refreshing List
 To refresh the list immediately, click the ☰ icon, and choose `Refresh`.
@@ -184,9 +204,9 @@ To refresh the list immediately, click the ☰ icon, and choose `Refresh`.
 ## Loading the Channel List at Startup Automatically
 If you frequently manage a fixed set of channels, manually loading the list each time can become tedious. By enabling the following setting, the specified channel list will be automatically loaded at startup.
 
-* Click the ☰ icon, and choose `Settings...` to open the settings dialog box.
-* In the `Startup` tab, check `Load channels at startup`. Then, click the `...` button next to the `Path:` field and select the channel list file you want to load.
-* From the next startup onward, the specified channel list will be automatically loaded.
+- Click the ☰ icon, and choose `Settings...` to open the settings dialog box.
+- In the `Startup` tab, check `Load channels at startup`. Then, click the `...` button next to the `Path:` field and select the channel list file you want to load.
+- From the next startup onward, the specified channel list will be automatically loaded.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_en-US/lman_settings_load_startup.png' />
@@ -203,21 +223,21 @@ However, even in such cases, you can configure the following settings to automat
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* Check `Scan running instances at startup` in the `Startup` tab.
-* Set the range of IDs to scan in the `ID Ranges to Scan` field. The ID is the value specified with the `-i` or `--id` parameter when running Chzzk Live Downloader. For example, if it was run as shown below, specify `3` in the scan range.
+- Check `Scan running instances at startup` in the `Startup` tab.
+- Set the range of IDs to scan in the `ID Ranges to Scan` field. The ID is the value specified with the `-i` or `--id` parameter when running Chzzk Live Downloader. For example, if it was run as shown below, specify `3` in the scan range.
 
   ```
   ChzzkLiveDownloader -i 3
   ```
 
-* You can specify an ID range from 0 to 31, and the IDs or ranges can be entered as follows:
+- You can specify an ID range from 0 to 31, and the IDs or ranges can be entered as follows:
 
   ```
   ~3, 6, 8-10, 13~15
   ```
 
-* In the example above, the IDs scanned will be `0, 1, 2, 3, 6, 8, 9, 10, 13, 14, 15`.
-* If both channel scanning and channel list loading are enabled, it will first scan for running channels and then load the channel list, filling in any gaps by adding new channels.
+- In the example above, the IDs scanned will be `0, 1, 2, 3, 6, 8, 9, 10, 13, 14, 15`.
+- If both channel scanning and channel list loading are enabled, it will first scan for running channels and then load the channel list, filling in any gaps by adding new channels.
 
 ## Opening Chzzk Downloader Environment
 To open Chzzk Downloader Environment, click the ☰ icon, and choose `Open Environment (Command Prompt)` or `Open Environment (PowerShell)` under `Tools`.
@@ -288,9 +308,9 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Start Chzzk Live Manager automatically when signing in to Windows** - Puts Chzzk Live Manager into startup list of Windows.
-* **Remember window size and position on startup** - Saves the window size and position on exit and restores them on the next launch.
-* **Check latest updates of Chzzk Live Manager at startup** - Decides whether check latest updates of Chzzk Live Manager at startup or not. Otherwise, Click `Check Updates` button to check updates manually.
+- **Start Chzzk Live Manager automatically when signing in to Windows** - Puts Chzzk Live Manager into startup list of Windows.
+- **Remember window size and position on startup** - Saves the window size and position on exit and restores them on the next launch.
+- **Check latest updates of Chzzk Live Manager at startup** - Decides whether check latest updates of Chzzk Live Manager at startup or not. Otherwise, Click `Check Updates` button to check updates manually.
 
 ### Features
 
@@ -299,11 +319,12 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Update Interval (Seconds)** - Sets the screen refresh interval for the list. This only affects the display and is not related to the download detection interval. The download detection interval of Chzzk Live Downloader is set to 10 seconds by default and is designed to avoid being impacted by API rate limits, unlike other tools.
-* **Stop downloading if free space is less than** - Sets the stop threshold when disk space is low, using either a percentage (%) or a size value. When using a size value, you can specify SI units (KB, MB, GB...) or IEC units (KiB, MiB, GiB...). You may also specify prefixes only (K, Ki, M, Mi, G, Gi...). Of course, you can also specify the value in bytes without any unit.
-* **Sleep Mode** - Sets the system's sleep mode while the Chzzk Live Manager is running.
-* **System Performance** - Specify the performance of the system where Chzzk Live Manager is currently running. If you encounter errors due to timeouts when adding or refreshing channels, try lowering the performance level by one step and attempt again.
-* **Save metadata based on live stream information** - Checks to save metadata based on live stream information.
+- **Update Interval (Seconds)** - Sets the screen refresh interval for the list. This only affects the display and is not related to the download detection interval. The download detection interval of Chzzk Live Downloader is set to 10 seconds by default and is designed to avoid being impacted by API rate limits, unlike other tools.
+- **Auto-recover channel when Heartbeat is not received** - Sets whether to automatically attempt channel recovery when Heartbeat of the channel is not received. If a download was in progress when the connection was lost, the download will be terminated at that point and then restarted.
+- **Stop downloading if free space is less than** - Sets the stop threshold when disk space is low, using either a percentage (%) or a size value. When using a size value, you can specify SI units (KB, MB, GB...) or IEC units (KiB, MiB, GiB...). You may also specify prefixes only (K, Ki, M, Mi, G, Gi...). Of course, you can also specify the value in bytes without any unit.
+- **Sleep Mode** - Sets the system's sleep mode while the Chzzk Live Manager is running.
+- **System Performance** - Specify the performance of the system where Chzzk Live Manager is currently running. If you encounter errors due to timeouts when adding or refreshing channels, try lowering the performance level by one step and attempt again.
+- **Save metadata based on live stream information** - Checks to save metadata based on live stream information.
 
 ### Downloader
 
@@ -312,12 +333,12 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **JSON-RPC Server: Allow External Remote Access** - Allows remote access to the JSON-RPC server from outside the PC running the downloader.
-* **JSON-RPC Server: Base Port** - Sets the base port number for the JSON-RPC server. The actual port number for each channel is determined by combining the base port with the channel ID. For example, if the base port is `62000` and the channel ID is `3`, the actual port number is set to `62003`.
-* **Save Thumbnail Image** - Checks to save thumbnail images separately.
-* **Stream Retrieve Method** - Sets stream retrieving method.
-* **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.
-* **Output Filename Format** - Set output filename format. Please refer to `chzzk_live_downloader_manual.en-US.pdf` for detailed information on format specifiers.
+- **JSON-RPC Server: Allow External Remote Access** - Allows remote access to the JSON-RPC server from outside the PC running the downloader.
+- **JSON-RPC Server: Base Port** - Sets the base port number for the JSON-RPC server. The actual port number for each channel is determined by combining the base port with the channel ID. For example, if the base port is `62000` and the channel ID is `3`, the actual port number is set to `62003`.
+- **Save Thumbnail Image** - Checks to save thumbnail images separately.
+- **Stream Retrieve Method** - Sets stream retrieving method.
+- **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.
+- **Output Filename Format** - Set output filename format. Please refer to `chzzk_live_downloader_manual.en-US.pdf` for detailed information on format specifiers.
 
 ### Finalize
 
@@ -326,14 +347,14 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **JSON-RPC Server: Allow External Remote Access** - Allows remote access to the JSON-RPC server from outside the PC running the finalizer.
-* **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server of Chzzk Transport Finalizer.
-* **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server of Chzzk Transport Finalizer.
-* **Finalize Method** - Specifies the finalization method.
-* **Send To Chzzk Transport Finalizer** - Delegate finalizing stage to Chzzk Transport Finalizer.
-* **Shutdown Chzzk Transport Finalizer When Exit** - Specifies whether to also shutdown Chzzk Transport Finalizer when exiting.
-* **Custom Options** - Specifies custom options for the finalization. You can also click the `...` button to load and specify a custom option set file.
-* **Extension for Custom Finalization** - Specifies file extension when the custom options require it.
+- **JSON-RPC Server: Allow External Remote Access** - Allows remote access to the JSON-RPC server from outside the PC running the finalizer.
+- **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server of Chzzk Transport Finalizer.
+- **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server of Chzzk Transport Finalizer.
+- **Finalize Method** - Specifies the finalization method.
+- **Send To Chzzk Transport Finalizer** - Delegate finalizing stage to Chzzk Transport Finalizer.
+- **Shutdown Chzzk Transport Finalizer When Exit** - Specifies whether to also shutdown Chzzk Transport Finalizer when exiting.
+- **Custom Options** - Specifies custom options for the finalization. You can also click the `...` button to load and specify a custom option set file.
+- **Extension for Custom Finalization** - Specifies file extension when the custom options require it.
 
 ### Plugin
 
@@ -342,9 +363,9 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Notifications: Path** - Sets the path to the notification plugin.
-* **Notifications: Parameters** - Sets the parameters for the notification plugin.
-* **Notifications: Text Type** - Sets the text format used by the notification plugin.
+- **Notifications: Path** - Sets the path to the notification plugin.
+- **Notifications: Parameters** - Sets the parameters for the notification plugin.
+- **Notifications: Text Type** - Sets the text format used by the notification plugin.
 
 ### Auth
 
@@ -353,9 +374,9 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Auth Key (NID_AUT)** - Specifies the authorization key of NAVER ID.
-* **Session Key (NID_SES)** - Specifies the session key of NAVER ID.
-* **Ignore authentication credential temporarily** - Sets whether ignore authentication credential temporarily or not.
+- **Auth Key (NID_AUT)** - Specifies the authorization key of NAVER ID.
+- **Session Key (NID_SES)** - Specifies the session key of NAVER ID.
+- **Ignore authentication credential temporarily** - Sets whether ignore authentication credential temporarily or not.
 
 For more information on how to get Chzzk authentication credential, please refer to `how_to_get_chzzk_credential.en-US.pdf`.
 
@@ -366,10 +387,10 @@ For more information on how to get Chzzk authentication credential, please refer
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Working Directory** - Specifies the directory where the configuration files of Chzzk Live Downloader are saved.
-* **Output Directory** - Specifies the directory where downloaded stream files are saved.
-* **Temporary Directory** - Specifies the directory where temporary files are created.
-* **Categorize Method** - Sets the categorization method for directories where downloaded stream files are saved.
+- **Working Directory** - Specifies the directory where the configuration files of Chzzk Live Downloader are saved.
+- **Output Directory** - Specifies the directory where downloaded stream files are saved.
+- **Temporary Directory** - Specifies the directory where temporary files are created.
+- **Categorize Method** - Sets the categorization method for directories where downloaded stream files are saved.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/lman_en-US/lman_settings_network.png' />
@@ -385,8 +406,8 @@ You can click the `Network...` button to enter the information required to acces
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Version Information** - Displays version information of Chzzk Live Manager.
-* **Contact Links** - Links to contact to authors.
+- **Version Information** - Displays version information of Chzzk Live Manager.
+- **Contact Links** - Links to contact to authors.
 
 ## Contact Us
 If you have any questions, bug reports, or improvement requests regarding the Chzzk Downloader Suite, please submit them through [GitHub](https://github.com/Choonholic/ChzzkDownloader/)‘s [Issues](https://github.com/Choonholic/ChzzkDownloader/issues/new) feature. We can respond to all languages; however, the languages we directly support are Korean, English, Japanese, and Chinese. For other languages, responses may not be fully accurate due to the use of machine translation.

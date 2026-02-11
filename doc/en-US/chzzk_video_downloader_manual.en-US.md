@@ -7,11 +7,11 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.38.2, February 03, 2026 00:00:00
+Version 1.39.0, February 12, 2026 00:00:00
 
 ## Prerequisites
-* **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
-* **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
+- **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
+- **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
 
 ## Usage
 ```
@@ -99,7 +99,7 @@ ChzzkVideoDownloader https://chzzk.naver.com/video/1602969
 
 If you want to download several videos sequentially, you can create a list file as following, then save as a text file encoded as UTF-8. (e.g. `list.txt`)
 
-```python
+```
 # List Samples
 https://chzzk.naver.com/video/2676946
 2555164
@@ -119,8 +119,8 @@ ChzzkVideoDownloader --input list.txt
 ## Resetting Authentication Credential
 To download a video that requires NAVER authentication credential, such as an adult-only video, you must specify the following information.
 
-* NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
-* NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
+- NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
+- NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
 
 When the authentication credential is not found when downloading a clip that requires it, a prompt to enter your authorization will be activated.
 
@@ -178,38 +178,38 @@ ChzzkVideoDownloader video_no or url --name
 ### Filename Format Tags
 The following pre-defined tags can be used for filename format.
 
-* `{name}` - Channel Name.
-* `{verified}` - If channel is verified one, this tag will be `[✓]` or empty.
-* `{video_no}` - Video Number.
-* `{title}` - Title of the video.
-* `{category_type}` - Category type of the video if set.
-* `{category}` - Category of the video if set.
-* `{category_value}` - Category value of the video if set.
-* `{live_date...}` - Date-related tags when the stream started.
-* `{publish_date...}` - Date-related tags when the video published.
-* `{media...}` - Media information-related tags.
+- `{name}` - Channel Name.
+- `{verified}` - If channel is verified one, this tag will be `[✓]` or empty.
+- `{video_no}` - Video Number.
+- `{title}` - Title of the video.
+- `{category_type}` - Category type of the video if set.
+- `{category}` - Category of the video if set.
+- `{category_value}` - Category value of the video if set.
+- `{live_date...}` - Date-related tags when the stream started.
+- `{publish_date...}` - Date-related tags when the video published.
+- `{media...}` - Media information-related tags.
 
 For the media-related tags, the following elements are available.
 
-* `{media_quality}` - Media Quality. (e.g. `1080p`)
-* `{media_video_width}` - Video width as pixels. (e.g. `1920`)
-* `{media_video_height}` - Video height as pixels. (e.g. `1080`)
-* `{media_video_framerate}` - Video frame rate as frame-per-second. (e.g. `60.0`)
-* `{media_bitrate}` - Bitrate as bit-per-second. (e.g. `81920000`)
-* `{media_video_codec}` - Video codec. (e.g. `H264`)
+- `{media_quality}` - Media Quality. (e.g. `1080p`)
+- `{media_video_width}` - Video width as pixels. (e.g. `1920`)
+- `{media_video_height}` - Video height as pixels. (e.g. `1080`)
+- `{media_video_framerate}` - Video frame rate as frame-per-second. (e.g. `60.0`)
+- `{media_bitrate}` - Bitrate as bit-per-second. (e.g. `81920000`)
+- `{media_video_codec}` - Video codec. (e.g. `H264`)
 
 For the date-related tags, the detailed elements can be expanded as below.
 
-* `{..._date}` - Date with `%Y%m%d%H%M%S` format. (e.g. `20240607014327`)
-* `{..._date_year}` or `{..._date_year_full}` - Year with century as a decimal number. (e.g. `2024`)
-* `{..._date_year_short}` - Year without century as a zero-padded decimal number. (e.g. `24`)
-* `{..._date_month}` - Month as a zero-padded decimal number. (`01`, `02`, ..., `12`)
-* `{..._date_month_full}` - Month as full name. (`January`, `February`, ..., `December`)
-* `{..._date_month_short}` - Month as abbreviated name. (`Jan`, `Feb`, ..., `Dec`)
-* `{..._date_day}` - Day of the month as a zero-padded decimal number. (`01`, `02`, ..., `31`)
-* `{..._date_hour}` - Hour (24-hour clock) as a zero-padded decimal number. (`00`, `01`, ..., `23`)
-* `{..._date_minute}` - Minute as a zero-padded decimal number. (`00`, `01`, ..., `59`)
-* `{..._date_second}` - Second as a zero-padded decimal number. (`00`, `01`, ..., `59`)
+- `{..._date}` - Date with `%Y%m%d%H%M%S` format. (e.g. `20240607014327`)
+- `{..._date_year}` or `{..._date_year_full}` - Year with century as a decimal number. (e.g. `2024`)
+- `{..._date_year_short}` - Year without century as a zero-padded decimal number. (e.g. `24`)
+- `{..._date_month}` - Month as a zero-padded decimal number. (`01`, `02`, ..., `12`)
+- `{..._date_month_full}` - Month as full name. (`January`, `February`, ..., `December`)
+- `{..._date_month_short}` - Month as abbreviated name. (`Jan`, `Feb`, ..., `Dec`)
+- `{..._date_day}` - Day of the month as a zero-padded decimal number. (`01`, `02`, ..., `31`)
+- `{..._date_hour}` - Hour (24-hour clock) as a zero-padded decimal number. (`00`, `01`, ..., `23`)
+- `{..._date_minute}` - Minute as a zero-padded decimal number. (`00`, `01`, ..., `59`)
+- `{..._date_second}` - Second as a zero-padded decimal number. (`00`, `01`, ..., `59`)
 
 ## Saving Thumbnail Images
 To save thumbnail images separately, use the following command.
@@ -247,10 +247,10 @@ ChzzkVideoDownloader video_no or url --display quiet
 
 The following display methods can be set with options of `--display` parameter.
 
-* `quiet` - Suppress all details.
-* `simple` - Show simplified details only.
-* `fluent` - Show fluent details.
-* `all` - Show all details.
+- `quiet` - Suppress all details.
+- `simple` - Show simplified details only.
+- `fluent` - Show fluent details.
+- `all` - Show all details.
 
 If you want to set this option to default, just use `-d` or `--display` like below.
 
@@ -268,11 +268,11 @@ ChzzkVideoDownloader video_no or url --final all
 
 The following finalization methods can be set with options of `--final` parameter.
 
-* `none` - Just downloads transport stream files (`.ts`) and bypass converting stage. The transport stream files must be converted with the external converters for playing properly.
-* `convert` - Converts transport stream files (`.ts`) to video files (`.mp4`), but don't remove transport stream files.
-* `cleanup` - Converts transport stream files (`.ts`) to video files (`.mp4`), and clean up transport stream files.
-* `cconvert` - Converts transport stream files (`.ts`) to video files (`.mp4`) with custom options by `--custom`, but don't remove transport stream files.
-* `ccleanup` - Converts transport stream files (`.ts`) to video files (`.mp4`) with custom options by `--custom`, and clean up transport stream files.
+- `none` - Just downloads transport stream files (`.ts`) and bypass converting stage. The transport stream files must be converted with the external converters for playing properly.
+- `convert` - Converts transport stream files (`.ts`) to video files (`.mp4`), but don't remove transport stream files.
+- `cleanup` - Converts transport stream files (`.ts`) to video files (`.mp4`), and clean up transport stream files.
+- `cconvert` - Converts transport stream files (`.ts`) to video files (`.mp4`) with custom options by `--custom`, but don't remove transport stream files.
+- `ccleanup` - Converts transport stream files (`.ts`) to video files (`.mp4`) with custom options by `--custom`, and clean up transport stream files.
 
 ```powershell
 ChzzkVideoDownloader video_no or url --final convert
@@ -464,16 +464,16 @@ However, by specifying an option after the `--settings` parameter, you can contr
 ChzzkVideoDownloader video_no or url --settings skip
 ```
 
-* `default` – Saves the selected options to the configuration file and proceeds with the downloads.
-* `skip` – Applies the selected options only to the current session without saving, and then proceeds with the downloads.
-* `update` – Saves the selected options to the configuration file, displays the updated settings, and then quits.
-* `show` – Ignores all selected options, displays the existing settings, and then quits.
-* `quit` – Saves the selected options to the configuration file and then quits.
+- `default` – Saves the selected options to the configuration file and proceeds with the downloads.
+- `skip` – Applies the selected options only to the current session without saving, and then proceeds with the downloads.
+- `update` – Saves the selected options to the configuration file, displays the updated settings, and then quits.
+- `show` – Ignores all selected options, displays the existing settings, and then quits.
+- `quit` – Saves the selected options to the configuration file and then quits.
 
 The following information is managed separately and is always saved regardless of the `--settings` parameter:
 
-* NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
-* NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
+- NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
+- NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
 
 ## Plugins
 Chzzk Video Downloader provides additional features tailored to the user's personal preferences and environment through plugins.
@@ -481,8 +481,8 @@ Chzzk Video Downloader provides additional features tailored to the user's perso
 ### Notification Plugins
 By registering a notification plugin, you can easily monitor the operational status of Chzzk Video Downloader through an external solution. The following notification plugin is provided by default:
 
-* `pn_slack` - Slack notification plugin
-* `pn_telegram` - Telegram notification plugin
+- `pn_slack` - Slack notification plugin
+- `pn_telegram` - Telegram notification plugin
 
 You can register a notification plugin using `--pnpath` parameter as shown below. Since only one plugin can be active at a time, if multiple registrations are made, only the last one will be active. After the plugin is registered, it applies to all future runs of Chzzk Video Downloader.
 
@@ -523,12 +523,12 @@ ChzzkVideoDownloader --reset
 
 This will reset the following information.
 
-* NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
-* NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
-* Settings for target quality to download
-* Settings for Saving thumbnail image
-* Settings for displaying download details
-* Settings for output and temporary directories
+- NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
+- NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
+- Settings for target quality to download
+- Settings for Saving thumbnail image
+- Settings for displaying download details
+- Settings for output and temporary directories
 
 ## Displaying Version Information
 You can check the version information by using the following command.

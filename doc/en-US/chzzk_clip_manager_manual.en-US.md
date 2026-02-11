@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Clip Downloader
 </div>
 
 ## Version
-Version 1.38.2, February 03, 2026 00:00:00
+Version 1.39.0, February 12, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Clip Manager is the GUI frontend application for Chzzk Clip Downloader, Chzzk Clip Downloader must be installed as well.
@@ -60,8 +60,8 @@ To add a clip, click the ☰ icon, and choose `Add Clip...`, then Add Clip dialo
 ### Clip UID / Clip URL
 Clip UID will automatically recognize one of the following values when entered:
 
-* Clip URL - `https://chzzk.naver.com/Clips/UID`
-* Clip UID - `UID`
+- Clip URL - `https://chzzk.naver.com/Clips/UID`
+- Clip UID - `UID`
 
 ## Removing the Clip
 To remove a clip, select the clip from the list, click the ☰ icon, and choose `Remove Clip`, then click `OK` to confirm to remove.
@@ -113,14 +113,35 @@ When you select a clip from the list and right-click, a context menu of the clip
 ## Saving the Clip List
 The clip list can be saved to a list file and loaded later when needed.
 
-If the list contains one or more clips, click the ☰ icon and select `Save Clip List...`, then a file dialog box will appear, allowing you to change the directory and file name where the list will be saved.
+If the list contains one or more clips, click the ☰ icon and select `Save Clip List...` to open a dialog where you can choose the destination clip list file.
 
-## Loading the Clip List
+## Loading a Clip List
 Instead of adding clips manually each time, you can load a previously saved clip list.
 
-Click the ☰ icon and select `Load Clip List...`. A dialog box will appear, allowing you to choose a clip list file.
+Click the ☰ icon and select `Load Clip List...` to open a dialog where you can choose a clip list file.
 
-If a clip from the loaded list already exists in the current list, it will be automatically recognized and handled accordingly.
+Clips included in the loaded list will be automatically detected and handled, even if they already exist in the current list.
+
+## Importing a Clip List
+Instead of using a binary format list file, you can import a clip UID list saved in plain text format.
+
+Click the ☰ icon and select `Import...` to open a dialog where you can choose a text file.
+
+Clips included in the imported list will be automatically detected and handled, even if they already exist in the current list.
+
+The text file must be encoded in UTF-8 and follow the format below:
+
+```
+https://chzzk.naver.com/clips/YY9plBpybL
+C46IcpG11p
+https://chzzk.naver.com/clips/gTSq4c8HaQ
+https://chzzk.naver.com/clips/nZbWU27D95
+```
+
+## Exporting the Clip List
+To edit the clip list externally or share it with others, you can export it in plain text format.
+
+Click the ☰ icon and select `Export...` to open a dialog where you can choose the destination text file.
 
 ## Refreshing List
 To refresh the list immediately, click the ☰ icon, and choose `Refresh`.
@@ -172,8 +193,8 @@ Double-clicking tray icon will restore the window to its original state, and rig
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Remember window size and position on startup** - Saves the window size and position on exit and restores them on the next launch.
-* **Check latest updates of Chzzk Clip Manager at startup** - Decides whether check latest updates of Chzzk Clip Manager at startup or not. Otherwise, Click `Check Updates` button to check updates manually.
+- **Remember window size and position on startup** - Saves the window size and position on exit and restores them on the next launch.
+- **Check latest updates of Chzzk Clip Manager at startup** - Decides whether check latest updates of Chzzk Clip Manager at startup or not. Otherwise, Click `Check Updates` button to check updates manually.
 
 ### Features
 
@@ -182,12 +203,12 @@ Double-clicking tray icon will restore the window to its original state, and rig
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Update Interval (Seconds)** - Sets the screen refresh interval for the list.
-* **Stop downloading if free space is less than** - Sets the stop threshold when disk space is low, using either a percentage (%) or a size value. When using a size value, you can specify SI units (KB, MB, GB...) or IEC units (KiB, MiB, GiB...). You may also specify prefixes only (K, Ki, M, Mi, G, Gi...). Of course, you can also specify the value in bytes without any unit.
+- **Update Interval (Seconds)** - Sets the screen refresh interval for the list.
+- **Stop downloading if free space is less than** - Sets the stop threshold when disk space is low, using either a percentage (%) or a size value. When using a size value, you can specify SI units (KB, MB, GB...) or IEC units (KiB, MiB, GiB...). You may also specify prefixes only (K, Ki, M, Mi, G, Gi...). Of course, you can also specify the value in bytes without any unit.
 Sets the threshold % for stopping downloads when disk space is low.
-* **Sleep Mode** - Sets the system's sleep mode while the Chzzk Clip Manager is running.
-* **System Performance** - Specify the performance of the system where Chzzk Clip Manager is currently running. If you encounter errors due to timeouts when adding or refreshing clips, try lowering the performance level by one step and attempt again.
-* **Save metadata based on clip information** - Checks to save metadata based on clip information.
+- **Sleep Mode** - Sets the system's sleep mode while the Chzzk Clip Manager is running.
+- **System Performance** - Specify the performance of the system where Chzzk Clip Manager is currently running. If you encounter errors due to timeouts when adding or refreshing clips, try lowering the performance level by one step and attempt again.
+- **Save metadata based on clip information** - Checks to save metadata based on clip information.
 
 ### Downloader
 
@@ -196,13 +217,13 @@ Sets the threshold % for stopping downloads when disk space is low.
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **JSON-RPC Server: Allow External Remote Access** - Allows remote access to the JSON-RPC server from outside the PC running the downloader.
-* **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
-* **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
-* **Save Thumbnail Image** - Checks to save thumbnail images separately.
-* **Enable Download Speed Limit** - Limits the download speed to control network bandwidth. (e.g., 500K, 10M, 1G)
-* **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.
-* **Output Filename Format** - Set output filename format. Please refer to `chzzk_clip_downloader_manual.en-US.pdf` for detailed information on format specifiers.
+- **JSON-RPC Server: Allow External Remote Access** - Allows remote access to the JSON-RPC server from outside the PC running the downloader.
+- **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
+- **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
+- **Save Thumbnail Image** - Checks to save thumbnail images separately.
+- **Enable Download Speed Limit** - Limits the download speed to control network bandwidth. (e.g., 500K, 10M, 1G)
+- **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.
+- **Output Filename Format** - Set output filename format. Please refer to `chzzk_clip_downloader_manual.en-US.pdf` for detailed information on format specifiers.
 
 ### Plugin
 
@@ -211,9 +232,9 @@ Sets the threshold % for stopping downloads when disk space is low.
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Notifications: Path** - Sets the path to the notification plugin.
-* **Notifications: Parameters** - Sets the parameters for the notification plugin.
-* **Notifications: Text Type** - Sets the text format used by the notification plugin.
+- **Notifications: Path** - Sets the path to the notification plugin.
+- **Notifications: Parameters** - Sets the parameters for the notification plugin.
+- **Notifications: Text Type** - Sets the text format used by the notification plugin.
 
 ### Auth
 
@@ -222,9 +243,9 @@ Sets the threshold % for stopping downloads when disk space is low.
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Auth Key (NID_AUT)** - Specifies the authorization key of NAVER ID.
-* **Session Key (NID_SES)** - Specifies the session key of NAVER ID.
-* **Ignore authentication credential temporarily** - Sets whether ignore authentication credential temporarily or not.
+- **Auth Key (NID_AUT)** - Specifies the authorization key of NAVER ID.
+- **Session Key (NID_SES)** - Specifies the session key of NAVER ID.
+- **Ignore authentication credential temporarily** - Sets whether ignore authentication credential temporarily or not.
 
 For more information on how to get Chzzk authentication credential, please refer to `how_to_get_chzzk_credential.en-US.pdf`.
 
@@ -235,10 +256,10 @@ For more information on how to get Chzzk authentication credential, please refer
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Working Directory** - Specifies the directory where the configuration files of Chzzk Clip Downloader are saved.
-* **Output Directory** - Specifies the directory where downloaded clip files are saved.
-* **Temporary Directory** - Specifies the directory where temporary files are created.
-* **Categorize Method** - Sets the categorization method for directories where downloaded clip files are saved.
+- **Working Directory** - Specifies the directory where the configuration files of Chzzk Clip Downloader are saved.
+- **Output Directory** - Specifies the directory where downloaded clip files are saved.
+- **Temporary Directory** - Specifies the directory where temporary files are created.
+- **Categorize Method** - Sets the categorization method for directories where downloaded clip files are saved.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/cman_en-US/cman_settings_network.png' />
@@ -254,8 +275,8 @@ You can click the `Network...` button to enter the information required to acces
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-* **Version Information** - Displays version information of Chzzk Clip Manager.
-* **Contact Links** - Links to contact to authors.
+- **Version Information** - Displays version information of Chzzk Clip Manager.
+- **Contact Links** - Links to contact to authors.
 
 ## Contact Us
 If you have any questions, bug reports, or improvement requests regarding the Chzzk Downloader Suite, please submit them through [GitHub](https://github.com/Choonholic/ChzzkDownloader/)‘s [Issues](https://github.com/Choonholic/ChzzkDownloader/issues/new) feature. We can respond to all languages; however, the languages we directly support are Korean, English, Japanese, and Chinese. For other languages, responses may not be fully accurate due to the use of machine translation.

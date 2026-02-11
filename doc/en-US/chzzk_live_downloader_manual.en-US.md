@@ -7,11 +7,11 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 1.38.2, February 03, 2026 00:00:00
+Version 1.39.0, February 12, 2026 00:00:00
 
 ## Prerequisites
-* **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
-* **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
+- **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
+- **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
 
 ## Usage
 ```
@@ -86,7 +86,7 @@ ChzzkLiveDownloader -i 2 --thumb save --detect 30 --work work --out out --temp t
 ## Initial Setup
 For initial setup, the following items should be prepared.
 
-* Streamer Channel UID
+- Streamer Channel UID
 
 Execute without parameters for the first use.
 
@@ -150,8 +150,8 @@ ChzzkLiveDownloader --once uid or url
 ## Resetting Authentication Credential
 To download a live stream that requires NAVER authentication credential, such as an adult-only live stream, you must specify the following information.
 
-* NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
-* NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
+- NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
+- NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
 
 When the authentication credential is not found when downloading a clip that requires it, a prompt to enter your authorization will be activated.
 
@@ -209,45 +209,45 @@ ChzzkLiveDownloader --name
 ### Filename Format Tags
 The following pre-defined tags can be used for filename format.
 
-* `{name}` - Channel Name.
-* `{verified}` - If channel is verified one, this tag will be `[✓]` or empty.
-* `{channel_uid}` - Channel UID.
-* `{title}` - Title of the stream.
-* `{category_type}` - Category type of the stream if set.
-* `{category}` - Category of the stream if set.
-* `{category_value}` - Category value of the stream if set.
-* `{live_date...}` - Date-related tags when the stream started.
-* `{download_date...}` - Date-related tags when the downloading started.
-* `{media...}` - Media information-related tags.
+- `{name}` - Channel Name.
+- `{verified}` - If channel is verified one, this tag will be `[✓]` or empty.
+- `{channel_uid}` - Channel UID.
+- `{title}` - Title of the stream.
+- `{category_type}` - Category type of the stream if set.
+- `{category}` - Category of the stream if set.
+- `{category_value}` - Category value of the stream if set.
+- `{live_date...}` - Date-related tags when the stream started.
+- `{download_date...}` - Date-related tags when the downloading started.
+- `{media...}` - Media information-related tags.
 
 For the media-related tags, the following elements are available.
 
-* `{media_quality}` - Media Quality. (e.g. `1080p`)
-* `{media_encoding_track_id}` - Encoding track ID. (e.g. `1080p`)
-* `{media_video_profile}` - Video profile. (e.g. `high`)
-* `{media_audio_profile}` - Audio profile. (e.g. `LC`)
-* `{media_video_codec}` - Video codec. (e.g. `H264`)
-* `{media_video_bitrate}` - Video bitrate as bit-per-second. (e.g. `8000000`)
-* `{media_audio_bitrate}` - Audio bitrate as bit-per-second. (e.g. `192000`)
-* `{media_video_framerate}` - Video frame rate as frame-per-second. (e.g. `60.0`)
-* `{media_video_width}` - Video width as pixels. (e.g. `1920`)
-* `{media_video_height}` - Video height as pixels. (e.g. `1080`)
-* `{media_audio_sampling_rate}` - Audio sampling rate as Hertz. (e.g. `48000`)
-* `{media_audio_channel}` - Audio channels. (e.g. `2`)
-* `{media_video_dynamic_range}` - Video dynamic range. (e.g. `SDR`)
+- `{media_quality}` - Media Quality. (e.g. `1080p`)
+- `{media_encoding_track_id}` - Encoding track ID. (e.g. `1080p`)
+- `{media_video_profile}` - Video profile. (e.g. `high`)
+- `{media_audio_profile}` - Audio profile. (e.g. `LC`)
+- `{media_video_codec}` - Video codec. (e.g. `H264`)
+- `{media_video_bitrate}` - Video bitrate as bit-per-second. (e.g. `8000000`)
+- `{media_audio_bitrate}` - Audio bitrate as bit-per-second. (e.g. `192000`)
+- `{media_video_framerate}` - Video frame rate as frame-per-second. (e.g. `60.0`)
+- `{media_video_width}` - Video width as pixels. (e.g. `1920`)
+- `{media_video_height}` - Video height as pixels. (e.g. `1080`)
+- `{media_audio_sampling_rate}` - Audio sampling rate as Hertz. (e.g. `48000`)
+- `{media_audio_channel}` - Audio channels. (e.g. `2`)
+- `{media_video_dynamic_range}` - Video dynamic range. (e.g. `SDR`)
 
 For the date-related tags, the detailed elements can be expanded as below.
 
-* `{..._date}` - Date with `%Y%m%d%H%M%S` format. (e.g. `20240607014327`)
-* `{..._date_year}` or `{..._date_year_full}` - Year with century as a decimal number. (e.g. `2024`)
-* `{..._date_year_short}` - Year without century as a zero-padded decimal number. (e.g. `24`)
-* `{..._date_month}` - Month as a zero-padded decimal number. (`01`, `02`, ..., `12`)
-* `{..._date_month_full}` - Month as full name. (`January`, `February`, ..., `December`)
-* `{..._date_month_short}` - Month as abbreviated name. (`Jan`, `Feb`, ..., `Dec`)
-* `{..._date_day}` - Day of the month as a zero-padded decimal number. (`01`, `02`, ..., `31`)
-* `{..._date_hour}` - Hour (24-hour clock) as a zero-padded decimal number. (`00`, `01`, ..., `23`)
-* `{..._date_minute}` - Minute as a zero-padded decimal number. (`00`, `01`, ..., `59`)
-* `{..._date_second}` - Second as a zero-padded decimal number. (`00`, `01`, ..., `59`)
+- `{..._date}` - Date with `%Y%m%d%H%M%S` format. (e.g. `20240607014327`)
+- `{..._date_year}` or `{..._date_year_full}` - Year with century as a decimal number. (e.g. `2024`)
+- `{..._date_year_short}` - Year without century as a zero-padded decimal number. (e.g. `24`)
+- `{..._date_month}` - Month as a zero-padded decimal number. (`01`, `02`, ..., `12`)
+- `{..._date_month_full}` - Month as full name. (`January`, `February`, ..., `December`)
+- `{..._date_month_short}` - Month as abbreviated name. (`Jan`, `Feb`, ..., `Dec`)
+- `{..._date_day}` - Day of the month as a zero-padded decimal number. (`01`, `02`, ..., `31`)
+- `{..._date_hour}` - Hour (24-hour clock) as a zero-padded decimal number. (`00`, `01`, ..., `23`)
+- `{..._date_minute}` - Minute as a zero-padded decimal number. (`00`, `01`, ..., `59`)
+- `{..._date_second}` - Second as a zero-padded decimal number. (`00`, `01`, ..., `59`)
 
 ## Setting Live Stream Detection Interval
 By default, the detection interval for live streams is set to 60 seconds. To change this, use the following command: `n` can be any value from `10` to `300`. Therefore, the detection interval can be set in seconds, from 10 second to 5 minutes.
@@ -298,10 +298,10 @@ ChzzkLiveDownloader --display quiet
 
 The following display methods can be set with options of `--display` parameter.
 
-* `quiet` - Suppress all details.
-* `simple` - Show simplified details only.
-* `fluent` - Show fluent details.
-* `all` - Show all details.
+- `quiet` - Suppress all details.
+- `simple` - Show simplified details only.
+- `fluent` - Show fluent details.
+- `all` - Show all details.
 
 If you want to set this option to default, just use `-d` or `--display` like below.
 
@@ -319,11 +319,11 @@ ChzzkLiveDownloader --final all
 
 The following finalization methods can be set with options of `--final` parameter.
 
-* `none` - Just downloads transport stream files (`.ts`) and bypass converting stage. The transport stream files must be converted with the external converters for playing properly.
-* `convert` - Converts transport stream files (`.ts`) to video files (`.mp4`), but don't remove transport stream files.
-* `cleanup` - Converts transport stream files (`.ts`) to video files (`.mp4`), and clean up transport stream files.
-* `cconvert` - Converts transport stream files (`.ts`) to video files (`.mp4`) with custom options by `--custom`, but don't remove transport stream files.
-* `ccleanup` - Converts transport stream files (`.ts`) to video files (`.mp4`) with custom options by `--custom`, and clean up transport stream files.
+- `none` - Just downloads transport stream files (`.ts`) and bypass converting stage. The transport stream files must be converted with the external converters for playing properly.
+- `convert` - Converts transport stream files (`.ts`) to video files (`.mp4`), but don't remove transport stream files.
+- `cleanup` - Converts transport stream files (`.ts`) to video files (`.mp4`), and clean up transport stream files.
+- `cconvert` - Converts transport stream files (`.ts`) to video files (`.mp4`) with custom options by `--custom`, but don't remove transport stream files.
+- `ccleanup` - Converts transport stream files (`.ts`) to video files (`.mp4`) with custom options by `--custom`, and clean up transport stream files.
 
 ```powershell
 ChzzkLiveDownloader --final convert
@@ -407,9 +407,9 @@ ChzzkLiveDownloader --stream standard
 
 The following stream methods can be set with options of `--stream` parameter.
 
-* `standard` - Retrieves the stream information from the Chzzk default API.
-* `request-timemachine` - Retrieves the stream information from the Chzzk Time Machine API if possible.
-* `force-timemachine` - Retrieves forcibly the stream information from the Chzzk Time Machine API even if the Time Machine is not enabled.
+- `standard` - Retrieves the stream information from the Chzzk default API.
+- `request-timemachine` - Retrieves the stream information from the Chzzk Time Machine API if possible.
+- `force-timemachine` - Retrieves forcibly the stream information from the Chzzk Time Machine API even if the Time Machine is not enabled.
 
 If you want to set this option to default, just use `--stream` like below.
 
@@ -544,18 +544,18 @@ However, by specifying an option after the `--settings` parameter, you can contr
 ChzzkLiveDownloader --settings skip
 ```
 
-* `default` – Saves the selected options to the configuration file and proceeds with the downloads.
-* `skip` – Applies the selected options only to the current session without saving, and then proceeds with the downloads.
-* `update` – Saves the selected options to the configuration file, displays the updated settings, and then quits.
-* `show` – Ignores all selected options, displays the existing settings, and then quits.
-* `quit` – Saves the selected options to the configuration file and then quits.
+- `default` – Saves the selected options to the configuration file and proceeds with the downloads.
+- `skip` – Applies the selected options only to the current session without saving, and then proceeds with the downloads.
+- `update` – Saves the selected options to the configuration file, displays the updated settings, and then quits.
+- `show` – Ignores all selected options, displays the existing settings, and then quits.
+- `quit` – Saves the selected options to the configuration file and then quits.
 
 The following information is managed separately and is always saved regardless of the `--settings` parameter:
 
-* All settings of saved streamer channel UIDs
-* All settings of per-streamer target quality to download
-* NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
-* NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
+- All settings of saved streamer channel UIDs
+- All settings of per-streamer target quality to download
+- NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
+- NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
 
 ## Setting Action When Saving Settings
 All options are always saved to configuration files by default. If you want to apply settings to current session only without saving, use the following command.
@@ -579,8 +579,8 @@ Chzzk Live Downloader provides additional features tailored to the user's person
 ### Notification Plugins
 By registering a notification plugin, you can easily monitor the operational status of Chzzk Live Downloader through an external solution. The following notification plugin is provided by default:
 
-* `pn_slack` - Slack notification plugin
-* `pn_telegram` - Telegram notification plugin
+- `pn_slack` - Slack notification plugin
+- `pn_telegram` - Telegram notification plugin
 
 You can register a notification plugin using `--pnpath` parameter as shown below. Since only one plugin can be active at a time, if multiple registrations are made, only the last one will be active. After the plugin is registered, it applies to all future runs of Chzzk Live Downloader.
 
@@ -621,15 +621,15 @@ ChzzkLiveDownloader --reset
 
 This will reset the following information.
 
-* All settings of saved streamer channel UIDs
-* All settings of per-streamer target quality to download
-* NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
-* NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
-* Settings for live stream detection interval
-* Settings for Saving thumbnail image
-* Settings for displaying download details
-* Settings for the finalization
-* Settings for output and temporary directories
+- All settings of saved streamer channel UIDs
+- All settings of per-streamer target quality to download
+- NAVER ID authentication key obtained from the Chzzk cookie (`NID_AUT`)
+- NAVER ID session key obtained from the Chzzk cookie (`NID_SES`)
+- Settings for live stream detection interval
+- Settings for Saving thumbnail image
+- Settings for displaying download details
+- Settings for the finalization
+- Settings for output and temporary directories
 
 ## Displaying Version Information
 You can check the version information by using the following command.
