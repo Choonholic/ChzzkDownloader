@@ -7,57 +7,71 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 1.39.0, February 12, 2026 00:00:00
+Version 2.0.0, April 16, 2026 00:00:00
 
 ## Prerequisites
 - **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
 
 ## Usage
 ```
-ChzzkTransportFinalizer
-  [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
-  [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-trav [WATCH_TRAV]]
-  [--watch-user [WATCH_USER]] [--watch-pass [WATCH_PASS]] [--exclude [EXCLUDE]]
-  [--exclude-trav [EXCLUDE_TRAV]] [--exclude-user [EXCLUDE_USER]] [--exclude-pass [EXCLUDE_PASS]]
-  [--convert [CONVERT]] [--ext [EXT]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
-  [--rpcexpose [RPCEXPOSE]] [--rpcport [RPCPORT]] [--rpcid [RPCID]] [--snapshot SNAPSHOT]
-  [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
-  [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+ChzzkTransportFinalizer [options]
 ```
 
 ## Options
+Use `-h detailed` to show detailed help for all options.
+
+#### General
 ```
--h, --help                    Show this help message
---version                     Show version information
--d, --display [DISPLAY]       Set display mode (quiet|simple|fluent|all)
---work [WORK]                 Set working directory
---work-user [WORK_USER]       Set username to use when working directory is on remote network
---work-pass [WORK_PASS]       Set password to use when working directory is on remote network
---watch [WATCH]               Set watching directory
---watch-trav [WATCH_TRAV]     Set the traversal method for watching directory (direct|recursive)
---watch-user [WATCH_USER]     Set username to use when watching directory is on remote network
---watch-pass [WATCH_PASS]     Set password to use when watching directory is on remote network
---exclude [EXCLUDE]           Set the directory excluded from watching
---exclude-trav [EXCLUDE_TRAV] Set the traversal method for excluded directory (direct|recursive)
---exclude-user [EXCLUDE_USER] Set username to use when excluded directory is on remote network
---exclude-pass [EXCLUDE_PASS] Set password to use when excluded directory is on remote network
---convert [CONVERT]           Set convert parameters
---ext [EXT]                   Set output file extension
---exist [EXIST]               Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD]       Set the threshold by size or percent for stopping downloads when disk space is low (disable: -, default: 5%, valid range: 1-50% of total disk space, even for size values)
---rpc                         Activate JSON-RPC server
---rpcexpose [RPCEXPOSE]       Set JSON-RPC server exposure method (close|open)
---rpcport [RPCPORT]           Set JSON-RPC server port (default: 65000, 49152-65300)
---rpcid [RPCID]               Set JSON-RPC server ID (default: 70)
---snapshot SNAPSHOT           Save snapshot to a JSON file whenever changing status
---metadata [METADATA]         Save metadata or skip (save|skip)
---startup [STARTUP]           Set startup method (normal|fast)
---pnpath [PNPATH]             Set the path to the notification plugin
---pnlanguage [PNLANGUAGE]     Set the language used by the notification plugin
---pnparams [PNPARAMS]         Set the parameters for the notification plugin
---pntexttype [PNTEXTTYPE]     Set the text format used by the notification plugin (plain|markdown|html)
---settings [SETTINGS]         Set action when saving settings (default|update|show|skip|quit)
---reset                       Reset all settings
+-h, --help              Show help information (basic|all|detailed)
+-v, --version           Show version information
+-d, --display [MODE]    Set display mode (quiet|simple|fluent|all)
+```
+
+#### Directories
+```
+--work [WORK]           Set working directory
+--work-user [USER]      Set username for remote working directory
+--work-pass [PASS]      Set password for remote working directory
+--watch [WATCH]         Set watching directory
+--watch-trav [TRAV]     Set traversal method for watching directory (direct|recursive)
+--watch-user [USER]     Set username for remote watching directory
+--watch-pass [PASS]     Set password for remote watching directory
+--exclude [EXCLUDE]     Set directory excluded from watching
+--exclude-trav [TRAV]   Set traversal method for excluded directory (direct|recursive)
+--exclude-user [USER]   Set username for remote excluded directory
+--exclude-pass [PASS]   Set password for remote excluded directory
+```
+
+#### Convert
+```
+--convert [CONVERT]     Set convert parameters
+--ext [EXT]             Set output file extension
+--exist [EXIST]         Set save method when the target file already exists (rename|skip|overwrite)
+--threshold [THRESHOLD] Set low disk space threshold (1-50%)
+```
+
+#### RPC
+```
+--rpc                   Activate JSON-RPC server
+--rpcexpose [EXPOSE]    Set JSON-RPC server exposure method (close|open)
+--snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
+--rpcport [PORT]        Set JSON-RPC server port (default: 65000, 49152-65300)
+--rpcid [ID]            Set JSON-RPC server ID (default: 70)
+```
+
+#### Plugin
+```
+--pnpath [PATH]         Set path to notification plugin
+--pnlanguage [LANGUAGE] Set language used by notification plugin
+--pnparams [PARAMS]     Set parameters for notification plugin
+--pntexttype [TYPE]     Set text format used by notification plugin (plain|markdown|html|slack)
+```
+
+#### Settings
+```
+--startup [STARTUP]     Set startup method (normal|fast)
+--settings [SETTINGS]   Set action when saving settings (default|update|display|skip|quit)
+--reset                 Reset all settings
 ```
 
 ## Example

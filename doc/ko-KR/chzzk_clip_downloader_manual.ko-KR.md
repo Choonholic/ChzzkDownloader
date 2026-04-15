@@ -7,70 +7,90 @@
 </div>
 
 ## 버전
-Version 1.39.0, February 12, 2026 00:00:00
+Version 2.0.0, April 16, 2026 00:00:00
 
 ## 사용법
 ```
-ChzzkClipDownloader
-  [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-  [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y] [-d [DISPLAY]] [--name [NAME]] [--work [WORK]]
-  [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
-  [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
-  [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
-  [--rpcexpose [RPCEXPOSE]] [--rpcport [RPCPORT]] [--rpcid [RPCID]] [--snapshot SNAPSHOT]
-  [--download [DOWNLOAD]] [--limit [LIMIT]] [--thumb [THUMB]] [--metadata [METADATA]]
-  [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
-  [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
-  [clip]
+ChzzkClipDownloader [options] clip
 ```
 
-### 위치 매개 변수
+### 선택 사항
+`-h detailed`를 사용하면 모든 선택 사항에 대한 도움말을 볼 수 있습니다.
+
+#### 매개 변수
 ```
-clip                      다운로드할 클립 UID 또는 URL
+clip                    다운로드할 클립 UID 또는 URL
+-i, --input INPUT       다운로드 목록 파일을 설정합니다
 ```
 
-### 선택적 매개 변수
+#### 일반
 ```
--h, --help                도움말 메시지를 표시합니다
---version                 버전 정보를 표시합니다
--i, --input INPUT         다운로드 목록 파일을 설정합니다
--a, --auth [AUTH]         치지직 인증 자격 증명 처리 방법을 설정합니다 (reuse|reissue|ignore)
---authaut AUTHAUT         치지직 인증 자격 증명의 인증 키를 설정합니다
---authses AUTHSES         치지직 인증 자격 증명의 세션 키를 설정합니다
---authcookie AUTHCOOKIE   치지직 인증 자격 증명을 가져올 Netscape 형식의 쿠키 파일을 설정합니다
---adult [ADULT]           자격 증명이 유효하지 않을 때 성인 콘텐츠 처리 방법을 설정합니다 (ask|skip)
--y, --yes                 모든 확인 값을 자동으로 '예'로 설정합니다
--d, --display [DISPLAY]   표시 형식을 설정합니다 (quiet|simple|fluent|all)
---info INFO               다운로드 없이 클립 정보룰 획득합니다
---name [NAME]             저장되는 파일 이름 형식을 설정합니다
---work [WORK]             작업 디렉터리를 설정합니다
---work-user [WORK_USER]   작업 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
---work-pass [WORK_PASS]   작업 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
---out [OUT]               저장 디렉터리를 설정합니다
---out-user [OUT_USER]     저장 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
---out-pass [OUT_PASS]     저장 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
---temp [TEMP]             임시 디렉터리를 설정합니다
---temp-user [TEMP_USER]   임시 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
---temp-pass [TEMP_PASS]   임시 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
---category [CATEGORY]     저장 시 분류 방법을 설정합니다 (none|streamer)
---exist [EXIST]           파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
---threshold [THRESHOLD]   디스크 공간 부족 시 중지 임계값을 크기 또는 퍼센트(%)로 설정합니다 (비활성화: -, 기본값: 5%, 유효 범위: 디스크 총 용량의 1–50%)
---rpc                     JSON-RPC 서버를 활성화합니다
---rpcexpose [RPCEXPOSE]   JSON-RPC 서버 노출 방식을 설정합니다. (close|open)
---rpcport [RPCPORT]       JSON-RPC 서버 포트를 설정합니다 (기본값: 64000, 49152-65300)
---rpcid [RPCID]           JSON-RPC 서버 ID를 설정합니다 (기본값: 50)
---snapshot SNAPSHOT       상태 변경 시 스냅샷을 JSON 파일로 저장합니다
---download [DOWNLOAD]     다운로드 방법을 설정합니다 (default|atxc|alter)
---limit [LIMIT]           최대 다운로드 속도를 설정합니다 (예: 512K, 10M, 1G, 기본값: 0)
---thumb [THUMB]           미리보기 이미지의 저장 여부를 설정합니다 (save|skip)
---metadata [METADATA]     메타데이터의 저장 여부를 설정합니다（save|skip）
---startup [STARTUP]       시작 방법을 설정합니다 (normal|fast)
---pnpath [PNPATH]         알림 플러그인의 경로를 설정합니다
---pnlanguage [PNLANGUAGE] 알림 플러그인이 사용할 언어를 설정합니다
---pnparams [PNPARAMS]     알림 플러그인의 매개 변수를 설정합니다
---pntexttype [PNTEXTTYPE] 알림 플러그인이 사용할 텍스트 형식을 설정합니다 (plain|markdown|html)
---settings [SETTINGS]     설정 저장 시 동작을 설정합니다 (default|update|show|skip|quit)
---reset                   모든 설정을 초기화합니다
+-h, --help              도움말 정보를 표시합니다 (basic|all|detailed)
+-v, --version           버전 정보를 표시합니다
+-y, --yes               모든 확인 값을 자동으로 '예'로 설정합니다
+-d, --display [MODE]    표시 형식을 설정합니다 (quiet|simple|fluent|all)
+```
+
+#### 인증
+```
+-a, --auth [AUTH]       인증 자격 증명 처리 방법을 설정합니다 (reuse|reissue|ignore)
+--authaut AUTHAUT       인증 자격 증명 인증 키를 설정합니다
+--authses AUTHSES       인증 자격 증명 세션 키를 설정합니다
+--authcookie COOKIE     인증 자격 증명을 가져올 Netscape 형식의 쿠키 파일을 설정합니다
+--adult [ADULT]         자격 증명이 유효하지 않을 때 성인 콘텐츠 처리 방법을 설정합니다 (ask|skip)
+```
+
+#### 다운로드
+```
+--download [DOWNLOAD]   다운로드 방법을 설정합니다 (default|alter)
+--limit [LIMIT]         최대 다운로드 속도를 설정합니다 (예: 512K, 10M, 1G, 기본값: 0)
+```
+
+#### 디렉터리
+```
+--work [WORK]           작업 디렉터리를 설정합니다
+--work-user [USER]      원격 작업 디렉터리의 사용자 이름을 설정합니다
+--work-pass [PASS]      원격 작업 디렉터리의 비밀번호를 설정합니다
+--out [OUT]             저장 디렉터리를 설정합니다
+--out-user [USER]       원격 저장 디렉터리의 사용자 이름을 설정합니다
+--out-pass [PASS]       원격 저장 디렉터리의 비밀번호를 설정합니다
+--temp [TEMP]           임시 디렉터리를 설정합니다
+--temp-user [USER]      원격 임시 디렉터리의 사용자 이름을 설정합니다
+--temp-pass [PASS]      원격 임시 디렉터리의 비밀번호를 설정합니다
+```
+
+#### 저장
+```
+--name [NAME]           저장 파일 이름 형식을 설정합니다
+--category [CATEGORY]   저장 분류 방법을 설정합니다 (none|streamer)
+--exist [EXIST]         대상 파일이 이미 존재할 때 저장 방법을 설정합니다 (rename|skip|overwrite)
+--threshold [THRESHOLD] 디스크 공간 임계값을 설정합니다. (1-50%)
+--thumb [THUMB]         미리보기 이미지의 저장 여부를 설정합니다 (save|skip)
+--metadata [METADATA]   메타데이터의 저장 여부를 설정합니다 (save|skip)
+```
+
+#### RPC
+```
+--rpc                   JSON-RPC 서버를 활성화합니다
+--rpcexpose [EXPOSE]    JSON-RPC 서버 노출 방식을 설정합니다 (close|open)
+--snapshot SNAPSHOT     상태 변경 시마다 스냅샷을 JSON 파일로 저장합니다
+--rpcport [PORT]        JSON-RPC 서버 포트를 설정합니다 (기본값: 64000, 49152-65300)
+--rpcid [ID]            JSON-RPC 서버 ID를 설정합니다 (기본값: 50)
+```
+
+#### 플러그인
+```
+--pnpath [PATH]         알림 플러그인의 경로를 설정합니다
+--pnlanguage [LANGUAGE] 알림 플러그인이 사용할 언어를 설정합니다
+--pnparams [PARAMS]     알림 플러그인의 매개 변수를 설정합니다
+--pntexttype [TYPE]     알림 플러그인이 사용할 텍스트 형식을 설정합니다 (plain|markdown|html|slack)
+```
+
+#### 설정
+```
+--startup [STARTUP]     시작 방법을 설정합니다 (normal|fast)
+--settings [SETTINGS]   설정 저장 시 동작을 설정합니다 (default|update|display|skip|quit)
+--reset                 모든 설정을 초기화합니다
 ```
 
 ## 사용 예시

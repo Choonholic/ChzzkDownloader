@@ -15,7 +15,6 @@
 ### Build and Development Tools
 
 - [CPython](https://python.org/) - Official Python distribution.
-- [Cursor](https://cursor.com/) - Powerful AI Code Editor based on Visual Studio Code.
 - [Inno Setup](https://jrsoftware.org/isinfo.php) - Builder for setup executable.
 - [Microsoft Visual Studio](https://visualstudio.microsoft.com/) - Builder for Chzzk Managers.
 - [Miniconda](https://docs.anaconda.com/miniconda/) - Minimal version of conda, a Python distribution. (Archives: https://repo.anaconda.com/archive/)
@@ -52,7 +51,6 @@
 - [7-zip](https://www.7-zip.org/) - File archiver with one of highest compression ratio.
 - [Aria2](https://aria2.github.io/) - Light-weight multi-protocol download tool.
 - [Beyond Compare](https://www.scootersoftware.com/) - High efficient data comparison tool.
-- [Notepad++](https://notepad-plus-plus.org/) - Very powerful text editor.
 - [OpenSSL](https://slproweb.com/products/Win32OpenSSL.html) - SSL Certificate Tools for Code Signing.
 - [Postman](https://www.postman.com/) - Powerful API platform to design, build, test and collaborate on APIs.
 - [Total Commander](https://www.ghisler.com/) - Powerful file manager for Windows.

@@ -7,57 +7,71 @@ Chzzkのストリーム用の最終処理ツール
 </div>
 
 ## バージョン
-Version 1.39.0, February 12, 2026 00:00:00
+Version 2.0.0, April 16, 2026 00:00:00
 
 ## 必須事項
 - **[必須]** FFmpegの公式メジャーバージョン（FFmpeg 7.0またはそれ以上が必要）
 
 ## 使用法
 ```
-ChzzkTransportFinalizer
-  [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
-  [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-trav [WATCH_TRAV]]
-  [--watch-user [WATCH_USER]] [--watch-pass [WATCH_PASS]] [--exclude [EXCLUDE]]
-  [--exclude-trav [EXCLUDE_TRAV]] [--exclude-user [EXCLUDE_USER]] [--exclude-pass [EXCLUDE_PASS]]
-  [--convert [CONVERT]] [--ext [EXT]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
-  [--rpcexpose [RPCEXPOSE]] [--rpcport [RPCPORT]] [--rpcid [RPCID]] [--snapshot SNAPSHOT]
-  [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
-  [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+ChzzkTransportFinalizer [options]
 ```
 
 ## オプション
+`-h detailed`を使用すると、すべてのオプションの詳細なヘルプが表示されます。
+
+#### 一般
 ```
--h, --help                    このヘルプメッセージを表示
---version                     バージョン情報を表示
--d, --display [DISPLAY]       表示モードを設定（quiet|simple|fluent|all）
---work [WORK]                 作業ディレクトリを設定
---work-user [WORK_USER]       作業ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
---work-pass [WORK_PASS]       作業ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
---watch [WATCH]               監視ディレクトリを設定
---watch-trav [WATCH_TRAV]     監視ディレクトリの探索方式を設定 (direct|recursive)
---watch-user [WATCH_USER]     監視ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
---watch-pass [WATCH_PASS]     監視ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
---exclude [EXCLUDE]           監視除外ディレクトリを設定
---exclude-trav [EXCLUDE_TRAV] 除外ディレクトリの探索方式を設定 (direct|recursive)
---exclude-user [EXCLUDE_USER] 除外ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
---exclude-pass [EXCLUDE_PASS] 除外ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
---convert [CONVERT]           変換パラメータを設定
---ext [EXT]                   保存ファイルの拡張子を設定
---exist [EXIST]               対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
---threshold [THRESHOLD]       ディスク容量が不足している場合にダウンロードを停止するしきい値を、サイズまたはパーセント(%)で設定 (無効化: -, 既定値: 5%, 有効範囲: ディスク総容量の1～50%)
---rpc                         JSON-RPCサーバーを有効化
---rpcexpose [RPCEXPOSE]       JSON-RPCサーバーの公開方法を設定 (close|open)
---rpcport [RPCPORT]           JSON-RPCサーバーのポートを設定 （デフォルト: 65000, 49152-65300）
---rpcid [RPCID]               JSON-RPCサーバーのIDを設定 （デフォルト: 70）
---snapshot SNAPSHOT           ステータスが変更されるたびにJSONファイルにスナップショットを保存
---metadata [METADATA]         メタデータを保存またはスキップ（save|skip）
---startup [STARTUP]           起動方法を設定（normal|fast）
---pnpath [PNPATH]             通知プラグインのパスを設定
---pnlanguage [PNLANGUAGE]     通知プラグインで使用する言語を設定
---pnparams [PNPARAMS]         通知プラグインのパラメーターを設定
---pntexttype [PNTEXTTYPE]     通知プラグインで使用するテキスト形式を設定 (plain|markdown|html)
---settings [SETTINGS]         設定保存時の動作を設定（default|skip|quit）
---reset                       すべての設定をリセット
+-h, --help              ヘルプメッセージを表示 (basic|all|detailed)
+-v, --version           バージョン情報を表示
+-d, --display [MODE]    表示モードを設定 (quiet|simple|fluent|all)
+```
+
+#### ディレクトリ
+```
+--work [WORK]           作業ディレクトリを設定
+--work-user [USER]      リモート作業ディレクトリのユーザー名を設定
+--work-pass [PASS]      リモート作業ディレクトリのパスワードを設定
+--watch [WATCH]         監視ディレクトリを設定
+--watch-trav [TRAV]     監視ディレクトリの探索方式を設定 (direct|recursive)
+--watch-user [USER]     リモート監視ディレクトリのユーザー名を設定
+--watch-pass [PASS]     リモート監視ディレクトリのパスワードを設定
+--exclude [EXCLUDE]     監視除外ディレクトリを設定
+--exclude-trav [TRAV]   監視除外ディレクトリの探索方式を設定 (direct|recursive)
+--exclude-user [USER]   リモート監視除外ディレクトリのユーザー名を設定
+--exclude-pass [PASS]   リモート監視除外ディレクトリのパスワードを設定
+```
+
+#### 変換
+```
+--convert [CONVERT]     変換パラメータを設定
+--ext [EXT]             保存ファイルの拡張子を設定
+--exist [EXIST]         対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
+--threshold [THRESHOLD] ディスク空き容量のしきい値を設定 (1-50%)
+```
+
+#### RPC
+```
+--rpc                   JSON-RPCサーバーを有効化
+--rpcexpose [EXPOSE]    JSON-RPCサーバーの公開方法を設定 (close|open)
+--snapshot SNAPSHOT     ステータスが変更されるたびにJSONファイルにスナップショットを保存
+--rpcport [PORT]        JSON-RPCサーバーのポートを設定 (デフォルト: 65000, 49152-65300)
+--rpcid [ID]            JSON-RPCサーバーのIDを設定 (デフォルト: 70)
+```
+
+#### プラグイン
+```
+--pnpath [PATH]         通知プラグインのパスを設定
+--pnlanguage [LANGUAGE] 通知プラグインで使用する言語を設定
+--pnparams [PARAMS]     通知プラグインのパラメーターを設定
+--pntexttype [TYPE]     通知プラグインで使用するテキスト形式を設定 (plain|markdown|html|slack)
+```
+
+#### 設定
+```
+--startup [STARTUP]     起動方法を設定 (normal|fast)
+--settings [SETTINGS]   設定保存時の動作を設定 (default|update|display|skip|quit)
+--reset                 すべての設定をリセット
 ```
 
 ## 使用例

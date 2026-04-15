@@ -7,57 +7,71 @@
 </div>
 
 ## 버전
-Version 1.39.0, February 12, 2026 00:00:00
+Version 2.0.0, April 16, 2026 00:00:00
 
 ## 선행 요건
 - **[필수]** FFmpeg 공식 메이저 버전 (FFmpeg 7.0 또는 상위 버전 필요)
 
 ## 사용법
 ```
-ChzzkTransportFinalizer
-  [-h] [--version] [-d [DISPLAY]] [--work [WORK]] [--work-user [WORK_USER]]
-  [--work-pass [WORK_PASS]] [--watch [WATCH]] [--watch-trav [WATCH_TRAV]]
-  [--watch-user [WATCH_USER]] [--watch-pass [WATCH_PASS]] [--exclude [EXCLUDE]]
-  [--exclude-trav [EXCLUDE_TRAV]] [--exclude-user [EXCLUDE_USER]] [--exclude-pass [EXCLUDE_PASS]]
-  [--convert [CONVERT]] [--ext [EXT]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
-  [--rpcexpose [RPCEXPOSE]] [--rpcport [RPCPORT]] [--rpcid [RPCID]] [--snapshot SNAPSHOT]
-  [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
-  [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+ChzzkTransportFinalizer [options]
 ```
 
-## 선택적 매개 변수
+### 선택 사항
+`-h detailed`를 사용하면 모든 선택 사항에 대한 도움말을 볼 수 있습니다.
+
+#### 일반
 ```
--h, --help                    도움말 페이지를 표시합니다
---version                     버전 정보를 표시합니다
--d, --display [DISPLAY]       표시 형식을 설정합니다 (quiet|simple|fluent|all)
---work [WORK]                 작업 디렉터리를 설정합니다
---work-user [WORK_USER]       작업 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
---work-pass [WORK_PASS]       작업 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
---watch [WATCH]               감시 디렉터리를 설정합니다
---watch-trav [WATCH_TRAV]     감시 디렉터리의 탐색 방식을 설정합니다 (direct|recursive)
---watch-user [WATCH_USER]     감시 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
---watch-pass [WATCH_PASS]     감시 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
---exclude [EXCLUDE]           감시에서 제외할 디렉터리를 설정합니다
---exclude-trav [EXCLUDE_TRAV] 제외 디렉터리의 탐색 방식을 설정합니다 (direct|recursive)
---exclude-user [EXCLUDE_USER] 제외 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
---exclude-pass [EXCLUDE_PASS] 제외 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
---convert [CONVERT]           변환 매개 변수를 설정합니다
---ext [EXT]                   저장되는 파일의 확장자를 설정합니다
---exist [EXIST]               파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
---threshold [THRESHOLD]       디스크 공간 부족 시 중지 임계값을 크기 또는 퍼센트(%)로 설정합니다 (비활성화: -, 기본값: 5%, 유효 범위: 디스크 총 용량의 1–50%)
---rpc                         JSON-RPC 서버를 활성화합니다
---rpcexpose [RPCEXPOSE]       JSON-RPC 서버 노출 방식을 설정합니다. (close|open)
---rpcport [RPCPORT]           JSON-RPC 서버 포트를 설정합니다 (기본값: 65000, 49152-65300)
---rpcid [RPCID]               JSON-RPC 서버 ID를 설정합니다 (기본값: 70)
---snapshot SNAPSHOT           상태 변경 시 스냅샷을 JSON 파일로 저장합니다
---metadata [METADATA]         메타데이터의 저장 여부를 설정합니다（save|skip）
---startup [STARTUP]           시작 방법을 설정합니다 (normal|fast)
---pnpath [PNPATH]             알림 플러그인의 경로를 설정합니다
---pnlanguage [PNLANGUAGE]     알림 플러그인이 사용할 언어를 설정합니다
---pnparams [PNPARAMS]         알림 플러그인의 매개 변수를 설정합니다
---pntexttype [PNTEXTTYPE]     알림 플러그인이 사용할 텍스트 형식을 설정합니다 (plain|markdown|html)
---settings [SETTINGS]         설정 저장 시 동작을 설정합니다 (default|update|show|skip|quit)
---reset                       모든 설정을 초기화합니다
+-h, --help              도움말 정보를 표시합니다 (basic|all|detailed)
+-v, --version           버전 정보를 표시합니다
+-d, --display [MODE]    표시 형식을 설정합니다 (quiet|simple|fluent|all)
+```
+
+#### 디렉터리
+```
+--work [WORK]           작업 디렉터리를 설정합니다
+--work-user [USER]      원격 작업 디렉터리의 사용자 이름을 설정합니다
+--work-pass [PASS]      원격 작업 디렉터리의 비밀번호를 설정합니다
+--watch [WATCH]         감시 디렉터리를 설정합니다
+--watch-trav [TRAV]     감시 디렉터리의 탐색 방식을 설정합니다 (direct|recursive)
+--watch-user [USER]     원격 감시 디렉터리의 사용자 이름을 설정합니다
+--watch-pass [PASS]     원격 감시 디렉터리의 비밀번호를 설정합니다
+--exclude [EXCLUDE]     감시 제외 디렉터리를 설정합니다
+--exclude-trav [TRAV]   감시 제외 디렉터리의 탐색 방식을 설정합니다 (direct|recursive)
+--exclude-user [USER]   원격 감시 제외 디렉터리의 사용자 이름을 설정합니다
+--exclude-pass [PASS]   원격 감시 제외 디렉터리의 비밀번호를 설정합니다
+```
+
+#### 변환
+```
+--convert [CONVERT]     변환 매개 변수를 설정합니다
+--ext [EXT]             저장 파일 확장자를 설정합니다
+--exist [EXIST]         대상 파일이 이미 존재할 때 저장 방법을 설정합니다 (rename|skip|overwrite)
+--threshold [THRESHOLD] 디스크 공간 임계값을 설정합니다. (1-50%)
+```
+
+#### RPC
+```
+--rpc                   JSON-RPC 서버를 활성화합니다
+--rpcexpose [EXPOSE]    JSON-RPC 서버 노출 방식을 설정합니다 (close|open)
+--snapshot SNAPSHOT     상태 변경 시마다 스냅샷을 JSON 파일로 저장합니다
+--rpcport [PORT]        JSON-RPC 서버 포트를 설정합니다 (기본값: 65000, 49152-65300)
+--rpcid [ID]            JSON-RPC 서버 ID를 설정합니다 (기본값: 70)
+```
+
+#### 플러그인
+```
+--pnpath [PATH]         알림 플러그인의 경로를 설정합니다
+--pnlanguage [LANGUAGE] 알림 플러그인이 사용할 언어를 설정합니다
+--pnparams [PARAMS]     알림 플러그인의 매개 변수를 설정합니다
+--pntexttype [TYPE]     알림 플러그인이 사용할 텍스트 형식을 설정합니다 (plain|markdown|html|slack)
+```
+
+#### 설정
+```
+--startup [STARTUP]     시작 방법을 설정합니다 (normal|fast)
+--settings [SETTINGS]   설정 저장 시 동작을 설정합니다 (default|update|display|skip|quit)
+--reset                 모든 설정을 초기화합니다
 ```
 
 ## 사용 예시

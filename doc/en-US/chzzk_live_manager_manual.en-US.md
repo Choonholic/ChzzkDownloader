@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 1.39.0, February 12, 2026 00:00:00
+Version 2.0.0, April 16, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, both of Chzzk Live Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -82,6 +82,9 @@ Streamer unique identifier will automatically recognize one of the following thr
 You can enter values such as `best`, `1080p`, or `720p`.
 
 As with Chzzk Live Downloader, if a non-standard resolution is used, set a quality slightly higher than the expected resolution will automatically adjust to the closest available one. (e.g., `1200p` → `1080p`)
+
+### Download Filter
+You can specify whether to download by distinguishing between party streams and regular streams. Additionally, for party streams, you can choose to download only when one of the specified party tags is present.
 
 ### Start Offset
 You can set amount of time to skip from the beginning of the stream. By default, the unit of time is seconds. However, you can also set through hours, minutes, seconds and milliseconds as follows.
@@ -200,6 +203,14 @@ Click the ☰ icon and select `Export...` to open a dialog where you can choose 
 
 ## Refreshing List
 To refresh the list immediately, click the ☰ icon, and choose `Refresh`.
+
+## Switching the Screen Color Theme Mode
+By default, Chzzk Live Manager automatically follows your system’s app color theme setting.
+However, you can manually set the app’s color theme regardless of the system setting.
+
+- Click the ☰ icon and select `Settings...` to open the Settings dialog.
+- Go to the `Features` and locate the `Color Theme Mode` option.
+- Select either `Light` or `Dark`.
 
 ## Loading the Channel List at Startup Automatically
 If you frequently manage a fixed set of channels, manually loading the list each time can become tedious. By enabling the following setting, the specified channel list will be automatically loaded at startup.
@@ -356,16 +367,18 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 - **Custom Options** - Specifies custom options for the finalization. You can also click the `...` button to load and specify a custom option set file.
 - **Extension for Custom Finalization** - Specifies file extension when the custom options require it.
 
-### Plugin
+### Tools
 
 <div style='text-align: center'>
-<img src='../../img/screenshots/lman_en-US/lman_settings_plugin.png' />
+<img src='../../img/screenshots/lman_en-US/lman_settings_tools.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-- **Notifications: Path** - Sets the path to the notification plugin.
-- **Notifications: Parameters** - Sets the parameters for the notification plugin.
-- **Notifications: Text Type** - Sets the text format used by the notification plugin.
+- **Video Tools: Streamlink** - Checks whether Streamlink is installed and verifies its version, or downloads the latest version.
+- **Video Tools: FFmpeg** - Checks whether FFmpeg is installed and verifies its version, or downloads the latest version.
+- **Notification Plugins: Path** - Sets the path to the notification plugin.
+- **Notification Plugins: Parameters** - Sets the parameters for the notification plugin.
+- **Notification Plugins: Text Type** - Sets the text format used by the notification plugin.
 
 ### Auth
 

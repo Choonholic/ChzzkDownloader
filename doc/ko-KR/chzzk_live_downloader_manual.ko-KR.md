@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 1.39.0, February 12, 2026 00:00:00
+Version 2.0.0, April 16, 2026 00:00:00
 
 ## 선행 요건
 - **[필수]** Streamlink (Streamlink 7.0.0 또는 상위 버전 필요)
@@ -15,67 +15,98 @@ Version 1.39.0, February 12, 2026 00:00:00
 
 ## 사용법
 ```
-ChzzkLiveDownloader
-  [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-  [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--once ONCE]
-  [--stream [STREAM]] [--final [FINAL]] [--custom [CUSTOM]] [--ext [EXT]] [--offset OFFSET]
-  [--duration DURATION] [--detect [DETECT]] [--name [NAME]] [--work [WORK]]
-  [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
-  [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
-  [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
-  [--rpcexpose [RPCEXPOSE]] [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
-  [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
-  [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+ChzzkLiveDownloader [options]
 ```
 
-### 선택적 매개 변수
+### 선택 사항
+`-h detailed`를 사용하면 모든 선택 사항에 대한 도움말을 볼 수 있습니다.
+
+#### 매개 변수
 ```
--h, --help                  도움말 페이지를 표시합니다
---version                   버전 정보를 표시합니다
--i, --id ID                 스트리머 ID를 설정합니다
--u, --uid [UID]             스트리머 고유 식별자를 설정합니다
--a, --auth [AUTH]           치지직 인증 자격 증명 처리 방법을 설정합니다 (reuse|reissue|ignore)
---authaut AUTHAUT           치지직 인증 자격 증명의 인증 키를 설정합니다
---authses AUTHSES           치지직 인증 자격 증명의 세션 키를 설정합니다
---authcookie AUTHCOOKIE     치지직 인증 자격 증명을 가져올 Netscape 형식의 쿠키 파일을 설정합니다
---adult [ADULT]             자격 증명이 유효하지 않을 때 성인 콘텐츠 처리 방법을 설정합니다 (ask|skip)
--y, --yes                   모든 확인 값을 자동으로 '예'로 설정합니다
--q, --quality [QUALITY]     다운로드하려는 목표 화질을 설정합니다 (예: 1080p)
--d, --display [DISPLAY]     표시 형식을 설정합니다 (quiet|simple|fluent|all)
---once ONCE                 별도의 설정 저장 앖이 라이브 스트리밍을 한 번만 다운로드합니다
---stream [STREAM]           스트리밍 획득 방식을 설정합니다 (standard|request-timemachine|force-timemachine)
---final [FINAL]             최종 처리 방식을 설정합니다 (bypass|convert|cleanup|cconvert|ccleanup)
---custom [CUSTOM]           최종 처리 시 사용할 사용자 정의 선택 사항을 설정합니다 (cconvert|ccleanup에만 적용 가능)
---ext [EXT]                 저장되는 파일의 확장자를 설정합니다 (cconvert|ccleanup에만 적용 가능)
---offset OFFSET             스트리밍 시작 지점을 설정합니다
---duration DURATION         스트리밍 다운로드 분할 간격을 설정합니다
---detect [DETECT]           상태 확인 간격을 설정합니다 (기본값: 60, 10-300)
---name [NAME]               저장되는 파일 이름 형식을 설정합니다
---work [WORK]               작업 디렉터리를 설정합니다
---work-user [WORK_USER]     작업 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
---work-pass [WORK_PASS]     작업 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
---out [OUT]                 저장 디렉터리를 설정합니다
---out-user [OUT_USER]       저장 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
---out-pass [OUT_PASS]       저장 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
---temp [TEMP]               임시 디렉터리를 설정합니다
---temp-user [TEMP_USER]     임시 디렉터리가 네트워크 공간에 있을 떄 사용할 사용자 이름을 설정합니다
---temp-pass [TEMP_PASS]     임시 디렉터리가 네트워크 공간에 있을 떄 사용할 비밀번호를 설정합니다
---category [CATEGORY]       저장 시 분류 방법을 설정합니다 (none|streamer)
---exist [EXIST]             파일이 이미 존재할 때 파일 저장 방법을 설정합니다 (rename|skip|overwrite)
---threshold [THRESHOLD]     디스크 공간 부족 시 중지 임계값을 크기 또는 퍼센트(%)로 설정합니다 (비활성화: -, 기본값: 5%, 유효 범위: 디스크 총 용량의 1–50%)
---rpc                       JSON-RPC 서버를 활성화합니다
---rpcexpose [RPCEXPOSE]     JSON-RPC 서버 노출 방식을 설정합니다. (close|open)
---rpcbaseport [RPCBASEPORT] JSON-RPC 서버 기본 포트를 설정합니다 (기본값: 62000, 49152-65300)
---snapshot SNAPSHOT         상태 변경 시 스냅샷을 JSON 파일로 저장합니다
---thumb [THUMB]             미리보기 이미지의 저장 여부를 설정합니다 (save|skip)
---metadata [METADATA]       메타데이터의 저장 여부를 설정합니다（save|skip）
---startup [STARTUP]         시작 방법을 설정합니다 (normal|fast)
---pnpath [PNPATH]           알림 플러그인의 경로를 설정합니다
---pnlanguage [PNLANGUAGE]   알림 플러그인이 사용할 언어를 설정합니다
---pnparams [PNPARAMS]       알림 플러그인의 매개 변수를 설정합니다
---pntexttype [PNTEXTTYPE]   알림 플러그인이 사용할 텍스트 형식을 설정합니다 (plain|markdown|html)
---settings [SETTINGS]       설정 저장 시 동작을 설정합니다 (default|update|show|skip|quit)
---reset                     모든 설정을 초기화합니다
+-i, --id ID             스트리머의 ID를 설정합니다
+-u, --uid [UID]         스트리머의 UID를 설정합니다
+```
+
+#### 일반
+```
+-h, --help              도움말 정보를 표시합니다 (basic|all|detailed)
+-v, --version           버전 정보를 표시합니다
+-y, --yes               모든 확인 값을 자동으로 '예'로 설정합니다
+-d, --display [MODE]    표시 형식을 설정합니다 (quiet|simple|fluent|all)
+```
+
+#### 인증
+```
+-a, --auth [AUTH]       인증 자격 증명 처리 방법을 설정합니다 (reuse|reissue|ignore)
+--authaut AUTHAUT       인증 자격 증명 인증 키를 설정합니다
+--authses AUTHSES       인증 자격 증명 세션 키를 설정합니다
+--authcookie COOKIE     인증 자격 증명을 가져올 Netscape 형식의 쿠키 파일을 설정합니다
+--adult [ADULT]         자격 증명이 유효하지 않을 때 성인 콘텐츠 처리 방법을 설정합니다 (ask|skip)
+```
+
+#### 스트림
+```
+-f, --filter [FILTER]   다운로드 조건을 설정합니다 (all|party|nonparty)
+-q, --quality [QUALITY] 다운로드 목표 화질을 설정합니다 (예: 1080p)
+--once URL              라이브 스트리밍을 한 번만 다운로드합니다
+--stream [STREAM]       스트리밍 수신 방식을 설정합니다 (standard|request-timemachine|force-timemachine)
+--offset OFFSET         스트리밍 시작 지점을 설정합니다
+--duration DURATION     스트리밍 다운로드 분할 간격을 설정합니다
+--detect [DETECT]       상태 확인 간격을 설정합니다 (기본값: 60, 10-300)
+--partytag [TAG]        '같이보기' 조건알 때 사용할 같이보기 태그를 설정합니다
+```
+
+#### 최종 처리
+```
+--final [FINAL]         최종 처리 방식을 설정합니다 (bypass|convert|cleanup|cconvert|ccleanup)
+--custom [CUSTOM]       최종 처리 사용자 정의 선택 사항을 설정합니다 (cconvert|ccleanup 전용)
+--ext [EXT]             저장 파일 확장자를 설정합니다 (cconvert|ccleanup 전용)
+```
+
+#### 디렉터리
+```
+--work [WORK]           작업 디렉터리를 설정합니다
+--work-user [USER]      원격 작업 디렉터리의 사용자 이름을 설정합니다
+--work-pass [PASS]      원격 작업 디렉터리의 비밀번호를 설정합니다
+--out [OUT]             저장 디렉터리를 설정합니다
+--out-user [USER]       원격 저장 디렉터리의 사용자 이름을 설정합니다
+--out-pass [PASS]       원격 저장 디렉터리의 비밀번호를 설정합니다
+--temp [TEMP]           임시 디렉터리를 설정합니다
+--temp-user [USER]      원격 임시 디렉터리의 사용자 이름을 설정합니다
+--temp-pass [PASS]      원격 임시 디렉터리의 비밀번호를 설정합니다
+```
+
+#### 저장
+```
+--name [NAME]           저장 파일 이름 형식을 설정합니다
+--category [CATEGORY]   저장 분류 방법을 설정합니다 (none|streamer)
+--exist [EXIST]         대상 파일이 이미 존재할 때 저장 방법을 설정합니다 (rename|skip|overwrite)
+--threshold [THRESHOLD] 디스크 공간 임계값을 설정합니다. (1-50%)
+--thumb [THUMB]         미리보기 이미지의 저장 여부를 설정합니다 (save|skip)
+--metadata [METADATA]   메타데이터의 저장 여부를 설정합니다 (save|skip)
+```
+
+#### RPC
+```
+--rpc                   JSON-RPC 서버를 활성화합니다
+--rpcexpose [EXPOSE]    JSON-RPC 서버 노출 방식을 설정합니다 (close|open)
+--snapshot SNAPSHOT     상태 변경 시마다 스냅샷을 JSON 파일로 저장합니다
+--rpcbaseport [PORT]    JSON-RPC 기본 서버 포트를 설정합니다 (기본값: 62000, 49152-65300)
+```
+
+#### 플러그인
+```
+--pnpath [PATH]         알림 플러그인의 경로를 설정합니다
+--pnlanguage [LANGUAGE] 알림 플러그인이 사용할 언어를 설정합니다
+--pnparams [PARAMS]     알림 플러그인의 매개 변수를 설정합니다
+--pntexttype [TYPE]     알림 플러그인이 사용할 텍스트 형식을 설정합니다 (plain|markdown|html|slack)
+```
+
+#### 설정
+```
+--startup [STARTUP]     시작 방법을 설정합니다 (normal|fast)
+--settings [SETTINGS]   설정 저장 시 동작을 설정합니다 (default|update|display|skip|quit)
+--reset                 모든 설정을 초기화합니다
 ```
 
 ### 사용 예시
@@ -260,6 +291,21 @@ ChzzkLiveDownloader --detect n
 
 ```powershell
 ChzzkLiveDownloader --detect
+```
+
+### 다운로드 조건
+같이보기 스트림과 일반 스트림을 구분하여 조건에 따라 다운로드 여부를 지정할 수 있습니다. 추가로 같이보기 스트림일 경우 지정한 같이보기 태그 중 하나일 경우에만 다운로드할 수도 있습니다.
+
+다운로드할 스트림의 종류를 지정하려면 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkLiveDownloader --filter party
+```
+
+다음 명령어를 사용하여 같이보기 태그를 지정하면 해당 태그가 지정된 같이보기 영상만 다운로드합니다.
+
+```powershell
+ChzzkLiveDownloader --filter party --partytag TAG1,TAG2
 ```
 
 ## 미리보기 이미지 저장

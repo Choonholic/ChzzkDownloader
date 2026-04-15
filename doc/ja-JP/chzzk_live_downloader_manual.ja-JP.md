@@ -7,7 +7,7 @@ Chzzkのストリーム用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.39.0, February 12, 2026 00:00:00
+Version 2.0.0, April 16, 2026 00:00:00
 
 ## 必須事項
 - **[必須]** Streamlink（Streamlink 7.0.0またはそれ以上が必要）
@@ -15,67 +15,100 @@ Version 1.39.0, February 12, 2026 00:00:00
 
 ## 使用法
 ```
-ChzzkLiveDownloader
-  [-h] [--version] [-i ID] [-u [UID]] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-  [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--once ONCE]
-  [--stream [STREAM]] [--final [FINAL]] [--custom [CUSTOM]] [--ext [EXT]] [--offset OFFSET]
-  [--duration DURATION] [--detect [DETECT]] [--name [NAME]] [--work [WORK]]
-  [--work-user [WORK_USER]] [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]]
-  [--out-pass [OUT_PASS]] [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]]
-  [--category [CATEGORY]] [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc]
-  [--rpcexpose [RPCEXPOSE]] [--rpcbaseport [RPCBASEPORT]] [--snapshot SNAPSHOT] [--thumb [THUMB]]
-  [--metadata [METADATA]] [--startup [STARTUP]] [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]]
-  [--pnparams [PNPARAMS]] [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
+ChzzkLiveDownloader [options]
 ```
 
 ### オプション
+
+### Options
+`-h detailed`を使用すると、すべてのオプションの詳細なヘルプが表示されます。
+
+#### 引数
 ```
--h, --help                  このヘルプメッセージを表示
---version                   バージョン情報を表示
--i, --id ID                 ストリーマーのIDを設定
--u, --uid [UID]             ストリーマーの一意の識別子を設定
--a, --auth [AUTH]           Chzzk認証資格情報の処理方法を設定 (reuse|reissue|ignore)
---authaut AUTHAUT           Chzzk認証資格情報の認証キーを設定
---authses AUTHSES           Chzzk認証資格情報のセッションキーを設定
---authcookie AUTHCOOKIE     Chzzk認証資格情報を取得するためのNetscape形式のクッキーファイルを設定
---adult [ADULT]             認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
--y, --yes                   すべての確認値を自動的に「はい」に設定
--q, --quality [QUALITY]     ダウンロードする目標画質を設定（例: 1080p）
--d, --display [DISPLAY]     表示モードを設定（quiet|simple|fluent|all）
---once ONCE                 ストリームを一度だけダウンロード
---stream [STREAM]           ストリーム取得方法を設定（standard|request-timemachine|force-timemachine）
---final [FINAL]             最終処理方法を設定（bypass|convert|cleanup|cconvert|ccleanup）
---custom [CUSTOM]           最終処理のカスタムオプションを設定（cconvert|ccleanupのみ適用可能）
---ext [EXT]                 保存ファイルの拡張子を設定（cconvert|ccleanupのみ適用可能）
---offset OFFSET             ストリームの冒頭からスキップする時間を設定
---duration DURATION         ダウンロードするストリームの最大持続時間を設定
---detect [DETECT]           検出間隔を設定（デフォルト: 60、10-300）
---name [NAME]               保存ファイル名の形式を設定
---work [WORK]               作業ディレクトリを設定
---work-user [WORK_USER]     作業ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
---work-pass [WORK_PASS]     作業ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
---out [OUT]                 保存ディレクトリを設定
---out-user [OUT_USER]       保存ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
---out-pass [OUT_PASS]       保存ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
---temp [TEMP]               一時ディレクトリを設定
---temp-user [TEMP_USER]     一時ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
---temp-pass [TEMP_PASS]     一時ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
---category [CATEGORY]       保存時のカテゴリ分け方法を設定 (none|streamer)
---exist [EXIST]             対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
---threshold [THRESHOLD]     ディスク容量が不足している場合にダウンロードを停止するしきい値を、サイズまたはパーセント(%)で設定 (無効化: -, 既定値: 5%, 有効範囲: ディスク総容量の1～50%)
---rpc                       JSON-RPCサーバーを有効化
---rpcexpose [RPCEXPOSE]     JSON-RPCサーバーの公開方法を設定 (close|open)
---rpcbaseport [RPCBASEPORT] JSON-RPCサーバーのベースポートを設定（デフォルト: 62000、49152-65300）
---snapshot SNAPSHOT         ステータスが変更されるたびにJSONファイルにスナップショットを保存
---thumb [THUMB]             サムネイル画像を保存またはスキップ（save|skip）
---metadata [METADATA]       メタデータを保存またはスキップ（save|skip）
---startup [STARTUP]         起動方法を設定（normal|fast）
---pnpath [PNPATH]           通知プラグインのパスを設定
---pnlanguage [PNLANGUAGE]   通知プラグインで使用する言語を設定
---pnparams [PNPARAMS]       通知プラグインのパラメーターを設定
---pntexttype [PNTEXTTYPE]   通知プラグインで使用するテキスト形式を設定 (plain|markdown|html)
---settings [SETTINGS]       設定保存時の動作を設定（default|skip|quit）
---reset                     すべての設定をリセット
+-i, --id ID             ストリーマーのIDを設定
+-u, --uid [UID]         ストリーマーのUIDを設定
+```
+
+#### 一般
+```
+-h, --help              ヘルプメッセージを表示 (basic|all|detailed)
+-v, --version           バージョン情報を表示
+-y, --yes               すべての確認値を自動的に「はい」に設定
+-d, --display [MODE]    表示モードを設定 (quiet|simple|fluent|all)
+```
+
+#### 認証
+```
+-a, --auth [AUTH]       認証資格情報の処理方法を設定 (reuse|reissue|ignore)
+--authaut AUTHAUT       認証資格情報の認証キーを設定
+--authses AUTHSES       認証資格情報のセッションキーを設定
+--authcookie COOKIE     認証資格情報を取得するためのNetscape形式のクッキーファイルを設定
+--adult [ADULT]         認証情報が無効な場合のアダルトコンテンツ処理方法を設定 (ask|skip)
+```
+
+#### ストリーム
+```
+-f, --filter [FILTER]   ダウンロードフィルターを設定 (all|party|nonparty)
+-q, --quality [QUALITY] ダウンロードする目標画質を設定 (例: 1080p)
+--once URL              ストリームを一度だけダウンロード
+--stream [STREAM]       ストリーム取得方法を設定 (standard|request-timemachine|force-timemachine)
+--offset OFFSET         ストリームの冒頭からスキップする時間を設定
+--duration DURATION     ダウンロードするストリームの最大持続時間を設定
+--detect [DETECT]       検出間隔を設定 (デフォルト: 60、10-300)
+--partytag [TAG]        'みんなで視聴'フィルター用のタグを設定
+```
+
+#### 最終処理
+```
+--final [FINAL]         最終処理方法を設定 (bypass|convert|cleanup|cconvert|ccleanup)
+--custom [CUSTOM]       最終処理のカスタムオプションを設定 (cconvert|ccleanupのみ)
+--ext [EXT]             保存ファイルの拡張子を設定 (cconvert|ccleanupのみ)
+```
+
+#### ディレクトリ
+```
+--work [WORK]           作業ディレクトリを設定
+--work-user [USER]      リモート作業ディレクトリのユーザー名を設定
+--work-pass [PASS]      リモート作業ディレクトリのパスワードを設定
+--out [OUT]             保存ディレクトリを設定
+--out-user [USER]       リモート保存ディレクトリのユーザー名を設定
+--out-pass [PASS]       リモート保存ディレクトリのパスワードを設定
+--temp [TEMP]           一時ディレクトリを設定
+--temp-user [USER]      リモート一時ディレクトリのユーザー名を設定
+--temp-pass [PASS]      リモート一時ディレクトリのパスワードを設定
+```
+
+#### 保存
+```
+--name [NAME]           保存ファイル名の形式を設定
+--category [CATEGORY]   保存時のカテゴリ分け方法を設定 (none|streamer)
+--exist [EXIST]         対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
+--threshold [THRESHOLD] ディスク空き容量のしきい値を設定 (1-50%)
+--thumb [THUMB]         サムネイル画像を保存またはスキップ (save|skip)
+--metadata [METADATA]   メタデータを保存またはスキップ (save|skip)
+```
+
+#### RPC
+```
+--rpc                   JSON-RPCサーバーを有効化
+--rpcexpose [EXPOSE]    JSON-RPCサーバーの公開方法を設定 (close|open)
+--snapshot SNAPSHOT     ステータスが変更されるたびにJSONファイルにスナップショットを保存
+--rpcbaseport [PORT]    JSON-RPCサーバーのベースポートを設定 (デフォルト: 62000、49152-65300)
+```
+
+#### プラグイン
+```
+--pnpath [PATH]         通知プラグインのパスを設定
+--pnlanguage [LANGUAGE] 通知プラグインで使用する言語を設定
+--pnparams [PARAMS]     通知プラグインのパラメーターを設定
+--pntexttype [TYPE]     通知プラグインで使用するテキスト形式を設定 (plain|markdown|html|slack)
+```
+
+#### 設定
+```
+--startup [STARTUP]     起動方法を設定 (normal|fast)
+--settings [SETTINGS]   設定保存時の動作を設定 (default|update|display|skip|quit)
+--reset                 すべての設定をリセット
 ```
 
 ### 使用例
@@ -260,6 +293,21 @@ ChzzkLiveDownloader --detect n
 
 ```powershell
 ChzzkLiveDownloader --detect
+```
+
+### ダウンロードフィルター
+みんなで視聴のストリームと通常ストリームを区別し、ダウンロードするかどうかを指定できます。さらに、みんなで視聴のストリームの場合は、指定したみんなで視聴タグのいずれかに該当する場合のみダウンロードするよう設定することもできます。
+
+ダウンロードするストリームの種類を指定するには、以下のコマンドを使用します。
+
+```powershell
+ChzzkLiveDownloader --filter party
+```
+
+以下のコマンドでみんなで視聴タグを指定すると、指定したタグが設定されたみんなで視聴ストリームのみダウンロードします。
+
+```powershell
+ChzzkLiveDownloader --filter party --partytag TAG1,TAG2
 ```
 
 ## サムネイル画像の保存

@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Video Downloader
 </div>
 
 ## Version
-Version 1.39.0, February 12, 2026 00:00:00
+Version 2.0.0, April 16, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, both of Chzzk Video Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -160,6 +160,14 @@ Click the ☰ icon and select `Export...` to open a dialog where you can choose 
 ## Refreshing List
 To refresh the list immediately, click the ☰ icon, and choose `Refresh`.
 
+## Switching the Screen Color Theme Mode
+By default, Chzzk Video Manager automatically follows your system’s app color theme setting.
+However, you can manually set the app’s color theme regardless of the system setting.
+
+- Click the ☰ icon and select `Settings...` to open the Settings dialog.
+- Go to the `Features` and locate the `Color Theme Mode` option.
+- Select either `Light` or `Dark`.
+
 ## Opening Chzzk Downloader Environment
 To open Chzzk Downloader Environment, click the ☰ icon, and choose `Open Environment (Command Prompt)` or `Open Environment (PowerShell)` under `Tools`.
 
@@ -277,16 +285,18 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 - **Custom Options** - Specifies custom options for the finalization. You can also click the `...` button to load and specify a custom option set file.
 - **Extension for Custom Finalization** - Specifies file extension when the custom options require it.
 
-### Plugin
+### Tools
 
 <div style='text-align: center'>
-<img src='../../img/screenshots/vman_en-US/vman_settings_plugin.png' />
+<img src='../../img/screenshots/vman_en-US/vman_settings_tools.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-- **Notifications: Path** - Sets the path to the notification plugin.
-- **Notifications: Parameters** - Sets the parameters for the notification plugin.
-- **Notifications: Text Type** - Sets the text format used by the notification plugin.
+- **Video Tools: Streamlink** - Checks whether Streamlink is installed and verifies its version, or downloads the latest version.
+- **Video Tools: FFmpeg** - Checks whether FFmpeg is installed and verifies its version, or downloads the latest version.
+- **Notification Plugins: Path** - Sets the path to the notification plugin.
+- **Notification Plugins: Parameters** - Sets the parameters for the notification plugin.
+- **Notification Plugins: Text Type** - Sets the text format used by the notification plugin.
 
 ### Auth
 

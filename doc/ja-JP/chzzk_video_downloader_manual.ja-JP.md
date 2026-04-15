@@ -7,7 +7,7 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 1.39.0, February 12, 2026 00:00:00
+Version 2.0.0, April 16, 2026 00:00:00
 
 ## 必須事項
 - **[必須]** Streamlink（Streamlink 7.0.0またはそれ以上が必要）
@@ -15,71 +15,94 @@ Version 1.39.0, February 12, 2026 00:00:00
 
 ## 使用法
 ```
-ChzzkVideoDownloader
-  [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-  [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--final [FINAL]]
-  [--custom [CUSTOM]] [--ext [EXT]] [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
-  [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]]
-  [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
-  [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcexpose [RPCEXPOSE]]
-  [--rpcport [RPCPORT]] [--rpcid [RPCID]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
-  [--limit [LIMIT]] [--thumb [THUMB]] [--metadata [METADATA]] [--startup [STARTUP]]
-  [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
-  [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
-  [video]
-```
-
-### 位置引数
-```
-video                     ダウンロードするビデオ番号またはURL
+ChzzkVideoDownloader [options] video
 ```
 
 ### オプション
+`-h detailed`を使用すると、すべてのオプションの詳細なヘルプが表示されます。
+
+#### 引数
 ```
--h, --help                このヘルプメッセージを表示
---version                 バージョン情報を表示
--i, --input INPUT         ダウンロードリストファイルを設定
--a, --auth [AUTH]         Chzzk認証資格情報の処理方法を設定 (reuse|reissue|ignore)
---authaut AUTHAUT         Chzzk認証資格情報の認証キーを設定
---authses AUTHSES         Chzzk認証資格情報のセッションキーを設定
---authcookie AUTHCOOKIE   Chzzk認証資格情報を取得するためのNetscape形式のクッキーファイルを設定
---adult [ADULT]           認証情報が無効な場合のアダルトコンテンツ処理方法を設定（ask|skip）
--y, --yes                 すべての確認値を自動的に「はい」に設定
--q, --quality [QUALITY]   ダウンロードする目標画質を設定（例: 1080p）
--d, --display [DISPLAY]   表示モードを設定（quiet|simple|fluent|all）
---final [FINAL]           最終処理方法を設定（bypass|convert|cleanup|cconvert|ccleanup, ABR_HLS形式をダウンロードする時には適用不可能）
---custom [CUSTOM]         最終処理のカスタムオプションを設定（cconvert|ccleanupのみ適用可能）
---ext [EXT]               保存ファイルの拡張子を設定（cconvert|ccleanupのみ適用可能）
---info INFO               ダウンロードせずにビデオ情報を取得
---name [NAME]             保存ファイル名の形式を設定
---work [WORK]             作業ディレクトリを設定
---work-user [WORK_USER]   作業ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
---work-pass [WORK_PASS]   作業ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
---out [OUT]               保存ディレクトリを設定
---out-user [OUT_USER]     保存ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
---out-pass [OUT_PASS]     保存ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
---temp [TEMP]             一時ディレクトリを設定
---temp-user [TEMP_USER]   一時ディレクトリがリモートネットワーク上にある場合に使用するユーザー名を設定
---temp-pass [TEMP_PASS]   一時ディレクトリがリモートネットワーク上にある場合に使用するパスワードを設定
---category [CATEGORY]     保存時のカテゴリ分け方法を設定 (none|streamer)
---exist [EXIST]           対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
---threshold [THRESHOLD]   ディスク容量が不足している場合にダウンロードを停止するしきい値を、サイズまたはパーセント(%)で設定 (無効化: -, 既定値: 5%, 有効範囲: ディスク総容量の1～50%)
---rpc                     JSON-RPCサーバーを有効化
---rpcexpose [RPCEXPOSE]   JSON-RPCサーバーの公開方法を設定 (close|open)
---rpcport [RPCPORT]       JSON-RPCサーバーのポートを設定 （デフォルト: 63000, 49152-65300）
---rpcid [RPCID]           JSON-RPCサーバーのIDを設定 （デフォルト: 30）
---snapshot SNAPSHOT       ステータスが変更されるたびにJSONファイルにスナップショットを保存
---download [DOWNLOAD]     ダウンロード方法を設定（default|atxc|alter）
---limit [LIMIT]           最大ダウンロード速度を設定 (例: 512K, 10M, 1G, デフォルト: 0)
---thumb [THUMB]           サムネイル画像を保存またはスキップ（save|skip）
---metadata [METADATA]     メタデータを保存またはスキップ（save|skip）
---startup [STARTUP]       起動方法を設定（normal|fast）
---pnpath [PNPATH]         通知プラグインのパスを設定
---pnlanguage [PNLANGUAGE] 通知プラグインで使用する言語を設定
---pnparams [PNPARAMS]     通知プラグインのパラメーターを設定
---pntexttype [PNTEXTTYPE] 通知プラグインで使用するテキスト形式を設定 (plain|markdown|html)
---settings [SETTINGS]     設定保存時の動作を設定（default|skip|quit）
---reset                   すべての設定をリセット
+video                   ダウンロードするビデオ番号またはURL
+-i, --input INPUT       ダウンロードリストファイルを設定
+```
+
+#### 一般
+```
+-h, --help              ヘルプメッセージを表示 (basic|all|detailed)
+-v, --version           バージョン情報を表示
+-y, --yes               すべての確認値を自動的に「はい」に設定
+-d, --display [MODE]    表示モードを設定 (quiet|simple|fluent|all)
+```
+
+#### 認証
+```
+-a, --auth [AUTH]       認証資格情報の処理方法を設定 (reuse|reissue|ignore)
+--authaut AUTHAUT       認証資格情報の認証キーを設定
+--authses AUTHSES       認証資格情報のセッションキーを設定
+--authcookie COOKIE     認証資格情報を取得するためのNetscape形式のクッキーファイルを設定
+--adult [ADULT]         認証情報が無効な場合のアダルトコンテンツ処理方法を設定 (ask|skip)
+```
+
+#### ダウンロード
+```
+-q, --quality [QUALITY] ダウンロードする目標画質を設定 (例: 1080p)
+--download [DOWNLOAD]   ダウンロード方法を設定 (default|alter)
+--limit [LIMIT]         最大ダウンロード速度を設定 (例: 512K, 10M, 1G, デフォルト: 0)
+```
+
+#### 最終処理
+```
+--final [FINAL]         最終処理方法を設定 (bypass|convert|cleanup|cconvert|ccleanup, ABR_HLSには適用不可能)
+--custom [CUSTOM]       最終処理のカスタムオプションを設定 (cconvert|ccleanupのみ)
+--ext [EXT]             保存ファイルの拡張子を設定 (cconvert|ccleanupのみ)
+```
+
+#### ディレクトリ
+```
+--work [WORK]           作業ディレクトリを設定
+--work-user [USER]      リモート作業ディレクトリのユーザー名を設定
+--work-pass [PASS]      リモート作業ディレクトリのパスワードを設定
+--out [OUT]             保存ディレクトリを設定
+--out-user [USER]       リモート保存ディレクトリのユーザー名を設定
+--out-pass [PASS]       リモート保存ディレクトリのパスワードを設定
+--temp [TEMP]           一時ディレクトリを設定
+--temp-user [USER]      リモート一時ディレクトリのユーザー名を設定
+--temp-pass [PASS]      リモート一時ディレクトリのパスワードを設定
+```
+
+#### 保存
+```
+--name [NAME]           保存ファイル名の形式を設定
+--category [CATEGORY]   保存時のカテゴリ分け方法を設定 (none|streamer)
+--exist [EXIST]         対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
+--threshold [THRESHOLD] ディスク空き容量のしきい値を設定 (1-50%)
+--thumb [THUMB]         サムネイル画像を保存またはスキップ (save|skip)
+--metadata [METADATA]   メタデータを保存またはスキップ (save|skip)
+```
+
+#### RPC
+```
+--rpc                   JSON-RPCサーバーを有効化
+--rpcexpose [EXPOSE]    JSON-RPCサーバーの公開方法を設定 (close|open)
+--snapshot SNAPSHOT     ステータスが変更されるたびにJSONファイルにスナップショットを保存
+--rpcport [PORT]        JSON-RPCサーバーのポートを設定 (デフォルト: 63000, 49152-65300)
+--rpcid [ID]            JSON-RPCサーバーのIDを設定 (デフォルト: 30)
+```
+
+#### プラグイン
+```
+--pnpath [PATH]         通知プラグインのパスを設定
+--pnlanguage [LANGUAGE] 通知プラグインで使用する言語を設定
+--pnparams [PARAMS]     通知プラグインのパラメーターを設定
+--pntexttype [TYPE]     通知プラグインで使用するテキスト形式を設定 (plain|markdown|html|slack)
+```
+
+#### 設定
+```
+--startup [STARTUP]     起動方法を設定 (normal|fast)
+--settings [SETTINGS]   設定保存時の動作を設定 (default|update|display|skip|quit)
+--reset                 すべての設定をリセット
 ```
 
 ### 使用例

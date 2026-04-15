@@ -7,7 +7,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 1.39.0, February 12, 2026 00:00:00
+Version 2.0.0, April 16, 2026 00:00:00
 
 ## Prerequisites
 - **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -15,71 +15,94 @@ Version 1.39.0, February 12, 2026 00:00:00
 
 ## Usage
 ```
-ChzzkVideoDownloader
-  [-h] [--version] [-i INPUT] [-a [AUTH]] [--authaut AUTHAUT] [--authses AUTHSES]
-  [--authcookie AUTHCOOKIE] [--adult [ADULT]] [-y] [-q [QUALITY]] [-d [DISPLAY]] [--final [FINAL]]
-  [--custom [CUSTOM]] [--ext [EXT]] [--name [NAME]] [--work [WORK]] [--work-user [WORK_USER]]
-  [--work-pass [WORK_PASS]] [--out [OUT]] [--out-user [OUT_USER]] [--out-pass [OUT_PASS]]
-  [--temp [TEMP]] [--temp-user [TEMP_USER]] [--temp-pass [TEMP_PASS]] [--category [CATEGORY]]
-  [--exist [EXIST]] [--threshold [THRESHOLD]] [--rpc] [--rpcexpose [RPCEXPOSE]]
-  [--rpcport [RPCPORT]] [--rpcid [RPCID]] [--snapshot SNAPSHOT] [--download [DOWNLOAD]]
-  [--limit [LIMIT]] [--thumb [THUMB]] [--metadata [METADATA]] [--startup [STARTUP]]
-  [--pnpath [PNPATH]] [--pnlanguage [PNLANGUAGE]] [--pnparams [PNPARAMS]]
-  [--pntexttype [PNTEXTTYPE]] [--settings [SETTINGS]] [--reset]
-  [video]
-```
-
-### Positional Arguments
-```
-video                     Video number or URL to download
+ChzzkVideoDownloader [options] video
 ```
 
 ### Options
+Use `-h detailed` to show detailed help for all options.
+
+#### Arguments
 ```
--h, --help                Show this help message
---version                 Show version information
--i, --input INPUT         Set the download list file
--a, --auth [AUTH]         Set Chzzk authentication credential control method (reuse|reissue|ignore)
---authaut AUTHAUT         Set auth key of Chzzk authentication credential
---authses AUTHSES         Set session key of Chzzk authentication credential
---authcookie AUTHCOOKIE   Set Netscape cookie file of Chzzk authentication credential
---adult [ADULT]           Set the process method for adult contents when credentials are invalid (ask|skip)
--y, --yes                 Set any confirmation values to 'yes' automatically
--q, --quality [QUALITY]   Set target quality to download (e.g. 1080p)
--d, --display [DISPLAY]   Set display mode (quiet|simple|fluent|all)
---final [FINAL]           Set finalization method (bypass|convert|cleanup|cconvert|ccleanup, applicable only when downloading UPLOAD type)
---custom [CUSTOM]         Set custom finalize options (applicable only with cconvert|ccleanup)
---ext [EXT]               Set output file extension (applicable only with cconvert|ccleanup)
---info INFO               Retrieve video information without downloading
---name [NAME]             Set output filename format
---work [WORK]             Set working directory
---work-user [WORK_USER]   Set username to use when working directory is on remote network
---work-pass [WORK_PASS]   Set password to use when working directory is on remote network
---out [OUT]               Set output directory
---out-user [OUT_USER]     Set username to use when output directory is on remote network
---out-pass [OUT_PASS]     Set password to use when output directory is on remote network
---temp [TEMP]             Set temporary directory
---temp-user [TEMP_USER]   Set username to use when temporary directory is on remote network
---temp-pass [TEMP_PASS]   Set password to use when temporary directory is on remote network
---category [CATEGORY]     Set output categorize method (none|streamer)
---exist [EXIST]           Set how to save when the target file already exists (rename|skip|overwrite)
---threshold [THRESHOLD]   Set the threshold by size or percent for stopping downloads when disk space is low (disable: -, default: 5%, valid range: 1-50% of total disk space, even for size values)
---rpc                     Activate JSON-RPC server
---rpcexpose [RPCEXPOSE]   Set JSON-RPC server exposure method (close|open)
---rpcport [RPCPORT]       Set JSON-RPC server port (default: 63000, 49152-65300)
---rpcid [RPCID]           Set JSON-RPC server ID (default: 30)
---snapshot SNAPSHOT       Save snapshot to a JSON file whenever changing status
---download [DOWNLOAD]     Set download method (default|atxc|alter)
---limit [LIMIT]           Set max download speed (e.g., 512K, 10M, 1G, default: 0)
---thumb [THUMB]           Save thumbnail image or skip (save|skip)
---metadata [METADATA]     Save metadata or skip (save|skip)
---startup [STARTUP]       Set startup method (normal|fast)
---pnpath [PNPATH]         Set the path to the notification plugin
---pnlanguage [PNLANGUAGE] Set the language used by the notification plugin
---pnparams [PNPARAMS]     Set the parameters for the notification plugin
---pntexttype [PNTEXTTYPE] Set the text format used by the notification plugin (plain|markdown|html)
---settings [SETTINGS]     Set action when saving settings (default|update|show|skip|quit)
---reset                   Reset all settings
+video                   Video number or URL to download
+-i, --input INPUT       Set download list file
+```
+
+#### General
+```
+-h, --help              Show help information (basic|all|detailed)
+-v, --version           Show version information
+-y, --yes               Answer all confirmations with 'yes' automatically
+-d, --display [MODE]    Set display mode (quiet|simple|fluent|all)
+```
+
+#### Authentication
+```
+-a, --auth [AUTH]       Set authentication credential control method (reuse|reissue|ignore)
+--authaut AUTHAUT       Set auth key of authentication credential
+--authses AUTHSES       Set session key of authentication credential
+--authcookie COOKIE     Set Netscape cookie file of authentication credential
+--adult [ADULT]         Set handling method for adult contents when credentials are invalid (ask|skip)
+```
+
+#### Download
+```
+-q, --quality [QUALITY] Set target quality to download (e.g. 1080p)
+--download [DOWNLOAD]   Set download method (default|alter)
+--limit [LIMIT]         Set max download speed (e.g. 512K, 10M, 1G, default: 0)
+```
+
+#### Finalization
+```
+--final [FINAL]         Set finalization method (bypass|convert|cleanup|cconvert|ccleanup, N/A for ABR_HLS)
+--custom [CUSTOM]       Set custom finalize options (for cconvert|ccleanup)
+--ext [EXT]             Set output file extension (for cconvert|ccleanup)
+```
+
+#### Directories
+```
+--work [WORK]           Set working directory
+--work-user [USER]      Set username for remote working directory
+--work-pass [PASS]      Set password for remote working directory
+--out [OUT]             Set output directory
+--out-user [USER]       Set username for remote output directory
+--out-pass [PASS]       Set password for remote output directory
+--temp [TEMP]           Set temporary directory
+--temp-user [USER]      Set username for remote temporary directory
+--temp-pass [PASS]      Set password for remote temporary directory
+```
+
+#### Output
+```
+--name [NAME]           Set output filename format
+--category [CATEGORY]   Set output categorize method (none|streamer)
+--exist [EXIST]         Set save method when the target file already exists (rename|skip|overwrite)
+--threshold [THRESHOLD] Set low disk space threshold (1-50%)
+--thumb [THUMB]         Save thumbnail image or skip (save|skip)
+--metadata [METADATA]   Save metadata or skip (save|skip)
+```
+
+#### RPC
+```
+--rpc                   Activate JSON-RPC server
+--rpcexpose [EXPOSE]    Set JSON-RPC server exposure method (close|open)
+--snapshot SNAPSHOT     Save snapshot to a JSON file whenever changing status
+--rpcport [PORT]        Set JSON-RPC server port (default: 63000, 49152-65300)
+--rpcid [ID]            Set JSON-RPC server ID (default: 30)
+```
+
+#### Plugin
+```
+--pnpath [PATH]         Set path to notification plugin
+--pnlanguage [LANGUAGE] Set language used by notification plugin
+--pnparams [PARAMS]     Set parameters for notification plugin
+--pntexttype [TYPE]     Set text format used by notification plugin (plain|markdown|html|slack)
+```
+
+#### Settings
+```
+--startup [STARTUP]     Set startup method (normal|fast)
+--settings [SETTINGS]   Set action when saving settings (default|update|display|skip|quit)
+--reset                 Reset all settings
 ```
 
 ## Example
