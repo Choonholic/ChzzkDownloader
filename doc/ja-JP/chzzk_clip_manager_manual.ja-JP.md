@@ -7,12 +7,12 @@ Chzzk Clip Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 2.0.0, April 16, 2026 00:00:00
+Version 2.0.1, May 11, 2026 20:00:00
 
 ## 必要条件
 Chzzk Clip Managerは、Chzzk Clip DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Clip Downloaderもインストールされている必要があります。
 
-Chzzk Clip DownloaderとChzzk Clip Managerが同じディレクトリにある場合、Chzzk Clip Managerは起動時に自動的にChzzk Clip Downloaderを認識します。そうでない場合は、**必要条件の確認**を参照して、Chzzk Clip Downloaderの場所を指定してください。
+Chzzk Clip DownloaderとChzzk Clip Managerが同じディレクトリにある場合、Chzzk Clip Managerは起動時に自動的にChzzk Clip Downloaderを認識します。そうでない場合は、**必要条件の確認**を参照して、Chzzk Clip Downloaderのパスを指定してください。
 
 ポータブル版の場合は、Chzzk Clip DownloaderとChzzk Clip Managerを同じディレクトリに保存することをお勧めします。`セットアップ`を使用してインストールした場合、両方が同じディレクトリにインストールされます。
 

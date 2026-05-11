@@ -18,7 +18,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 2.0.0, April 16, 2026 00:00:00
+Version 2.0.1, May 11, 2026 20:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -94,6 +94,10 @@ Use `-h detailed` to show detailed help for all options.
 --exist [EXIST]         Set save method when the target file already exists
 --threshold [THRESHOLD] Set low disk space threshold
 --thumb [THUMB]         Save thumbnail image or skip
+```
+
+#### Metadata
+```
 --metadata [METADATA]   Save metadata or skip
 ```
 
@@ -136,7 +140,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 2.0.0, April 16, 2026 00:00:00
+Version 2.0.1, May 11, 2026 20:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -203,6 +207,10 @@ video                   Video number or URL to download
 --exist [EXIST]         Set save method when the target file already exists
 --threshold [THRESHOLD] Set low disk space threshold
 --thumb [THUMB]         Save thumbnail image or skip
+```
+
+#### Metadata
+```
 --metadata [METADATA]   Save metadata or skip
 ```
 
@@ -246,7 +254,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 2.0.0, April 16, 2026 00:00:00
+Version 2.0.1, May 11, 2026 20:00:00
 
 ### Usage
 ```
@@ -305,6 +313,10 @@ clip                    Clip UID or URL to download
 --exist [EXIST]         Set save method when the target file already exists
 --threshold [THRESHOLD] Set low disk space threshold
 --thumb [THUMB]         Save thumbnail image or skip
+```
+
+#### Metadata
+```
 --metadata [METADATA]   Save metadata or skip
 ```
 
@@ -348,7 +360,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 2.0.0, April 16, 2026 00:00:00
+Version 2.0.1, May 11, 2026 20:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)

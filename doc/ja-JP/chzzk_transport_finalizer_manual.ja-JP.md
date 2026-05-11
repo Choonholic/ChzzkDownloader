@@ -7,7 +7,7 @@ Chzzkのストリーム用の最終処理ツール
 </div>
 
 ## バージョン
-Version 2.0.0, April 16, 2026 00:00:00
+Version 2.0.1, May 11, 2026 20:00:00
 
 ## 必須事項
 - **[必須]** FFmpegの公式メジャーバージョン（FFmpeg 7.0またはそれ以上が必要）
@@ -210,19 +210,6 @@ ChzzkTransportFinalizer --convert
 
 ```powershell
 ChzzkTransportFinalizer --convert=av1_nvenc_128k.set --ext=.av1
-```
-
-## メタデータの保存
-ストリーム情報を基に動画にメタデータを保存するには、以下のコマンドを使用します。Chzzk Transport Finalizerは、Chzzk Live DownloaderまたはChzzk Video Downloaderによってトランスポートファイルと共に`JSON`形式で出力されたストリーム情報を使用します。このファイルが作成されていないか、削除されている場合、メタデータは保存されません。
-
-```powershell
-ChzzkTransportFinalizer --metadata save
-```
-
-この機能をオフにするには、以下のコマンドを使用します。
-
-```powershell
-ChzzkTransportFinalizer --metadata skip
 ```
 
 ## 表示モードの設定

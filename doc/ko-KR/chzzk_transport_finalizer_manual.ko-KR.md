@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 2.0.0, April 16, 2026 00:00:00
+Version 2.0.1, May 11, 2026 20:00:00
 
 ## 선행 요건
 - **[필수]** FFmpeg 공식 메이저 버전 (FFmpeg 7.0 또는 상위 버전 필요)
@@ -210,19 +210,6 @@ ChzzkTransportFinalizer --convert
 
 ```powershell
 ChzzkTransportFinalizer --convert=av1_nvenc_128k.set --ext=.av1
-```
-
-## 메타데이터 저장
-스트림 정보를 기반으로 메타데이터를 저장하려면 다음 명령어를 사용하세요. Chzzk Transport Finalizer는 Chzzk Live Downloader 또는 Chzzk Video Downloader에서 스트림 파일과 함께 JSON 형식의 파일로 내보낸 스트림 정보를 사용하며, 이 파일이 생성되지 않았거나 삭제되었을 경우 메타데이터를 저장하지 않습니다.
-
-```powershell
-ChzzkTransportFinalizer --metadata save
-```
-
-메타데이터를 저장하지 않으려면 다음 명령어를 사용하세요.
-
-```powershell
-ChzzkTransportFinalizer --metadata skip
 ```
 
 ## 표시 형식 설정

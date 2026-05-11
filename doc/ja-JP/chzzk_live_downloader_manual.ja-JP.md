@@ -7,7 +7,7 @@ Chzzkのストリーム用のダウンローダー
 </div>
 
 ## バージョン
-Version 2.0.0, April 16, 2026 00:00:00
+Version 2.0.1, May 11, 2026 20:00:00
 
 ## 必須事項
 - **[必須]** Streamlink（Streamlink 7.0.0またはそれ以上が必要）
@@ -85,6 +85,10 @@ ChzzkLiveDownloader [options]
 --exist [EXIST]         対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
 --threshold [THRESHOLD] ディスク空き容量のしきい値を設定 (1-50%)
 --thumb [THUMB]         サムネイル画像を保存またはスキップ (save|skip)
+```
+
+#### メタデータ
+```
 --metadata [METADATA]   メタデータを保存またはスキップ (save|skip)
 ```
 

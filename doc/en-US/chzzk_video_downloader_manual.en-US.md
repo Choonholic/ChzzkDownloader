@@ -7,7 +7,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 2.0.0, April 16, 2026 00:00:00
+Version 2.0.1, May 11, 2026 20:00:00
 
 ## Prerequisites
 - **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -78,6 +78,10 @@ video                   Video number or URL to download
 --exist [EXIST]         Set save method when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD] Set low disk space threshold (1-50%)
 --thumb [THUMB]         Save thumbnail image or skip (save|skip)
+```
+
+#### Metadata
+```
 --metadata [METADATA]   Save metadata or skip (save|skip)
 ```
 

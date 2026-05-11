@@ -7,7 +7,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ## Version
-Version 2.0.0, April 16, 2026 00:00:00
+Version 2.0.1, May 11, 2026 20:00:00
 
 ## Prerequisites
 - **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
@@ -210,19 +210,6 @@ You can also use the `--ext` parameter to specify a different file extension whe
 
 ```powershell
 ChzzkTransportFinalizer --convert=av1_nvenc_128k.set --ext=.av1
-```
-
-## Saving Metadata
-To save metadata based on transport stream information, use the following command. Chzzk Transport Finalizer uses stream information exported as a `JSON` file along with the transport files from Chzzk Live Downloader or Chzzk Video Downloader. If this file is not created or has been deleted, the metadata will not be saved.
-
-```powershell
-ChzzkTransportFinalizer --metadata save
-```
-
-To turn off this feature, use the following command.
-
-```powershell
-ChzzkTransportFinalizer --metadata skip
 ```
 
 ## Setting Display Mode

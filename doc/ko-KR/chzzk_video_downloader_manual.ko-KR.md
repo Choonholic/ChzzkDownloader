@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 2.0.0, April 16, 2026 00:00:00
+Version 2.0.1, May 11, 2026 20:00:00
 
 ## 선행 요건
 - **[필수]** Streamlink (Streamlink 7.0.0 또는 상위 버전 필요)
@@ -78,6 +78,10 @@ video                   다운로드할 비디오 번호 또는 URL
 --exist [EXIST]         대상 파일이 이미 존재할 때 저장 방법을 설정합니다 (rename|skip|overwrite)
 --threshold [THRESHOLD] 디스크 공간 임계값을 설정합니다. (1-50%)
 --thumb [THUMB]         미리보기 이미지의 저장 여부를 설정합니다 (save|skip)
+```
+
+#### 메타데이터
+```
 --metadata [METADATA]   메타데이터의 저장 여부를 설정합니다 (save|skip)
 ```
 
