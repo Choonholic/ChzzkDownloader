@@ -7,7 +7,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 2.0.1, May 11, 2026 20:00:00
+Version 2.0.2, May 18, 2026 01:00:00
 
 ## Usage
 ```
