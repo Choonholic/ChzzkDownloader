@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Clip Downloader
 </div>
 
 ## Version
-Version 2.0.2, May 18, 2026 01:00:00
+Version 2.1.0, May 31, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Clip Manager is the GUI frontend application for Chzzk Clip Downloader, Chzzk Clip Downloader must be installed as well.
@@ -20,14 +20,14 @@ For portable versions, consider storing both Chzzk Clip Downloader and Chzzk Cli
 Click `Chzzk Clip Manager` in Start menu, or execute `ChzzkClipManager.exe` in `Chzzk Downloader Environment`.
 
 ## Verifying Prerequisites
-Chzzk Clip Manager requires Chzzk Clip Downloader to be properly set up for full functionality. When Chzzk Clip Manager starts, it checks whether this prerequisite is met, and if not, it will display the following dialog.
+Chzzk Clip Manager requires Chzzk Clip Downloader to be properly set up for full functionality. Additionally, Chzzk Clip Downloader requires proper configurations of the official major versions of FFmpeg (Version 7.0 or higher). When Chzzk Clip Manager starts, it checks whether this prerequisite is met, and if not, it will display the following dialog.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/cman_en-US/cman_prerequisites.png' />
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
-You can click `Settings...` button to specify the location of Chzzk Clip Downloader.
+You can click `Settings...` button to specify the location of Chzzk Clip Downloader, or click `Download` button to install FFmpeg.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/cman_en-US/cman_downloader_locate_01.png' />
@@ -240,6 +240,7 @@ Sets the threshold % for stopping downloads when disk space is low.
 <p><i>(This image may not reflect the latest information.)</i></p>
 </div>
 
+- **Video Tools: FFmpeg** - Checks whether FFmpeg is installed and verifies its version, or downloads the latest version.
 - **Notification Plugins: Path** - Sets the path to the notification plugin.
 - **Notification Plugins: Parameters** - Sets the parameters for the notification plugin.
 - **Notification Plugins: Text Type** - Sets the text format used by the notification plugin.
