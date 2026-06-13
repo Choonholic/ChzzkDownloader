@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 2.1.1, June 07, 2026 00:00:00
+Version 2.2.0, June 15, 2026 00:00:00
 
 ## 선행 요건
 Chzzk Live Manager는 Chzzk Live Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Live Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
@@ -387,6 +387,13 @@ Chzzk Transport Finalizer를 재시작하려면, ☰ 아이콘을 클릭한 후 
 
 - **인증 키 (NID_AUT)** - 네이버 ID에서 생성되는 인증 키를 설정합니다.
 - **세션 키 (NID_SES)** - 네이버 ID에서 생성되는 세션 키를 설정합니다.
+- **검증** - 설정한 인증 정보가 올바른지 확인하고 사용자 정보를 표시합니다.
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/lman_ko-KR/lman_settings_login.png' />
+<p><i>(이 이미지는 최신 정보와 다를 수 있습니다.)</i></p>
+</div>
+
 - **임시로 인증 정보 무시** - 임시로 인증 정보를 무시합니다.
 
 치지직 인증 자격 증명 획득 방법에 대한 자세한 정보는 `how_to_get_chzzk_credential.ko-KR.pdf`를 참고하세요.

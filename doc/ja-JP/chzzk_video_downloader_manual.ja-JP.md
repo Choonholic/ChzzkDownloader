@@ -7,7 +7,7 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 2.1.1, June 07, 2026 00:00:00
+Version 2.2.0, June 15, 2026 00:00:00
 
 ## 必須事項
 - **[必須]** Streamlink（Streamlink 7.0.0またはそれ以上が必要）
@@ -47,6 +47,8 @@ video                   ダウンロードするビデオ番号またはURL
 #### ダウンロード
 ```
 -q, --quality [QUALITY] ダウンロードする目標画質を設定 (例: 1080p)
+--offset OFFSET         冒頭からスキップする時間を設定
+--duration DURATION     ダウンロードする最大持続時間を設定
 --download [DOWNLOAD]   ダウンロード方法を設定 (default|alter)
 --limit [LIMIT]         最大ダウンロード速度を設定 (例: 512K, 10M, 1G, デフォルト: 0)
 ```
@@ -343,6 +345,44 @@ ChzzkVideoDownloader video_no または url --final cconvert --custom=av1_nvenc_
 ```
 
 カスタムエンコードはパフォーマンスが最適でないため推奨されません。より良い結果を得るには、外部の専用プロフェッショナルエンコーダーの使用を検討してください。
+
+## 開始オフセットの設定
+冒頭からスキップする時間を設定するには、以下のコマンドを使用します。
+
+```powershell
+ChzzkVideoDownloader video_no または url --offset 30
+```
+
+デフォルトでは時間の単位は秒です。しかし、以下のように時間、分、秒、ミリ秒で設定することも可能です。
+
+```powershell
+ChzzkVideoDownloader video_no または url --offset 1:23:45.67
+ChzzkVideoDownloader video_no または url --offset 1h30m45.67s
+```
+
+この機能は以下の場合には使用できません。
+
+- `-i`オプションを使用して複数のVODをダウンロードする場合
+- `vod_status`が`ABR_HLS`の場合
+
+## ダウンロードする持続時間の設定
+ダウンロード持続時間を設定するには、以下のコマンドを使用します。
+
+```powershell
+ChzzkVideoDownloader video_no または url --duration 3600
+```
+
+デフォルトでは時間の単位は秒です。しかし、以下のように時間、分、秒、ミリ秒で設定することも可能です。
+
+```powershell
+ChzzkVideoDownloader video_no または url --duration 1:23:45.67
+ChzzkVideoDownloader video_no または url --duration 1h30m45.67s
+```
+
+この機能は以下の場合には使用できません。
+
+- `-i`オプションを使用して複数のビデオをダウンロードする場合
+- `vod_status`が`ABR_HLS`の場合
 
 ## 作業ディレクトリの設定
 作業に必要なファイルが保存されるディレクトリを指定するには、以下のコマンドを使用します。

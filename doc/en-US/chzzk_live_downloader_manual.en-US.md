@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 2.1.1, June 07, 2026 00:00:00
+Version 2.2.0, June 15, 2026 00:00:00
 
 ## Prerequisites
 - **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -427,7 +427,6 @@ ChzzkLiveDownloader --offset 30
 
 By default, the unit of time is seconds. However, you can also set through hours, minutes, seconds and milliseconds as follows.
 
-
 ```powershell
 ChzzkLiveDownloader --offset 1:23:45.67
 ChzzkLiveDownloader --offset 1h30m45.67s
@@ -441,7 +440,6 @@ ChzzkLiveDownloader --duration 3600
 ```
 
 By default, the unit of time is seconds. However, you can also set through hours, minutes, seconds and milliseconds as follows.
-
 
 ```powershell
 ChzzkLiveDownloader --duration 1:23:45.67

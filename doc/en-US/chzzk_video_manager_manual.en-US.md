@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Video Downloader
 </div>
 
 ## Version
-Version 2.1.1, June 07, 2026 00:00:00
+Version 2.2.0, June 15, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, both of Chzzk Video Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -307,6 +307,13 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 
 - **Auth Key (NID_AUT)** - Specifies the authorization key of NAVER ID.
 - **Session Key (NID_SES)** - Specifies the session key of NAVER ID.
+- **Verify** - Verifies that the configured authentication information is valid and displays the user information.
+
+<div style='text-align: center'>
+<img src='../../img/screenshots/vman_en-US/vman_settings_login.png' />
+<p><i>(This image may not reflect the latest information.)</i></p>
+</div>
+
 - **Ignore authentication credential temporarily** - Sets whether ignore authentication credential temporarily or not.
 
 For more information on how to get Chzzk authentication credential, please refer to `how_to_get_chzzk_credential.en-US.pdf`.

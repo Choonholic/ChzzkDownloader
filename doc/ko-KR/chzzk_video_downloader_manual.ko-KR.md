@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 2.1.1, June 07, 2026 00:00:00
+Version 2.2.0, June 15, 2026 00:00:00
 
 ## 선행 요건
 - **[필수]** Streamlink (Streamlink 7.0.0 또는 상위 버전 필요)
@@ -47,6 +47,8 @@ video                   다운로드할 비디오 번호 또는 URL
 #### 다운로드
 ```
 -q, --quality [QUALITY] 다운로드 목표 화질을 설정합니다 (예: 1080p)
+--offset OFFSET         다운로드 시작 지점을 설정합니다 (단일 다운로드 전용)
+--duration DURATION     다운로드 길이를 설정합니다 (단일 다운로드 전용)
 --download [DOWNLOAD]   다운로드 방법을 설정합니다 (default|alter)
 --limit [LIMIT]         최대 다운로드 속도를 설정합니다 (예: 512K, 10M, 1G, 기본값: 0)
 ```
@@ -343,6 +345,44 @@ ChzzkVideoDownloader video_no 또는 url --final cconvert --custom=av1_nvenc_128
 ```
 
 참고로 사용자 지정 인코딩은 성능이 최적화되지 않아 권장되지 않습니다. 더 나은 결과를 위해 외부의 전용 인코더를 사용하는 것을 고려하세요.
+
+## 시작 지점 설정
+다음 명령어를 사용하여 시작 지점을 지정해 다운로드할 수 있습니다.
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --offset 30
+```
+
+기본적으로 지정되는 시간은 초 단위입니다. 하지만 다음과 같이 시, 분, 초, 밀리초를 사용하여 지정할 수도 있습니다.
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --offset 1:23:45.67
+ChzzkVideoDownloader video_no 또는 url --offset 1h30m45.67s
+```
+
+이 기능은 다음과 같은 경우에는 사용할 수 없습니다.
+
+- `-i` 명령을 사용하여 여러 개의 다시보기 비디오를 다운로드하는 경우
+- `vod_status`가 `ABR_HLS`인 경우
+
+## 다운로드 길이 설정
+다음 명령어를 사용하여 길이를 지정해 다운로드할 수 있습니다.
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --duration 3600
+```
+
+기본적으로 지정되는 시간은 초 단위입니다. 하지만 다음과 같이 시, 분, 초, 밀리초를 사용하여 지정할 수도 있습니다.
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --duration 1:23:45.67
+ChzzkVideoDownloader video_no 또는 url --duration 1h30m45.67s
+```
+
+이 기능은 다음과 같은 경우에는 사용할 수 없습니다.
+
+- `-i` 명령을 사용하여 여러 개의 다시보기 비디오를 다운로드하는 경우
+- `vod_status`가 `ABR_HLS`인 경우
 
 ## 작업 디렉터리 설정
 올바르게 작동하는데 필요한 파일을 저장할 디렉터리를 지정하려면 다음 명령어를 사용하세요.
