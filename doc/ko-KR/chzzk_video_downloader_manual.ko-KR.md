@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 2.2.0, June 15, 2026 00:00:00
+Version 2.3.0, June 17, 2026 00:00:00
 
 ## 선행 요건
 - **[필수]** Streamlink (Streamlink 7.0.0 또는 상위 버전 필요)
@@ -47,8 +47,8 @@ video                   다운로드할 비디오 번호 또는 URL
 #### 다운로드
 ```
 -q, --quality [QUALITY] 다운로드 목표 화질을 설정합니다 (예: 1080p)
---offset OFFSET         다운로드 시작 지점을 설정합니다 (단일 다운로드 전용)
---duration DURATION     다운로드 길이를 설정합니다 (단일 다운로드 전용)
+--offset OFFSET         다운로드 시작 지점을 설정합니다 (단일 소스 HLS 다운로드 전용)
+--duration DURATION     다운로드 길이를 설정합니다 (단일 소스 HLS 다운로드 전용)
 --download [DOWNLOAD]   다운로드 방법을 설정합니다 (default|alter)
 --limit [LIMIT]         최대 다운로드 속도를 설정합니다 (예: 512K, 10M, 1G, 기본값: 0)
 ```
@@ -363,7 +363,7 @@ ChzzkVideoDownloader video_no 또는 url --offset 1h30m45.67s
 이 기능은 다음과 같은 경우에는 사용할 수 없습니다.
 
 - `-i` 명령을 사용하여 여러 개의 다시보기 비디오를 다운로드하는 경우
-- `vod_status`가 `ABR_HLS`인 경우
+- 다운로드 형식이 `DIRECT`인 경우
 
 ## 다운로드 길이 설정
 다음 명령어를 사용하여 길이를 지정해 다운로드할 수 있습니다.
@@ -382,7 +382,7 @@ ChzzkVideoDownloader video_no 또는 url --duration 1h30m45.67s
 이 기능은 다음과 같은 경우에는 사용할 수 없습니다.
 
 - `-i` 명령을 사용하여 여러 개의 다시보기 비디오를 다운로드하는 경우
-- `vod_status`가 `ABR_HLS`인 경우
+- 다운로드 형식이 `DIRECT`인 경우
 
 ## 작업 디렉터리 설정
 올바르게 작동하는데 필요한 파일을 저장할 디렉터리를 지정하려면 다음 명령어를 사용하세요.

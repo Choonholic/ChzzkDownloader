@@ -190,8 +190,8 @@ video                   Video number or URL to download
 #### Download
 ```
 -q, --quality [QUALITY] Set target quality to download
---offset OFFSET         Set amount of time to skip from the beginning of the video (for single-source downloads only)
---duration DURATION     Set maximum duration to download (for single-source downloads only)
+--offset OFFSET         Set amount of time to skip from the beginning of the video (for single-source HLS downloads only)
+--duration DURATION     Set maximum duration to download (for single-source HLS downloads only)
 --final [FINAL]         Set finalization method
 --custom [CUSTOM]       Set custom finalize options
 --ext [EXT]             Set output file extension

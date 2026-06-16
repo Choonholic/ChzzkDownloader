@@ -7,7 +7,7 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 2.2.0, June 15, 2026 00:00:00
+Version 2.3.0, June 17, 2026 00:00:00
 
 ## 必須事項
 - **[必須]** Streamlink（Streamlink 7.0.0またはそれ以上が必要）
@@ -47,8 +47,8 @@ video                   ダウンロードするビデオ番号またはURL
 #### ダウンロード
 ```
 -q, --quality [QUALITY] ダウンロードする目標画質を設定 (例: 1080p)
---offset OFFSET         冒頭からスキップする時間を設定
---duration DURATION     ダウンロードする最大持続時間を設定
+--offset OFFSET         冒頭からスキップする時間を設定 (単一ソースのHLSダウンロードのみ対応)
+--duration DURATION     ダウンロードする最大持続時間を設定 (単一ソースのHLSダウンロードのみ対応)
 --download [DOWNLOAD]   ダウンロード方法を設定 (default|alter)
 --limit [LIMIT]         最大ダウンロード速度を設定 (例: 512K, 10M, 1G, デフォルト: 0)
 ```
@@ -363,7 +363,7 @@ ChzzkVideoDownloader video_no または url --offset 1h30m45.67s
 この機能は以下の場合には使用できません。
 
 - `-i`オプションを使用して複数のVODをダウンロードする場合
-- `vod_status`が`ABR_HLS`の場合
+- ダウンロード方式が`DIRECT`の場合
 
 ## ダウンロードする持続時間の設定
 ダウンロード持続時間を設定するには、以下のコマンドを使用します。
@@ -382,7 +382,7 @@ ChzzkVideoDownloader video_no または url --duration 1h30m45.67s
 この機能は以下の場合には使用できません。
 
 - `-i`オプションを使用して複数のビデオをダウンロードする場合
-- `vod_status`が`ABR_HLS`の場合
+- ダウンロード方式が`DIRECT`の場合
 
 ## 作業ディレクトリの設定
 作業に必要なファイルが保存されるディレクトリを指定するには、以下のコマンドを使用します。

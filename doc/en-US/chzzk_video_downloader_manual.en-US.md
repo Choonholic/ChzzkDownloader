@@ -7,7 +7,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 2.2.0, June 15, 2026 00:00:00
+Version 2.3.0, June 17, 2026 00:00:00
 
 ## Prerequisites
 - **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -47,8 +47,8 @@ video                   Video number or URL to download
 #### Download
 ```
 -q, --quality [QUALITY] Set target quality to download (e.g. 1080p)
---offset OFFSET         Set amount of time to skip from the beginning of the video (for single-source downloads only)
---duration DURATION     Set maximum duration to download (for single-source downloads only)
+--offset OFFSET         Set amount of time to skip from the beginning of the video (for single-source HLS downloads only)
+--duration DURATION     Set maximum duration to download (for single-source HLS downloads only)
 --download [DOWNLOAD]   Set download method (default|alter)
 --limit [LIMIT]         Set max download speed (e.g. 512K, 10M, 1G, default: 0)
 ```
@@ -363,7 +363,7 @@ ChzzkVideoDownloader video_no or url --offset 1h30m45.67s
 This feature cannot be used in the following cases:
 
 - When downloading multiple videos using the `-i` option.
-- When `vod_status` is `ABR_HLS`.
+- When download type is `DIRECT`.
 
 ## Setting Duration
 You can use the following command to set the duration to download.
@@ -382,7 +382,7 @@ ChzzkVideoDownloader video_no or url --duration 1h30m45.67s
 This feature cannot be used in the following cases:
 
 - When downloading multiple videos using the `-i` option.
-- When `vod_status` is `ABR_HLS`.
+- When download type is `DIRECT`.
 
 ## Setting Working Directory
 You can use the following command to specify the directory where required files are stored to work properly.
