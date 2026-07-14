@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 2.4.0, July 06, 2026 00:00:00
+Version 2.5.0, July 16, 2026 00:00:00
 
 ## 선행 요건
 Chzzk Live Manager는 Chzzk Live Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Live Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
@@ -319,7 +319,8 @@ Chzzk Transport Finalizer를 재시작하려면, ☰ 아이콘을 클릭한 후 
 
 - **Windows에 로그인할 때 자동으로 Chzzk Live Manager 실행** - Windows 시작 시 Chzzk Live Manager를 자동으로 실행합니다.
 - **창의 크기와 위치 기억** - 종료 시점의 창의 크기와 위치를 기억하고, 다음 실행 시 이를 복원합니다.
-- **시작 시 Chzzk Live Manager 최신 버전 확인** - Chzzk Live Manager를 시작할 때 최신 버전 확인 여부를 결정합니다. 또는 `최신 버전 확인` 버튼을 눌러 수동으로 최신 버전을 확인할 수도 있습니다.
+- **최신 버전 확인 주기** - Chzzk Live Manager를 시작할 때 최신 버전을 확인하는 주기를 설정합니다. `최신 버전 확인` 버튼을 누르면 즉시 최신 버전을 확인할 수 있습니다.
+- **시작 시 로그인 상태 알림** - 시작 시 로그인 상태를 확인하고, 로그인이 되어 있지 않을 경우 알림을 표시할지 설정합니다. 비로그인 상태로 사용할 경우 이 설정을 해제하시기 바랍니다.
 
 ### 기능
 

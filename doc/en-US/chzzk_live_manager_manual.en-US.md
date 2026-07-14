@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 2.4.0, July 06, 2026 00:00:00
+Version 2.5.0, July 16, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, both of Chzzk Live Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -321,7 +321,8 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 
 - **Start Chzzk Live Manager automatically when signing in to Windows** - Puts Chzzk Live Manager into startup list of Windows.
 - **Remember window size and position on startup** - Saves the window size and position on exit and restores them on the next launch.
-- **Check latest updates of Chzzk Live Manager at startup** - Decides whether check latest updates of Chzzk Live Manager at startup or not. Otherwise, Click `Check Updates` button to check updates manually.
+- **Update Check Interval** - Sets how often Chzzk Live Manager checks for the latest version when it starts. You can also click the `Check for Updates` button to check for the latest version immediately.
+- **Notify login status on startup** - Checks the login status on startup and sets whether to show a notification if you are not logged in. Turn this setting off if you want to use Chzzk Live Manager as a guest.
 
 ### Features
 

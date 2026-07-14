@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Clip Downloader
 </div>
 
 ## Version
-Version 2.4.0, July 06, 2026 00:00:00
+Version 2.5.0, July 16, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Clip Manager is the GUI frontend application for Chzzk Clip Downloader, Chzzk Clip Downloader must be installed as well.
@@ -202,7 +202,8 @@ Double-clicking tray icon will restore the window to its original state, and rig
 </div>
 
 - **Remember window size and position on startup** - Saves the window size and position on exit and restores them on the next launch.
-- **Check latest updates of Chzzk Clip Manager at startup** - Decides whether check latest updates of Chzzk Clip Manager at startup or not. Otherwise, Click `Check Updates` button to check updates manually.
+- **Update Check Interval** - Sets how often Chzzk Clip Manager checks for the latest version when it starts. You can also click the `Check for Updates` button to check for the latest version immediately.
+- **Notify login status on startup** - Checks the login status on startup and sets whether to show a notification if you are not logged in. Turn this setting off if you want to use Chzzk Clip Manager as a guest.
 
 ### Features
 
