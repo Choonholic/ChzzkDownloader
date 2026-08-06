@@ -1,19 +1,22 @@
 # Credits
 
-## Special Thanks To
+## Authors
+- Written by Choonholic and Princess Moka.
+- Please kindly read [AUTHORS](./AUTHORS.md) for details.
 
-- Cony - beloved spouse.
-- Taejin, Yoon ([@taecongs](https://instagram.com/taecongs)) - most talented announcer, entertainer.
-- Orbit ([@orbit_scientist](https://instagram.com/orbit_scientist)) - most clever one in the world.
+## Special Thanks To
+This code was developed to download streams and videos by [taecongs](https://chzzk.naver.com/e8767e4653473e66a720b5d245993c1f) videos, and dedicated to her, Ana, and Now.
+
+- Taejin, Yoon ([@taecongs](https://instagram.com/taecongs)) - Most talented announcer, entertainer.
+- Nana - Most beloved spouse.
+- Orbit ([@orbit_scientist](https://instagram.com/orbit_scientist)) - Most clever one in the world.
 
 ## Official Chzzk Developer Links
-
 - [Chzzk Developers Center Beta](https://developers.chzzk.naver.com/) - Official Chzzk APIs.
 
-## Tools used by Chzzk Downloader Suite
+## Tools used by and for Chzzk Downloader Suite
 
 ### Build and Development Tools
-
 - [CPython](https://python.org/) - Official Python distribution.
 - [Inno Setup](https://jrsoftware.org/isinfo.php) - Builder for setup executable.
 - [Microsoft Visual Studio](https://visualstudio.microsoft.com/) - Builder for Chzzk Managers.
@@ -22,13 +25,11 @@
 - [Visual Studio Code](https://code.visualstudio.com/) - Multi purposed development tools including high-end editors.
 
 ### AI Assistant Tools
-
 - [Anthropic Claude](https://claude.ai/) - AI Assistant for better codes and documents.
 - [Google Gemini](https://gemini.google.com/) - AI Assistant for better codes and documents.
 - [OpenAI ChatGPT](https://chatgpt.com/) - AI Assistant for better codes and documents.
 
 ### Multimedia Tools
-
 - [Adobe Acrobat](https://acrobat.adobe.com/) - Tool used for PDF manipulation.
 - [Adobe Photoshop](https://www.adobe.com/photoshop/) - Tool used for image manipulation.
 - [Codex FFmpeg](https://www.gyan.dev/ffmpeg/builds/) - Tool used for video converting.
@@ -41,13 +42,11 @@
 - [Wordpress](https://wordpress.org/) - Blogging tool.
 
 ### Management Tools
-
 - [Git](https://git-scm.com/) - Distributed version control system.
 - [GitHub](https://github.com/) - Developer platform to manage and distribute project codes.
 - [GitHub Desktop](https://github.com/apps/desktop) - Utility for GitHub.
 
 ### Other Tools
-
 - [7-zip](https://www.7-zip.org/) - File archiver with one of highest compression ratio.
 - [Aria2](https://aria2.github.io/) - Light-weight multi-protocol download tool.
 - [Beyond Compare](https://www.scootersoftware.com/) - High efficient data comparison tool.
