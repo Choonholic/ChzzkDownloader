@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Video Downloader
 </div>
 
 ## Version
-Version 2.6.2, August 29, 2026 00:00:00
+Version 2.7.0, September 12, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, both of Chzzk Video Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -281,7 +281,7 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 - **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
 - **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
 - **Finalize Method** - Specifies the finalization method.
-- **Send To Chzzk Transport Finalizer** - Delegate finalizing stage to Chzzk Transport Finalizer.
+- **Send To Chzzk Transport Finalizer** - Delegate finalizing stage to Chzzk Transport Finalizer. This setting cannot be changed while a download is in progress.
 - **Shutdown Chzzk Transport Finalizer When Exit** - Specifies whether to also shutdown Chzzk Transport Finalizer when exiting.
 - **Custom Options** - Specifies custom options for the finalization. You can also click the `...` button to load and specify a custom option set file.
 - **Extension for Custom Finalization** - Specifies file extension when the custom options require it.

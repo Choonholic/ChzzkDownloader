@@ -7,7 +7,7 @@ Chzzk Video Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 2.6.2, August 29, 2026 00:00:00
+Version 2.7.0, September 12, 2026 00:00:00
 
 ## 必要条件
 Chzzk Video Managerは、Chzzk Video DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Video DownloaderとChzzk Transport Finalizerもインストールされている必要があります。
@@ -280,7 +280,7 @@ Chzzk Transport Finalizerを再起動するには、☰アイコンをクリッ�
 - **JSON-RPCサーバー: ポート** - JSON-RPCサーバーのポート番号を設定します。
 - **JSON-RPCサーバー: ID** - JSON-RPCサーバーのIDを設定します。
 - **最終処理方法** - 最終処理方法を設定します。
-- **Chzzk Transport Finalizerで処理** - 最終処理をChzzk Transport Finalizerに任せます。
+- **Chzzk Transport Finalizerで処理** - 最終処理をChzzk Transport Finalizerに任せます。この設定は、ダウンロード中は変更できません。
 - **終了時にChzzk Transport Finalizerも同時に終了** - 終了時にChzzk Transport Finalizerも同時に終了するかどうかを指定します。
 - **カスタムオプション** - 最終処理のカスタムオプションを設定します。`...`ボタンをクリックして、カスタムオプションセットファイルを読み込み、指定することもできます。
 - **カスタム最終処理の拡張子** - 拡張子を変更する必要がある場合、ファイルの拡張子を設定します。

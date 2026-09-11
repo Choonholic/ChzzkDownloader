@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 2.6.2, August 29, 2026 00:00:00
+Version 2.7.0, September 12, 2026 00:00:00
 
 ## 선행 요건
 Chzzk Video Manager는 Chzzk Video Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Video Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
@@ -279,7 +279,7 @@ Chzzk Transport Finalizer를 재시작하려면, ☰ 아이콘을 클릭한 후 
 - **JSON-RPC 서버: 포트** - JSON-RPC 서버의 포트 번호를 설정합니다.
 - **JSON-RPC 서버: ID** - JSON-RPC 서버의 ID를 설정합니다.
 - **최종 처리 방법** - 최종 처리 방법을 설정합니다.
-- **Chzzk Transport Finalizer로 보내기** - 최종 처리를 Chzzk Transport Finalizer에게 맡깁니다.
+- **Chzzk Transport Finalizer로 보내기** - 최종 처리를 Chzzk Transport Finalizer에게 맡깁니다. 이 설정은 다운로드가 진행 중일 때는 변경할 수 없습니다.
 - **종료 시 Chzzk Transport Finalizer도 함께 종료** - 종료 시 Chzzk Transport Finalizer도 함께 종료할 것인지 설정합니다.
 - **사용자 정의 선택 사항** - 최종 처리의 사용자 정의 선택 사항을 설정합니다. `...` 버튼을 클릭하여 사용자 정의 선택 사항 파일을 불러와서 지정할 수도 있습니다.
 - **사용자 정의 최종 처리 확장자** - 확장자를 변경해야 할 경우에는 이곳에서 파일의 확장자를 지정할 수 있습니다.
