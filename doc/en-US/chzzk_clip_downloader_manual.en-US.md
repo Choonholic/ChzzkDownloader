@@ -7,7 +7,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 2.7.0, September 12, 2026 00:00:00
+Version 2.8.0, September 26, 2026 00:00:00
 
 ## Prerequisites
 - **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
@@ -183,6 +183,7 @@ The following pre-defined tags can be used for filename format.
 - `{verified}` - If channel is verified one, this tag will be `[✓]` or empty.
 - `{clip_uid}` - Clip UID.
 - `{title}` - Title of the clip.
+- `{date...}` - Date-related tags depending on the context.
 - `{download_date...}` - Date-related tags when the stream started.
 - `{media...}` - Media information-related tags.
 

@@ -7,7 +7,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 2.7.0, September 12, 2026 00:00:00
+Version 2.8.0, September 26, 2026 00:00:00
 
 ## Prerequisites
 - **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -214,7 +214,9 @@ The following pre-defined tags can be used for filename format.
 - `{category_type}` - Category type of the video if set.
 - `{category}` - Category of the video if set.
 - `{category_value}` - Category value of the video if set.
+- `{date...}` - Date-related tags depending on the context.
 - `{live_date...}` - Date-related tags when the stream started.
+- `{download_date...}` - Date-related tags when the downloading started.
 - `{publish_date...}` - Date-related tags when the video published.
 - `{media...}` - Media information-related tags.
 

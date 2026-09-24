@@ -7,7 +7,7 @@ Chzzkのクリップ用のダウンローダー
 </div>
 
 ## バージョン
-Version 2.7.0, September 12, 2026 00:00:00
+Version 2.8.0, September 26, 2026 00:00:00
 
 ## 必須事項
 - **[必須]** FFmpegの公式メジャーバージョン（FFmpeg 7.0またはそれ以上が必要）
@@ -183,6 +183,7 @@ ChzzkClipDownloader clip_uid または url --name
 - `{verified}` - チャンネルが認証済みの場合、このタグは`[✓]`になります（認証されていない場合は空）。
 - `{clip_uid}` - クリップUID。
 - `{title}` - クリップのタイトル。
+- `{date...}` - 状況に応じた日付関連タグ。
 - `{download_date...}` - ストリーム開始時の日付関連タグ。
 - `{media...}` - メディア情報関連のタグ。
 

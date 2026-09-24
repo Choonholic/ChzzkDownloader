@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 2.7.0, September 12, 2026 00:00:00
+Version 2.8.0, September 26, 2026 00:00:00
 
 ## Prerequisites
 - **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -251,8 +251,10 @@ The following pre-defined tags can be used for filename format.
 - `{category_type}` - Category type of the stream if set.
 - `{category}` - Category of the stream if set.
 - `{category_value}` - Category value of the stream if set.
+- `{date...}` - Date-related tags depending on the context.
 - `{live_date...}` - Date-related tags when the stream started.
 - `{download_date...}` - Date-related tags when the downloading started.
+- `{publish_date...}` - Date-related tags when the video published.
 - `{media...}` - Media information-related tags.
 
 For the media-related tags, the following elements are available.

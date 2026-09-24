@@ -7,7 +7,7 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 2.7.0, September 12, 2026 00:00:00
+Version 2.8.0, September 26, 2026 00:00:00
 
 ## 必須事項
 - **[必須]** Streamlink（Streamlink 7.0.0またはそれ以上が必要）
@@ -214,7 +214,9 @@ ChzzkVideoDownloader video_no または url --name
 - `{category_type}` - ビデオのカテゴリタイプ（設定されている場合）。
 - `{category}` - ビデオのカテゴリ（設定されている場合）。
 - `{category_value}` - ビデオのカテゴリの値（設定されている場合）。
+- `{date...}` - 状況に応じた日付関連タグ。
 - `{live_date...}` - ストリーム開始時の日付関連タグ。
+- `{download_date...}` - ダウンロード開始時の日付関連タグ。
 - `{publish_date...}` - ビデオ公開時の日付関連タグ。
 - `{media...}` - メディア情報関連のタグ。
 

@@ -7,7 +7,7 @@ Chzzk Video Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 2.7.0, September 12, 2026 00:00:00
+Version 2.8.0, September 26, 2026 00:00:00
 
 ## 必要条件
 Chzzk Video Managerは、Chzzk Video DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Video DownloaderとChzzk Transport Finalizerもインストールされている必要があります。

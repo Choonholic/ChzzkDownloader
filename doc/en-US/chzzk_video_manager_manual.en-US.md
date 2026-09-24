@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Video Downloader
 </div>
 
 ## Version
-Version 2.7.0, September 12, 2026 00:00:00
+Version 2.8.0, September 26, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, both of Chzzk Video Downloader and Chzzk Transport Finalizer must be installed as well.
