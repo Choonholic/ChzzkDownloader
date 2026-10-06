@@ -3,6 +3,14 @@ Chzzk Downloader Suite is a Windows downloader suite for CHZZK live streams, VOD
 
 ---
 
+If you are new to Chzzk Downloader Suite, please read the [Getting Started Guide](https://blog.choonholic.com/archives/9037) first.
+
+Chzzk Downloader Suite를 처음 사용하시는 경우 먼저 [기본 사용 안내](https://blog.choonholic.com/archives/9037) 페이지를 참고해 주세요.
+
+Chzzk Downloader Suiteを初めて使用する場合は、まず[基本的な使い方](https://blog.choonholic.com/archives/9037)ページをご覧ください。
+
+---
+
 ## Downloads
 - https://github.com/Choonholic/ChzzkDownloader/releases/latest
 - https://blog.choonholic.com/downloads
@@ -23,7 +31,7 @@ Downloader for Chzzk live streams
 </div>
 
 ### Version
-Version 2.8.0, September 26, 2026 00:00:00
+Version 2.9.0, October 08, 2026 00:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -150,7 +158,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ### Version
-Version 2.8.0, September 26, 2026 00:00:00
+Version 2.9.0, October 08, 2026 00:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -271,7 +279,7 @@ Downloader for Chzzk clips
 </div>
 
 ### Version
-Version 2.8.0, September 26, 2026 00:00:00
+Version 2.9.0, October 08, 2026 00:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
@@ -380,7 +388,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ### Version
-Version 2.8.0, September 26, 2026 00:00:00
+Version 2.9.0, October 08, 2026 00:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
