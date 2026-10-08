@@ -1,13 +1,13 @@
 # Chzzk Downloader Suite
-Chzzk Downloader Suite is a Windows downloader suite for CHZZK live streams, VODs, replays, and clips.
+Chzzk Downloader Suite is a Windows downloader suite for Chzzk live streams, VODs, replays, and clips.
 
 ---
 
-If you are new to Chzzk Downloader Suite, please read the [Getting Started Guide](https://blog.choonholic.com/archives/9037) first.
+If you are new to Chzzk Downloader Suite, please read [Basic Usage Concepts](https://blog.choonholic.com/archives/9037) first.
 
-Chzzk Downloader Suite를 처음 사용하시는 경우 먼저 [기본 사용 안내](https://blog.choonholic.com/archives/9037) 페이지를 참고해 주세요.
+Chzzk Downloader Suite를 처음 사용하시는 경우 먼저 [기본 사용 개념](https://blog.choonholic.com/archives/9037) 페이지를 참고해 주세요.
 
-Chzzk Downloader Suiteを初めて使用する場合は、まず[基本的な使い方](https://blog.choonholic.com/archives/9037)ページをご覧ください。
+Chzzk Downloader Suiteを初めて使用する場合は、まず[基本的な使用概念](https://blog.choonholic.com/archives/9037)ページをご覧ください。
 
 ---
 
@@ -31,7 +31,7 @@ Downloader for Chzzk live streams
 </div>
 
 ### Version
-Version 2.9.0, October 08, 2026 00:00:00
+Version 2.10.0, October 09, 2026 00:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -158,7 +158,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ### Version
-Version 2.9.0, October 08, 2026 00:00:00
+Version 2.10.0, October 09, 2026 00:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -200,11 +200,16 @@ video                   Video number or URL to download
 -q, --quality [QUALITY] Set target quality to download
 --offset OFFSET         Set amount of time to skip from the beginning of the video (for single-source HLS downloads only)
 --duration DURATION     Set maximum duration to download (for single-source HLS downloads only)
---final [FINAL]         Set finalization method
---custom [CUSTOM]       Set custom finalize options
---ext [EXT]             Set output file extension
 --download [DOWNLOAD]   Set download method
 --limit [LIMIT]         Set max download speed
+--cdn [CDN]             Set CDN to use for video downloads (default, naver, akamai)
+```
+
+#### Finalization
+```
+--final [FINAL]         Set finalization method (bypass|convert|cleanup|cconvert|ccleanup, N/A for ABR_HLS)
+--custom [CUSTOM]       Set custom finalize options (for cconvert|ccleanup)
+--ext [EXT]             Set output file extension (for cconvert|ccleanup)
 ```
 
 #### Directories
@@ -279,7 +284,7 @@ Downloader for Chzzk clips
 </div>
 
 ### Version
-Version 2.9.0, October 08, 2026 00:00:00
+Version 2.10.0, October 09, 2026 00:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
@@ -388,7 +393,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ### Version
-Version 2.9.0, October 08, 2026 00:00:00
+Version 2.10.0, October 09, 2026 00:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)

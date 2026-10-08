@@ -7,7 +7,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 2.9.0, October 08, 2026 00:00:00
+Version 2.10.0, October 09, 2026 00:00:00
 
 ## Prerequisites
 - **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
@@ -51,6 +51,7 @@ video                   Video number or URL to download
 --duration DURATION     Set maximum duration to download (for single-source HLS downloads only)
 --download [DOWNLOAD]   Set download method (default|alter)
 --limit [LIMIT]         Set max download speed (e.g. 512K, 10M, 1G, default: 0)
+--cdn [CDN]             Set CDN to use for video downloads (default, naver, akamai)
 ```
 
 #### Finalization
@@ -174,6 +175,29 @@ With `-y` or `--yes` parameters, a prompt to enter the authorization will be act
 ```powershell
 ChzzkVideoDownloader video_no or url -y
 ChzzkVideoDownloader video_no or url --yes
+```
+
+## Selecting a Content Delivery Network
+
+By default, the downloader uses the CDN provided by Chzzk. You can select a specific CDN for video downloads using the `--cdn` option.
+
+```powershell
+ChzzkVideoDownloader video_no or url --cdn naver
+ChzzkVideoDownloader video_no or url --cdn akamai
+```
+
+The following options are available:
+
+- `default`: Uses the default CDN provided by Chzzk.
+- `naver`: Provides very fast download speeds, but some downloads may result in corrupted files.
+- `akamai`: May prevent download corruption, but download speeds can be significantly slower.
+
+In most cases, it is recommended to use the default setting. If a downloaded video is corrupted, try downloading it again using the Akamai CDN.
+
+To restore the default setting, use `--cdn` without specifying a value.
+
+```powershell
+ChzzkVideoDownloader video_no or url --cdn
 ```
 
 ## Specifying Target Quality to Download

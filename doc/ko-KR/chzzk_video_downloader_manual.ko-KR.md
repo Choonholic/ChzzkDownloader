@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 2.9.0, October 08, 2026 00:00:00
+Version 2.10.0, October 09, 2026 00:00:00
 
 ## 선행 요건
 - **[필수]** Streamlink (Streamlink 7.0.0 또는 상위 버전 필요)
@@ -51,6 +51,7 @@ video                   다운로드할 비디오 번호 또는 URL
 --duration DURATION     다운로드 길이를 설정합니다 (단일 소스 HLS 다운로드 전용)
 --download [DOWNLOAD]   다운로드 방법을 설정합니다 (default|alter)
 --limit [LIMIT]         최대 다운로드 속도를 설정합니다 (예: 512K, 10M, 1G, 기본값: 0)
+--cdn [CDN]             비디오 다운로드에 사용할 CDN을 설정합니다. (default, naver, akamai)
 ```
 
 #### 최종 처리
@@ -174,6 +175,28 @@ ChzzkVideoDownloader video_no 또는 url --auth ignore
 ```powershell
 ChzzkVideoDownloader video_no 또는 url -y
 ChzzkVideoDownloader video_no 또는 url --yes
+```
+
+## 콘텐츠 전송 네트워크 선택
+기본적으로 비디오 다운로드에는 치지직에서 제공하는 CDN이 사용됩니다. 비디오 다운로드에 사용할 CDN을 직접 지정하려면 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkVideoDownloader video_no 또는 url --cdn naver
+ChzzkVideoDownloader video_no 또는 url --cdn akamai
+```
+
+다음 옵션을 사용할 수 있습니다.
+
+- `default`: 치지직에서 제공하는 기본 CDN을 사용합니다.
+- `naver`: 다운로드 속도가 매우 빠르지만 일부 다운로드에서 파일이 손상될 수 있습니다.
+- `akamai`: 다운로드 시 파일 손상을 방지할 수 있지만 다운로드 속도가 상당히 느릴 수 있습니다.
+
+일반적으로 기본 설정을 사용하는 것을 권장합니다. 다운로드한 비디오가 손상된 경우 Akamai CDN을 사용하여 다시 다운로드해 보세요.
+
+이 선택 사항을 기본값으로 되돌리려면 값 없이 `--cdn`만 사용하세요.
+
+```powershell
+ChzzkVideoDownloader video_no or url --cdn
 ```
 
 ## 다운로드할 목표 화질 지정

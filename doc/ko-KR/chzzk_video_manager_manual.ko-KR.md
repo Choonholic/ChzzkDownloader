@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 2.9.0, October 08, 2026 00:00:00
+Version 2.10.0, October 09, 2026 00:00:00
 
 ## 선행 요건
 Chzzk Video Manager는 Chzzk Video Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Video Downloader와 Chzzk Transport Finalizer가 함께 설치되어 있어야 합니다.
@@ -264,6 +264,7 @@ Chzzk Transport Finalizer를 재시작하려면, ☰ 아이콘을 클릭한 후 
 - **JSON-RPC 서버: ID** - JSON-RPC 서버의 ID를 설정합니다.
 - **미리보기 이미지 저장** - 미리보기 이미지를 함께 저장합니다.
 - **다운로드 속도 제한 활성화** – 네트워크 대역폭을 제어하기 위해 다운로드 속도를 제한합니다. (예: 500K, 10M, 1G)
+- **다운로드에 사용할 콘텐츠 전송 네트워크** - 비디오 다운로드에 사용할 CDN을 설정합니다.
 - **대상 파일이 이미 존재할 경우 저장 방법** - 파일이 이미 존재할 때 파일 저장 방법을 설정합니다.
 - **저장 파일 이름 형식** - 저장 파일 이름 형식을 지정합니다. 형식 지정자에 대한 자세한 내용은 `chzzk_video_downloader_manual.ko-KR.pdf`를 참조하세요.
 - **목표 화질** - 다운로드 시 목표 화질을 설정합니다.

@@ -7,7 +7,7 @@ Chzzk Video Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 2.9.0, October 08, 2026 00:00:00
+Version 2.10.0, October 09, 2026 00:00:00
 
 ## 必要条件
 Chzzk Video Managerは、Chzzk Video DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Video DownloaderとChzzk Transport Finalizerもインストールされている必要があります。
@@ -265,6 +265,7 @@ Chzzk Transport Finalizerを再起動するには、☰アイコンをクリッ�
 - **JSON-RPCサーバー: ID** - JSON-RPCサーバーのIDを設定します。
 - **サムネイル画像を保存** - サムネイル画像を別途保存するかどうかを設定します。
 - **ダウンロード速度制限を有効にする** - ネットワーク帯域幅を調整するためにダウンロード速度を制限します。(例: 500K, 10M, 1G)
+- **ダウンロードに使用するコンテンツ配信ネットワーク** - 動画のダウンロードに使用するCDNを設定します。
 - **対象ファイルが既に存在する場合の保存方法** - 対象ファイルが既に存在する場合の保存方法を設定します。
 - **保存ファイル名の形式** - 保存ファイル名の形式を指定します。フォーマット指定子の詳細については、`chzzk_video_downloader_manual.ja-JP.pdf`をご参照ください。
 - **目標画質** - ダウンロードする際の画質を設定します。
