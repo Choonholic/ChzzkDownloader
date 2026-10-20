@@ -1,5 +1,5 @@
 # Chzzk Live Downloader
-치지직 라이브 스트리밍 다운로드 도구
+치지직 라이브 스트림 다운로드 도구
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/screenshot_chzzklivedownloader.png' />
@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 2.10.0, October 09, 2026 00:00:00
+Version 2.11.0, October 23, 2026 00:00:00
 
 ## 선행 요건
 - **[필수]** Streamlink (Streamlink 7.0.0 또는 상위 버전 필요)
@@ -48,10 +48,10 @@ ChzzkLiveDownloader [options]
 ```
 -f, --filter [FILTER]   다운로드 조건을 설정합니다 (all|party|nonparty)
 -q, --quality [QUALITY] 다운로드 목표 화질을 설정합니다 (예: 1080p)
---once URL              라이브 스트리밍을 한 번만 다운로드합니다
---stream [STREAM]       스트리밍 수신 방식을 설정합니다 (standard|request-timemachine|force-timemachine)
---offset OFFSET         스트리밍 시작 지점을 설정합니다
---duration DURATION     스트리밍 다운로드 분할 간격을 설정합니다
+--once URL              라이브 스트림을 한 번만 다운로드합니다
+--stream [STREAM]       스트림 수신 방식을 설정합니다 (standard|request-timemachine|force-timemachine)
+--offset OFFSET         스트림 시작 지점을 설정합니다
+--duration DURATION     스트림 다운로드 분할 간격을 설정합니다
 --detect [DETECT]       상태 확인 간격을 설정합니다 (기본값: 60, 10-300)
 --partytag [TAG]        '같이보기' 조건알 때 사용할 같이보기 태그를 설정합니다
 ```
@@ -139,7 +139,7 @@ ChzzkLiveDownloader -i n
 ChzzkLiveDownloader --id n
 ```
 
-이렇게 지정한 UID는 다음에 실행할 때 동일한 매개 변수를 지정하면 기존에 저장된 UID를 인식하여 자동으로 라이브 스트리밍 상태를 확인하고 다운로드합니다.
+이렇게 지정한 UID는 다음에 실행할 때 동일한 매개 변수를 지정하면 기존에 저장된 UID를 인식하여 자동으로 라이브 스트림 상태를 확인하고 다운로드합니다.
 
 ## 특정 ID의 UID 설정 또는 재설정
 
@@ -175,15 +175,15 @@ ChzzkLiveDownloader -i n -u
 ChzzkLiveDownloader --id n --uid
 ```
 
-## 현재 방송 중인 라이브 스트리밍만 별도의 설정 저장 없이 다운로드
-스트리머 정보를 저장하거나 설정하지 않고 특정 URL의 라이브 스트리밍을 한 번만 다운로드하려면 다음의 명령어를 사용합니다.
+## 현재 방송 중인 라이브 스트림만 별도의 설정 저장 없이 다운로드
+스트리머 정보를 저장하거나 설정하지 않고 특정 URL의 라이브 스트림을 한 번만 다운로드하려면 다음의 명령어를 사용합니다.
 
 ```powershell
 ChzzkLiveDownloader --once uid 또는 url
 ```
 
 ## 인증 자격 증명 초기화
-성인 전용 라이브 스트리밍과 같이 NAVER 인증 자격 증명이 필요한 라이브 스트리밍을 다운로드하려면 다음 정보를 지정해야 합니다.
+성인 전용 라이브 스트림과 같이 NAVER 인증 자격 증명이 필요한 라이브 스트림을 다운로드하려면 다음 정보를 지정해야 합니다.
 
 - 치지직 쿠키에서 얻은 NAVER ID 인증 키 (`NID_AUT`)
 - 치지직 쿠키에서 얻은 NAVER ID 세션 키 (`NID_SES`)
@@ -214,7 +214,7 @@ ChzzkLiveDownloader --yes
 ```
 
 ## 다운로드할 목표 화질 지정
-기본적으로 모든 라이브 스트리밍은 가능한 최상의 화질로 다운로드됩니다. 그러나 저장 공간을 절약하거나 다른 이유로 화질을 변경하여 저장하려면 다음 명령어를 사용하세요. 또한, 라이브 스트리밍이 표준 해상도를 사용하지 않는 경우에는 지정한 해상도와 가장 가까운 화질로 자동 선택됩니다.
+기본적으로 모든 라이브 스트림은 가능한 최상의 화질로 다운로드됩니다. 그러나 저장 공간을 절약하거나 다른 이유로 화질을 변경하여 저장하려면 다음 명령어를 사용하세요. 또한, 라이브 스트림이 표준 해상도를 사용하지 않는 경우에는 지정한 해상도와 가장 가까운 화질로 자동 선택됩니다.
 
 ```powershell
 ChzzkLiveDownloader -q 720p
@@ -247,12 +247,12 @@ ChzzkLiveDownloader --name
 - `{name}` - 채널 이름.
 - `{verified}` - 채널이 인증된 경우 `[✓]`이며, 그렇지 않은 경우 빈 값입니다.
 - `{channel_uid}` - 채널 UID.
-- `{title}` - 스트리밍 제목.
-- `{category_type}` - (설정되어 있을 경우) 스트리밍의 카테고리 형식.
-- `{category}` - (설정되어 있을 경우) 스트리밍의 카테고리.
-- `{category_value}` - (설정되어 있을 경우) 스트리밍의 카테고리 값.
+- `{title}` - 스트림 제목.
+- `{category_type}` - (설정되어 있을 경우) 스트림의 카테고리 형식.
+- `{category}` - (설정되어 있을 경우) 스트림의 카테고리.
+- `{category_value}` - (설정되어 있을 경우) 스트림의 카테고리 값.
 - `{date...}` - 상황에 따른 날짜 관련 태그.
-- `{live_date...}` - 스트리밍 시작 시점의 날짜 관련 태그.
+- `{live_date...}` - 스트림 시작 시점의 날짜 관련 태그.
 - `{download_date...}` - 다운로드 시작 시점의 날짜 관련 태그.
 - `{publish_date...}` - 비디오 공개 시점의 날짜 관련 태그.
 - `{media...}` - 미디어 정보 관련 태그.
@@ -286,8 +286,8 @@ ChzzkLiveDownloader --name
 - `{..._date_minute}` - 두 자리 수 분. (`00`, `01`, ..., `59`)
 - `{..._date_second}` - 두 자리 수 초. (`00`, `01`, ..., `59`)
 
-## 라이브 스트리밍 상태 확인 간격 설정
-기본적으로 라이브 스트리밍의 시작 상태를 확인하는 간격은 60초(1분)로 설정되어 있습니다. 이 값을 변경하려면 다음의 명령어를 사용합니다. `n`에 지정 가능한 값은 `10`에서 `300`까지로 초 단위입니다. 즉, 상태 확인 간격은 10초에서 5분 내에서 지정 가능합니다.
+## 라이브 스트림 상태 확인 간격 설정
+기본적으로 라이브 스트림의 시작 상태를 확인하는 간격은 60초(1분)로 설정되어 있습니다. 이 값을 변경하려면 다음의 명령어를 사용합니다. `n`에 지정 가능한 값은 `10`에서 `300`까지로 초 단위입니다. 즉, 상태 확인 간격은 10초에서 5분 내에서 지정 가능합니다.
 
 ```powershell
 ChzzkLiveDownloader --detect n
@@ -435,7 +435,7 @@ ChzzkLiveDownloader --offset 1h30m45.67s
 ```
 
 ## 다운로드 길이 설정 및 분할 다운로드
-다음 명령어를 사용하여 스트리밍의 길이를 지정해 다운로드할 수 있습니다. 만약 `–once` 매개 변수가 지정되어 있지 않으면, 스트림은 지정된 길이로 분할되어 다운로드됩니다.
+다음 명령어를 사용하여 스트림의 길이를 지정해 다운로드할 수 있습니다. 만약 `–once` 매개 변수가 지정되어 있지 않으면, 스트림은 지정된 길이로 분할되어 다운로드됩니다.
 
 ```powershell
 ChzzkLiveDownloader --duration 3600
@@ -448,14 +448,14 @@ ChzzkLiveDownloader --duration 1:23:45.67
 ChzzkLiveDownloader --duration 1h30m45.67s
 ```
 
-## 스트리밍 처리 방식 설정
+## 스트림 처리 방식 설정
 기본적으로 최대한 이른 시간의 스트림 데이터를 받아올 수 있도록 치지직의 타임 머신 API를 활용해 스트림 정보를 확인합니다. 하지만 다음의 명령어를 사용하여 스트림 처리 방식을 원하는 방식으로 설정할 수 있습니다.
 
 ```powershell
 ChzzkLiveDownloader --stream standard
 ```
 
-`--stream` 매개 변수에 다음과 같은 선택 사항을 지정하여, 스트리밍 데이터 처리 방식을 지정할 수 있습니다.
+`--stream` 매개 변수에 다음과 같은 선택 사항을 지정하여, 스트림 데이터 처리 방식을 지정할 수 있습니다.
 
 - `standard` - 치지직 기본 API를 통해 스트림 정보를 확인합니다.
 - `request-timemachine` - 가능하다면 치지직 타임 머신 API를 통해 스트림 정보를 확인합니다.
@@ -659,7 +659,7 @@ ChzzkLiveDownloader --reset
 - 스트리머 별 목표 화질 설정
 - Chzzk 쿠키에서 얻은 NAVER ID 인증 키 (`NID_AUT`)
 - Chzzk 쿠키에서 얻은 NAVER ID 세션 키 (`NID_SES`)
-- 라이브 스트리밍 상태 확인 간격 설정
+- 라이브 스트림 상태 확인 간격 설정
 - 미리보기 이미지 저장 설정
 - 다운로드 세부 정보 표시 설정
 - 최종 처리 설정

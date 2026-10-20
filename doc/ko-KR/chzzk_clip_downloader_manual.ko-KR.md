@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 2.10.0, October 09, 2026 00:00:00
+Version 2.11.0, October 23, 2026 00:00:00
 
 ## 선행 요건
 - **[필수]** FFmpeg 공식 메이저 버전 (FFmpeg 7.0 또는 상위 버전 필요)
@@ -183,7 +183,7 @@ ChzzkClipDownloader clip_uid 또는 url --name
 - `{clip_uid}` - 클립 UID.
 - `{title}` - 클립 제목.
 - `{date...}` - 상황에 따른 날짜 관련 태그.
-- `{download_date...}` - 스트리밍 시작 시점의 날짜 관련 태그.
+- `{download_date...}` - 스트림 시작 시점의 날짜 관련 태그.
 - `{media...}` - 미디어 정보 관련 태그.
 
 미디어 관련 태그에는 다음 요소들이 포함됩니다.

@@ -1,5 +1,5 @@
 # Chzzk Transport Finalizer
-치지직 라이브 스트리밍 최종 처리 도구
+치지직 라이브 스트림 최종 처리 도구
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/screenshot_chzzktransportfinalizer.png' />
@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 2.10.0, October 09, 2026 00:00:00
+Version 2.11.0, October 23, 2026 00:00:00
 
 ## 선행 요건
 - **[필수]** FFmpeg 공식 메이저 버전 (FFmpeg 7.0 또는 상위 버전 필요)
