@@ -7,11 +7,11 @@
 </div>
 
 ## 버전
-Version 2.11.1, October 30, 2026 00:00:00
+Version 2.12.0, November 06, 2026 00:00:00
 
 ## 선행 요건
-- **[필수]** Streamlink (Streamlink 7.0.0 또는 상위 버전 필요)
-- **[필수]** FFmpeg 공식 메이저 버전 (FFmpeg 7.0 또는 상위 버전 필요)
+- **[필수]** Streamlink (Streamlink 8.6.1 또는 상위 버전 필요)
+- **[필수]** FFmpeg 공식 메이저 버전 (FFmpeg 8.0 또는 상위 버전 필요)
 
 ## 사용법
 ```

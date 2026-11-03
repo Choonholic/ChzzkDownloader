@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Clip Downloader
 </div>
 
 ## Version
-Version 2.11.1, October 30, 2026 00:00:00
+Version 2.12.0, November 06, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Clip Manager is the GUI frontend application for Chzzk Clip Downloader, Chzzk Clip Downloader must be installed as well.
@@ -20,7 +20,7 @@ For portable versions, consider storing both Chzzk Clip Downloader and Chzzk Cli
 Click `Chzzk Clip Manager` in Start menu, or execute `ChzzkClipManager.exe` in `Chzzk Downloader Environment`.
 
 ## Verifying Prerequisites
-Chzzk Clip Manager requires Chzzk Clip Downloader to be properly set up for full functionality. Additionally, Chzzk Clip Downloader requires proper configurations of the official major versions of FFmpeg (Version 7.0 or higher). When Chzzk Clip Manager starts, it checks whether this prerequisite is met, and if not, it will display the following dialog.
+Chzzk Clip Manager requires Chzzk Clip Downloader to be properly set up for full functionality. Additionally, Chzzk Clip Downloader requires proper configurations of the official major versions of FFmpeg (Version 8.0 or higher). When Chzzk Clip Manager starts, it checks whether this prerequisite is met, and if not, it will display the following dialog.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/cman_en-US/cman_prerequisites.png' />

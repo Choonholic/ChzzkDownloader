@@ -31,11 +31,11 @@ Downloader for Chzzk live streams
 </div>
 
 ### Version
-Version 2.11.1, October 30, 2026 00:00:00
+Version 2.12.0, November 06, 2026 00:00:00
 
 ### Prerequisites For Executables
-- **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
-- **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
+- **[Mandatory]** Streamlink (Requires Streamlink 8.6.1 or higher)
+- **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 8.0 or higher)
 
 ### Usage
 ```
@@ -158,11 +158,11 @@ Downloader for Chzzk replay videos
 </div>
 
 ### Version
-Version 2.11.1, October 30, 2026 00:00:00
+Version 2.12.0, November 06, 2026 00:00:00
 
 ### Prerequisites For Executables
-- **[Mandatory]** Streamlink (Requires Streamlink 7.0.0 or higher)
-- **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
+- **[Mandatory]** Streamlink (Requires Streamlink 8.6.1 or higher)
+- **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 8.0 or higher)
 
 ### Usage
 ```
@@ -284,10 +284,10 @@ Downloader for Chzzk clips
 </div>
 
 ### Version
-Version 2.11.1, October 30, 2026 00:00:00
+Version 2.12.0, November 06, 2026 00:00:00
 
 ### Prerequisites For Executables
-- **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
+- **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 8.0 or higher)
 
 ### Usage
 ```
@@ -393,10 +393,10 @@ Finalizer for Chzzk transport streams
 </div>
 
 ### Version
-Version 2.11.1, October 30, 2026 00:00:00
+Version 2.12.0, November 06, 2026 00:00:00
 
 ### Prerequisites For Executables
-- **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
+- **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 8.0 or higher)
 
 ### Usage
 ```

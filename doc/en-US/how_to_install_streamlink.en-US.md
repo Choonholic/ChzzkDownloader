@@ -1,10 +1,30 @@
-# How to install Streamlink on Windows
+# How to Install Streamlink on Windows
 
-- The minimum supported version of Streamlink is 8.6.1.
+There are two ways to install Streamlink, depending on whether you have a globally accessible Python environment.
 
-If you are a Python developer (a.k.a. pythonista), you can install `streamlink` module with `pip` and skip the following steps.
+## 1. Installing Streamlink with pip (Python environment available)
 
-1. Download [streamlink-8.6.2-2-py314-x86_64.exe](https://github.com/streamlink/windows-builds/releases/download/8.6.2-2/streamlink-8.6.2-2-py314-x86_64.exe).
-2. Install downloaded setup binary.
-3. When asked which users to install, select **Install for anyone using this computer**.
-4. After installation has finished, Restart your computer to apply configurations and system environments.
+**Minimum supported version: 8.6.1**
+
+If you have a globally accessible Python environment, you can install or upgrade Streamlink using `pip`.
+
+```powershell
+python -m pip install --upgrade streamlink
+```
+
+If you are a Python developer (a.k.a. Pythonista), you can use your preferred Python environment.
+
+## 2. Installing Streamlink without Python
+
+**Minimum supported version: 8.3.0**
+
+If you do not have Python installed, you can use the standalone Windows installer, which includes its own Python runtime.
+
+1. Download [streamlink-8.6.3-1-py315-x86_64.exe](https://github.com/streamlink/windows-builds/releases/download/8.6.3-1/streamlink-8.6.3-1-py315-x86_64.exe).
+2. Run the downloaded installer.
+3. When prompted to select which users to install for, choose **Install for anyone using this computer**.
+4. After installation is complete, restart your computer to ensure that the updated system environment settings take effect.
+
+## Security Recommendation
+
+**Regardless of the installation method, we strongly recommend keeping Streamlink updated to the latest available version to minimize potential security risks and ensure compatibility and stability.**

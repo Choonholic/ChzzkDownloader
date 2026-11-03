@@ -7,10 +7,10 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 2.11.1, October 30, 2026 00:00:00
+Version 2.12.0, November 06, 2026 00:00:00
 
 ## Prerequisites
-- **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 7.0 or higher)
+- **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 8.0 or higher)
 
 ## Usage
 ```

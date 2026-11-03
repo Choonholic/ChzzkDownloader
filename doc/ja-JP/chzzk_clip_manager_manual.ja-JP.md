@@ -7,7 +7,7 @@ Chzzk Clip Downloader用のGUIマネージャー
 </div>
 
 ## バージョン
-Version 2.11.1, October 30, 2026 00:00:00
+Version 2.12.0, November 06, 2026 00:00:00
 
 ## 必要条件
 Chzzk Clip Managerは、Chzzk Clip DownloaderのGUIフロントエンドアプリケーションであるため、Chzzk Clip Downloaderもインストールされている必要があります。
@@ -20,7 +20,7 @@ Chzzk Clip DownloaderとChzzk Clip Managerが同じディレクトリにある�
 スタートメニューから`Chzzk Clip Manager`をクリックするか、`Chzzk Downloader Environment`で`ChzzkClipManager.exe`を実行します。
 
 ## 必要条件の確認
-Chzzk Clip Managerが正常に機能するためには、Chzzk Clip Downloaderが正しく設定されている必要があります。また、Chzzk Clip DownloaderはFFmpegの公式メジャーバージョン（バージョン7.0またはそれ以上）の設定が必要です。Chzzk Clip Managerの起動時に、この必要条件が満たされているかチェックし、満たされていない場合は、以下のダイアログが表示されます。
+Chzzk Clip Managerが正常に機能するためには、Chzzk Clip Downloaderが正しく設定されている必要があります。また、Chzzk Clip DownloaderはFFmpegの公式メジャーバージョン（バージョン8.0またはそれ以上）の設定が必要です。Chzzk Clip Managerの起動時に、この必要条件が満たされているかチェックし、満たされていない場合は、以下のダイアログが表示されます。
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/cman_ja-JP/cman_prerequisites.png' />

@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 2.11.1, October 30, 2026 00:00:00
+Version 2.12.0, November 06, 2026 00:00:00
 
 ## 선행 요건
 Chzzk Clip Manager는 Chzzk Clip Downloader의 그래픽 사용자 인터페이스 프론트엔드 애플리케이션으로서, 반드시 Chzzk Clip Downloader가 함께 설치되어 있어야 합니다.
@@ -20,7 +20,7 @@ Chzzk Clip Manager와 Chzzk Clip Downloader가 같은 디렉터리에 설치되�
 시작 메뉴에서 `Chzzk Clip Manager`를 실행하거나, `Chzzk Downloader Environment`에서 `ChzzkClipManager.exe`를 실행합니다.
 
 ## 선행 요건 확인
-Chzzk Clip Manager의 모든 기능을 활용하려면, Chzzk Clip Downloader가 올바르게 설정되어 있어야 하며, Chzzk Clip Downloader를 실행하려면 FFmpeg의 공식 메이저 버전(버전 7.0 이상)이 올바르게 설정되어 있어야 합니다. Chzzk Clip Manager가 처음 실행될 때 이와 같은 선행 요건을 모두 확인하는 과정을 거치며, 이를 만족하지 못할 경우 다음 그림과 같은 대화 상자가 표시됩니다.
+Chzzk Clip Manager의 모든 기능을 활용하려면, Chzzk Clip Downloader가 올바르게 설정되어 있어야 하며, Chzzk Clip Downloader를 실행하려면 FFmpeg의 공식 메이저 버전(버전 8.0 이상)이 올바르게 설정되어 있어야 합니다. Chzzk Clip Manager가 처음 실행될 때 이와 같은 선행 요건을 모두 확인하는 과정을 거치며, 이를 만족하지 못할 경우 다음 그림과 같은 대화 상자가 표시됩니다.
 
 <div style='text-align: center'>
 <img src='../../img/screenshots/cman_ko-KR/cman_prerequisites.png' />
