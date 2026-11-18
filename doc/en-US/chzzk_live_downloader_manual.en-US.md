@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 2.12.0, November 06, 2026 00:00:00
+Version 2.12.1, November 20, 2026 00:00:00
 
 ## Prerequisites
 - **[Mandatory]** Streamlink (Requires Streamlink 8.6.1 or higher)

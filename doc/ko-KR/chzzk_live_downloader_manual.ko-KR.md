@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 2.12.0, November 06, 2026 00:00:00
+Version 2.12.1, November 20, 2026 00:00:00
 
 ## 선행 요건
 - **[필수]** Streamlink (Streamlink 8.6.1 또는 상위 버전 필요)
