@@ -7,7 +7,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ## Version
-Version 2.12.1, November 20, 2026 00:00:00
+Version 2.13.0, November 25, 2026 00:00:00
 
 ## Prerequisites
 - **[Mandatory]** Streamlink (Requires Streamlink 8.6.1 or higher)
@@ -47,6 +47,7 @@ video                   Video number or URL to download
 #### Download
 ```
 -q, --quality [QUALITY] Set target quality to download (e.g. 1080p)
+--codec [CODEC]         Set preferred video codec (auto or h264)
 --offset OFFSET         Set amount of time to skip from the beginning of the video (for single-source HLS downloads only)
 --duration DURATION     Set maximum duration to download (for single-source HLS downloads only)
 --download [DOWNLOAD]   Set download method (default|alter)
@@ -213,6 +214,20 @@ If you want to set this option to default, just use `-q` or `--quality` like bel
 ```powershell
 ChzzkVideoDownloader video_no or url -q
 ChzzkVideoDownloader video_no or url --quality
+```
+
+## Specifying the Preferred Video Codec
+
+By default, the video codec is selected automatically, with HEVC preferred. If you want to force H.264 even when HEVC is available, use the following command.
+
+```powershell
+ChzzkVideoDownloader video_no or url --codec h264
+```
+
+To use automatic selection, specify `auto` as shown below. This is the default behavior.
+
+```powershell
+ChzzkVideoDownloader video_no or url --codec auto
 ```
 
 ## Setting Output Filename Format

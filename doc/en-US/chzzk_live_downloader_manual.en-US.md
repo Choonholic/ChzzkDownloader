@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 2.12.1, November 20, 2026 00:00:00
+Version 2.13.0, November 25, 2026 00:00:00
 
 ## Prerequisites
 - **[Mandatory]** Streamlink (Requires Streamlink 8.6.1 or higher)
@@ -48,6 +48,7 @@ Use `-h detailed` to show detailed help for all options.
 ```
 -f, --filter [FILTER]   Set download filter (all|party|nonparty)
 -q, --quality [QUALITY] Set target quality to download (e.g. 1080p)
+--codec [CODEC]         Set preferred video codec (auto or h264)
 --once URL              Download a live stream only once
 --stream [STREAM]       Set stream retrieving method (standard|request-timemachine|force-timemachine)
 --offset OFFSET         Set amount of time to skip from the beginning of the stream
@@ -226,6 +227,20 @@ If you want to set this option to default, just use `-q` or `--quality` like bel
 ```powershell
 ChzzkLiveDownloader -q
 ChzzkLiveDownloader --quality
+```
+
+## Specifying the Preferred Video Codec
+
+By default, the video codec is selected automatically, with HEVC preferred. If you want to force H.264 even when HEVC is available, use the following command.
+
+```powershell
+ChzzkLiveDownloader --codec h264
+```
+
+To use automatic selection, specify `auto` as shown below. This is the default behavior.
+
+```powershell
+ChzzkLiveDownloader --codec auto
 ```
 
 ## Setting Output Filename Format

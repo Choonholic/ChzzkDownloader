@@ -31,7 +31,7 @@ Downloader for Chzzk live streams
 </div>
 
 ### Version
-Version 2.12.1, November 20, 2026 00:00:00
+Version 2.13.0, November 25, 2026 00:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** Streamlink (Requires Streamlink 8.6.1 or higher)
@@ -72,6 +72,7 @@ Use `-h detailed` to show detailed help for all options.
 ```
 -f, --filter [FILTER]   Set download filter
 -q, --quality [QUALITY] Set target quality to download
+--codec [CODEC]         Set preferred video codec (auto or h264)
 --once URL              Download a live stream only once
 --stream [STREAM]       Set stream retrieving method
 --offset OFFSET         Set amount of time to skip from the beginning of the stream
@@ -158,7 +159,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ### Version
-Version 2.12.1, November 20, 2026 00:00:00
+Version 2.13.0, November 25, 2026 00:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** Streamlink (Requires Streamlink 8.6.1 or higher)
@@ -198,6 +199,7 @@ video                   Video number or URL to download
 #### Download
 ```
 -q, --quality [QUALITY] Set target quality to download
+--codec [CODEC]         Set preferred video codec (auto or h264)
 --offset OFFSET         Set amount of time to skip from the beginning of the video (for single-source HLS downloads only)
 --duration DURATION     Set maximum duration to download (for single-source HLS downloads only)
 --download [DOWNLOAD]   Set download method
@@ -284,7 +286,7 @@ Downloader for Chzzk clips
 </div>
 
 ### Version
-Version 2.12.1, November 20, 2026 00:00:00
+Version 2.13.0, November 25, 2026 00:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 8.0 or higher)
@@ -393,7 +395,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ### Version
-Version 2.12.1, November 20, 2026 00:00:00
+Version 2.13.0, November 25, 2026 00:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 8.0 or higher)

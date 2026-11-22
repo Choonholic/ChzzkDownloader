@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Video Downloader
 </div>
 
 ## Version
-Version 2.12.1, November 20, 2026 00:00:00
+Version 2.13.0, November 25, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Video Manager is the GUI frontend application for Chzzk Video Downloader, both of Chzzk Video Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -267,6 +267,7 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 - **Save Thumbnail Image** - Checks to save thumbnail images separately.
 - **Enable Download Speed Limit** - Limits the download speed to control network bandwidth. (e.g., 500K, 10M, 1G)
 - **Content Delivery Network for Downloads** - Set the CDN to use for video downloads.
+- **Video Codec Preference** - Sets preferred video codec.
 - **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.
 - **Output Filename Format** - Set output filename format. Please refer to `chzzk_video_downloader_manual.en-US.pdf` for detailed information on format specifiers.
 - **Target Quality** - Sets target quality to download.

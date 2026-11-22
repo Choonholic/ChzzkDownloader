@@ -7,7 +7,7 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 2.12.1, November 20, 2026 00:00:00
+Version 2.13.0, November 25, 2026 00:00:00
 
 ## 必須事項
 - **[必須]** Streamlink（Streamlink 8.6.1またはそれ以上が必要）
@@ -47,6 +47,7 @@ video                   ダウンロードするビデオ番号またはURL
 #### ダウンロード
 ```
 -q, --quality [QUALITY] ダウンロードする目標画質を設定 (例: 1080p)
+--codec [CODEC]         優先するビデオコーデックを設定 (auto または h264)
 --offset OFFSET         冒頭からスキップする時間を設定 (単一ソースのHLSダウンロードのみ対応)
 --duration DURATION     ダウンロードする最大持続時間を設定 (単一ソースのHLSダウンロードのみ対応)
 --download [DOWNLOAD]   ダウンロード方法を設定 (default|alter)
@@ -212,6 +213,19 @@ ChzzkVideoDownloader video_no または url --quality 720p
 ```powershell
 ChzzkVideoDownloader video_no または url -q
 ChzzkVideoDownloader video_no または url --quality
+```
+
+## 優先するビデオコーデックの指定
+デフォルトでは、ビデオコーデックは自動的に選択され、HEVCが優先されます。HEVCが利用可能な場合でもH.264を使用したい場合は、以下のコマンドを使用してください。
+
+```powershell
+ChzzkVideoDownloader video_no または url --codec h264
+```
+
+自動選択に戻す場合は、以下のように `auto` を指定してください。
+
+```powershell
+ChzzkVideoDownloader video_no または url --codec auto
 ```
 
 ## 保存ファイル名の形式設定

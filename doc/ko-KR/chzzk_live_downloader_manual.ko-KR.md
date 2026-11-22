@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 2.12.1, November 20, 2026 00:00:00
+Version 2.13.0, November 25, 2026 00:00:00
 
 ## 선행 요건
 - **[필수]** Streamlink (Streamlink 8.6.1 또는 상위 버전 필요)
@@ -48,6 +48,7 @@ ChzzkLiveDownloader [options]
 ```
 -f, --filter [FILTER]   다운로드 조건을 설정합니다 (all|party|nonparty)
 -q, --quality [QUALITY] 다운로드 목표 화질을 설정합니다 (예: 1080p)
+--codec [CODEC]         선호 비디오 코덱을 설정합니다 (auto 또는 h264)
 --once URL              라이브 스트림을 한 번만 다운로드합니다
 --stream [STREAM]       스트림 수신 방식을 설정합니다 (standard|request-timemachine|force-timemachine)
 --offset OFFSET         스트림 시작 지점을 설정합니다
@@ -226,6 +227,19 @@ ChzzkLiveDownloader --quality 720p
 ```powershell
 ChzzkLiveDownloader -q
 ChzzkLiveDownloader --quality
+```
+
+## 선호 비디오 코덱 지정
+기본적으로 비디오 코덱은 자동으로 선택되며 HEVC가 우선됩니다. HEVC를 사용할 수 있는 경우에도 H.264를 사용하려면 다음 명령어를 사용하세요.
+
+```powershell
+ChzzkLiveDownloader --codec h264
+```
+
+자동 선택으로 되돌리려면 다음과 같이 `auto`를 지정하세요.
+
+```powershell
+ChzzkLiveDownloader --codec auto
 ```
 
 ## 저장 파일 이름 형식 설정
