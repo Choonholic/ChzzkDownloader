@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Clip Downloader
 </div>
 
 ## Version
-Version 2.13.0, November 25, 2026 00:00:00
+Version 2.13.1, November 25, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Clip Manager is the GUI frontend application for Chzzk Clip Downloader, Chzzk Clip Downloader must be installed as well.
@@ -229,7 +229,7 @@ Sets the threshold % for stopping downloads when disk space is low.
 - **JSON-RPC Server: Allow External Remote Access** - Allows remote access to the JSON-RPC server from outside the PC running the downloader.
 - **JSON-RPC Server: Port** - Sets the port number for the JSON-RPC server.
 - **JSON-RPC Server: ID** - Sets the ID for the JSON-RPC server.
-- **Save Thumbnail Image** - Checks to save thumbnail images separately.
+- **Thumbnail Method** - Sets the thumbnail saving preference.
 - **Enable Download Speed Limit** - Limits the download speed to control network bandwidth. (e.g., 500K, 10M, 1G)
 - **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.
 - **Output Filename Format** - Set output filename format. Please refer to `chzzk_clip_downloader_manual.en-US.pdf` for detailed information on format specifiers.

@@ -7,7 +7,7 @@
 </div>
 
 ## 버전
-Version 2.13.0, November 25, 2026 00:00:00
+Version 2.13.1, November 25, 2026 00:00:00
 
 ## 선행 요건
 - **[필수]** Streamlink (Streamlink 8.6.1 또는 상위 버전 필요)
@@ -82,8 +82,8 @@ ChzzkLiveDownloader [options]
 --name [NAME]           저장 파일 이름 형식을 설정합니다
 --category [CATEGORY]   저장 분류 방법을 설정합니다 (none|streamer)
 --exist [EXIST]         대상 파일이 이미 존재할 때 저장 방법을 설정합니다 (rename|skip|overwrite)
---threshold [THRESHOLD] 디스크 공간 임계값을 설정합니다. (1-50%)
---thumb [THUMB]         미리보기 이미지의 저장 여부를 설정합니다 (save|skip)
+--threshold [THRESHOLD] 디스크 공간 임계값을 설정합니다 (1-50%)
+--thumb [THUMB]         미리보기 이미지의 처리 방식을 설정합니다 (skip|match|best)
 ```
 
 #### 메타데이터
@@ -328,17 +328,24 @@ ChzzkLiveDownloader --filter party
 ChzzkLiveDownloader --filter party --partytag TAG1,TAG2
 ```
 
-## 미리보기 이미지 저장
+## 미리보기 이미지 처리
+
 미리보기 이미지를 별도로 저장하려면 다음 명령어를 사용하세요.
 
 ```powershell
-ChzzkLiveDownloader --thumb save
+ChzzkLiveDownloader --thumb best
 ```
 
-미리보기 이미지를 저장하지 않으려면 다음 명령어를 사용하세요.
+`--thumb` 매개 변수의 선택 사항을 사용하여 다음과 같이 처리 방식을 설정할 수 있습니다.
+
+- `skip` - 저장하지 않음
+- `match` - 선택한 영상 화질에 맞춰 저장 (서버 기본값)
+- `best` - 가능한 경우 최고 해상도로 저장
+
+이 선택 사항을 기본값으로 되돌리려면 형식 없이 `--thumb`만 사용하세요.
 
 ```powershell
-ChzzkLiveDownloader --thumb skip
+ChzzkLiveDownloader --thumb
 ```
 
 ## 메타데이터 저장

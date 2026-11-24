@@ -7,7 +7,7 @@ Graphical Manager for Chzzk Live Downloader
 </div>
 
 ## Version
-Version 2.13.0, November 25, 2026 00:00:00
+Version 2.13.1, November 25, 2026 00:00:00
 
 ## Prerequisites
 Since Chzzk Live Manager is the GUI frontend application for Chzzk Live Downloader, both of Chzzk Live Downloader and Chzzk Transport Finalizer must be installed as well.
@@ -347,7 +347,7 @@ Please note that custom encoding is not recommended due to its suboptimal perfor
 
 - **JSON-RPC Server: Allow External Remote Access** - Allows remote access to the JSON-RPC server from outside the PC running the downloader.
 - **JSON-RPC Server: Base Port** - Sets the base port number for the JSON-RPC server. The actual port number for each channel is determined by combining the base port with the channel ID. For example, if the base port is `62000` and the channel ID is `3`, the actual port number is set to `62003`.
-- **Save Thumbnail Image** - Checks to save thumbnail images separately.
+- **Thumbnail Method** - Sets the thumbnail saving preference.
 - **Stream Retrieve Method** - Sets stream retrieving method.
 - **Video Codec Preference** - Sets preferred video codec.
 - **Save Method When The Target File Already Exists** - Sets how to save when the target file already exists.

@@ -7,7 +7,7 @@ Chzzkのリプレイビデオ用のダウンローダー
 </div>
 
 ## バージョン
-Version 2.13.0, November 25, 2026 00:00:00
+Version 2.13.1, November 25, 2026 00:00:00
 
 ## 必須事項
 - **[必須]** Streamlink（Streamlink 8.6.1またはそれ以上が必要）
@@ -81,7 +81,7 @@ video                   ダウンロードするビデオ番号またはURL
 --category [CATEGORY]   保存時のカテゴリ分け方法を設定 (none|streamer)
 --exist [EXIST]         対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
 --threshold [THRESHOLD] ディスク空き容量のしきい値を設定 (1-50%)
---thumb [THUMB]         サムネイル画像を保存またはスキップ (save|skip)
+--thumb [THUMB]         サムネイル画像の処理方法を設定 (skip|match|best)
 ```
 
 #### メタデータ
@@ -115,7 +115,7 @@ video                   ダウンロードするビデオ番号またはURL
 
 ### 使用例
 ```powershell
-ChzzkVideoDownloader 1602969 --thumb save --work work --out out --temp temp
+ChzzkVideoDownloader 1602969 --thumb best --work work --out out --temp temp
 ```
 
 ## ダウンロードするビデオの設定
@@ -279,17 +279,22 @@ ChzzkVideoDownloader video_no または url --name
 - `{..._date_minute}` - 分（ゼロ埋め形式, `00`, `01`, ..., `59`）。
 - `{..._date_second}` - 秒（ゼロ埋め形式, `00`, `01`, ..., `59`）。
 
-## サムネイル画像の保存
-サムネイル画像を別途保存するには、以下のコマンドを使用します。
+## サムネイル画像の処理方法
 
 ```powershell
-ChzzkVideoDownloader video_no または url --thumb save
+ChzzkVideoDownloader video_no または url --thumb best
 ```
 
-この機能をオフにするには、以下のコマンドを使用します。
+`--thumb`パラメータで設定可能な処理方法は以下の通りです。
+
+- `skip`: 保存しない
+- `match`: 選択した動画画質に合わせて保存（サーバーのデフォルト）
+- `best`: 可能な場合、最高解像度で保存
+
+このオプションをデフォルトに設定したい場合は、以下のように`--thumb`のみを使用してください。
 
 ```powershell
-ChzzkVideoDownloader video_no または url --thumb skip
+ChzzkVideoDownloader video_no または url --thumb
 ```
 
 ## メタデータの保存

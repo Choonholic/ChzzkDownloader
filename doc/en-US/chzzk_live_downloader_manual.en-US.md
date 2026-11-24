@@ -7,7 +7,7 @@ Downloader for Chzzk live streams
 </div>
 
 ## Version
-Version 2.13.0, November 25, 2026 00:00:00
+Version 2.13.1, November 25, 2026 00:00:00
 
 ## Prerequisites
 - **[Mandatory]** Streamlink (Requires Streamlink 8.6.1 or higher)
@@ -83,7 +83,7 @@ Use `-h detailed` to show detailed help for all options.
 --category [CATEGORY]   Set output categorize method (none|streamer)
 --exist [EXIST]         Set save method when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD] Set low disk space threshold (1-50%)
---thumb [THUMB]         Save thumbnail image or skip (save|skip)
+--thumb [THUMB]         Set the thumbnail saving preference (skip|match|best)
 ```
 
 #### Metadata
@@ -116,7 +116,7 @@ Use `-h detailed` to show detailed help for all options.
 
 ### Example
 ```powershell
-ChzzkLiveDownloader -i 2 --thumb save --detect 30 --work work --out out --temp temp
+ChzzkLiveDownloader -i 2 --thumb best --detect 30 --work work --out out --temp temp
 ```
 
 ## Initial Setup
@@ -329,17 +329,23 @@ If you specify party tags using the following command, only party videos with th
 ChzzkLiveDownloader --filter party --partytag TAG1,TAG2
 ```
 
-## Saving Thumbnail Images
+## Thumbnail Image Handling
 To save thumbnail images separately, use the following command.
 
 ```powershell
-ChzzkLiveDownloader --thumb save
+ChzzkLiveDownloader --thumb best
 ```
 
-To turn off this feature, use the following command.
+The following handling methods can be set with options of `--thumb` parameter.
+
+- `skip`: Do not save the thumbnail.
+- `match`: Match the selected video quality (server default).
+- `best`: Use the highest resolution available.
+
+If you want to set this option to default, just use `--thumb` like below.
 
 ```powershell
-ChzzkLiveDownloader --thumb skip
+ChzzkLiveDownloader --thumb
 ```
 
 ## Saving Metadata

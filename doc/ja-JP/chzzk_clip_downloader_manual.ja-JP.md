@@ -7,7 +7,7 @@ Chzzkのクリップ用のダウンローダー
 </div>
 
 ## バージョン
-Version 2.13.0, November 25, 2026 00:00:00
+Version 2.13.1, November 25, 2026 00:00:00
 
 ## 必須事項
 - **[必須]** FFmpegの公式メジャーバージョン（FFmpeg 8.0またはそれ以上が必要）
@@ -68,7 +68,7 @@ clip                    ダウンロードするクリップUIDまたはURL
 --category [CATEGORY]   保存時のカテゴリ分け方法を設定 (none|streamer)
 --exist [EXIST]         対象ファイルが既に存在する場合の保存方法を設定 (rename|skip|overwrite)
 --threshold [THRESHOLD] ディスク空き容量のしきい値を設定 (1-50%)
---thumb [THUMB]         サムネイル画像を保存またはスキップ (save|skip)
+--thumb [THUMB]         サムネイル画像の処理方法を設定 (skip|match|best)
 ```
 
 #### メタデータ
@@ -102,7 +102,7 @@ clip                    ダウンロードするクリップUIDまたはURL
 
 ### 使用例
 ```powershell
-ChzzkClipDownloader C46IcpG11p --thumb save --work work --out out --temp temp
+ChzzkClipDownloader C46IcpG11p --thumb best --work work --out out --temp temp
 ```
 
 ## ダウンロードするクリップの設定
@@ -209,17 +209,22 @@ ChzzkClipDownloader clip_uid または url --name
 - `{..._date_minute}` - 分（ゼロ埋め形式, `00`, `01`, ..., `59`）。
 - `{..._date_second}` - 秒（ゼロ埋め形式, `00`, `01`, ..., `59`）。
 
-## サムネイル画像の保存
-サムネイル画像を別途保存するには、以下のコマンドを使用します。
+## サムネイル画像の処理方法
 
 ```powershell
-ChzzkClipDownloader clip_uid または url --thumb save
+ChzzkClipDownloader clip_uid または url --thumb best
 ```
 
-この機能をオフにするには、以下のコマンドを使用します。
+`--thumb`パラメータで設定可能な処理方法は以下の通りです。
+
+- `skip`: 保存しない
+- `match`: 選択した動画画質に合わせて保存（サーバーのデフォルト）
+- `best`: 可能な場合、最高解像度で保存
+
+このオプションをデフォルトに設定したい場合は、以下のように`--thumb`のみを使用してください。
 
 ```powershell
-ChzzkClipDownloader clip_uid または url --thumb skip
+ChzzkClipDownloader clip_uid または url --thumb
 ```
 
 ## メタデータの保存

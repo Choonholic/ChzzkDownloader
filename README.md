@@ -31,7 +31,7 @@ Downloader for Chzzk live streams
 </div>
 
 ### Version
-Version 2.13.0, November 25, 2026 00:00:00
+Version 2.13.1, November 25, 2026 00:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** Streamlink (Requires Streamlink 8.6.1 or higher)
@@ -107,7 +107,7 @@ Use `-h detailed` to show detailed help for all options.
 --category [CATEGORY]   Set output categorize method
 --exist [EXIST]         Set save method when the target file already exists
 --threshold [THRESHOLD] Set low disk space threshold
---thumb [THUMB]         Save thumbnail image or skip
+--thumb [THUMB]         Set the thumbnail saving preference
 ```
 
 #### Metadata
@@ -140,7 +140,7 @@ Use `-h detailed` to show detailed help for all options.
 
 ### Example
 ```powershell
-ChzzkLiveDownloader -i 2 --thumb save --detect 30 --work work --out out --temp temp
+ChzzkLiveDownloader -i 2 --thumb best --detect 30 --work work --out out --temp temp
 ```
 
 ---
@@ -159,7 +159,7 @@ Downloader for Chzzk replay videos
 </div>
 
 ### Version
-Version 2.13.0, November 25, 2026 00:00:00
+Version 2.13.1, November 25, 2026 00:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** Streamlink (Requires Streamlink 8.6.1 or higher)
@@ -233,7 +233,7 @@ video                   Video number or URL to download
 --category [CATEGORY]   Set output categorize method
 --exist [EXIST]         Set save method when the target file already exists
 --threshold [THRESHOLD] Set low disk space threshold
---thumb [THUMB]         Save thumbnail image or skip
+--thumb [THUMB]         Set the thumbnail saving preference
 ```
 
 #### Metadata
@@ -267,7 +267,7 @@ video                   Video number or URL to download
 
 ### Example
 ```powershell
-ChzzkVideoDownloader 1602969 --thumb save --work work --out out --temp temp
+ChzzkVideoDownloader 1602969 --thumb best --work work --out out --temp temp
 ```
 
 ---
@@ -286,7 +286,7 @@ Downloader for Chzzk clips
 </div>
 
 ### Version
-Version 2.13.0, November 25, 2026 00:00:00
+Version 2.13.1, November 25, 2026 00:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 8.0 or higher)
@@ -347,7 +347,7 @@ clip                    Clip UID or URL to download
 --category [CATEGORY]   Set output categorize method
 --exist [EXIST]         Set save method when the target file already exists
 --threshold [THRESHOLD] Set low disk space threshold
---thumb [THUMB]         Save thumbnail image or skip
+--thumb [THUMB]         Set the thumbnail saving preference
 ```
 
 #### Metadata
@@ -381,7 +381,7 @@ clip                    Clip UID or URL to download
 
 ### Example
 ```powershell
-ChzzkClipDownloader C46IcpG11p --thumb save --work work --out out --temp temp
+ChzzkClipDownloader C46IcpG11p --thumb best --work work --out out --temp temp
 ```
 
 ---
@@ -395,7 +395,7 @@ Finalizer for Chzzk transport streams
 </div>
 
 ### Version
-Version 2.13.0, November 25, 2026 00:00:00
+Version 2.13.1, November 25, 2026 00:00:00
 
 ### Prerequisites For Executables
 - **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 8.0 or higher)

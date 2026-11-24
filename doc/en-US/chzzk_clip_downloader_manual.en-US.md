@@ -7,7 +7,7 @@ Downloader for Chzzk clips
 </div>
 
 ## Version
-Version 2.13.0, November 25, 2026 00:00:00
+Version 2.13.1, November 25, 2026 00:00:00
 
 ## Prerequisites
 - **[Mandatory]** The official major versions of FFmpeg (Requires FFmpeg 8.0 or higher)
@@ -68,7 +68,7 @@ clip                    Clip UID or URL to download
 --category [CATEGORY]   Set output categorize method (none|streamer)
 --exist [EXIST]         Set save method when the target file already exists (rename|skip|overwrite)
 --threshold [THRESHOLD] Set low disk space threshold (1-50%)
---thumb [THUMB]         Save thumbnail image or skip (save|skip)
+--thumb [THUMB]         Set the thumbnail saving preference (skip|match|best)
 ```
 
 #### Metadata
@@ -102,7 +102,7 @@ clip                    Clip UID or URL to download
 
 ## Example
 ```powershell
-ChzzkClipDownloader C46IcpG11p --thumb save --work work --out out --temp temp
+ChzzkClipDownloader C46IcpG11p --thumb best --work work --out out --temp temp
 ```
 
 ## Setting up Clips to Download
@@ -209,17 +209,23 @@ For the date-related tags, the detailed elements can be expanded as below.
 - `{..._date_minute}` - Minute as a zero-padded decimal number. (`00`, `01`, ..., `59`)
 - `{..._date_second}` - Second as a zero-padded decimal number. (`00`, `01`, ..., `59`)
 
-## Saving Thumbnail Images
+## Thumbnail Image Handling
 To save thumbnail images separately, use the following command.
 
 ```powershell
-ChzzkClipDownloader clip_uid or url --thumb save
+ChzzkClipDownloader clip_uid or url --thumb best
 ```
 
-To turn off this feature, use the following command.
+The following handling methods can be set with options of `--thumb` parameter.
+
+- `skip`: Do not save the thumbnail.
+- `match`: Match the selected video quality (server default).
+- `best`: Use the highest resolution available.
+
+If you want to set this option to default, just use `--thumb` like below.
 
 ```powershell
-ChzzkClipDownloader clip_uid or url --thumb skip
+ChzzkClipDownloader clip_uid or url --thumb
 ```
 
 ## Saving Metadata
